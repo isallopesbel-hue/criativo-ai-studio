@@ -3,34 +3,34 @@ import { NICHES } from '@/lib/data'
 import usePromptStore from '@/stores/usePromptStore'
 import {
   Users,
-  Shuffle,
-  Palette,
-  BookOpen,
-  Baby,
-  Ghost,
-  Music,
-  Bot,
+  Dices,
+  Clapperboard,
+  BookOpenText,
+  Castle,
+  Skull,
+  Headphones,
+  MessageSquare,
   Smartphone,
-  Hammer,
-  Laptop,
-  Package,
+  Building2,
+  MonitorPlay,
+  ShoppingBag,
   Sparkles,
 } from 'lucide-react'
 
 const getIcon = (iconName: string, className?: string) => {
   const icons: Record<string, any> = {
     Users,
-    Shuffle,
-    Palette,
-    BookOpen,
-    Baby,
-    Ghost,
-    Music,
-    Bot,
+    Dices,
+    Clapperboard,
+    BookOpenText,
+    Castle,
+    Skull,
+    Headphones,
+    MessageSquare,
     Smartphone,
-    Hammer,
-    Laptop,
-    Package,
+    Building2,
+    MonitorPlay,
+    ShoppingBag,
   }
   const Icon = icons[iconName] || Sparkles
   return <Icon className={className} />
@@ -49,7 +49,7 @@ const Index = () => {
     <div className="animate-in fade-in slide-in-from-bottom-4 duration-700 flex flex-col items-center gap-12 bg-background min-h-[calc(100vh-4rem)] p-6 md:p-12">
       {/* Header Section */}
       <section className="text-center space-y-5 max-w-3xl mx-auto mt-6 md:mt-10">
-        <h1 className="text-4xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-primary via-yellow-300 to-accent tracking-tight">
+        <h1 className="text-4xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-primary via-yellow-200 to-yellow-600 tracking-tight">
           PROMPT MASTER
         </h1>
         <h2 className="text-lg md:text-2xl font-semibold text-foreground tracking-wide">
@@ -68,7 +68,7 @@ const Index = () => {
             <div
               key={niche.id}
               onClick={() => handleSelectNiche(niche.id)}
-              className="flex items-center gap-5 p-6 rounded-2xl border border-border bg-card hover:bg-secondary/60 hover:border-primary/50 hover:-translate-y-1 hover:shadow-[0_10px_40px_-10px_rgba(251,191,36,0.2)] transition-all duration-300 cursor-pointer group relative overflow-hidden"
+              className="flex items-center gap-5 p-6 rounded-2xl border border-border bg-card hover:bg-secondary/60 hover:border-primary/50 hover:-translate-y-1 hover:shadow-[0_10px_40px_-10px_rgba(255,193,7,0.2)] transition-all duration-300 cursor-pointer group relative overflow-hidden"
             >
               {/* Glassmorphism shine effect */}
               <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />

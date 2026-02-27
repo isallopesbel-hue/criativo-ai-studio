@@ -39,7 +39,7 @@ export const NICHES: Niche[] = [
   {
     id: 'videos-aleatorios',
     title: 'Vídeos Aleatórios',
-    icon: 'Shuffle',
+    icon: 'Dices',
     options: [
       'Mistério para desvendar',
       'Fato científico curioso',
@@ -50,7 +50,7 @@ export const NICHES: Niche[] = [
   {
     id: 'desenhos-animados',
     title: 'Animações & Cartoons',
-    icon: 'Palette',
+    icon: 'Clapperboard',
     options: [
       'Herói em cena de ação',
       'Vilão caricato tramando plano',
@@ -61,7 +61,7 @@ export const NICHES: Niche[] = [
   {
     id: 'historias-biblicas',
     title: 'Histórias Bíblicas',
-    icon: 'BookOpen',
+    icon: 'BookOpenText',
     options: [
       'Davi enfrentando Golias',
       'Moisés diante do Mar Vermelho',
@@ -72,7 +72,7 @@ export const NICHES: Niche[] = [
   {
     id: 'historias-infantis',
     title: 'Contos Infantis',
-    icon: 'Baby',
+    icon: 'Castle',
     options: [
       'O coelho que explorou o espaço',
       'A fada que encontrou um tesouro',
@@ -83,7 +83,7 @@ export const NICHES: Niche[] = [
   {
     id: 'dark-terror',
     title: 'Dark & Terror',
-    icon: 'Ghost',
+    icon: 'Skull',
     options: [
       'Exploração em asilo abandonado',
       'Criatura espreitando na névoa',
@@ -94,7 +94,7 @@ export const NICHES: Niche[] = [
   {
     id: 'clipes-musicais',
     title: 'Clipes Musicais',
-    icon: 'Music',
+    icon: 'Headphones',
     options: [
       'Banda de rock em palco neon',
       'Apresentação pop com coreografia',
@@ -105,7 +105,7 @@ export const NICHES: Niche[] = [
   {
     id: 'objetos-falantes',
     title: 'Objetos Falantes',
-    icon: 'Bot',
+    icon: 'MessageSquare',
     options: [
       'Xícara de café motivacional',
       'Relógio que avisa o futuro',
@@ -127,7 +127,7 @@ export const NICHES: Niche[] = [
   {
     id: 'construcao',
     title: 'Arquitetura & Engenharia',
-    icon: 'Hammer',
+    icon: 'Building2',
     options: [
       'Projeto de casa sustentável',
       'Renovação de cozinha rústica',
@@ -138,7 +138,7 @@ export const NICHES: Niche[] = [
   {
     id: 'produtos-digitais',
     title: 'Produtos Digitais',
-    icon: 'Laptop',
+    icon: 'MonitorPlay',
     options: [
       'Apresentação de E-book premium',
       'Dashboard de curso online',
@@ -149,7 +149,7 @@ export const NICHES: Niche[] = [
   {
     id: 'produtos-fisicos',
     title: 'Produtos Físicos',
-    icon: 'Package',
+    icon: 'ShoppingBag',
     options: [
       'Unboxing cinematográfico',
       'Detalhes de textura do produto',
@@ -164,7 +164,7 @@ export const MOCK_HISTORY = [
     id: '1',
     nicheId: 'construcao',
     nicheTitle: 'Arquitetura & Engenharia',
-    nicheIcon: 'Hammer',
+    nicheIcon: 'Building2',
     option: 'Projeto de casa sustentável',
     character: 'BellivroAberto',
     date: new Date().toISOString(),

@@ -9,33 +9,33 @@ import { Separator } from '@/components/ui/separator'
 import { Sparkles, ArrowRight, CheckCircle2, UserCircle2 } from 'lucide-react'
 import {
   Users,
-  Shuffle,
-  Palette,
-  BookOpen,
-  Baby,
-  Ghost,
-  Music,
-  Bot,
+  Dices,
+  Clapperboard,
+  BookOpenText,
+  Castle,
+  Skull,
+  Headphones,
+  MessageSquare,
   Smartphone,
-  Hammer,
-  Laptop,
-  Package,
+  Building2,
+  MonitorPlay,
+  ShoppingBag,
 } from 'lucide-react'
 
 const getIcon = (iconName: string, className?: string) => {
   const icons: Record<string, any> = {
     Users,
-    Shuffle,
-    Palette,
-    BookOpen,
-    Baby,
-    Ghost,
-    Music,
-    Bot,
+    Dices,
+    Clapperboard,
+    BookOpenText,
+    Castle,
+    Skull,
+    Headphones,
+    MessageSquare,
     Smartphone,
-    Hammer,
-    Laptop,
-    Package,
+    Building2,
+    MonitorPlay,
+    ShoppingBag,
   }
   const Icon = icons[iconName] || Sparkles
   return <Icon className={className} />
@@ -135,7 +135,7 @@ const Options = () => {
                   key={i}
                   className={`relative flex items-center gap-4 p-5 rounded-2xl border cursor-pointer transition-all duration-300 overflow-hidden group ${
                     isSelected
-                      ? 'border-primary bg-primary/10 shadow-[0_0_20px_-5px_rgba(251,191,36,0.2)]'
+                      ? 'border-primary bg-primary/10 shadow-[0_0_20px_-5px_rgba(255,193,7,0.2)]'
                       : 'border-border bg-card hover:bg-secondary/80 hover:border-primary/40 hover:shadow-lg'
                   }`}
                 >
@@ -194,7 +194,7 @@ const Options = () => {
                   key={char.id}
                   className={`relative flex flex-col p-6 rounded-2xl border cursor-pointer transition-all duration-300 group overflow-hidden ${
                     isSelected
-                      ? 'border-primary bg-primary/10 shadow-[0_0_20px_-5px_rgba(251,191,36,0.2)]'
+                      ? 'border-primary bg-primary/10 shadow-[0_0_20px_-5px_rgba(255,193,7,0.2)]'
                       : 'border-border bg-card hover:bg-secondary/80 hover:border-primary/40 hover:shadow-lg'
                   }`}
                 >
@@ -246,7 +246,7 @@ const Options = () => {
           <Button
             onClick={handleGenerate}
             disabled={!isFormValid}
-            className="w-full h-14 rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground font-extrabold text-base tracking-wide shadow-[0_0_25px_-5px_rgba(251,191,36,0.4)] transition-all duration-300 disabled:opacity-50 disabled:hover:bg-primary disabled:shadow-none"
+            className="w-full h-14 rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground font-extrabold text-base tracking-wide shadow-[0_0_25px_-5px_rgba(255,193,7,0.4)] transition-all duration-300 disabled:opacity-50 disabled:hover:bg-primary disabled:shadow-none"
           >
             <Sparkles className="mr-2 h-5 w-5" />
             GERAR PROMPT MASTER

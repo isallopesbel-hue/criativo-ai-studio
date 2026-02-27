@@ -12,8 +12,8 @@
     --card-foreground: 210 40% 98%;
     --popover: 222 47% 7%;
     --popover-foreground: 210 40% 98%;
-    --primary: 43 96% 56%; /* Gold #FACC15 */
-    --primary-foreground: 222 47% 11%;
+    --primary: 45 100% 51%; /* Vibrant Yellow #FFC107 */
+    --primary-foreground: 222 47% 4%;
     --secondary: 217 32% 12%; /* Slate 800-ish */
     --secondary-foreground: 210 40% 98%;
     --muted: 217 32% 14%;
@@ -24,7 +24,7 @@
     --destructive-foreground: 210 40% 98%;
     --border: 217 32% 18%; /* Slate 800 */
     --input: 217 32% 18%;
-    --ring: 43 96% 56%;
+    --ring: 45 100% 51%;
     --radius: 1rem;
   }
 

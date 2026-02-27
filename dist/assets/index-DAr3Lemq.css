@@ -520,8 +520,8 @@ video {
     --card-foreground: 210 40% 98%;
     --popover: 222 47% 7%;
     --popover-foreground: 210 40% 98%;
-    --primary: 43 96% 56%; /* Gold #FACC15 */
-    --primary-foreground: 222 47% 11%;
+    --primary: 45 100% 51%; /* Vibrant Yellow #FFC107 */
+    --primary-foreground: 222 47% 4%;
     --secondary: 217 32% 12%; /* Slate 800-ish */
     --secondary-foreground: 210 40% 98%;
     --muted: 217 32% 14%;
@@ -532,7 +532,7 @@ video {
     --destructive-foreground: 210 40% 98%;
     --border: 217 32% 18%; /* Slate 800 */
     --input: 217 32% 18%;
-    --ring: 43 96% 56%;
+    --ring: 45 100% 51%;
     --radius: 1rem;
   }
 
@@ -815,6 +815,10 @@ section[aria-label='Notifications alt+T'] {
 
 .mr-2{
   margin-right: 0.5rem;
+}
+
+.mt-0\.5{
+  margin-top: 0.125rem;
 }
 
 .mt-1\.5{
@@ -1535,6 +1539,10 @@ section[aria-label='Notifications alt+T'] {
   border-radius: 1rem;
 }
 
+.rounded-\[10px\]{
+  border-radius: 10px;
+}
+
 .rounded-\[2px\]{
   border-radius: 2px;
 }
@@ -1635,6 +1643,10 @@ section[aria-label='Notifications alt+T'] {
   border-color: hsl(var(--border));
 }
 
+.border-border\/40{
+  border-color: hsl(var(--border) / 0.4);
+}
+
 .border-border\/50{
   border-color: hsl(var(--border) / 0.5);
 }
@@ -1702,6 +1714,10 @@ section[aria-label='Notifications alt+T'] {
 
 .bg-background\/80{
   background-color: hsl(var(--background) / 0.8);
+}
+
+.bg-background\/95{
+  background-color: hsl(var(--background) / 0.95);
 }
 
 .bg-black\/80{
@@ -1834,17 +1850,17 @@ section[aria-label='Notifications alt+T'] {
   --tw-gradient-stops: var(--tw-gradient-from), hsl(var(--primary) / 0.5) var(--tw-gradient-via-position), var(--tw-gradient-to);
 }
 
-.via-yellow-300{
-  --tw-gradient-to: rgb(253 224 71 / 0)  var(--tw-gradient-to-position);
-  --tw-gradient-stops: var(--tw-gradient-from), #fde047 var(--tw-gradient-via-position), var(--tw-gradient-to);
-}
-
-.to-accent{
-  --tw-gradient-to: hsl(var(--accent)) var(--tw-gradient-to-position);
+.via-yellow-200{
+  --tw-gradient-to: rgb(254 240 138 / 0)  var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), #fef08a var(--tw-gradient-via-position), var(--tw-gradient-to);
 }
 
 .to-transparent{
   --tw-gradient-to: transparent var(--tw-gradient-to-position);
+}
+
+.to-yellow-600{
+  --tw-gradient-to: #ca8a04 var(--tw-gradient-to-position);
 }
 
 .bg-clip-text{
@@ -2297,20 +2313,20 @@ section[aria-label='Notifications alt+T'] {
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
-.shadow-\[0_0_20px_-3px_rgba\(251\2c 191\2c 36\2c 0\.4\)\]{
-  --tw-shadow: 0 0 20px -3px rgba(251,191,36,0.4);
-  --tw-shadow-colored: 0 0 20px -3px var(--tw-shadow-color);
+.shadow-\[0_0_15px_-3px_rgba\(255\2c 193\2c 7\2c 0\.4\)\]{
+  --tw-shadow: 0 0 15px -3px rgba(255,193,7,0.4);
+  --tw-shadow-colored: 0 0 15px -3px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
-.shadow-\[0_0_20px_-5px_rgba\(251\2c 191\2c 36\2c 0\.2\)\]{
-  --tw-shadow: 0 0 20px -5px rgba(251,191,36,0.2);
+.shadow-\[0_0_20px_-5px_rgba\(255\2c 193\2c 7\2c 0\.2\)\]{
+  --tw-shadow: 0 0 20px -5px rgba(255,193,7,0.2);
   --tw-shadow-colored: 0 0 20px -5px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
-.shadow-\[0_0_25px_-5px_rgba\(251\2c 191\2c 36\2c 0\.4\)\]{
-  --tw-shadow: 0 0 25px -5px rgba(251,191,36,0.4);
+.shadow-\[0_0_25px_-5px_rgba\(255\2c 193\2c 7\2c 0\.4\)\]{
+  --tw-shadow: 0 0 25px -5px rgba(255,193,7,0.4);
   --tw-shadow-colored: 0 0 25px -5px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
@@ -2411,6 +2427,11 @@ section[aria-label='Notifications alt+T'] {
 
 .filter{
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+
+.backdrop-blur-md{
+  --tw-backdrop-blur: blur(12px);
+  backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
 }
 
 .backdrop-blur-xl{
@@ -2770,8 +2791,8 @@ section[aria-label='Notifications alt+T'] {
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
-.hover\:shadow-\[0_10px_40px_-10px_rgba\(251\2c 191\2c 36\2c 0\.2\)\]:hover{
-  --tw-shadow: 0 10px 40px -10px rgba(251,191,36,0.2);
+.hover\:shadow-\[0_10px_40px_-10px_rgba\(255\2c 193\2c 7\2c 0\.2\)\]:hover{
+  --tw-shadow: 0 10px 40px -10px rgba(255,193,7,0.2);
   --tw-shadow-colored: 0 10px 40px -10px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
@@ -3678,6 +3699,11 @@ section[aria-label='Notifications alt+T'] {
 
   .sm\:text-left{
     text-align: left;
+  }
+
+  .sm\:text-lg{
+    font-size: 1.125rem;
+    line-height: 1.75rem;
   }
 
   .data-\[state\=open\]\:sm\:slide-in-from-bottom-full[data-state="open"]{

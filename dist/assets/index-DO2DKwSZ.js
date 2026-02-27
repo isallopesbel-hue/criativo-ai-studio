@@ -18925,59 +18925,86 @@ var ArrowRight = createLucideIcon("arrow-right", [["path", {
 	d: "m12 5 7 7-7 7",
 	key: "xquz4c"
 }]]);
-var Baby = createLucideIcon("baby", [
+var BookOpenText = createLucideIcon("book-open-text", [
 	["path", {
-		d: "M10 16c.5.3 1.2.5 2 .5s1.5-.2 2-.5",
-		key: "1u7htd"
+		d: "M12 7v14",
+		key: "1akyts"
 	}],
 	["path", {
-		d: "M15 12h.01",
-		key: "1k8ypt"
+		d: "M16 12h2",
+		key: "7q9ll5"
 	}],
 	["path", {
-		d: "M19.38 6.813A9 9 0 0 1 20.8 10.2a2 2 0 0 1 0 3.6 9 9 0 0 1-17.6 0 2 2 0 0 1 0-3.6A9 9 0 0 1 12 3c2 0 3.5 1.1 3.5 2.5s-.9 2.5-2 2.5c-.8 0-1.5-.4-1.5-1",
-		key: "11xh7x"
+		d: "M16 8h2",
+		key: "msurwy"
 	}],
 	["path", {
-		d: "M9 12h.01",
-		key: "157uk2"
+		d: "M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z",
+		key: "ruj8y"
+	}],
+	["path", {
+		d: "M6 12h2",
+		key: "32wvfc"
+	}],
+	["path", {
+		d: "M6 8h2",
+		key: "30oboj"
 	}]
 ]);
-var BookOpen = createLucideIcon("book-open", [["path", {
-	d: "M12 7v14",
-	key: "1akyts"
-}], ["path", {
-	d: "M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z",
-	key: "ruj8y"
-}]]);
-var Bot = createLucideIcon("bot", [
+var Building2 = createLucideIcon("building-2", [
 	["path", {
-		d: "M12 8V4H8",
-		key: "hb8ula"
-	}],
-	["rect", {
-		width: "16",
-		height: "12",
-		x: "4",
-		y: "8",
-		rx: "2",
-		key: "enze0r"
+		d: "M10 12h4",
+		key: "a56b0p"
 	}],
 	["path", {
-		d: "M2 14h2",
-		key: "vft8re"
+		d: "M10 8h4",
+		key: "1sr2af"
 	}],
 	["path", {
-		d: "M20 14h2",
-		key: "4cs60a"
+		d: "M14 21v-3a2 2 0 0 0-4 0v3",
+		key: "1rgiei"
 	}],
 	["path", {
-		d: "M15 13v2",
-		key: "1xurst"
+		d: "M6 10H4a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-2",
+		key: "secmi2"
 	}],
 	["path", {
-		d: "M9 13v2",
-		key: "rq6x2g"
+		d: "M6 21V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v16",
+		key: "16ra0t"
+	}]
+]);
+var Castle = createLucideIcon("castle", [
+	["path", {
+		d: "M10 5V3",
+		key: "1y54qe"
+	}],
+	["path", {
+		d: "M14 5V3",
+		key: "m6isi"
+	}],
+	["path", {
+		d: "M15 21v-3a3 3 0 0 0-6 0v3",
+		key: "lbp5hj"
+	}],
+	["path", {
+		d: "M18 3v8",
+		key: "2ollhf"
+	}],
+	["path", {
+		d: "M18 5H6",
+		key: "98imr9"
+	}],
+	["path", {
+		d: "M22 11H2",
+		key: "1lmjae"
+	}],
+	["path", {
+		d: "M22 9v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9",
+		key: "1rly83"
+	}],
+	["path", {
+		d: "M6 3v8",
+		key: "csox7g"
 	}]
 ]);
 var Check = createLucideIcon("check", [["path", {
@@ -19021,6 +19048,24 @@ var Circle = createLucideIcon("circle", [["circle", {
 	r: "10",
 	key: "1mglay"
 }]]);
+var Clapperboard = createLucideIcon("clapperboard", [
+	["path", {
+		d: "m12.296 3.464 3.02 3.956",
+		key: "qash78"
+	}],
+	["path", {
+		d: "M20.2 6 3 11l-.9-2.4c-.3-1.1.3-2.2 1.3-2.5l13.5-4c1.1-.3 2.2.3 2.5 1.3z",
+		key: "1h7j8b"
+	}],
+	["path", {
+		d: "M3 11h18v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z",
+		key: "4lm6w1"
+	}],
+	["path", {
+		d: "m6.18 5.276 3.1 3.899",
+		key: "zjj9t3"
+	}]
+]);
 var CodeXml = createLucideIcon("code-xml", [
 	["path", {
 		d: "m18 16 4-4-4-4",
@@ -19047,6 +19092,37 @@ var Copy = createLucideIcon("copy", [["rect", {
 	d: "M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2",
 	key: "zix9uf"
 }]]);
+var Dices = createLucideIcon("dices", [
+	["rect", {
+		width: "12",
+		height: "12",
+		x: "2",
+		y: "10",
+		rx: "2",
+		ry: "2",
+		key: "6agr2n"
+	}],
+	["path", {
+		d: "m17.92 14 3.5-3.5a2.24 2.24 0 0 0 0-3l-5-4.92a2.24 2.24 0 0 0-3 0L10 6",
+		key: "1o487t"
+	}],
+	["path", {
+		d: "M6 18h.01",
+		key: "uhywen"
+	}],
+	["path", {
+		d: "M10 14h.01",
+		key: "ssrbsk"
+	}],
+	["path", {
+		d: "M15 6h.01",
+		key: "cblpky"
+	}],
+	["path", {
+		d: "M18 9h.01",
+		key: "2061c0"
+	}]
+]);
 var ExternalLink = createLucideIcon("external-link", [
 	["path", {
 		d: "M15 3h6v6",
@@ -19061,135 +19137,74 @@ var ExternalLink = createLucideIcon("external-link", [
 		key: "a6xqqp"
 	}]
 ]);
-var Ghost = createLucideIcon("ghost", [
-	["path", {
-		d: "M9 10h.01",
-		key: "qbtxuw"
-	}],
-	["path", {
-		d: "M15 10h.01",
-		key: "1qmjsl"
-	}],
-	["path", {
-		d: "M12 2a8 8 0 0 0-8 8v12l3-3 2.5 2.5L12 19l2.5 2.5L17 19l3 3V10a8 8 0 0 0-8-8z",
-		key: "uwwb07"
-	}]
-]);
-var Hammer = createLucideIcon("hammer", [
-	["path", {
-		d: "m15 12-9.373 9.373a1 1 0 0 1-3.001-3L12 9",
-		key: "1hayfq"
-	}],
-	["path", {
-		d: "m18 15 4-4",
-		key: "16gjal"
-	}],
-	["path", {
-		d: "m21.5 11.5-1.914-1.914A2 2 0 0 1 19 8.172v-.344a2 2 0 0 0-.586-1.414l-1.657-1.657A6 6 0 0 0 12.516 3H9l1.243 1.243A6 6 0 0 1 12 8.485V10l2 2h1.172a2 2 0 0 1 1.414.586L18.5 14.5",
-		key: "15ts47"
-	}]
-]);
-var Laptop = createLucideIcon("laptop", [["path", {
-	d: "M18 5a2 2 0 0 1 2 2v8.526a2 2 0 0 0 .212.897l1.068 2.127a1 1 0 0 1-.9 1.45H3.62a1 1 0 0 1-.9-1.45l1.068-2.127A2 2 0 0 0 4 15.526V7a2 2 0 0 1 2-2z",
-	key: "1pdavp"
-}], ["path", {
-	d: "M20.054 15.987H3.946",
-	key: "14rxg9"
+var Headphones = createLucideIcon("headphones", [["path", {
+	d: "M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3",
+	key: "1xhozi"
 }]]);
-var Music = createLucideIcon("music", [
+var MessageSquare = createLucideIcon("message-square", [["path", {
+	d: "M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z",
+	key: "18887p"
+}]]);
+var MonitorPlay = createLucideIcon("monitor-play", [
 	["path", {
-		d: "M9 18V5l12-2v13",
-		key: "1jmyc2"
-	}],
-	["circle", {
-		cx: "6",
-		cy: "18",
-		r: "3",
-		key: "fqmcym"
-	}],
-	["circle", {
-		cx: "18",
-		cy: "16",
-		r: "3",
-		key: "1hluhg"
-	}]
-]);
-var Package = createLucideIcon("package", [
-	["path", {
-		d: "M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z",
-		key: "1a0edw"
+		d: "M15.033 9.44a.647.647 0 0 1 0 1.12l-4.065 2.352a.645.645 0 0 1-.968-.56V7.648a.645.645 0 0 1 .967-.56z",
+		key: "vbtd3f"
 	}],
 	["path", {
-		d: "M12 22V12",
-		key: "d0xqtd"
-	}],
-	["polyline", {
-		points: "3.29 7 12 12 20.71 7",
-		key: "ousv84"
+		d: "M12 17v4",
+		key: "1riwvh"
 	}],
 	["path", {
-		d: "m7.5 4.27 9 5.15",
-		key: "1c824w"
-	}]
-]);
-var Palette = createLucideIcon("palette", [
-	["path", {
-		d: "M12 22a1 1 0 0 1 0-20 10 9 0 0 1 10 9 5 5 0 0 1-5 5h-2.25a1.75 1.75 0 0 0-1.4 2.8l.3.4a1.75 1.75 0 0 1-1.4 2.8z",
-		key: "e79jfc"
+		d: "M8 21h8",
+		key: "1ev6f3"
 	}],
-	["circle", {
-		cx: "13.5",
-		cy: "6.5",
-		r: ".5",
-		fill: "currentColor",
-		key: "1okk4w"
-	}],
-	["circle", {
-		cx: "17.5",
-		cy: "10.5",
-		r: ".5",
-		fill: "currentColor",
-		key: "f64h9f"
-	}],
-	["circle", {
-		cx: "6.5",
-		cy: "12.5",
-		r: ".5",
-		fill: "currentColor",
-		key: "qy21gx"
-	}],
-	["circle", {
-		cx: "8.5",
-		cy: "7.5",
-		r: ".5",
-		fill: "currentColor",
-		key: "fotxhn"
+	["rect", {
+		x: "2",
+		y: "3",
+		width: "20",
+		height: "14",
+		rx: "2",
+		key: "x3v2xh"
 	}]
 ]);
 var Play = createLucideIcon("play", [["path", {
 	d: "M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z",
 	key: "10ikf1"
 }]]);
-var Shuffle = createLucideIcon("shuffle", [
+var ShoppingBag = createLucideIcon("shopping-bag", [
 	["path", {
-		d: "m18 14 4 4-4 4",
-		key: "10pe0f"
+		d: "M16 10a4 4 0 0 1-8 0",
+		key: "1ltviw"
 	}],
 	["path", {
-		d: "m18 2 4 4-4 4",
-		key: "pucp1d"
+		d: "M3.103 6.034h17.794",
+		key: "awc11p"
 	}],
 	["path", {
-		d: "M2 18h1.973a4 4 0 0 0 3.3-1.7l5.454-8.6a4 4 0 0 1 3.3-1.7H22",
-		key: "1ailkh"
+		d: "M3.4 5.467a2 2 0 0 0-.4 1.2V20a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6.667a2 2 0 0 0-.4-1.2l-2-2.667A2 2 0 0 0 17 2H7a2 2 0 0 0-1.6.8z",
+		key: "o988cm"
+	}]
+]);
+var Skull = createLucideIcon("skull", [
+	["path", {
+		d: "m12.5 17-.5-1-.5 1h1z",
+		key: "3me087"
 	}],
 	["path", {
-		d: "M2 6h1.972a4 4 0 0 1 3.6 2.2",
-		key: "km57vx"
+		d: "M15 22a1 1 0 0 0 1-1v-1a2 2 0 0 0 1.56-3.25 8 8 0 1 0-11.12 0A2 2 0 0 0 8 20v1a1 1 0 0 0 1 1z",
+		key: "1o5pge"
 	}],
-	["path", {
-		d: "M22 18h-6.041a4 4 0 0 1-3.3-1.8l-.359-.45",
-		key: "os18l9"
+	["circle", {
+		cx: "15",
+		cy: "12",
+		r: "1",
+		key: "1tmaij"
+	}],
+	["circle", {
+		cx: "9",
+		cy: "12",
+		r: "1",
+		key: "1vctgf"
 	}]
 ]);
 var Smartphone = createLucideIcon("smartphone", [["rect", {
@@ -23974,7 +23989,7 @@ const NICHES = [
 	{
 		id: "videos-aleatorios",
 		title: "Vídeos Aleatórios",
-		icon: "Shuffle",
+		icon: "Dices",
 		options: [
 			"Mistério para desvendar",
 			"Fato científico curioso",
@@ -23985,7 +24000,7 @@ const NICHES = [
 	{
 		id: "desenhos-animados",
 		title: "Animações & Cartoons",
-		icon: "Palette",
+		icon: "Clapperboard",
 		options: [
 			"Herói em cena de ação",
 			"Vilão caricato tramando plano",
@@ -23996,7 +24011,7 @@ const NICHES = [
 	{
 		id: "historias-biblicas",
 		title: "Histórias Bíblicas",
-		icon: "BookOpen",
+		icon: "BookOpenText",
 		options: [
 			"Davi enfrentando Golias",
 			"Moisés diante do Mar Vermelho",
@@ -24007,7 +24022,7 @@ const NICHES = [
 	{
 		id: "historias-infantis",
 		title: "Contos Infantis",
-		icon: "Baby",
+		icon: "Castle",
 		options: [
 			"O coelho que explorou o espaço",
 			"A fada que encontrou um tesouro",
@@ -24018,7 +24033,7 @@ const NICHES = [
 	{
 		id: "dark-terror",
 		title: "Dark & Terror",
-		icon: "Ghost",
+		icon: "Skull",
 		options: [
 			"Exploração em asilo abandonado",
 			"Criatura espreitando na névoa",
@@ -24029,7 +24044,7 @@ const NICHES = [
 	{
 		id: "clipes-musicais",
 		title: "Clipes Musicais",
-		icon: "Music",
+		icon: "Headphones",
 		options: [
 			"Banda de rock em palco neon",
 			"Apresentação pop com coreografia",
@@ -24040,7 +24055,7 @@ const NICHES = [
 	{
 		id: "objetos-falantes",
 		title: "Objetos Falantes",
-		icon: "Bot",
+		icon: "MessageSquare",
 		options: [
 			"Xícara de café motivacional",
 			"Relógio que avisa o futuro",
@@ -24062,7 +24077,7 @@ const NICHES = [
 	{
 		id: "construcao",
 		title: "Arquitetura & Engenharia",
-		icon: "Hammer",
+		icon: "Building2",
 		options: [
 			"Projeto de casa sustentável",
 			"Renovação de cozinha rústica",
@@ -24073,7 +24088,7 @@ const NICHES = [
 	{
 		id: "produtos-digitais",
 		title: "Produtos Digitais",
-		icon: "Laptop",
+		icon: "MonitorPlay",
 		options: [
 			"Apresentação de E-book premium",
 			"Dashboard de curso online",
@@ -24084,7 +24099,7 @@ const NICHES = [
 	{
 		id: "produtos-fisicos",
 		title: "Produtos Físicos",
-		icon: "Package",
+		icon: "ShoppingBag",
 		options: [
 			"Unboxing cinematográfico",
 			"Detalhes de textura do produto",
@@ -24097,7 +24112,7 @@ const MOCK_HISTORY = [{
 	id: "1",
 	nicheId: "construcao",
 	nicheTitle: "Arquitetura & Engenharia",
-	nicheIcon: "Hammer",
+	nicheIcon: "Building2",
 	option: "Projeto de casa sustentável",
 	character: "BellivroAberto",
 	date: (/* @__PURE__ */ new Date()).toISOString(),
@@ -24174,17 +24189,17 @@ function usePromptStore() {
 var getIcon$1 = (iconName, className) => {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)({
 		Users,
-		Shuffle,
-		Palette,
-		BookOpen,
-		Baby,
-		Ghost,
-		Music,
-		Bot,
+		Dices,
+		Clapperboard,
+		BookOpenText,
+		Castle,
+		Skull,
+		Headphones,
+		MessageSquare,
 		Smartphone,
-		Hammer,
-		Laptop,
-		Package
+		Building2,
+		MonitorPlay,
+		ShoppingBag
 	}[iconName] || Sparkles, { className });
 };
 var Index = () => {
@@ -24200,7 +24215,7 @@ var Index = () => {
 			className: "text-center space-y-5 max-w-3xl mx-auto mt-6 md:mt-10",
 			children: [
 				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", {
-					className: "text-4xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-primary via-yellow-300 to-accent tracking-tight",
+					className: "text-4xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-primary via-yellow-200 to-yellow-600 tracking-tight",
 					children: "PROMPT MASTER"
 				}),
 				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
@@ -24218,7 +24233,7 @@ var Index = () => {
 				className: "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6",
 				children: NICHES.map((niche) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 					onClick: () => handleSelectNiche(niche.id),
-					className: "flex items-center gap-5 p-6 rounded-2xl border border-border bg-card hover:bg-secondary/60 hover:border-primary/50 hover:-translate-y-1 hover:shadow-[0_10px_40px_-10px_rgba(251,191,36,0.2)] transition-all duration-300 cursor-pointer group relative overflow-hidden",
+					className: "flex items-center gap-5 p-6 rounded-2xl border border-border bg-card hover:bg-secondary/60 hover:border-primary/50 hover:-translate-y-1 hover:shadow-[0_10px_40px_-10px_rgba(255,193,7,0.2)] transition-all duration-300 cursor-pointer group relative overflow-hidden",
 					children: [
 						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" }),
 						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
@@ -24884,17 +24899,17 @@ Separator.displayName = Root.displayName;
 var getIcon = (iconName, className) => {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)({
 		Users,
-		Shuffle,
-		Palette,
-		BookOpen,
-		Baby,
-		Ghost,
-		Music,
-		Bot,
+		Dices,
+		Clapperboard,
+		BookOpenText,
+		Castle,
+		Skull,
+		Headphones,
+		MessageSquare,
 		Smartphone,
-		Hammer,
-		Laptop,
-		Package
+		Building2,
+		MonitorPlay,
+		ShoppingBag
 	}[iconName] || Sparkles, { className });
 };
 var Options = () => {
@@ -24976,7 +24991,7 @@ var Options = () => {
 						children: niche.options.map((opt, i) => {
 							const isSelected = selectedOption === opt;
 							return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Label, {
-								className: `relative flex items-center gap-4 p-5 rounded-2xl border cursor-pointer transition-all duration-300 overflow-hidden group ${isSelected ? "border-primary bg-primary/10 shadow-[0_0_20px_-5px_rgba(251,191,36,0.2)]" : "border-border bg-card hover:bg-secondary/80 hover:border-primary/40 hover:shadow-lg"}`,
+								className: `relative flex items-center gap-4 p-5 rounded-2xl border cursor-pointer transition-all duration-300 overflow-hidden group ${isSelected ? "border-primary bg-primary/10 shadow-[0_0_20px_-5px_rgba(255,193,7,0.2)]" : "border-border bg-card hover:bg-secondary/80 hover:border-primary/40 hover:shadow-lg"}`,
 								children: [
 									isSelected && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute -inset-2 bg-gradient-to-r from-primary/10 to-transparent blur-xl" }),
 									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
@@ -25016,7 +25031,7 @@ var Options = () => {
 						children: CHARACTERS.map((char) => {
 							const isSelected = selectedCharacter === char.id;
 							return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Label, {
-								className: `relative flex flex-col p-6 rounded-2xl border cursor-pointer transition-all duration-300 group overflow-hidden ${isSelected ? "border-primary bg-primary/10 shadow-[0_0_20px_-5px_rgba(251,191,36,0.2)]" : "border-border bg-card hover:bg-secondary/80 hover:border-primary/40 hover:shadow-lg"}`,
+								className: `relative flex flex-col p-6 rounded-2xl border cursor-pointer transition-all duration-300 group overflow-hidden ${isSelected ? "border-primary bg-primary/10 shadow-[0_0_20px_-5px_rgba(255,193,7,0.2)]" : "border-border bg-card hover:bg-secondary/80 hover:border-primary/40 hover:shadow-lg"}`,
 								children: [
 									isSelected && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute -inset-2 bg-gradient-to-r from-primary/10 to-transparent blur-xl" }),
 									/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
@@ -25057,7 +25072,7 @@ var Options = () => {
 					children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Button, {
 						onClick: handleGenerate,
 						disabled: !isFormValid,
-						className: "w-full h-14 rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground font-extrabold text-base tracking-wide shadow-[0_0_25px_-5px_rgba(251,191,36,0.4)] transition-all duration-300 disabled:opacity-50 disabled:hover:bg-primary disabled:shadow-none",
+						className: "w-full h-14 rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground font-extrabold text-base tracking-wide shadow-[0_0_25px_-5px_rgba(255,193,7,0.4)] transition-all duration-300 disabled:opacity-50 disabled:hover:bg-primary disabled:shadow-none",
 						children: [
 							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Sparkles, { className: "mr-2 h-5 w-5" }),
 							"GERAR PROMPT MASTER",
@@ -25433,7 +25448,7 @@ function Layout() {
 		children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("main", {
 			className: "w-full max-w-6xl bg-background min-h-screen relative flex flex-col overflow-hidden shadow-2xl",
 			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("header", {
-				className: "sticky top-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border px-4 h-16 flex items-center shrink-0 transition-all",
+				className: "sticky top-0 z-50 bg-background/95 backdrop-blur-md border-b border-border/40 px-4 h-16 flex items-center shrink-0 transition-all",
 				children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 					className: "flex items-center w-full",
 					children: [!isHome && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Button, {
@@ -25448,16 +25463,19 @@ function Layout() {
 					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 						className: `flex items-center gap-3 ${isHome ? "mx-auto" : ""}`,
 						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "bg-primary p-2 rounded-xl text-primary-foreground shadow-[0_0_20px_-3px_rgba(251,191,36,0.4)]",
-							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Terminal, { className: "h-4 w-4" })
+							className: "bg-primary w-8 h-8 rounded-[10px] flex items-center justify-center shadow-[0_0_15px_-3px_rgba(255,193,7,0.4)]",
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Terminal, {
+								strokeWidth: 2.5,
+								className: "h-4 w-4 text-primary-foreground"
+							})
 						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", {
-							className: "text-base font-extrabold text-foreground tracking-widest uppercase",
+							className: "text-base sm:text-lg font-extrabold text-white tracking-widest uppercase mt-0.5",
 							children: "PROMPT MASTER"
 						})]
 					})]
 				})
 			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "flex-1 overflow-y-auto overflow-x-hidden",
+				className: "flex-1 overflow-y-auto overflow-x-hidden relative",
 				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Outlet, {})
 			})]
 		})
@@ -25496,4 +25514,4 @@ var App = () => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(BrowserRouter, {
 var App_default = App;
 (0, import_client.createRoot)(document.getElementById("root")).render(/* @__PURE__ */ (0, import_jsx_runtime.jsx)(App_default, {}));
 
-//# sourceMappingURL=index-XswlKDIc.js.map
+//# sourceMappingURL=index-DO2DKwSZ.js.map
