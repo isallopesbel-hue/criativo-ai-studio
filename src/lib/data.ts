@@ -15,146 +15,146 @@ export const CHARACTERS: Character[] = [
   {
     id: 'bellivroaberto',
     name: 'BellivroAberto',
-    description: 'Estilo Humor/Deboche',
+    description: 'Estilo Humor e Deboche',
   },
   {
     id: 'davi',
     name: 'Davi',
-    description: 'Estilo Bíblico/Realista',
+    description: 'Estilo Bíblico e Épico',
   },
 ]
 
 export const NICHES: Niche[] = [
   {
     id: 'personagem-consistente',
-    title: 'Personagem consistente',
-    icon: '🧍',
+    title: 'Personagem Consistente',
+    icon: 'Users',
     options: [
       'Personagem masculino em vários cenários',
       'Personagem feminino em várias poses',
-      'Mascote 3D consistente',
-      'Avatar realista',
+      'Mascote 3D em situações diversas',
+      'Avatar hiper-realista',
     ],
   },
   {
     id: 'videos-aleatorios',
-    title: 'Vídeos aleatórios',
-    icon: '🎲',
+    title: 'Vídeos Aleatórios',
+    icon: 'Shuffle',
     options: [
       'Mistério para desvendar',
-      'Fato curioso',
-      'Desafio viral',
-      'Momento inusitado',
+      'Fato científico curioso',
+      'Desafio visual dinâmico',
+      'Momento inusitado e cômico',
     ],
   },
   {
     id: 'desenhos-animados',
-    title: 'Desenhos Animados',
-    icon: '🎨',
+    title: 'Animações & Cartoons',
+    icon: 'Palette',
     options: [
-      'Herói em ação',
-      'Vilão caricato',
-      'Cena de amizade',
-      'Aventura na floresta',
+      'Herói em cena de ação',
+      'Vilão caricato tramando plano',
+      'Cena de amizade emocionante',
+      'Aventura mística na floresta',
     ],
   },
   {
     id: 'historias-biblicas',
     title: 'Histórias Bíblicas',
-    icon: '📖',
+    icon: 'BookOpen',
     options: [
       'Davi enfrentando Golias',
-      'Moisés abrindo o Mar Vermelho',
-      'Arca de Noé com animais',
-      'Jesus andando sobre as águas',
+      'Moisés diante do Mar Vermelho',
+      'Arca de Noé em meio ao dilúvio',
+      'Milagre de Jesus no mar',
     ],
   },
   {
     id: 'historias-infantis',
-    title: 'Histórias Infantis',
-    icon: '🧸',
+    title: 'Contos Infantis',
+    icon: 'Baby',
     options: [
-      'O coelho que não queria dormir',
-      'A fada que perdeu a varinha',
-      'O dragão amigável',
-      'A princesa que salvou o reino',
+      'O coelho que explorou o espaço',
+      'A fada que encontrou um tesouro',
+      'O dragão que adorava ler',
+      'A princesa inventora',
     ],
   },
   {
     id: 'dark-terror',
-    title: 'Vídeos Dark e Terror',
-    icon: '👁️',
+    title: 'Dark & Terror',
+    icon: 'Ghost',
     options: [
-      'Casa abandonada à noite',
-      'Floresta com criatura',
-      'Boneca que se mexe',
-      'Cemitério com névoa',
+      'Exploração em asilo abandonado',
+      'Criatura espreitando na névoa',
+      'Espelho que reflete o passado',
+      'Ruas vazias à meia-noite',
     ],
   },
   {
     id: 'clipes-musicais',
-    title: 'Clipes musicais',
-    icon: '🎵',
+    title: 'Clipes Musicais',
+    icon: 'Music',
     options: [
-      'Cantor em estúdio neon',
-      'Banda em show',
-      'Dançarinos urbanos',
-      'Cena romântica',
+      'Banda de rock em palco neon',
+      'Apresentação pop com coreografia',
+      'Cena acústica em um pub',
+      'Videoclipe de rap underground',
     ],
   },
   {
     id: 'objetos-falantes',
-    title: 'Objetos falantes',
-    icon: '🤖',
+    title: 'Objetos Falantes',
+    icon: 'Bot',
     options: [
-      'Lâmpada que dá conselhos',
-      'Celular contando história',
-      'Livro que ensina',
-      'Brinquedo que conversa',
+      'Xícara de café motivacional',
+      'Relógio que avisa o futuro',
+      'Mochila ranzinza',
+      'Geladeira dando dicas de dieta',
     ],
   },
   {
     id: 'tiktok-instagram',
-    title: 'TikTok, Instagram e Youtube Shorts',
-    icon: '📱',
+    title: 'Social Media (Reels/Shorts)',
+    icon: 'Smartphone',
     options: [
-      'Short de dicas rápidas',
-      'Reel com transição',
-      'Thumbnail chamativa',
-      'Story interativo',
+      'Tutorial rápido de edição',
+      'Transição de moda criativa',
+      'Curiosidade em 15 segundos',
+      'Vlog diário acelerado',
     ],
   },
   {
     id: 'construcao',
-    title: 'Construção, Reforma e Fabricação',
-    icon: '🏗️',
+    title: 'Arquitetura & Engenharia',
+    icon: 'Hammer',
     options: [
-      'Casa moderna de dois andares',
-      'Cozinha industrial',
-      'Móveis planejados de luxo',
-      'Sala minimalista',
+      'Projeto de casa sustentável',
+      'Renovação de cozinha rústica',
+      'Design de interiores minimalista',
+      'Acompanhamento de obra',
     ],
   },
   {
     id: 'produtos-digitais',
-    title: 'Criativo de Vendas Produtos Digitais',
-    icon: '💻',
+    title: 'Produtos Digitais',
+    icon: 'Laptop',
     options: [
-      'E-book com dinheiro saindo',
-      'Curso online com aluno',
-      'Mentoria antes e depois',
-      'Infoproduto com gráfico',
+      'Apresentação de E-book premium',
+      'Dashboard de curso online',
+      'Mockup de aplicativo',
+      'Anúncio de Masterclass',
     ],
   },
   {
     id: 'produtos-fisicos',
-    title: 'Criativo de Vendas Produtos Físicos',
-    icon: '📦',
+    title: 'Produtos Físicos',
+    icon: 'Package',
     options: [
-      'Roupa em movimento',
-      'Cosmético com brilho',
-      'Eletrônico em uso',
-      'Embalagem abrindo',
+      'Unboxing cinematográfico',
+      'Detalhes de textura do produto',
+      'Produto em uso na natureza',
+      'Demonstração de durabilidade',
     ],
   },
 ]
@@ -163,15 +163,15 @@ export const MOCK_HISTORY = [
   {
     id: '1',
     nicheId: 'construcao',
-    nicheTitle: 'Construção, Reforma e Fabricação',
-    nicheIcon: '🏗️',
-    option: 'Casa moderna de dois andares',
+    nicheTitle: 'Arquitetura & Engenharia',
+    nicheIcon: 'Hammer',
+    option: 'Projeto de casa sustentável',
     character: 'BellivroAberto',
     date: new Date().toISOString(),
     timeDisplay: '10:30',
     json: {
-      nicho: 'Construção, Reforma e Fabricação',
-      opcao: 'Casa moderna de dois andares',
+      nicho: 'Arquitetura & Engenharia',
+      opcao: 'Projeto de casa sustentável',
       personagem: 'BellivroAberto',
       estilo: 'moderno',
       iluminacao: 'natural',
@@ -185,30 +185,43 @@ export function generateMetadata(option: string) {
   let estilo = 'realista'
   let iluminacao = 'balanceada'
 
-  if (lower.includes('modern')) {
+  if (lower.includes('modern') || lower.includes('premium')) {
     estilo = 'moderno'
-    iluminacao = 'natural'
+    iluminacao = 'natural e difusa'
   } else if (
     lower.includes('luxo') ||
     lower.includes('dramátic') ||
     lower.includes('noite') ||
-    lower.includes('terror')
+    lower.includes('terror') ||
+    lower.includes('abandonad')
   ) {
     estilo = 'cinematográfico'
-    iluminacao = 'dramática'
+    iluminacao = 'dramática com alto contraste'
   } else if (
     lower.includes('anim') ||
-    lower.includes('pixar') ||
-    lower.includes('infant')
+    lower.includes('cart') ||
+    lower.includes('infant') ||
+    lower.includes('coelho')
   ) {
-    estilo = 'animação 3D'
+    estilo = 'animação 3D estilo Pixar'
     iluminacao = 'suave e colorida'
-  } else if (lower.includes('vlog') || lower.includes('tiktok')) {
-    estilo = 'câmera de celular'
-    iluminacao = 'ring light'
-  } else if (lower.includes('dark') || lower.includes('terror')) {
-    estilo = 'sombrio'
-    iluminacao = 'baixa luz, sombras duras'
+  } else if (
+    lower.includes('vlog') ||
+    lower.includes('social') ||
+    lower.includes('tutorial')
+  ) {
+    estilo = 'câmera de celular 4K'
+    iluminacao = 'ring light frontal'
+  } else if (
+    lower.includes('dark') ||
+    lower.includes('névoa') ||
+    lower.includes('assustador')
+  ) {
+    estilo = 'sombrio e obscuro'
+    iluminacao = 'baixa luz com sombras projetadas'
+  } else if (lower.includes('neon') || lower.includes('pop')) {
+    estilo = 'vibrante e estilizado'
+    iluminacao = 'luzes neon coloridas'
   }
 
   return { estilo, iluminacao }

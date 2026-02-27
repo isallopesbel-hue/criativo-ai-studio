@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,28 +6,26 @@
 
 @layer base {
   :root {
-    --background: 216 50% 4%; /* #050A0F */
-    --foreground: 0 0% 100%;
-    --card: 215 40% 10%;
-    --card-foreground: 0 0% 100%;
-    --popover: 215 40% 10%;
-    --popover-foreground: 0 0% 100%;
-    --primary: 43 96% 56%; /* Gold */
-    --primary-foreground: 0 0% 0%;
-    --secondary: 215 30% 15%;
-    --secondary-foreground: 0 0% 100%;
-    --muted: 215 30% 15%;
-    --muted-foreground: 215 20% 65%;
-    --accent: 43 96% 56%; /* Gold */
-    --accent-foreground: 0 0% 0%;
-    --destructive: 0 84.2% 60.2%;
+    --background: 222 47% 4%; /* Deep Charcoal / almost black blue */
+    --foreground: 210 40% 98%; /* Off-white */
+    --card: 222 47% 7%; /* Slightly lighter than background */
+    --card-foreground: 210 40% 98%;
+    --popover: 222 47% 7%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 43 96% 56%; /* Gold #FACC15 */
+    --primary-foreground: 222 47% 11%;
+    --secondary: 217 32% 12%; /* Slate 800-ish */
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217 32% 14%;
+    --muted-foreground: 215 20% 65%; /* Slate 400 */
+    --accent: 193 93% 48%; /* Cyan */
+    --accent-foreground: 222 47% 11%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
-    --border: 215 30% 18%;
-    --input: 215 30% 18%;
+    --border: 217 32% 18%; /* Slate 800 */
+    --input: 217 32% 18%;
     --ring: 43 96% 56%;
-    --radius: 0.75rem;
-    --success: 153 53% 66%;
-    --success-foreground: 209 67% 12%;
+    --radius: 1rem;
   }
 
   body {

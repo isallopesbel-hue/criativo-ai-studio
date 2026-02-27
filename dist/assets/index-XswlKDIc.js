@@ -18925,6 +18925,61 @@ var ArrowRight = createLucideIcon("arrow-right", [["path", {
 	d: "m12 5 7 7-7 7",
 	key: "xquz4c"
 }]]);
+var Baby = createLucideIcon("baby", [
+	["path", {
+		d: "M10 16c.5.3 1.2.5 2 .5s1.5-.2 2-.5",
+		key: "1u7htd"
+	}],
+	["path", {
+		d: "M15 12h.01",
+		key: "1k8ypt"
+	}],
+	["path", {
+		d: "M19.38 6.813A9 9 0 0 1 20.8 10.2a2 2 0 0 1 0 3.6 9 9 0 0 1-17.6 0 2 2 0 0 1 0-3.6A9 9 0 0 1 12 3c2 0 3.5 1.1 3.5 2.5s-.9 2.5-2 2.5c-.8 0-1.5-.4-1.5-1",
+		key: "11xh7x"
+	}],
+	["path", {
+		d: "M9 12h.01",
+		key: "157uk2"
+	}]
+]);
+var BookOpen = createLucideIcon("book-open", [["path", {
+	d: "M12 7v14",
+	key: "1akyts"
+}], ["path", {
+	d: "M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z",
+	key: "ruj8y"
+}]]);
+var Bot = createLucideIcon("bot", [
+	["path", {
+		d: "M12 8V4H8",
+		key: "hb8ula"
+	}],
+	["rect", {
+		width: "16",
+		height: "12",
+		x: "4",
+		y: "8",
+		rx: "2",
+		key: "enze0r"
+	}],
+	["path", {
+		d: "M2 14h2",
+		key: "vft8re"
+	}],
+	["path", {
+		d: "M20 14h2",
+		key: "4cs60a"
+	}],
+	["path", {
+		d: "M15 13v2",
+		key: "1xurst"
+	}],
+	["path", {
+		d: "M9 13v2",
+		key: "rq6x2g"
+	}]
+]);
 var Check = createLucideIcon("check", [["path", {
 	d: "M20 6 9 17l-5-5",
 	key: "1gmf2c"
@@ -18933,6 +18988,33 @@ var ChevronLeft = createLucideIcon("chevron-left", [["path", {
 	d: "m15 18-6-6 6-6",
 	key: "1wnfg3"
 }]]);
+var CircleCheck = createLucideIcon("circle-check", [["circle", {
+	cx: "12",
+	cy: "12",
+	r: "10",
+	key: "1mglay"
+}], ["path", {
+	d: "m9 12 2 2 4-4",
+	key: "dzmm74"
+}]]);
+var CircleUserRound = createLucideIcon("circle-user-round", [
+	["path", {
+		d: "M18 20a6 6 0 0 0-12 0",
+		key: "1qehca"
+	}],
+	["circle", {
+		cx: "12",
+		cy: "10",
+		r: "4",
+		key: "1h16sb"
+	}],
+	["circle", {
+		cx: "12",
+		cy: "12",
+		r: "10",
+		key: "1mglay"
+	}]
+]);
 var Circle = createLucideIcon("circle", [["circle", {
 	cx: "12",
 	cy: "12",
@@ -18979,9 +19061,148 @@ var ExternalLink = createLucideIcon("external-link", [
 		key: "a6xqqp"
 	}]
 ]);
+var Ghost = createLucideIcon("ghost", [
+	["path", {
+		d: "M9 10h.01",
+		key: "qbtxuw"
+	}],
+	["path", {
+		d: "M15 10h.01",
+		key: "1qmjsl"
+	}],
+	["path", {
+		d: "M12 2a8 8 0 0 0-8 8v12l3-3 2.5 2.5L12 19l2.5 2.5L17 19l3 3V10a8 8 0 0 0-8-8z",
+		key: "uwwb07"
+	}]
+]);
+var Hammer = createLucideIcon("hammer", [
+	["path", {
+		d: "m15 12-9.373 9.373a1 1 0 0 1-3.001-3L12 9",
+		key: "1hayfq"
+	}],
+	["path", {
+		d: "m18 15 4-4",
+		key: "16gjal"
+	}],
+	["path", {
+		d: "m21.5 11.5-1.914-1.914A2 2 0 0 1 19 8.172v-.344a2 2 0 0 0-.586-1.414l-1.657-1.657A6 6 0 0 0 12.516 3H9l1.243 1.243A6 6 0 0 1 12 8.485V10l2 2h1.172a2 2 0 0 1 1.414.586L18.5 14.5",
+		key: "15ts47"
+	}]
+]);
+var Laptop = createLucideIcon("laptop", [["path", {
+	d: "M18 5a2 2 0 0 1 2 2v8.526a2 2 0 0 0 .212.897l1.068 2.127a1 1 0 0 1-.9 1.45H3.62a1 1 0 0 1-.9-1.45l1.068-2.127A2 2 0 0 0 4 15.526V7a2 2 0 0 1 2-2z",
+	key: "1pdavp"
+}], ["path", {
+	d: "M20.054 15.987H3.946",
+	key: "14rxg9"
+}]]);
+var Music = createLucideIcon("music", [
+	["path", {
+		d: "M9 18V5l12-2v13",
+		key: "1jmyc2"
+	}],
+	["circle", {
+		cx: "6",
+		cy: "18",
+		r: "3",
+		key: "fqmcym"
+	}],
+	["circle", {
+		cx: "18",
+		cy: "16",
+		r: "3",
+		key: "1hluhg"
+	}]
+]);
+var Package = createLucideIcon("package", [
+	["path", {
+		d: "M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z",
+		key: "1a0edw"
+	}],
+	["path", {
+		d: "M12 22V12",
+		key: "d0xqtd"
+	}],
+	["polyline", {
+		points: "3.29 7 12 12 20.71 7",
+		key: "ousv84"
+	}],
+	["path", {
+		d: "m7.5 4.27 9 5.15",
+		key: "1c824w"
+	}]
+]);
+var Palette = createLucideIcon("palette", [
+	["path", {
+		d: "M12 22a1 1 0 0 1 0-20 10 9 0 0 1 10 9 5 5 0 0 1-5 5h-2.25a1.75 1.75 0 0 0-1.4 2.8l.3.4a1.75 1.75 0 0 1-1.4 2.8z",
+		key: "e79jfc"
+	}],
+	["circle", {
+		cx: "13.5",
+		cy: "6.5",
+		r: ".5",
+		fill: "currentColor",
+		key: "1okk4w"
+	}],
+	["circle", {
+		cx: "17.5",
+		cy: "10.5",
+		r: ".5",
+		fill: "currentColor",
+		key: "f64h9f"
+	}],
+	["circle", {
+		cx: "6.5",
+		cy: "12.5",
+		r: ".5",
+		fill: "currentColor",
+		key: "qy21gx"
+	}],
+	["circle", {
+		cx: "8.5",
+		cy: "7.5",
+		r: ".5",
+		fill: "currentColor",
+		key: "fotxhn"
+	}]
+]);
 var Play = createLucideIcon("play", [["path", {
 	d: "M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z",
 	key: "10ikf1"
+}]]);
+var Shuffle = createLucideIcon("shuffle", [
+	["path", {
+		d: "m18 14 4 4-4 4",
+		key: "10pe0f"
+	}],
+	["path", {
+		d: "m18 2 4 4-4 4",
+		key: "pucp1d"
+	}],
+	["path", {
+		d: "M2 18h1.973a4 4 0 0 0 3.3-1.7l5.454-8.6a4 4 0 0 1 3.3-1.7H22",
+		key: "1ailkh"
+	}],
+	["path", {
+		d: "M2 6h1.972a4 4 0 0 1 3.6 2.2",
+		key: "km57vx"
+	}],
+	["path", {
+		d: "M22 18h-6.041a4 4 0 0 1-3.3-1.8l-.359-.45",
+		key: "os18l9"
+	}]
+]);
+var Smartphone = createLucideIcon("smartphone", [["rect", {
+	width: "14",
+	height: "20",
+	x: "5",
+	y: "2",
+	rx: "2",
+	ry: "2",
+	key: "1yt0o3"
+}], ["path", {
+	d: "M12 18h.01",
+	key: "mhygvu"
 }]]);
 var Sparkles = createLucideIcon("sparkles", [
 	["path", {
@@ -19001,6 +19222,33 @@ var Sparkles = createLucideIcon("sparkles", [
 		cy: "20",
 		r: "2",
 		key: "6kqj1y"
+	}]
+]);
+var Terminal = createLucideIcon("terminal", [["path", {
+	d: "M12 19h8",
+	key: "baeox8"
+}], ["path", {
+	d: "m4 17 6-6-6-6",
+	key: "1yngyt"
+}]]);
+var Users = createLucideIcon("users", [
+	["path", {
+		d: "M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2",
+		key: "1yyitq"
+	}],
+	["path", {
+		d: "M16 3.128a4 4 0 0 1 0 7.744",
+		key: "16gr8j"
+	}],
+	["path", {
+		d: "M22 21v-2a4 4 0 0 0-3-3.87",
+		key: "kshegd"
+	}],
+	["circle", {
+		cx: "9",
+		cy: "7",
+		r: "4",
+		key: "nufk8"
 	}]
 ]);
 var X = createLucideIcon("x", [["path", {
@@ -23705,158 +23953,158 @@ TooltipContent.displayName = Content2.displayName;
 const CHARACTERS = [{
 	id: "bellivroaberto",
 	name: "BellivroAberto",
-	description: "Estilo Humor/Deboche"
+	description: "Estilo Humor e Deboche"
 }, {
 	id: "davi",
 	name: "Davi",
-	description: "Estilo Bíblico/Realista"
+	description: "Estilo Bíblico e Épico"
 }];
 const NICHES = [
 	{
 		id: "personagem-consistente",
-		title: "Personagem consistente",
-		icon: "🧍",
+		title: "Personagem Consistente",
+		icon: "Users",
 		options: [
 			"Personagem masculino em vários cenários",
 			"Personagem feminino em várias poses",
-			"Mascote 3D consistente",
-			"Avatar realista"
+			"Mascote 3D em situações diversas",
+			"Avatar hiper-realista"
 		]
 	},
 	{
 		id: "videos-aleatorios",
-		title: "Vídeos aleatórios",
-		icon: "🎲",
+		title: "Vídeos Aleatórios",
+		icon: "Shuffle",
 		options: [
 			"Mistério para desvendar",
-			"Fato curioso",
-			"Desafio viral",
-			"Momento inusitado"
+			"Fato científico curioso",
+			"Desafio visual dinâmico",
+			"Momento inusitado e cômico"
 		]
 	},
 	{
 		id: "desenhos-animados",
-		title: "Desenhos Animados",
-		icon: "🎨",
+		title: "Animações & Cartoons",
+		icon: "Palette",
 		options: [
-			"Herói em ação",
-			"Vilão caricato",
-			"Cena de amizade",
-			"Aventura na floresta"
+			"Herói em cena de ação",
+			"Vilão caricato tramando plano",
+			"Cena de amizade emocionante",
+			"Aventura mística na floresta"
 		]
 	},
 	{
 		id: "historias-biblicas",
 		title: "Histórias Bíblicas",
-		icon: "📖",
+		icon: "BookOpen",
 		options: [
 			"Davi enfrentando Golias",
-			"Moisés abrindo o Mar Vermelho",
-			"Arca de Noé com animais",
-			"Jesus andando sobre as águas"
+			"Moisés diante do Mar Vermelho",
+			"Arca de Noé em meio ao dilúvio",
+			"Milagre de Jesus no mar"
 		]
 	},
 	{
 		id: "historias-infantis",
-		title: "Histórias Infantis",
-		icon: "🧸",
+		title: "Contos Infantis",
+		icon: "Baby",
 		options: [
-			"O coelho que não queria dormir",
-			"A fada que perdeu a varinha",
-			"O dragão amigável",
-			"A princesa que salvou o reino"
+			"O coelho que explorou o espaço",
+			"A fada que encontrou um tesouro",
+			"O dragão que adorava ler",
+			"A princesa inventora"
 		]
 	},
 	{
 		id: "dark-terror",
-		title: "Vídeos Dark e Terror",
-		icon: "👁️",
+		title: "Dark & Terror",
+		icon: "Ghost",
 		options: [
-			"Casa abandonada à noite",
-			"Floresta com criatura",
-			"Boneca que se mexe",
-			"Cemitério com névoa"
+			"Exploração em asilo abandonado",
+			"Criatura espreitando na névoa",
+			"Espelho que reflete o passado",
+			"Ruas vazias à meia-noite"
 		]
 	},
 	{
 		id: "clipes-musicais",
-		title: "Clipes musicais",
-		icon: "🎵",
+		title: "Clipes Musicais",
+		icon: "Music",
 		options: [
-			"Cantor em estúdio neon",
-			"Banda em show",
-			"Dançarinos urbanos",
-			"Cena romântica"
+			"Banda de rock em palco neon",
+			"Apresentação pop com coreografia",
+			"Cena acústica em um pub",
+			"Videoclipe de rap underground"
 		]
 	},
 	{
 		id: "objetos-falantes",
-		title: "Objetos falantes",
-		icon: "🤖",
+		title: "Objetos Falantes",
+		icon: "Bot",
 		options: [
-			"Lâmpada que dá conselhos",
-			"Celular contando história",
-			"Livro que ensina",
-			"Brinquedo que conversa"
+			"Xícara de café motivacional",
+			"Relógio que avisa o futuro",
+			"Mochila ranzinza",
+			"Geladeira dando dicas de dieta"
 		]
 	},
 	{
 		id: "tiktok-instagram",
-		title: "TikTok, Instagram e Youtube Shorts",
-		icon: "📱",
+		title: "Social Media (Reels/Shorts)",
+		icon: "Smartphone",
 		options: [
-			"Short de dicas rápidas",
-			"Reel com transição",
-			"Thumbnail chamativa",
-			"Story interativo"
+			"Tutorial rápido de edição",
+			"Transição de moda criativa",
+			"Curiosidade em 15 segundos",
+			"Vlog diário acelerado"
 		]
 	},
 	{
 		id: "construcao",
-		title: "Construção, Reforma e Fabricação",
-		icon: "🏗️",
+		title: "Arquitetura & Engenharia",
+		icon: "Hammer",
 		options: [
-			"Casa moderna de dois andares",
-			"Cozinha industrial",
-			"Móveis planejados de luxo",
-			"Sala minimalista"
+			"Projeto de casa sustentável",
+			"Renovação de cozinha rústica",
+			"Design de interiores minimalista",
+			"Acompanhamento de obra"
 		]
 	},
 	{
 		id: "produtos-digitais",
-		title: "Criativo de Vendas Produtos Digitais",
-		icon: "💻",
+		title: "Produtos Digitais",
+		icon: "Laptop",
 		options: [
-			"E-book com dinheiro saindo",
-			"Curso online com aluno",
-			"Mentoria antes e depois",
-			"Infoproduto com gráfico"
+			"Apresentação de E-book premium",
+			"Dashboard de curso online",
+			"Mockup de aplicativo",
+			"Anúncio de Masterclass"
 		]
 	},
 	{
 		id: "produtos-fisicos",
-		title: "Criativo de Vendas Produtos Físicos",
-		icon: "📦",
+		title: "Produtos Físicos",
+		icon: "Package",
 		options: [
-			"Roupa em movimento",
-			"Cosmético com brilho",
-			"Eletrônico em uso",
-			"Embalagem abrindo"
+			"Unboxing cinematográfico",
+			"Detalhes de textura do produto",
+			"Produto em uso na natureza",
+			"Demonstração de durabilidade"
 		]
 	}
 ];
 const MOCK_HISTORY = [{
 	id: "1",
 	nicheId: "construcao",
-	nicheTitle: "Construção, Reforma e Fabricação",
-	nicheIcon: "🏗️",
-	option: "Casa moderna de dois andares",
+	nicheTitle: "Arquitetura & Engenharia",
+	nicheIcon: "Hammer",
+	option: "Projeto de casa sustentável",
 	character: "BellivroAberto",
 	date: (/* @__PURE__ */ new Date()).toISOString(),
 	timeDisplay: "10:30",
 	json: {
-		nicho: "Construção, Reforma e Fabricação",
-		opcao: "Casa moderna de dois andares",
+		nicho: "Arquitetura & Engenharia",
+		opcao: "Projeto de casa sustentável",
 		personagem: "BellivroAberto",
 		estilo: "moderno",
 		iluminacao: "natural",
@@ -23867,21 +24115,24 @@ function generateMetadata(option) {
 	const lower = option.toLowerCase();
 	let estilo = "realista";
 	let iluminacao = "balanceada";
-	if (lower.includes("modern")) {
+	if (lower.includes("modern") || lower.includes("premium")) {
 		estilo = "moderno";
-		iluminacao = "natural";
-	} else if (lower.includes("luxo") || lower.includes("dramátic") || lower.includes("noite") || lower.includes("terror")) {
+		iluminacao = "natural e difusa";
+	} else if (lower.includes("luxo") || lower.includes("dramátic") || lower.includes("noite") || lower.includes("terror") || lower.includes("abandonad")) {
 		estilo = "cinematográfico";
-		iluminacao = "dramática";
-	} else if (lower.includes("anim") || lower.includes("pixar") || lower.includes("infant")) {
-		estilo = "animação 3D";
+		iluminacao = "dramática com alto contraste";
+	} else if (lower.includes("anim") || lower.includes("cart") || lower.includes("infant") || lower.includes("coelho")) {
+		estilo = "animação 3D estilo Pixar";
 		iluminacao = "suave e colorida";
-	} else if (lower.includes("vlog") || lower.includes("tiktok")) {
-		estilo = "câmera de celular";
-		iluminacao = "ring light";
-	} else if (lower.includes("dark") || lower.includes("terror")) {
-		estilo = "sombrio";
-		iluminacao = "baixa luz, sombras duras";
+	} else if (lower.includes("vlog") || lower.includes("social") || lower.includes("tutorial")) {
+		estilo = "câmera de celular 4K";
+		iluminacao = "ring light frontal";
+	} else if (lower.includes("dark") || lower.includes("névoa") || lower.includes("assustador")) {
+		estilo = "sombrio e obscuro";
+		iluminacao = "baixa luz com sombras projetadas";
+	} else if (lower.includes("neon") || lower.includes("pop")) {
+		estilo = "vibrante e estilizado";
+		iluminacao = "luzes neon coloridas";
 	}
 	return {
 		estilo,
@@ -23920,6 +24171,22 @@ function usePromptStore() {
 	if (context === void 0) throw new Error("usePromptStore must be used within a PromptProvider");
 	return context;
 }
+var getIcon$1 = (iconName, className) => {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)({
+		Users,
+		Shuffle,
+		Palette,
+		BookOpen,
+		Baby,
+		Ghost,
+		Music,
+		Bot,
+		Smartphone,
+		Hammer,
+		Laptop,
+		Package
+	}[iconName] || Sparkles, { className });
+};
 var Index = () => {
 	const { clearDraft } = usePromptStore();
 	const navigate = useNavigate();
@@ -23928,37 +24195,44 @@ var Index = () => {
 		navigate(`/options/${nicheId}`);
 	};
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: "animate-in fade-in slide-in-from-bottom-4 duration-500 flex flex-col items-center gap-10 bg-background min-h-[calc(100vh-4rem)] p-6 md:p-12",
+		className: "animate-in fade-in slide-in-from-bottom-4 duration-700 flex flex-col items-center gap-12 bg-background min-h-[calc(100vh-4rem)] p-6 md:p-12",
 		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
-			className: "text-center space-y-4 max-w-3xl mx-auto mt-4 md:mt-8",
+			className: "text-center space-y-5 max-w-3xl mx-auto mt-6 md:mt-10",
 			children: [
 				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", {
-					className: "text-3xl md:text-5xl font-bold text-yellow-400 tracking-tight",
-					children: "Gerador de Prompt Profissional"
+					className: "text-4xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-primary via-yellow-300 to-accent tracking-tight",
+					children: "PROMPT MASTER"
 				}),
 				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
-					className: "text-lg md:text-xl font-medium text-white",
-					children: "Ferramentas Exclusivas do Canal Play Money"
+					className: "text-lg md:text-2xl font-semibold text-foreground tracking-wide",
+					children: "Domine a Criação de Comandos para IA"
 				}),
 				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-					className: "text-cyan-400 text-sm md:text-base leading-relaxed max-w-2xl mx-auto",
-					children: "Gere vídeos automáticos com IA para redes sociais, canais, anúncios e muito mais em poucos cliques!"
+					className: "text-muted-foreground text-sm md:text-base leading-relaxed max-w-2xl mx-auto font-medium",
+					children: "Gere estruturas avançadas em JSON para automatizar vídeos, campanhas e conteúdos de alta conversão com engenharia de prompt profissional."
 				})
 			]
 		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("section", {
-			className: "w-full max-w-5xl mx-auto pb-12",
+			className: "w-full max-w-5xl mx-auto pb-16",
 			children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5",
+				className: "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6",
 				children: NICHES.map((niche) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 					onClick: () => handleSelectNiche(niche.id),
-					className: "flex items-center gap-4 p-4 md:p-5 rounded-xl border border-white/10 bg-[#0A111F] hover:bg-[#111A2E] hover:border-yellow-400/50 hover:scale-[1.02] hover:shadow-[0_0_20px_rgba(250,204,21,0.1)] transition-all cursor-pointer group",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-						className: "text-2xl md:text-3xl shrink-0 group-hover:scale-110 transition-transform",
-						children: niche.icon
-					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
-						className: "font-semibold text-white text-sm md:text-base leading-snug",
-						children: niche.title
-					})]
+					className: "flex items-center gap-5 p-6 rounded-2xl border border-border bg-card hover:bg-secondary/60 hover:border-primary/50 hover:-translate-y-1 hover:shadow-[0_10px_40px_-10px_rgba(251,191,36,0.2)] transition-all duration-300 cursor-pointer group relative overflow-hidden",
+					children: [
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" }),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							className: "relative z-10 p-3 rounded-xl bg-background border border-border group-hover:border-primary/30 group-hover:bg-primary/10 text-muted-foreground group-hover:text-primary transition-colors duration-300",
+							children: getIcon$1(niche.icon, "w-6 h-6")
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							className: "relative z-10 flex-1",
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
+								className: "font-bold text-foreground text-base md:text-lg leading-snug group-hover:text-primary transition-colors duration-300",
+								children: niche.title
+							})
+						})
+					]
 				}, niche.id))
 			})
 		})]
@@ -24607,6 +24881,22 @@ var Separator = import_react.forwardRef(({ className, orientation = "horizontal"
 	...props
 }));
 Separator.displayName = Root.displayName;
+var getIcon = (iconName, className) => {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)({
+		Users,
+		Shuffle,
+		Palette,
+		BookOpen,
+		Baby,
+		Ghost,
+		Music,
+		Bot,
+		Smartphone,
+		Hammer,
+		Laptop,
+		Package
+	}[iconName] || Sparkles, { className });
+};
 var Options = () => {
 	const { nicheId } = useParams();
 	const navigate = useNavigate();
@@ -24615,8 +24905,8 @@ var Options = () => {
 	const [selectedOption, setSelectedOption] = (0, import_react.useState)("");
 	const [selectedCharacter, setSelectedCharacter] = (0, import_react.useState)("");
 	if (!niche) return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-		className: "p-8 text-center text-white",
-		children: "Nicho não encontrado."
+		className: "p-8 text-center text-muted-foreground",
+		children: "Categoria não encontrada no sistema."
 	});
 	const handleGenerate = () => {
 		if (!selectedOption || !selectedCharacter) return;
@@ -24655,92 +24945,122 @@ var Options = () => {
 		className: "animate-in fade-in slide-in-from-bottom-4 duration-500 p-6 md:p-12 flex flex-col min-h-[calc(100vh-4rem)] max-w-4xl mx-auto w-full",
 		children: [
 			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: "mb-8 flex flex-col md:flex-row md:items-center gap-4",
-				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-					className: "h-16 w-16 shrink-0 rounded-2xl bg-[#0A111F] border border-white/10 shadow-lg flex items-center justify-center text-3xl",
-					children: niche.icon
+				className: "mb-10 flex flex-col md:flex-row md:items-center gap-6",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "h-20 w-20 shrink-0 rounded-2xl bg-card border border-border shadow-lg flex items-center justify-center text-primary relative overflow-hidden",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute inset-0 bg-primary/5" }), getIcon(niche.icon, "w-10 h-10 relative z-10")]
 				}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
-					className: "text-2xl md:text-3xl font-bold text-yellow-400 leading-tight",
+					className: "text-3xl md:text-4xl font-extrabold text-foreground leading-tight tracking-tight",
 					children: niche.title
 				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-					className: "text-cyan-400 text-sm font-medium mt-1",
-					children: "Configure as opções para o seu prompt"
+					className: "text-muted-foreground text-base font-medium mt-2",
+					children: "Configure os parâmetros do prompt para geração de alta qualidade"
 				})] })]
 			}),
 			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: "flex-1 space-y-8 pb-24",
+				className: "flex-1 space-y-12 pb-28",
 				children: [
-					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("h3", {
-						className: "font-bold text-sm uppercase tracking-wider text-white/50 mb-4 flex items-center gap-2",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-							className: "bg-white/10 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs",
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "flex items-center gap-3 mb-6",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							className: "bg-primary/10 text-primary w-8 h-8 rounded-lg flex items-center justify-center font-bold text-sm border border-primary/20",
 							children: "1"
-						}), "O que deseja criar?"]
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
+							className: "font-bold text-base uppercase tracking-widest text-foreground",
+							children: "Estrutura Narrativa"
+						})]
 					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(RadioGroup, {
 						value: selectedOption,
 						onValueChange: setSelectedOption,
-						className: "grid grid-cols-1 md:grid-cols-2 gap-3",
-						children: niche.options.map((opt, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Label, {
-							className: `flex items-start gap-3 p-4 rounded-xl border border-white/10 cursor-pointer transition-all hover:scale-[1.01] ${selectedOption === opt ? "border-yellow-400 bg-yellow-400/10 shadow-[0_0_15px_rgba(250,204,21,0.1)]" : "bg-[#0A111F] hover:bg-[#111A2E] hover:border-white/30"}`,
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(RadioGroupItem, {
-								value: opt,
-								id: `opt-${i}`,
-								className: "mt-0.5 shrink-0 border-white/50 text-yellow-400 data-[state=checked]:border-yellow-400"
-							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-								className: "font-semibold text-sm leading-snug text-white",
-								children: opt
-							})]
-						}, i))
+						className: "grid grid-cols-1 md:grid-cols-2 gap-4",
+						children: niche.options.map((opt, i) => {
+							const isSelected = selectedOption === opt;
+							return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Label, {
+								className: `relative flex items-center gap-4 p-5 rounded-2xl border cursor-pointer transition-all duration-300 overflow-hidden group ${isSelected ? "border-primary bg-primary/10 shadow-[0_0_20px_-5px_rgba(251,191,36,0.2)]" : "border-border bg-card hover:bg-secondary/80 hover:border-primary/40 hover:shadow-lg"}`,
+								children: [
+									isSelected && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute -inset-2 bg-gradient-to-r from-primary/10 to-transparent blur-xl" }),
+									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+										className: `relative z-10 flex items-center justify-center w-6 h-6 shrink-0 rounded-full border ${isSelected ? "border-primary text-primary" : "border-muted-foreground/40 bg-background group-hover:border-primary/40"}`,
+										children: isSelected && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CircleCheck, { className: "w-6 h-6 absolute -inset-[1px]" })
+									}),
+									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+										className: "relative z-10 flex-1",
+										children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+											className: `font-semibold text-sm md:text-base leading-snug block ${isSelected ? "text-primary" : "text-foreground group-hover:text-foreground/90"}`,
+											children: opt
+										})
+									}),
+									/* @__PURE__ */ (0, import_jsx_runtime.jsx)(RadioGroupItem, {
+										value: opt,
+										id: `opt-${i}`,
+										className: "sr-only"
+									})
+								]
+							}, i);
+						})
 					})] }),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Separator, { className: "bg-white/10" }),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("h3", {
-						className: "font-bold text-sm uppercase tracking-wider text-white/50 mb-4 flex items-center gap-2",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-							className: "bg-white/10 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs",
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Separator, { className: "bg-border" }),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "flex items-center gap-3 mb-6",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							className: "bg-primary/10 text-primary w-8 h-8 rounded-lg flex items-center justify-center font-bold text-sm border border-primary/20",
 							children: "2"
-						}), "Escolha o Personagem"]
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
+							className: "font-bold text-base uppercase tracking-widest text-foreground",
+							children: "Perfil do Personagem"
+						})]
 					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(RadioGroup, {
 						value: selectedCharacter,
 						onValueChange: setSelectedCharacter,
-						className: "grid grid-cols-1 sm:grid-cols-2 gap-3",
-						children: CHARACTERS.map((char) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Label, {
-							className: `flex flex-col p-4 rounded-xl border border-white/10 cursor-pointer transition-all hover:scale-[1.01] ${selectedCharacter === char.id ? "border-yellow-400 bg-yellow-400/10 shadow-[0_0_15px_rgba(250,204,21,0.1)]" : "bg-[#0A111F] hover:bg-[#111A2E] hover:border-white/30"}`,
-							children: [
-								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-									className: "flex justify-between items-start w-full mb-3",
-									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(RadioGroupItem, {
+						className: "grid grid-cols-1 sm:grid-cols-2 gap-4",
+						children: CHARACTERS.map((char) => {
+							const isSelected = selectedCharacter === char.id;
+							return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Label, {
+								className: `relative flex flex-col p-6 rounded-2xl border cursor-pointer transition-all duration-300 group overflow-hidden ${isSelected ? "border-primary bg-primary/10 shadow-[0_0_20px_-5px_rgba(251,191,36,0.2)]" : "border-border bg-card hover:bg-secondary/80 hover:border-primary/40 hover:shadow-lg"}`,
+								children: [
+									isSelected && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute -inset-2 bg-gradient-to-r from-primary/10 to-transparent blur-xl" }),
+									/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+										className: "relative z-10 flex justify-between items-start w-full mb-5",
+										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+											className: `flex items-center justify-center w-6 h-6 rounded-full border ${isSelected ? "border-primary text-primary" : "border-muted-foreground/40 bg-background group-hover:border-primary/40"}`,
+											children: isSelected && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CircleCheck, { className: "w-6 h-6 absolute -inset-[1px]" })
+										}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+											className: `h-12 w-12 rounded-xl flex items-center justify-center transition-colors duration-300 ${isSelected ? "bg-primary/20 text-primary border border-primary/30" : "bg-background border border-border text-muted-foreground group-hover:text-primary"}`,
+											children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CircleUserRound, { className: "w-6 h-6" })
+										})]
+									}),
+									/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+										className: "relative z-10",
+										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+											className: `font-bold text-lg block mb-1.5 ${isSelected ? "text-primary" : "text-foreground"}`,
+											children: char.name
+										}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+											className: "text-sm font-medium text-muted-foreground leading-relaxed",
+											children: char.description
+										})]
+									}),
+									/* @__PURE__ */ (0, import_jsx_runtime.jsx)(RadioGroupItem, {
 										value: char.id,
 										id: `char-${char.id}`,
-										className: "border-white/50 text-yellow-400 data-[state=checked]:border-yellow-400"
-									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-										className: "h-8 w-8 rounded-full bg-white/5 flex items-center justify-center text-sm border border-white/10",
-										children: "🎭"
-									})]
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									className: "font-bold text-sm text-white",
-									children: char.name
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									className: "text-xs font-medium text-cyan-400/70 mt-1 leading-tight",
-									children: char.description
-								})
-							]
-						}, char.id))
+										className: "sr-only"
+									})
+								]
+							}, char.id);
+						})
 					})] })
 				]
 			}),
 			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "fixed bottom-0 left-0 w-full p-4 bg-background/90 backdrop-blur-md border-t border-white/10 z-10 flex justify-center",
+				className: "fixed bottom-0 left-0 w-full p-4 bg-background/80 backdrop-blur-xl border-t border-border z-10 flex justify-center shadow-[0_-10px_40px_rgba(0,0,0,0.5)]",
 				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 					className: "w-full max-w-4xl px-2",
 					children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Button, {
 						onClick: handleGenerate,
 						disabled: !isFormValid,
-						className: "w-full h-14 rounded-xl bg-yellow-400 hover:bg-yellow-500 text-black font-bold text-base shadow-[0_0_20px_rgba(250,204,21,0.2)] transition-all disabled:opacity-50 disabled:hover:bg-yellow-400 disabled:shadow-none",
+						className: "w-full h-14 rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground font-extrabold text-base tracking-wide shadow-[0_0_25px_-5px_rgba(251,191,36,0.4)] transition-all duration-300 disabled:opacity-50 disabled:hover:bg-primary disabled:shadow-none",
 						children: [
 							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Sparkles, { className: "mr-2 h-5 w-5" }),
-							"GERAR PROMPT AGORA",
+							"GERAR PROMPT MASTER",
 							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowRight, { className: "ml-2 h-5 w-5" })
 						]
 					})
@@ -24802,7 +25122,7 @@ var Result = () => {
 		if (isNew) {
 			const timer = setTimeout(() => {
 				setIsGenerating(false);
-			}, 800);
+			}, 1e3);
 			return () => clearTimeout(timer);
 		}
 	}, [
@@ -24816,9 +25136,9 @@ var Result = () => {
 		navigator.clipboard.writeText(jsonString);
 		setCopied(true);
 		toast$2({
-			title: "Copiado com sucesso!",
-			description: "O JSON foi copiado para a área de transferência.",
-			className: "bg-green-600 text-white border-none font-medium"
+			title: "Comando Copiado!",
+			description: "O JSON foi copiado para sua área de transferência.",
+			className: "bg-emerald-600 text-white border-none font-medium"
 		});
 		setTimeout(() => setCopied(false), 2e3);
 	};
@@ -24832,9 +25152,9 @@ var Result = () => {
 		window.location.href = "capcut://";
 		setTimeout(() => {
 			toast$2({
-				title: "Abrindo CapCut...",
-				description: "Se o app não abrir, instale o CapCut no seu dispositivo.",
-				className: "bg-[#0A111F] text-white border-white/20"
+				title: "Iniciando CapCut...",
+				description: "Certifique-se de ter o aplicativo instalado no dispositivo.",
+				className: "bg-card text-foreground border-border"
 			});
 		}, 500);
 	};
@@ -24842,219 +25162,233 @@ var Result = () => {
 		className: "animate-in fade-in slide-in-from-bottom-4 duration-500 p-6 md:p-12 flex flex-col gap-8 min-h-[calc(100vh-4rem)] max-w-4xl mx-auto w-full",
 		children: [
 			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: "text-center space-y-2 mt-4",
+				className: "text-center space-y-4 mt-4",
 				children: [
 					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-						className: "inline-flex items-center justify-center p-4 bg-yellow-400/10 rounded-full mb-2 border border-yellow-400/20 shadow-[0_0_20px_rgba(250,204,21,0.15)]",
-						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Sparkles, { className: "h-8 w-8 text-yellow-400" })
+						className: "inline-flex items-center justify-center p-5 bg-primary/10 rounded-2xl mb-2 border border-primary/20 shadow-[0_0_40px_-10px_rgba(251,191,36,0.25)]",
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Terminal, { className: "h-10 w-10 text-primary" })
 					}),
 					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
-						className: "text-3xl md:text-4xl font-bold text-yellow-400 tracking-tight",
-						children: "Prompt Pronto!"
+						className: "text-3xl md:text-5xl font-extrabold text-foreground tracking-tight",
+						children: "Prompt Compilado"
 					}),
 					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-						className: "text-cyan-400 text-sm md:text-base font-medium",
-						children: "Seu JSON estruturado foi gerado com sucesso e está pronto para uso."
+						className: "text-muted-foreground text-sm md:text-base font-medium max-w-lg mx-auto",
+						children: "O seu comando em formato JSON está estruturado e pronto para exportação para sua ferramenta de IA."
 					})
 				]
 			}),
 			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Card, {
-				className: "overflow-hidden border border-white/10 shadow-2xl bg-[#0A111F] rounded-2xl",
-				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "flex items-center justify-between px-4 py-3 border-b border-white/10 bg-black/40",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "flex items-center gap-2 text-white/50",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(CodeXml, { className: "h-4 w-4" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-							className: "text-xs font-mono font-medium tracking-wider",
-							children: "prompt.json"
+				className: "overflow-hidden border border-border shadow-2xl bg-card rounded-2xl relative",
+				children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-primary/50 to-transparent" }),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "flex items-center justify-between px-5 py-4 border-b border-border bg-background/50",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							className: "flex items-center gap-2.5 text-muted-foreground",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(CodeXml, { className: "h-5 w-5 text-primary" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+								className: "text-xs font-mono font-bold tracking-widest uppercase",
+								children: "prompt.json"
+							})]
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Button, {
+							variant: "ghost",
+							size: "sm",
+							onClick: handleCopy,
+							className: "text-primary hover:text-primary hover:bg-primary/10 h-9 gap-2 px-4 rounded-lg border border-primary/20 transition-all active:scale-95",
+							children: [copied ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Check, { className: "h-4 w-4" }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Copy, { className: "h-4 w-4" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+								className: "text-xs font-bold",
+								children: copied ? "COPIADO" : "COPIAR JSON"
+							})]
 						})]
-					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Button, {
-						variant: "ghost",
-						size: "sm",
-						onClick: handleCopy,
-						className: "text-yellow-400 hover:text-yellow-300 hover:bg-yellow-400/10 h-8 gap-1.5 px-3 rounded-lg border border-yellow-400/20",
-						children: [copied ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Check, { className: "h-3.5 w-3.5" }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Copy, { className: "h-3.5 w-3.5" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-							className: "text-xs font-semibold",
-							children: copied ? "COPIADO" : "COPIAR"
-						})]
-					})]
-				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-					className: "p-5 md:p-6 overflow-x-auto hide-scrollbar bg-[#050A0F]",
-					children: isGenerating ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "animate-pulse space-y-3 py-4",
-						children: [
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "h-4 bg-white/5 rounded w-1/4" }),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "h-4 bg-white/5 rounded w-3/4" }),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "h-4 bg-white/5 rounded w-1/2" }),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "h-4 bg-white/5 rounded w-2/3" }),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "h-4 bg-white/5 rounded w-1/3" })
-						]
-					}) : /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("pre", {
-						className: "font-mono text-sm md:text-[15px] leading-relaxed text-[#E5E7EB]",
-						children: [
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-								className: "text-[#38BDF8]",
-								children: "{"
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-								className: "text-[#38BDF8]",
-								children: " \"nicho\""
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-								className: "text-[#9CA3AF]",
-								children: ": "
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-								className: "text-[#FACC15]",
-								children: [
-									"\"",
-									result.json.nicho,
-									"\""
-								]
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-								className: "text-[#9CA3AF]",
-								children: ","
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-								className: "text-[#38BDF8]",
-								children: " \"opcao\""
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-								className: "text-[#9CA3AF]",
-								children: ": "
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-								className: "text-[#FACC15]",
-								children: [
-									"\"",
-									result.json.opcao,
-									"\""
-								]
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-								className: "text-[#9CA3AF]",
-								children: ","
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-								className: "text-[#38BDF8]",
-								children: " \"personagem\""
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-								className: "text-[#9CA3AF]",
-								children: ": "
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-								className: "text-[#FACC15]",
-								children: [
-									"\"",
-									result.json.personagem,
-									"\""
-								]
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-								className: "text-[#9CA3AF]",
-								children: ","
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-								className: "text-[#38BDF8]",
-								children: " \"estilo\""
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-								className: "text-[#9CA3AF]",
-								children: ": "
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-								className: "text-[#FACC15]",
-								children: [
-									"\"",
-									result.json.estilo,
-									"\""
-								]
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-								className: "text-[#9CA3AF]",
-								children: ","
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-								className: "text-[#38BDF8]",
-								children: " \"iluminacao\""
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-								className: "text-[#9CA3AF]",
-								children: ": "
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-								className: "text-[#FACC15]",
-								children: [
-									"\"",
-									result.json.iluminacao,
-									"\""
-								]
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-								className: "text-[#9CA3AF]",
-								children: ","
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-								className: "text-[#38BDF8]",
-								children: " \"data\""
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-								className: "text-[#9CA3AF]",
-								children: ": "
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-								className: "text-[#FACC15]",
-								children: [
-									"\"",
-									result.json.data,
-									"\""
-								]
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-								className: "text-[#38BDF8]",
-								children: "}"
-							})
-						]
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "p-6 md:p-8 overflow-x-auto hide-scrollbar bg-[#020617]",
+						children: isGenerating ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							className: "animate-pulse space-y-5 py-2",
+							children: [
+								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+									className: "flex items-center gap-3",
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-4 h-4 rounded-full bg-primary/40 animate-ping" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+										className: "text-primary/60 font-mono text-sm",
+										children: "Compilando estrutura..."
+									})]
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "h-4 bg-secondary/50 rounded w-1/4" }),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "h-4 bg-secondary/50 rounded w-3/4" }),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "h-4 bg-secondary/50 rounded w-1/2" }),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "h-4 bg-secondary/50 rounded w-2/3" })
+							]
+						}) : /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("pre", {
+							className: "font-mono text-sm md:text-base leading-relaxed text-slate-300",
+							children: [
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "text-cyan-400",
+									children: "{"
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "text-cyan-400",
+									children: " \"nicho\""
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "text-slate-500",
+									children: ": "
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+									className: "text-primary",
+									children: [
+										"\"",
+										result.json.nicho,
+										"\""
+									]
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "text-slate-500",
+									children: ","
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "text-cyan-400",
+									children: " \"opcao\""
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "text-slate-500",
+									children: ": "
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+									className: "text-primary",
+									children: [
+										"\"",
+										result.json.opcao,
+										"\""
+									]
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "text-slate-500",
+									children: ","
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "text-cyan-400",
+									children: " \"personagem\""
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "text-slate-500",
+									children: ": "
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+									className: "text-primary",
+									children: [
+										"\"",
+										result.json.personagem,
+										"\""
+									]
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "text-slate-500",
+									children: ","
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "text-cyan-400",
+									children: " \"estilo\""
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "text-slate-500",
+									children: ": "
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+									className: "text-primary",
+									children: [
+										"\"",
+										result.json.estilo,
+										"\""
+									]
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "text-slate-500",
+									children: ","
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "text-cyan-400",
+									children: " \"iluminacao\""
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "text-slate-500",
+									children: ": "
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+									className: "text-primary",
+									children: [
+										"\"",
+										result.json.iluminacao,
+										"\""
+									]
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "text-slate-500",
+									children: ","
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "text-cyan-400",
+									children: " \"data\""
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "text-slate-500",
+									children: ": "
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+									className: "text-primary",
+									children: [
+										"\"",
+										result.json.data,
+										"\""
+									]
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "text-cyan-400",
+									children: "}"
+								})
+							]
+						})
 					})
-				})]
+				]
 			}),
 			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: "space-y-4 pb-12",
-				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
-					className: "font-bold text-sm uppercase tracking-wider text-white/50 px-1 flex items-center justify-center md:justify-start gap-2",
-					children: "Exportar & Criar"
+				className: "space-y-6 pb-12",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("h3", {
+					className: "font-bold text-sm uppercase tracking-widest text-muted-foreground flex items-center justify-center gap-3",
+					children: [
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "w-16 h-px bg-border" }),
+						"Exportar & Executar",
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "w-16 h-px bg-border" })
+					]
 				}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 md:gap-4",
+					className: "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4",
 					children: [
 						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Button, {
 							onClick: handleCopy,
 							variant: "outline",
-							className: "h-12 md:h-14 rounded-xl border border-yellow-400 text-yellow-400 hover:bg-yellow-400/10 font-bold text-sm bg-transparent",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Copy, { className: "mr-2 h-4 w-4" }), "COPIAR JSON"]
+							className: "h-14 rounded-xl border-border hover:border-primary/50 text-foreground hover:bg-secondary font-bold text-sm bg-card transition-all shadow-sm",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Copy, { className: "mr-2 h-4 w-4 text-primary" }), "COPIAR JSON"]
 						}),
 						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Button, {
 							onClick: handleWhisk,
-							className: "h-12 md:h-14 rounded-xl bg-teal-600 hover:bg-teal-500 text-white font-bold text-sm shadow-lg",
+							className: "h-14 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-sm shadow-[0_4px_14px_0_rgba(79,70,229,0.39)] transition-all",
 							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ExternalLink, { className: "mr-2 h-4 w-4" }), "ABRIR WHISK"]
 						}),
 						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Button, {
 							onClick: handleFlow,
-							className: "h-12 md:h-14 rounded-xl bg-[#7ED4AD] hover:bg-[#6BC19A] text-[#0A1F33] font-bold text-sm shadow-lg",
+							className: "h-14 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white font-bold text-sm shadow-[0_4px_14px_0_rgba(8,145,178,0.39)] transition-all",
 							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ExternalLink, { className: "mr-2 h-4 w-4" }), "ABRIR FLOW"]
 						}),
 						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Button, {
 							onClick: handleCapCut,
-							className: "h-12 md:h-14 rounded-xl bg-[#FF6B4A] hover:bg-[#E55A39] text-white font-bold text-sm shadow-lg",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Play, { className: "mr-2 h-4 w-4 fill-white" }), "CAPCUT"]
+							className: "h-14 rounded-xl bg-slate-100 hover:bg-white text-slate-900 font-bold text-sm shadow-[0_4px_14px_0_rgba(255,255,255,0.2)] transition-all",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Play, { className: "mr-2 h-4 w-4 fill-slate-900" }), "CAPCUT"]
 						})
 					]
 				})]
@@ -25095,30 +25429,30 @@ function Layout() {
 	const navigate = useNavigate();
 	const isHome = useLocation().pathname === "/";
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-		className: "min-h-screen bg-[#050A0F] flex justify-center w-full font-sans text-white",
+		className: "min-h-screen bg-background flex justify-center w-full font-sans text-foreground",
 		children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("main", {
-			className: "w-full max-w-6xl bg-[#050A0F] min-h-screen relative flex flex-col overflow-hidden shadow-2xl",
+			className: "w-full max-w-6xl bg-background min-h-screen relative flex flex-col overflow-hidden shadow-2xl",
 			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("header", {
-				className: "sticky top-0 z-50 bg-[#050A0F]/90 backdrop-blur-md border-b border-white/10 px-4 h-16 flex items-center shrink-0",
+				className: "sticky top-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border px-4 h-16 flex items-center shrink-0 transition-all",
 				children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 					className: "flex items-center w-full",
 					children: [!isHome && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Button, {
 						variant: "ghost",
 						size: "icon",
 						onClick: () => navigate(-1),
-						className: "mr-2 -ml-2 text-white hover:bg-white/10 hover:text-yellow-400 active:scale-95 transition-all",
+						className: "mr-2 -ml-2 text-muted-foreground hover:bg-secondary hover:text-primary active:scale-95 transition-all",
 						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ChevronLeft, { className: "h-6 w-6" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
 							className: "sr-only",
 							children: "Voltar"
 						})]
 					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: `flex items-center gap-2 ${isHome ? "mx-auto" : ""}`,
+						className: `flex items-center gap-3 ${isHome ? "mx-auto" : ""}`,
 						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "bg-yellow-400 p-1.5 rounded-lg text-black",
-							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Sparkles, { className: "h-4 w-4" })
+							className: "bg-primary p-2 rounded-xl text-primary-foreground shadow-[0_0_20px_-3px_rgba(251,191,36,0.4)]",
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Terminal, { className: "h-4 w-4" })
 						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", {
-							className: "text-base font-bold text-white tracking-tight uppercase",
-							children: "Criativo AI Studio"
+							className: "text-base font-extrabold text-foreground tracking-widest uppercase",
+							children: "PROMPT MASTER"
 						})]
 					})]
 				})
@@ -25162,4 +25496,4 @@ var App = () => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(BrowserRouter, {
 var App_default = App;
 (0, import_client.createRoot)(document.getElementById("root")).render(/* @__PURE__ */ (0, import_jsx_runtime.jsx)(App_default, {}));
 
-//# sourceMappingURL=index-C1jnIhlN.js.map
+//# sourceMappingURL=index-XswlKDIc.js.map
