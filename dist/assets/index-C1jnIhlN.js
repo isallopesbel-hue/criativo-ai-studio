@@ -18918,12 +18918,12 @@ var createLucideIcon = (iconName, iconNode) => {
 	Component.displayName = toPascalCase(iconName);
 	return Component;
 };
-var BookOpen = createLucideIcon("book-open", [["path", {
-	d: "M12 7v14",
-	key: "1akyts"
+var ArrowRight = createLucideIcon("arrow-right", [["path", {
+	d: "M5 12h14",
+	key: "1ays0h"
 }], ["path", {
-	d: "M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z",
-	key: "ruj8y"
+	d: "m12 5 7 7-7 7",
+	key: "xquz4c"
 }]]);
 var Check = createLucideIcon("check", [["path", {
 	d: "M20 6 9 17l-5-5",
@@ -18939,15 +18939,20 @@ var Circle = createLucideIcon("circle", [["circle", {
 	r: "10",
 	key: "1mglay"
 }]]);
-var Clock = createLucideIcon("clock", [["circle", {
-	cx: "12",
-	cy: "12",
-	r: "10",
-	key: "1mglay"
-}], ["path", {
-	d: "M12 6v6l4 2",
-	key: "mmk7yg"
-}]]);
+var CodeXml = createLucideIcon("code-xml", [
+	["path", {
+		d: "m18 16 4-4-4-4",
+		key: "1inbqp"
+	}],
+	["path", {
+		d: "m6 8-4 4 4 4",
+		key: "15zrgr"
+	}],
+	["path", {
+		d: "m14.5 4-5 16",
+		key: "e7oirm"
+	}]
+]);
 var Copy = createLucideIcon("copy", [["rect", {
 	width: "14",
 	height: "14",
@@ -18978,24 +18983,6 @@ var Play = createLucideIcon("play", [["path", {
 	d: "M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z",
 	key: "10ikf1"
 }]]);
-var Rocket = createLucideIcon("rocket", [
-	["path", {
-		d: "M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5",
-		key: "qeys4"
-	}],
-	["path", {
-		d: "M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09",
-		key: "u4xsad"
-	}],
-	["path", {
-		d: "M9 12a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.4 22.4 0 0 1-4 2z",
-		key: "676m9"
-	}],
-	["path", {
-		d: "M9 12H4s.55-3.03 2-4c1.62-1.08 5 .05 5 .05",
-		key: "92ym6u"
-	}]
-]);
 var Sparkles = createLucideIcon("sparkles", [
 	["path", {
 		d: "M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z",
@@ -23715,6 +23702,269 @@ var TooltipContent = import_react.forwardRef(({ className, sideOffset = 4, ...pr
 	...props
 }));
 TooltipContent.displayName = Content2.displayName;
+const CHARACTERS = [{
+	id: "bellivroaberto",
+	name: "BellivroAberto",
+	description: "Estilo Humor/Deboche"
+}, {
+	id: "davi",
+	name: "Davi",
+	description: "Estilo Bíblico/Realista"
+}];
+const NICHES = [
+	{
+		id: "personagem-consistente",
+		title: "Personagem consistente",
+		icon: "🧍",
+		options: [
+			"Personagem masculino em vários cenários",
+			"Personagem feminino em várias poses",
+			"Mascote 3D consistente",
+			"Avatar realista"
+		]
+	},
+	{
+		id: "videos-aleatorios",
+		title: "Vídeos aleatórios",
+		icon: "🎲",
+		options: [
+			"Mistério para desvendar",
+			"Fato curioso",
+			"Desafio viral",
+			"Momento inusitado"
+		]
+	},
+	{
+		id: "desenhos-animados",
+		title: "Desenhos Animados",
+		icon: "🎨",
+		options: [
+			"Herói em ação",
+			"Vilão caricato",
+			"Cena de amizade",
+			"Aventura na floresta"
+		]
+	},
+	{
+		id: "historias-biblicas",
+		title: "Histórias Bíblicas",
+		icon: "📖",
+		options: [
+			"Davi enfrentando Golias",
+			"Moisés abrindo o Mar Vermelho",
+			"Arca de Noé com animais",
+			"Jesus andando sobre as águas"
+		]
+	},
+	{
+		id: "historias-infantis",
+		title: "Histórias Infantis",
+		icon: "🧸",
+		options: [
+			"O coelho que não queria dormir",
+			"A fada que perdeu a varinha",
+			"O dragão amigável",
+			"A princesa que salvou o reino"
+		]
+	},
+	{
+		id: "dark-terror",
+		title: "Vídeos Dark e Terror",
+		icon: "👁️",
+		options: [
+			"Casa abandonada à noite",
+			"Floresta com criatura",
+			"Boneca que se mexe",
+			"Cemitério com névoa"
+		]
+	},
+	{
+		id: "clipes-musicais",
+		title: "Clipes musicais",
+		icon: "🎵",
+		options: [
+			"Cantor em estúdio neon",
+			"Banda em show",
+			"Dançarinos urbanos",
+			"Cena romântica"
+		]
+	},
+	{
+		id: "objetos-falantes",
+		title: "Objetos falantes",
+		icon: "🤖",
+		options: [
+			"Lâmpada que dá conselhos",
+			"Celular contando história",
+			"Livro que ensina",
+			"Brinquedo que conversa"
+		]
+	},
+	{
+		id: "tiktok-instagram",
+		title: "TikTok, Instagram e Youtube Shorts",
+		icon: "📱",
+		options: [
+			"Short de dicas rápidas",
+			"Reel com transição",
+			"Thumbnail chamativa",
+			"Story interativo"
+		]
+	},
+	{
+		id: "construcao",
+		title: "Construção, Reforma e Fabricação",
+		icon: "🏗️",
+		options: [
+			"Casa moderna de dois andares",
+			"Cozinha industrial",
+			"Móveis planejados de luxo",
+			"Sala minimalista"
+		]
+	},
+	{
+		id: "produtos-digitais",
+		title: "Criativo de Vendas Produtos Digitais",
+		icon: "💻",
+		options: [
+			"E-book com dinheiro saindo",
+			"Curso online com aluno",
+			"Mentoria antes e depois",
+			"Infoproduto com gráfico"
+		]
+	},
+	{
+		id: "produtos-fisicos",
+		title: "Criativo de Vendas Produtos Físicos",
+		icon: "📦",
+		options: [
+			"Roupa em movimento",
+			"Cosmético com brilho",
+			"Eletrônico em uso",
+			"Embalagem abrindo"
+		]
+	}
+];
+const MOCK_HISTORY = [{
+	id: "1",
+	nicheId: "construcao",
+	nicheTitle: "Construção, Reforma e Fabricação",
+	nicheIcon: "🏗️",
+	option: "Casa moderna de dois andares",
+	character: "BellivroAberto",
+	date: (/* @__PURE__ */ new Date()).toISOString(),
+	timeDisplay: "10:30",
+	json: {
+		nicho: "Construção, Reforma e Fabricação",
+		opcao: "Casa moderna de dois andares",
+		personagem: "BellivroAberto",
+		estilo: "moderno",
+		iluminacao: "natural",
+		data: "2026-02-26"
+	}
+}];
+function generateMetadata(option) {
+	const lower = option.toLowerCase();
+	let estilo = "realista";
+	let iluminacao = "balanceada";
+	if (lower.includes("modern")) {
+		estilo = "moderno";
+		iluminacao = "natural";
+	} else if (lower.includes("luxo") || lower.includes("dramátic") || lower.includes("noite") || lower.includes("terror")) {
+		estilo = "cinematográfico";
+		iluminacao = "dramática";
+	} else if (lower.includes("anim") || lower.includes("pixar") || lower.includes("infant")) {
+		estilo = "animação 3D";
+		iluminacao = "suave e colorida";
+	} else if (lower.includes("vlog") || lower.includes("tiktok")) {
+		estilo = "câmera de celular";
+		iluminacao = "ring light";
+	} else if (lower.includes("dark") || lower.includes("terror")) {
+		estilo = "sombrio";
+		iluminacao = "baixa luz, sombras duras";
+	}
+	return {
+		estilo,
+		iluminacao
+	};
+}
+var PromptContext = (0, import_react.createContext)(void 0);
+function PromptProvider({ children }) {
+	const [draft, setDraftState] = (0, import_react.useState)({});
+	const [history, setHistory] = (0, import_react.useState)(MOCK_HISTORY);
+	const setDraft = (updates) => {
+		setDraftState((prev) => ({
+			...prev,
+			...updates
+		}));
+	};
+	const addResult = (result) => {
+		setHistory((prev) => [result, ...prev]);
+	};
+	const clearDraft = () => {
+		setDraftState({});
+	};
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PromptContext.Provider, {
+		value: {
+			draft,
+			setDraft,
+			history,
+			addResult,
+			clearDraft
+		},
+		children
+	});
+}
+function usePromptStore() {
+	const context = (0, import_react.useContext)(PromptContext);
+	if (context === void 0) throw new Error("usePromptStore must be used within a PromptProvider");
+	return context;
+}
+var Index = () => {
+	const { clearDraft } = usePromptStore();
+	const navigate = useNavigate();
+	const handleSelectNiche = (nicheId) => {
+		clearDraft();
+		navigate(`/options/${nicheId}`);
+	};
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		className: "animate-in fade-in slide-in-from-bottom-4 duration-500 flex flex-col items-center gap-10 bg-background min-h-[calc(100vh-4rem)] p-6 md:p-12",
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
+			className: "text-center space-y-4 max-w-3xl mx-auto mt-4 md:mt-8",
+			children: [
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", {
+					className: "text-3xl md:text-5xl font-bold text-yellow-400 tracking-tight",
+					children: "Gerador de Prompt Profissional"
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+					className: "text-lg md:text-xl font-medium text-white",
+					children: "Ferramentas Exclusivas do Canal Play Money"
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+					className: "text-cyan-400 text-sm md:text-base leading-relaxed max-w-2xl mx-auto",
+					children: "Gere vídeos automáticos com IA para redes sociais, canais, anúncios e muito mais em poucos cliques!"
+				})
+			]
+		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("section", {
+			className: "w-full max-w-5xl mx-auto pb-12",
+			children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5",
+				children: NICHES.map((niche) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					onClick: () => handleSelectNiche(niche.id),
+					className: "flex items-center gap-4 p-4 md:p-5 rounded-xl border border-white/10 bg-[#0A111F] hover:bg-[#111A2E] hover:border-yellow-400/50 hover:scale-[1.02] hover:shadow-[0_0_20px_rgba(250,204,21,0.1)] transition-all cursor-pointer group",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "text-2xl md:text-3xl shrink-0 group-hover:scale-110 transition-transform",
+						children: niche.icon
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
+						className: "font-semibold text-white text-sm md:text-base leading-snug",
+						children: niche.title
+					})]
+				}, niche.id))
+			})
+		})]
+	});
+};
+var Index_default = Index;
 var REACT_LAZY_TYPE = Symbol.for("react.lazy");
 var use = import_react[" use ".trim().toString()];
 function isPromiseLike(value) {
@@ -23841,536 +24091,6 @@ var Button = import_react.forwardRef(({ className, variant, size: size$3, asChil
 	});
 });
 Button.displayName = "Button";
-var Card = import_react.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-	ref,
-	className: cn("rounded-lg border bg-card text-card-foreground shadow-sm", className),
-	...props
-}));
-Card.displayName = "Card";
-var CardHeader = import_react.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-	ref,
-	className: cn("flex flex-col space-y-1.5 p-6", className),
-	...props
-}));
-CardHeader.displayName = "CardHeader";
-var CardTitle = import_react.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-	ref,
-	className: cn("text-2xl font-semibold leading-none tracking-tight", className),
-	...props
-}));
-CardTitle.displayName = "CardTitle";
-var CardDescription = import_react.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-	ref,
-	className: cn("text-sm text-muted-foreground", className),
-	...props
-}));
-CardDescription.displayName = "CardDescription";
-var CardContent = import_react.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-	ref,
-	className: cn("p-6 pt-0", className),
-	...props
-}));
-CardContent.displayName = "CardContent";
-var CardFooter = import_react.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-	ref,
-	className: cn("flex items-center p-6 pt-0", className),
-	...props
-}));
-CardFooter.displayName = "CardFooter";
-const CHARACTERS = [{
-	id: "bellivroaberto",
-	name: "BellivroAberto",
-	description: "Estilo Humor/Deboche"
-}, {
-	id: "davi",
-	name: "Davi",
-	description: "Estilo Bíblico/Realista"
-}];
-const NICHES = [
-	{
-		id: "construcao",
-		title: "CONSTRUÇÃO E REFORMA",
-		icon: "🏗️",
-		options: [
-			"Casa moderna de dois andares",
-			"Cozinha industrial",
-			"Móveis planejados de luxo",
-			"Sala minimalista"
-		]
-	},
-	{
-		id: "historias-biblicas",
-		title: "HISTÓRIAS BÍBLICAS",
-		icon: "📖",
-		options: [
-			"Davi enfrentando Golias",
-			"Moisés abrindo o Mar Vermelho",
-			"Arca de Noé com animais",
-			"Jesus andando sobre as águas"
-		]
-	},
-	{
-		id: "historias-infantis",
-		title: "HISTÓRIAS INFANTIS",
-		icon: "🧸",
-		options: [
-			"O coelho que não queria dormir",
-			"A fada que perdeu a varinha",
-			"O dragão amigável",
-			"A princesa que salvou o reino"
-		]
-	},
-	{
-		id: "dark-terror",
-		title: "DARK E TERROR",
-		icon: "👻",
-		options: [
-			"Casa abandonada à noite",
-			"Floresta com criatura",
-			"Boneca que se mexe",
-			"Cemitério com névoa"
-		]
-	},
-	{
-		id: "produtos-digitais",
-		title: "PRODUTOS DIGITAIS",
-		icon: "💰",
-		options: [
-			"E-book com dinheiro saindo",
-			"Curso online com aluno",
-			"Mentoria antes e depois",
-			"Infoproduto com gráfico"
-		]
-	},
-	{
-		id: "clipes-musicais",
-		title: "CLIPES MUSICAIS",
-		icon: "🎵",
-		options: [
-			"Cantor em estúdio neon",
-			"Banda em show",
-			"Dançarinos urbanos",
-			"Cena romântica"
-		]
-	},
-	{
-		id: "tiktok-instagram",
-		title: "TIKTOK / INSTAGRAM / YOUTUBE",
-		icon: "🎬",
-		options: [
-			"Short de dicas rápidas",
-			"Reel com transição",
-			"Thumbnail chamativa",
-			"Story interativo"
-		]
-	},
-	{
-		id: "objetos-falantes",
-		title: "OBJETOS FALANTES",
-		icon: "🗣️",
-		options: [
-			"Lâmpada que dá conselhos",
-			"Celular contando história",
-			"Livro que ensina",
-			"Brinquedo que conversa"
-		]
-	},
-	{
-		id: "produtos-fisicos",
-		title: "PRODUTOS FÍSICOS",
-		icon: "📦",
-		options: [
-			"Roupa em movimento",
-			"Cosmético com brilho",
-			"Eletrônico em uso",
-			"Embalagem abrindo"
-		]
-	},
-	{
-		id: "desenhos-animados",
-		title: "DESENHOS ANIMADOS",
-		icon: "🎨",
-		options: [
-			"Herói em ação",
-			"Vilão caricato",
-			"Cena de amizade",
-			"Aventura na floresta"
-		]
-	},
-	{
-		id: "videos-aleatorios",
-		title: "VÍDEOS ALEATÓRIOS",
-		icon: "🎲",
-		options: [
-			"Mistério para desvendar",
-			"Fato curioso",
-			"Desafio viral",
-			"Momento inusitado"
-		]
-	}
-];
-const MOCK_HISTORY = [
-	{
-		id: "1",
-		nicheId: "construcao",
-		nicheTitle: "CONSTRUÇÃO E REFORMA",
-		nicheIcon: "🏗️",
-		option: "Casa moderna de dois andares",
-		character: "BellivroAberto",
-		date: (/* @__PURE__ */ new Date()).toISOString(),
-		timeDisplay: "10:30",
-		json: {
-			nicho: "CONSTRUÇÃO E REFORMA",
-			opcao: "Casa moderna de dois andares",
-			personagem: "BellivroAberto",
-			estilo: "moderno",
-			iluminacao: "natural",
-			data: "2026-02-26"
-		}
-	},
-	{
-		id: "2",
-		nicheId: "historias-biblicas",
-		nicheTitle: "HISTÓRIAS BÍBLICAS",
-		nicheIcon: "📖",
-		option: "Davi enfrentando Golias",
-		character: "Davi",
-		date: (/* @__PURE__ */ new Date(Date.now() - 864e5)).toISOString(),
-		timeDisplay: "ontem",
-		json: {
-			nicho: "HISTÓRIAS BÍBLICAS",
-			opcao: "Davi enfrentando Golias",
-			personagem: "Davi",
-			estilo: "cinematográfico",
-			iluminacao: "dramática",
-			data: "2026-02-25"
-		}
-	},
-	{
-		id: "3",
-		nicheId: "historias-infantis",
-		nicheTitle: "HISTÓRIAS INFANTIS",
-		nicheIcon: "🧸",
-		option: "O coelho que não queria dormir",
-		character: "Coelho",
-		date: (/* @__PURE__ */ new Date(Date.now() - 1728e5)).toISOString(),
-		timeDisplay: "2 dias",
-		json: {
-			nicho: "HISTÓRIAS INFANTIS",
-			opcao: "O coelho que não queria dormir",
-			personagem: "Coelho",
-			estilo: "animação 3D",
-			iluminacao: "suave e colorida",
-			data: "2026-02-24"
-		}
-	}
-];
-function generateMetadata(option) {
-	const lower = option.toLowerCase();
-	let estilo = "realista";
-	let iluminacao = "balanceada";
-	if (lower.includes("modern")) {
-		estilo = "moderno";
-		iluminacao = "natural";
-	} else if (lower.includes("luxo") || lower.includes("dramátic") || lower.includes("noite") || lower.includes("terror")) {
-		estilo = "cinematográfico";
-		iluminacao = "dramática";
-	} else if (lower.includes("anim") || lower.includes("pixar") || lower.includes("infant")) {
-		estilo = "animação 3D";
-		iluminacao = "suave e colorida";
-	} else if (lower.includes("vlog") || lower.includes("tiktok")) {
-		estilo = "câmera de celular";
-		iluminacao = "ring light";
-	} else if (lower.includes("dark") || lower.includes("terror")) {
-		estilo = "sombrio";
-		iluminacao = "baixa luz, sombras duras";
-	}
-	return {
-		estilo,
-		iluminacao
-	};
-}
-var PromptContext = (0, import_react.createContext)(void 0);
-function PromptProvider({ children }) {
-	const [draft, setDraftState] = (0, import_react.useState)({});
-	const [history, setHistory] = (0, import_react.useState)(MOCK_HISTORY);
-	const setDraft = (updates) => {
-		setDraftState((prev) => ({
-			...prev,
-			...updates
-		}));
-	};
-	const addResult = (result) => {
-		setHistory((prev) => [result, ...prev]);
-	};
-	const clearDraft = () => {
-		setDraftState({});
-	};
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PromptContext.Provider, {
-		value: {
-			draft,
-			setDraft,
-			history,
-			addResult,
-			clearDraft
-		},
-		children
-	});
-}
-function usePromptStore() {
-	const context = (0, import_react.useContext)(PromptContext);
-	if (context === void 0) throw new Error("usePromptStore must be used within a PromptProvider");
-	return context;
-}
-var POPULAR_NICHES = [
-	{
-		id: "construcao",
-		icon: "🏗️",
-		name: "CONSTRUÇÃO",
-		count: 12
-	},
-	{
-		id: "historias-biblicas",
-		icon: "📖",
-		name: "BÍBLICO",
-		count: 8
-	},
-	{
-		id: "dark-terror",
-		icon: "👻",
-		name: "TERROR",
-		count: 6
-	},
-	{
-		id: "historias-infantis",
-		icon: "🧸",
-		name: "INFANTIL",
-		count: 10
-	},
-	{
-		id: "produtos-digitais",
-		icon: "💰",
-		name: "PRODUTOS",
-		count: 15
-	}
-];
-var Index = () => {
-	const { history, clearDraft } = usePromptStore();
-	const navigate = useNavigate();
-	const handleStart = () => {
-		clearDraft();
-		navigate("/nichos");
-	};
-	const handleOpenHistory = (result) => {
-		navigate("/result", { state: { result } });
-	};
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: "animate-slide-in-right pb-6 flex flex-col gap-6 bg-background min-h-[calc(100vh-4rem)]",
-		children: [
-			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
-				className: "text-center px-6 pt-10 pb-6 space-y-5",
-				children: [
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", {
-						className: "text-3xl font-bold text-navy tracking-tight",
-						children: "CRIATIVO AI STUDIO"
-					}),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
-						className: "text-lg font-medium text-gold -mt-3",
-						children: "Gerador de Prompts Profissionais"
-					}),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-						className: "text-navy/70 text-sm leading-relaxed max-w-sm mx-auto",
-						children: "Crie comandos estruturados para IA em segundos. Mais de 50 templates prontos • Personagens consistentes • Exporte para Whisk, Flow e CapCut."
-					}),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "pt-2 space-y-3",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Button, {
-							onClick: handleStart,
-							size: "lg",
-							className: "w-full h-14 rounded-xl bg-navy hover:bg-navy/90 text-white font-bold text-[15px] shadow-lg active:scale-[0.98] transition-all",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Rocket, { className: "mr-2 h-5 w-5" }), "COMEÇAR AGORA"]
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Button, {
-							onClick: () => {},
-							size: "lg",
-							variant: "ghost",
-							className: "w-full h-14 rounded-xl bg-black/5 hover:bg-black/10 text-navy font-bold text-[15px] active:scale-[0.98] transition-all",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(BookOpen, { className: "mr-2 h-5 w-5" }), "VER DEMO"]
-						})]
-					})
-				]
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
-				className: "px-0",
-				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
-					className: "font-bold text-navy text-sm mb-3 px-6",
-					children: "Nichos Populares"
-				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-					className: "flex overflow-x-auto gap-3 px-6 pb-4 snap-x hide-scrollbar",
-					children: POPULAR_NICHES.map((niche) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Card, {
-						className: "min-w-[140px] snap-start shrink-0 p-4 border-none shadow-sm flex flex-col items-center justify-center text-center bg-white rounded-2xl",
-						children: [
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-								className: "text-3xl mb-2",
-								children: niche.icon
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h4", {
-								className: "font-bold text-navy text-xs tracking-wider uppercase mb-1",
-								children: niche.name
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
-								className: "text-[10px] text-muted-foreground mb-3",
-								children: [niche.count, " templates"]
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button, {
-								size: "sm",
-								variant: "outline",
-								className: "w-full text-[11px] h-8 border-navy/20 text-navy hover:bg-navy/5 font-semibold rounded-lg",
-								onClick: () => {
-									clearDraft();
-									navigate(`/options/${niche.id}`);
-								},
-								children: "SELECIONAR"
-							})
-						]
-					}, niche.id))
-				})]
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
-				className: "px-6",
-				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "flex items-center gap-2 mb-3",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Clock, { className: "h-4 w-4 text-navy/70" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
-						className: "font-bold text-navy text-sm",
-						children: "Últimos Prompts"
-					})]
-				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-					className: "space-y-2.5",
-					children: history.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-						className: "text-center py-8 text-muted-foreground border border-dashed border-navy/20 rounded-2xl bg-white/50",
-						children: "Nenhum prompt gerado ainda."
-					}) : history.map((item) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Card, {
-						className: "p-3.5 cursor-pointer hover:bg-black/5 active:scale-[0.99] transition-all border-none shadow-sm flex flex-col justify-center bg-white rounded-xl",
-						onClick: () => handleOpenHistory(item),
-						children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							className: "flex items-start justify-between gap-3",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-								className: "flex-1 min-w-0",
-								children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
-									className: "text-[13px] font-semibold text-navy leading-snug",
-									children: [
-										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-											className: "mr-1",
-											children: item.nicheIcon
-										}),
-										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-											className: "uppercase",
-											children: item.nicheTitle
-										}),
-										":",
-										" ",
-										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-											className: "font-normal",
-											children: item.option
-										})
-									]
-								})
-							}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								className: "shrink-0 text-[11px] font-medium text-navy/50 pt-0.5 whitespace-nowrap",
-								children: ["Tempo: ", item.timeDisplay || "agora"]
-							})]
-						})
-					}, item.id))
-				})]
-			})
-		]
-	});
-};
-var Index_default = Index;
-var Nichos = () => {
-	const navigate = useNavigate();
-	const { setDraft, addResult } = usePromptStore();
-	const handleSelectOption = (niche, option) => {
-		setDraft({
-			nicheId: niche.id,
-			option
-		});
-		const { estilo, iluminacao } = generateMetadata(option);
-		const charName = "Personagem Padrão";
-		const newResult = {
-			id: Math.random().toString(36).substring(7),
-			nicheId: niche.id,
-			nicheTitle: niche.title,
-			nicheIcon: niche.icon,
-			option,
-			character: charName,
-			date: (/* @__PURE__ */ new Date()).toISOString(),
-			timeDisplay: "agora",
-			json: {
-				nicho: niche.title,
-				opcao: option,
-				personagem: charName,
-				estilo,
-				iluminacao,
-				data: (/* @__PURE__ */ new Date()).toISOString().split("T")[0]
-			}
-		};
-		addResult(newResult);
-		navigate("/result", { state: {
-			result: newResult,
-			isNew: true
-		} });
-	};
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: "animate-slide-in-right pb-10 flex flex-col min-h-screen bg-background",
-		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			className: "px-5 pt-8 pb-6",
-			children: [
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", {
-					className: "text-[28px] font-bold text-navy tracking-tight uppercase leading-none",
-					children: "GERADOR DE PROMPT"
-				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
-					className: "text-[20px] font-bold text-muted-foreground mt-2 leading-none",
-					children: "Profissional"
-				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-					className: "text-[15px] text-muted-foreground mt-3",
-					children: "Escolha o nicho para começar"
-				})
-			]
-		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-			className: "flex flex-col gap-8",
-			children: NICHES.slice(0, 11).map((niche) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
-				className: "w-full",
-				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("h3", {
-					className: "font-bold text-navy text-[15px] mb-3 px-5 uppercase flex items-center gap-2",
-					children: [
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-							className: "text-xl",
-							children: niche.icon
-						}),
-						" ",
-						niche.title
-					]
-				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-					className: "flex overflow-x-auto gap-4 px-5 pb-2 snap-x hide-scrollbar",
-					children: niche.options.map((opt, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Card, {
-						onClick: () => handleSelectOption(niche, opt),
-						className: "snap-start shrink-0 w-[240px] p-4 flex flex-col justify-between cursor-pointer hover:border-navy/20 active:scale-[0.98] transition-all shadow-sm h-[120px] bg-slate-50 border border-slate-100 rounded-[10px]",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-							className: "font-semibold text-[14px] leading-snug text-navy line-clamp-2",
-							children: opt
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-							className: "text-blue-600 font-bold text-[12px] uppercase tracking-wide flex items-center",
-							children: "GERAR PROMPT →"
-						})]
-					}, i))
-				})]
-			}, niche.id))
-		})]
-	});
-};
-var Nichos_default = Nichos;
 require_react_dom();
 var Primitive = [
 	"a",
@@ -24895,7 +24615,7 @@ var Options = () => {
 	const [selectedOption, setSelectedOption] = (0, import_react.useState)("");
 	const [selectedCharacter, setSelectedCharacter] = (0, import_react.useState)("");
 	if (!niche) return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-		className: "p-8 text-center text-navy",
+		className: "p-8 text-center text-white",
 		children: "Nicho não encontrado."
 	});
 	const handleGenerate = () => {
@@ -24932,70 +24652,77 @@ var Options = () => {
 	};
 	const isFormValid = selectedOption !== "" && selectedCharacter !== "";
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: "animate-slide-in-right px-4 py-6 flex flex-col min-h-[calc(100vh-4rem)] bg-background",
+		className: "animate-in fade-in slide-in-from-bottom-4 duration-500 p-6 md:p-12 flex flex-col min-h-[calc(100vh-4rem)] max-w-4xl mx-auto w-full",
 		children: [
 			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: "mb-6 flex items-center gap-3 px-1",
+				className: "mb-8 flex flex-col md:flex-row md:items-center gap-4",
 				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-					className: "h-12 w-12 rounded-2xl bg-white border border-border shadow-sm flex items-center justify-center text-2xl",
+					className: "h-16 w-16 shrink-0 rounded-2xl bg-[#0A111F] border border-white/10 shadow-lg flex items-center justify-center text-3xl",
 					children: niche.icon
 				}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
-					className: "text-xl font-bold text-navy leading-tight",
+					className: "text-2xl md:text-3xl font-bold text-yellow-400 leading-tight",
 					children: niche.title
 				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-					className: "text-gold text-xs font-medium mt-0.5",
-					children: "Configure seu prompt"
+					className: "text-cyan-400 text-sm font-medium mt-1",
+					children: "Configure as opções para o seu prompt"
 				})] })]
 			}),
 			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: "flex-1 space-y-6 pb-24",
+				className: "flex-1 space-y-8 pb-24",
 				children: [
-					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
-						className: "font-bold text-[13px] uppercase tracking-wider text-navy/70 mb-3 px-1",
-						children: "1. O que deseja criar?"
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("h3", {
+						className: "font-bold text-sm uppercase tracking-wider text-white/50 mb-4 flex items-center gap-2",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+							className: "bg-white/10 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs",
+							children: "1"
+						}), "O que deseja criar?"]
 					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(RadioGroup, {
 						value: selectedOption,
 						onValueChange: setSelectedOption,
-						className: "space-y-2.5",
+						className: "grid grid-cols-1 md:grid-cols-2 gap-3",
 						children: niche.options.map((opt, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Label, {
-							className: `flex items-start gap-3 p-4 rounded-xl border-2 cursor-pointer transition-all active:scale-[0.98] ${selectedOption === opt ? "border-navy bg-navy/5 shadow-sm" : "border-transparent bg-white hover:border-navy/20"}`,
+							className: `flex items-start gap-3 p-4 rounded-xl border border-white/10 cursor-pointer transition-all hover:scale-[1.01] ${selectedOption === opt ? "border-yellow-400 bg-yellow-400/10 shadow-[0_0_15px_rgba(250,204,21,0.1)]" : "bg-[#0A111F] hover:bg-[#111A2E] hover:border-white/30"}`,
 							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(RadioGroupItem, {
 								value: opt,
 								id: `opt-${i}`,
-								className: "mt-0.5 shrink-0"
+								className: "mt-0.5 shrink-0 border-white/50 text-yellow-400 data-[state=checked]:border-yellow-400"
 							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-								className: "font-semibold text-sm leading-snug text-navy",
+								className: "font-semibold text-sm leading-snug text-white",
 								children: opt
 							})]
 						}, i))
 					})] }),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Separator, { className: "bg-navy/10" }),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
-						className: "font-bold text-[13px] uppercase tracking-wider text-navy/70 mb-3 px-1",
-						children: "2. Escolha o Personagem"
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Separator, { className: "bg-white/10" }),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("h3", {
+						className: "font-bold text-sm uppercase tracking-wider text-white/50 mb-4 flex items-center gap-2",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+							className: "bg-white/10 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs",
+							children: "2"
+						}), "Escolha o Personagem"]
 					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(RadioGroup, {
 						value: selectedCharacter,
 						onValueChange: setSelectedCharacter,
-						className: "grid grid-cols-2 gap-3",
+						className: "grid grid-cols-1 sm:grid-cols-2 gap-3",
 						children: CHARACTERS.map((char) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Label, {
-							className: `flex flex-col p-4 rounded-xl border-2 cursor-pointer transition-all active:scale-[0.98] ${selectedCharacter === char.id ? "border-navy bg-navy/5 shadow-sm" : "border-transparent bg-white hover:border-navy/20"}`,
+							className: `flex flex-col p-4 rounded-xl border border-white/10 cursor-pointer transition-all hover:scale-[1.01] ${selectedCharacter === char.id ? "border-yellow-400 bg-yellow-400/10 shadow-[0_0_15px_rgba(250,204,21,0.1)]" : "bg-[#0A111F] hover:bg-[#111A2E] hover:border-white/30"}`,
 							children: [
 								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 									className: "flex justify-between items-start w-full mb-3",
 									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(RadioGroupItem, {
 										value: char.id,
-										id: `char-${char.id}`
+										id: `char-${char.id}`,
+										className: "border-white/50 text-yellow-400 data-[state=checked]:border-yellow-400"
 									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-										className: "h-8 w-8 rounded-full bg-[#F5F0E9] flex items-center justify-center text-sm shadow-inner",
+										className: "h-8 w-8 rounded-full bg-white/5 flex items-center justify-center text-sm border border-white/10",
 										children: "🎭"
 									})]
 								}),
 								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									className: "font-bold text-sm text-navy",
+									className: "font-bold text-sm text-white",
 									children: char.name
 								}),
 								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									className: "text-[11px] font-medium text-navy/60 mt-0.5 leading-tight",
+									className: "text-xs font-medium text-cyan-400/70 mt-1 leading-tight",
 									children: char.description
 								})
 							]
@@ -25004,18 +24731,61 @@ var Options = () => {
 				]
 			}),
 			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[480px] p-4 bg-background/90 backdrop-blur-md border-t border-navy/5 z-10",
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Button, {
-					onClick: handleGenerate,
-					disabled: !isFormValid,
-					className: "w-full h-14 rounded-xl bg-navy hover:bg-navy/90 text-white font-bold text-[15px] shadow-lg transition-all",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Sparkles, { className: "mr-2 h-5 w-5" }), "GERAR PROMPT"]
+				className: "fixed bottom-0 left-0 w-full p-4 bg-background/90 backdrop-blur-md border-t border-white/10 z-10 flex justify-center",
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					className: "w-full max-w-4xl px-2",
+					children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Button, {
+						onClick: handleGenerate,
+						disabled: !isFormValid,
+						className: "w-full h-14 rounded-xl bg-yellow-400 hover:bg-yellow-500 text-black font-bold text-base shadow-[0_0_20px_rgba(250,204,21,0.2)] transition-all disabled:opacity-50 disabled:hover:bg-yellow-400 disabled:shadow-none",
+						children: [
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Sparkles, { className: "mr-2 h-5 w-5" }),
+							"GERAR PROMPT AGORA",
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowRight, { className: "ml-2 h-5 w-5" })
+						]
+					})
 				})
 			})
 		]
 	});
 };
 var Options_default = Options;
+var Card = import_react.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+	ref,
+	className: cn("rounded-lg border bg-card text-card-foreground shadow-sm", className),
+	...props
+}));
+Card.displayName = "Card";
+var CardHeader = import_react.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+	ref,
+	className: cn("flex flex-col space-y-1.5 p-6", className),
+	...props
+}));
+CardHeader.displayName = "CardHeader";
+var CardTitle = import_react.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+	ref,
+	className: cn("text-2xl font-semibold leading-none tracking-tight", className),
+	...props
+}));
+CardTitle.displayName = "CardTitle";
+var CardDescription = import_react.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+	ref,
+	className: cn("text-sm text-muted-foreground", className),
+	...props
+}));
+CardDescription.displayName = "CardDescription";
+var CardContent = import_react.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+	ref,
+	className: cn("p-6 pt-0", className),
+	...props
+}));
+CardContent.displayName = "CardContent";
+var CardFooter = import_react.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+	ref,
+	className: cn("flex items-center p-6 pt-0", className),
+	...props
+}));
+CardFooter.displayName = "CardFooter";
 var Result = () => {
 	const location = useLocation();
 	const navigate = useNavigate();
@@ -25048,7 +24818,7 @@ var Result = () => {
 		toast$2({
 			title: "Copiado com sucesso!",
 			description: "O JSON foi copiado para a área de transferência.",
-			className: "bg-mint text-navy border-none font-medium"
+			className: "bg-green-600 text-white border-none font-medium"
 		});
 		setTimeout(() => setCopied(false), 2e3);
 	};
@@ -25064,76 +24834,79 @@ var Result = () => {
 			toast$2({
 				title: "Abrindo CapCut...",
 				description: "Se o app não abrir, instale o CapCut no seu dispositivo.",
-				className: "bg-navy text-white border-none"
+				className: "bg-[#0A111F] text-white border-white/20"
 			});
 		}, 500);
 	};
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: "animate-slide-in-right px-4 py-6 flex flex-col gap-6 bg-background min-h-[calc(100vh-4rem)]",
+		className: "animate-in fade-in slide-in-from-bottom-4 duration-500 p-6 md:p-12 flex flex-col gap-8 min-h-[calc(100vh-4rem)] max-w-4xl mx-auto w-full",
 		children: [
 			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: "text-center space-y-1 mt-2",
+				className: "text-center space-y-2 mt-4",
 				children: [
 					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-						className: "inline-flex items-center justify-center p-3 bg-mint/20 rounded-full mb-3 text-mint-foreground",
-						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Sparkles, { className: "h-7 w-7 text-mint" })
+						className: "inline-flex items-center justify-center p-4 bg-yellow-400/10 rounded-full mb-2 border border-yellow-400/20 shadow-[0_0_20px_rgba(250,204,21,0.15)]",
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Sparkles, { className: "h-8 w-8 text-yellow-400" })
 					}),
 					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
-						className: "text-2xl font-bold text-navy",
+						className: "text-3xl md:text-4xl font-bold text-yellow-400 tracking-tight",
 						children: "Prompt Pronto!"
 					}),
 					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-						className: "text-navy/70 text-sm font-medium",
-						children: "Seu JSON estruturado foi gerado com sucesso."
+						className: "text-cyan-400 text-sm md:text-base font-medium",
+						children: "Seu JSON estruturado foi gerado com sucesso e está pronto para uso."
 					})
 				]
 			}),
 			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Card, {
-				className: "overflow-hidden border-none shadow-lg bg-charcoal rounded-2xl",
+				className: "overflow-hidden border border-white/10 shadow-2xl bg-[#0A111F] rounded-2xl",
 				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "flex items-center justify-between px-4 py-2 border-b border-white/10 bg-black/20",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-						className: "text-[11px] font-mono font-medium text-white/50 uppercase tracking-wider",
-						children: "prompt.json"
+					className: "flex items-center justify-between px-4 py-3 border-b border-white/10 bg-black/40",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "flex items-center gap-2 text-white/50",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(CodeXml, { className: "h-4 w-4" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+							className: "text-xs font-mono font-medium tracking-wider",
+							children: "prompt.json"
+						})]
 					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Button, {
 						variant: "ghost",
 						size: "sm",
 						onClick: handleCopy,
-						className: "text-white/70 hover:text-white hover:bg-white/10 h-8 gap-1.5 px-2.5 -mr-2 rounded-lg",
-						children: [copied ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Check, { className: "h-3.5 w-3.5 text-mint" }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Copy, { className: "h-3.5 w-3.5" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+						className: "text-yellow-400 hover:text-yellow-300 hover:bg-yellow-400/10 h-8 gap-1.5 px-3 rounded-lg border border-yellow-400/20",
+						children: [copied ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Check, { className: "h-3.5 w-3.5" }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Copy, { className: "h-3.5 w-3.5" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
 							className: "text-xs font-semibold",
 							children: copied ? "COPIADO" : "COPIAR"
 						})]
 					})]
 				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-					className: "p-4 overflow-x-auto hide-scrollbar",
+					className: "p-5 md:p-6 overflow-x-auto hide-scrollbar bg-[#050A0F]",
 					children: isGenerating ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "animate-pulse-subtle space-y-3 py-4",
+						className: "animate-pulse space-y-3 py-4",
 						children: [
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "h-4 bg-white/10 rounded w-1/4" }),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "h-4 bg-white/10 rounded w-3/4" }),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "h-4 bg-white/10 rounded w-1/2" }),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "h-4 bg-white/10 rounded w-2/3" }),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "h-4 bg-white/10 rounded w-1/3" })
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "h-4 bg-white/5 rounded w-1/4" }),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "h-4 bg-white/5 rounded w-3/4" }),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "h-4 bg-white/5 rounded w-1/2" }),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "h-4 bg-white/5 rounded w-2/3" }),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "h-4 bg-white/5 rounded w-1/3" })
 						]
 					}) : /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("pre", {
-						className: "font-mono text-[13px] leading-relaxed text-[#D4D4D4]",
+						className: "font-mono text-sm md:text-[15px] leading-relaxed text-[#E5E7EB]",
 						children: [
 							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-								className: "text-[#9CDCFE]",
+								className: "text-[#38BDF8]",
 								children: "{"
 							}),
 							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
 							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-								className: "text-[#9CDCFE]",
+								className: "text-[#38BDF8]",
 								children: " \"nicho\""
 							}),
 							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-								className: "text-[#D4D4D4]",
+								className: "text-[#9CA3AF]",
 								children: ": "
 							}),
 							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-								className: "text-[#CE9178]",
+								className: "text-[#FACC15]",
 								children: [
 									"\"",
 									result.json.nicho,
@@ -25141,20 +24914,20 @@ var Result = () => {
 								]
 							}),
 							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-								className: "text-[#D4D4D4]",
+								className: "text-[#9CA3AF]",
 								children: ","
 							}),
 							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
 							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-								className: "text-[#9CDCFE]",
+								className: "text-[#38BDF8]",
 								children: " \"opcao\""
 							}),
 							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-								className: "text-[#D4D4D4]",
+								className: "text-[#9CA3AF]",
 								children: ": "
 							}),
 							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-								className: "text-[#CE9178]",
+								className: "text-[#FACC15]",
 								children: [
 									"\"",
 									result.json.opcao,
@@ -25162,20 +24935,20 @@ var Result = () => {
 								]
 							}),
 							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-								className: "text-[#D4D4D4]",
+								className: "text-[#9CA3AF]",
 								children: ","
 							}),
 							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
 							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-								className: "text-[#9CDCFE]",
+								className: "text-[#38BDF8]",
 								children: " \"personagem\""
 							}),
 							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-								className: "text-[#D4D4D4]",
+								className: "text-[#9CA3AF]",
 								children: ": "
 							}),
 							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-								className: "text-[#CE9178]",
+								className: "text-[#FACC15]",
 								children: [
 									"\"",
 									result.json.personagem,
@@ -25183,20 +24956,20 @@ var Result = () => {
 								]
 							}),
 							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-								className: "text-[#D4D4D4]",
+								className: "text-[#9CA3AF]",
 								children: ","
 							}),
 							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
 							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-								className: "text-[#9CDCFE]",
+								className: "text-[#38BDF8]",
 								children: " \"estilo\""
 							}),
 							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-								className: "text-[#D4D4D4]",
+								className: "text-[#9CA3AF]",
 								children: ": "
 							}),
 							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-								className: "text-[#CE9178]",
+								className: "text-[#FACC15]",
 								children: [
 									"\"",
 									result.json.estilo,
@@ -25204,20 +24977,20 @@ var Result = () => {
 								]
 							}),
 							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-								className: "text-[#D4D4D4]",
+								className: "text-[#9CA3AF]",
 								children: ","
 							}),
 							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
 							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-								className: "text-[#9CDCFE]",
+								className: "text-[#38BDF8]",
 								children: " \"iluminacao\""
 							}),
 							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-								className: "text-[#D4D4D4]",
+								className: "text-[#9CA3AF]",
 								children: ": "
 							}),
 							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-								className: "text-[#CE9178]",
+								className: "text-[#FACC15]",
 								children: [
 									"\"",
 									result.json.iluminacao,
@@ -25225,20 +24998,20 @@ var Result = () => {
 								]
 							}),
 							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-								className: "text-[#D4D4D4]",
+								className: "text-[#9CA3AF]",
 								children: ","
 							}),
 							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
 							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-								className: "text-[#9CDCFE]",
+								className: "text-[#38BDF8]",
 								children: " \"data\""
 							}),
 							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-								className: "text-[#D4D4D4]",
+								className: "text-[#9CA3AF]",
 								children: ": "
 							}),
 							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-								className: "text-[#CE9178]",
+								className: "text-[#FACC15]",
 								children: [
 									"\"",
 									result.json.data,
@@ -25247,7 +25020,7 @@ var Result = () => {
 							}),
 							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
 							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-								className: "text-[#9CDCFE]",
+								className: "text-[#38BDF8]",
 								children: "}"
 							})
 						]
@@ -25255,33 +25028,33 @@ var Result = () => {
 				})]
 			}),
 			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: "space-y-4 pt-2 pb-6",
+				className: "space-y-4 pb-12",
 				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
-					className: "font-bold text-[13px] uppercase tracking-wider text-navy/70 px-1",
+					className: "font-bold text-sm uppercase tracking-wider text-white/50 px-1 flex items-center justify-center md:justify-start gap-2",
 					children: "Exportar & Criar"
 				}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "grid grid-cols-2 gap-3",
+					className: "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 md:gap-4",
 					children: [
 						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Button, {
 							onClick: handleCopy,
 							variant: "outline",
-							className: "col-span-2 h-12 rounded-xl border-2 border-navy text-navy hover:bg-navy/5 font-bold text-sm",
+							className: "h-12 md:h-14 rounded-xl border border-yellow-400 text-yellow-400 hover:bg-yellow-400/10 font-bold text-sm bg-transparent",
 							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Copy, { className: "mr-2 h-4 w-4" }), "COPIAR JSON"]
 						}),
 						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Button, {
 							onClick: handleWhisk,
-							className: "h-12 rounded-xl bg-navy hover:bg-navy/90 text-white font-bold text-sm shadow-sm",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ExternalLink, { className: "mr-2 h-4 w-4" }), "WHISK"]
+							className: "h-12 md:h-14 rounded-xl bg-teal-600 hover:bg-teal-500 text-white font-bold text-sm shadow-lg",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ExternalLink, { className: "mr-2 h-4 w-4" }), "ABRIR WHISK"]
 						}),
 						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Button, {
 							onClick: handleFlow,
-							className: "h-12 rounded-xl bg-navy hover:bg-navy/90 text-white font-bold text-sm shadow-sm",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ExternalLink, { className: "mr-2 h-4 w-4" }), "FLOW"]
+							className: "h-12 md:h-14 rounded-xl bg-[#7ED4AD] hover:bg-[#6BC19A] text-[#0A1F33] font-bold text-sm shadow-lg",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ExternalLink, { className: "mr-2 h-4 w-4" }), "ABRIR FLOW"]
 						}),
 						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Button, {
 							onClick: handleCapCut,
-							className: "col-span-2 h-14 rounded-xl bg-black hover:bg-gray-900 text-white font-bold text-[15px] shadow-lg active:scale-[0.98] transition-all mt-1",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Play, { className: "mr-2 h-5 w-5 fill-white" }), "ABRIR NO CAPCUT"]
+							className: "h-12 md:h-14 rounded-xl bg-[#FF6B4A] hover:bg-[#E55A39] text-white font-bold text-sm shadow-lg",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Play, { className: "mr-2 h-4 w-4 fill-white" }), "CAPCUT"]
 						})
 					]
 				})]
@@ -25322,18 +25095,18 @@ function Layout() {
 	const navigate = useNavigate();
 	const isHome = useLocation().pathname === "/";
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-		className: "min-h-screen bg-slate-100/50 flex justify-center w-full font-sans",
+		className: "min-h-screen bg-[#050A0F] flex justify-center w-full font-sans text-white",
 		children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("main", {
-			className: "w-full max-w-[480px] bg-background min-h-screen shadow-2xl relative flex flex-col overflow-hidden",
+			className: "w-full max-w-6xl bg-[#050A0F] min-h-screen relative flex flex-col overflow-hidden shadow-2xl",
 			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("header", {
-				className: "sticky top-0 z-50 bg-background/90 backdrop-blur-md border-b border-navy/5 px-4 h-16 flex items-center shrink-0",
+				className: "sticky top-0 z-50 bg-[#050A0F]/90 backdrop-blur-md border-b border-white/10 px-4 h-16 flex items-center shrink-0",
 				children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 					className: "flex items-center w-full",
 					children: [!isHome && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Button, {
 						variant: "ghost",
 						size: "icon",
 						onClick: () => navigate(-1),
-						className: "mr-2 -ml-2 text-navy hover:bg-navy/10 hover:text-navy active:scale-95 transition-all",
+						className: "mr-2 -ml-2 text-white hover:bg-white/10 hover:text-yellow-400 active:scale-95 transition-all",
 						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ChevronLeft, { className: "h-6 w-6" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
 							className: "sr-only",
 							children: "Voltar"
@@ -25341,10 +25114,10 @@ function Layout() {
 					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 						className: `flex items-center gap-2 ${isHome ? "mx-auto" : ""}`,
 						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "bg-navy p-1.5 rounded-lg text-white",
+							className: "bg-yellow-400 p-1.5 rounded-lg text-black",
 							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Sparkles, { className: "h-4 w-4" })
 						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", {
-							className: "text-base font-bold text-navy tracking-tight uppercase",
+							className: "text-base font-bold text-white tracking-tight uppercase",
 							children: "Criativo AI Studio"
 						})]
 					})]
@@ -25372,10 +25145,6 @@ var App = () => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(BrowserRouter, {
 					element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Index_default, {})
 				}),
 				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
-					path: "/nichos",
-					element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Nichos_default, {})
-				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
 					path: "/options/:nicheId",
 					element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Options_default, {})
 				}),
@@ -25393,4 +25162,4 @@ var App = () => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(BrowserRouter, {
 var App_default = App;
 (0, import_client.createRoot)(document.getElementById("root")).render(/* @__PURE__ */ (0, import_jsx_runtime.jsx)(App_default, {}));
 
-//# sourceMappingURL=index-DfeVQ_OL.js.map
+//# sourceMappingURL=index-C1jnIhlN.js.map

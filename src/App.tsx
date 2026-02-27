@@ -3,7 +3,6 @@ import { Toaster } from '@/components/ui/toaster'
 import { Toaster as Sonner } from '@/components/ui/sonner'
 import { TooltipProvider } from '@/components/ui/tooltip'
 import Index from './pages/Index'
-import Nichos from './pages/Nichos'
 import Options from './pages/Options'
 import Result from './pages/Result'
 import NotFound from './pages/NotFound'
@@ -21,7 +20,6 @@ const App = () => (
         <Routes>
           <Route element={<Layout />}>
             <Route path="/" element={<Index />} />
-            <Route path="/nichos" element={<Nichos />} />
             <Route path="/options/:nicheId" element={<Options />} />
             <Route path="/result" element={<Result />} />
           </Route>

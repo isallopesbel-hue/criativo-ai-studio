@@ -26,19 +26,41 @@ export const CHARACTERS: Character[] = [
 
 export const NICHES: Niche[] = [
   {
-    id: 'construcao',
-    title: 'CONSTRUÇÃO E REFORMA',
-    icon: '🏗️',
+    id: 'personagem-consistente',
+    title: 'Personagem consistente',
+    icon: '🧍',
     options: [
-      'Casa moderna de dois andares',
-      'Cozinha industrial',
-      'Móveis planejados de luxo',
-      'Sala minimalista',
+      'Personagem masculino em vários cenários',
+      'Personagem feminino em várias poses',
+      'Mascote 3D consistente',
+      'Avatar realista',
+    ],
+  },
+  {
+    id: 'videos-aleatorios',
+    title: 'Vídeos aleatórios',
+    icon: '🎲',
+    options: [
+      'Mistério para desvendar',
+      'Fato curioso',
+      'Desafio viral',
+      'Momento inusitado',
+    ],
+  },
+  {
+    id: 'desenhos-animados',
+    title: 'Desenhos Animados',
+    icon: '🎨',
+    options: [
+      'Herói em ação',
+      'Vilão caricato',
+      'Cena de amizade',
+      'Aventura na floresta',
     ],
   },
   {
     id: 'historias-biblicas',
-    title: 'HISTÓRIAS BÍBLICAS',
+    title: 'Histórias Bíblicas',
     icon: '📖',
     options: [
       'Davi enfrentando Golias',
@@ -49,7 +71,7 @@ export const NICHES: Niche[] = [
   },
   {
     id: 'historias-infantis',
-    title: 'HISTÓRIAS INFANTIS',
+    title: 'Histórias Infantis',
     icon: '🧸',
     options: [
       'O coelho que não queria dormir',
@@ -60,8 +82,8 @@ export const NICHES: Niche[] = [
   },
   {
     id: 'dark-terror',
-    title: 'DARK E TERROR',
-    icon: '👻',
+    title: 'Vídeos Dark e Terror',
+    icon: '👁️',
     options: [
       'Casa abandonada à noite',
       'Floresta com criatura',
@@ -70,19 +92,8 @@ export const NICHES: Niche[] = [
     ],
   },
   {
-    id: 'produtos-digitais',
-    title: 'PRODUTOS DIGITAIS',
-    icon: '💰',
-    options: [
-      'E-book com dinheiro saindo',
-      'Curso online com aluno',
-      'Mentoria antes e depois',
-      'Infoproduto com gráfico',
-    ],
-  },
-  {
     id: 'clipes-musicais',
-    title: 'CLIPES MUSICAIS',
+    title: 'Clipes musicais',
     icon: '🎵',
     options: [
       'Cantor em estúdio neon',
@@ -92,20 +103,9 @@ export const NICHES: Niche[] = [
     ],
   },
   {
-    id: 'tiktok-instagram',
-    title: 'TIKTOK / INSTAGRAM / YOUTUBE',
-    icon: '🎬',
-    options: [
-      'Short de dicas rápidas',
-      'Reel com transição',
-      'Thumbnail chamativa',
-      'Story interativo',
-    ],
-  },
-  {
     id: 'objetos-falantes',
-    title: 'OBJETOS FALANTES',
-    icon: '🗣️',
+    title: 'Objetos falantes',
+    icon: '🤖',
     options: [
       'Lâmpada que dá conselhos',
       'Celular contando história',
@@ -114,8 +114,41 @@ export const NICHES: Niche[] = [
     ],
   },
   {
+    id: 'tiktok-instagram',
+    title: 'TikTok, Instagram e Youtube Shorts',
+    icon: '📱',
+    options: [
+      'Short de dicas rápidas',
+      'Reel com transição',
+      'Thumbnail chamativa',
+      'Story interativo',
+    ],
+  },
+  {
+    id: 'construcao',
+    title: 'Construção, Reforma e Fabricação',
+    icon: '🏗️',
+    options: [
+      'Casa moderna de dois andares',
+      'Cozinha industrial',
+      'Móveis planejados de luxo',
+      'Sala minimalista',
+    ],
+  },
+  {
+    id: 'produtos-digitais',
+    title: 'Criativo de Vendas Produtos Digitais',
+    icon: '💻',
+    options: [
+      'E-book com dinheiro saindo',
+      'Curso online com aluno',
+      'Mentoria antes e depois',
+      'Infoproduto com gráfico',
+    ],
+  },
+  {
     id: 'produtos-fisicos',
-    title: 'PRODUTOS FÍSICOS',
+    title: 'Criativo de Vendas Produtos Físicos',
     icon: '📦',
     options: [
       'Roupa em movimento',
@@ -124,83 +157,25 @@ export const NICHES: Niche[] = [
       'Embalagem abrindo',
     ],
   },
-  {
-    id: 'desenhos-animados',
-    title: 'DESENHOS ANIMADOS',
-    icon: '🎨',
-    options: [
-      'Herói em ação',
-      'Vilão caricato',
-      'Cena de amizade',
-      'Aventura na floresta',
-    ],
-  },
-  {
-    id: 'videos-aleatorios',
-    title: 'VÍDEOS ALEATÓRIOS',
-    icon: '🎲',
-    options: [
-      'Mistério para desvendar',
-      'Fato curioso',
-      'Desafio viral',
-      'Momento inusitado',
-    ],
-  },
 ]
 
 export const MOCK_HISTORY = [
   {
     id: '1',
     nicheId: 'construcao',
-    nicheTitle: 'CONSTRUÇÃO E REFORMA',
+    nicheTitle: 'Construção, Reforma e Fabricação',
     nicheIcon: '🏗️',
     option: 'Casa moderna de dois andares',
     character: 'BellivroAberto',
     date: new Date().toISOString(),
     timeDisplay: '10:30',
     json: {
-      nicho: 'CONSTRUÇÃO E REFORMA',
+      nicho: 'Construção, Reforma e Fabricação',
       opcao: 'Casa moderna de dois andares',
       personagem: 'BellivroAberto',
       estilo: 'moderno',
       iluminacao: 'natural',
       data: '2026-02-26',
-    },
-  },
-  {
-    id: '2',
-    nicheId: 'historias-biblicas',
-    nicheTitle: 'HISTÓRIAS BÍBLICAS',
-    nicheIcon: '📖',
-    option: 'Davi enfrentando Golias',
-    character: 'Davi',
-    date: new Date(Date.now() - 86400000).toISOString(),
-    timeDisplay: 'ontem',
-    json: {
-      nicho: 'HISTÓRIAS BÍBLICAS',
-      opcao: 'Davi enfrentando Golias',
-      personagem: 'Davi',
-      estilo: 'cinematográfico',
-      iluminacao: 'dramática',
-      data: '2026-02-25',
-    },
-  },
-  {
-    id: '3',
-    nicheId: 'historias-infantis',
-    nicheTitle: 'HISTÓRIAS INFANTIS',
-    nicheIcon: '🧸',
-    option: 'O coelho que não queria dormir',
-    character: 'Coelho',
-    date: new Date(Date.now() - 172800000).toISOString(),
-    timeDisplay: '2 dias',
-    json: {
-      nicho: 'HISTÓRIAS INFANTIS',
-      opcao: 'O coelho que não queria dormir',
-      personagem: 'Coelho',
-      estilo: 'animação 3D',
-      iluminacao: 'suave e colorida',
-      data: '2026-02-24',
     },
   },
 ]

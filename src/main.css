@@ -6,52 +6,32 @@
 
 @layer base {
   :root {
-    --background: 35 33% 94%; /* #F5F0E9 */
-    --foreground: 209 67% 12%; /* #0A1F33 */
-    --card: 0 0% 100%;
-    --card-foreground: 209 67% 12%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 209 67% 12%;
-    --primary: 191 83% 24%; /* #0A5C6E */
-    --primary-foreground: 35 33% 94%;
-    --secondary: 0 0% 18%; /* #2D2D2D */
-    --secondary-foreground: 35 33% 94%;
-    --muted: 35 20% 88%;
-    --muted-foreground: 209 20% 40%;
-    --accent: 11 100% 65%; /* #FF6B4A */
-    --accent-foreground: 0 0% 100%;
+    --background: 216 50% 4%; /* #050A0F */
+    --foreground: 0 0% 100%;
+    --card: 215 40% 10%;
+    --card-foreground: 0 0% 100%;
+    --popover: 215 40% 10%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 43 96% 56%; /* Gold */
+    --primary-foreground: 0 0% 0%;
+    --secondary: 215 30% 15%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 215 30% 15%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 43 96% 56%; /* Gold */
+    --accent-foreground: 0 0% 0%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
-    --border: 35 20% 85%;
-    --input: 35 20% 85%;
-    --ring: 191 83% 24%;
-    --radius: 1rem;
-    --success: 153 53% 66%; /* #7ED4AD */
+    --border: 215 30% 18%;
+    --input: 215 30% 18%;
+    --ring: 43 96% 56%;
+    --radius: 0.75rem;
+    --success: 153 53% 66%;
     --success-foreground: 209 67% 12%;
   }
 
-  .dark {
-    --background: 0 0% 10%;
-    --foreground: 35 33% 94%;
-    --card: 0 0% 15%;
-    --card-foreground: 35 33% 94%;
-    --popover: 0 0% 15%;
-    --popover-foreground: 35 33% 94%;
-    --primary: 191 83% 40%;
-    --primary-foreground: 0 0% 10%;
-    --secondary: 0 0% 20%;
-    --secondary-foreground: 35 33% 94%;
-    --muted: 0 0% 20%;
-    --muted-foreground: 35 20% 70%;
-    --accent: 11 100% 60%;
-    --accent-foreground: 0 0% 100%;
-    --border: 0 0% 25%;
-    --input: 0 0% 25%;
-    --ring: 191 83% 40%;
-  }
-
   body {
-    @apply bg-slate-100 text-foreground font-sans antialiased;
+    @apply bg-background text-foreground font-sans antialiased;
   }
 
   section[aria-label='Notifications alt+T'] {
@@ -61,35 +41,6 @@
 }
 
 @layer utilities {
-  @keyframes slide-in-right {
-    from {
-      transform: translateX(20px);
-      opacity: 0;
-    }
-    to {
-      transform: translateX(0);
-      opacity: 1;
-    }
-  }
-
-  @keyframes pulse-subtle {
-    0%,
-    100% {
-      opacity: 1;
-    }
-    50% {
-      opacity: 0.6;
-    }
-  }
-
-  .animate-slide-in-right {
-    animation: slide-in-right 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-  }
-
-  .animate-pulse-subtle {
-    animation: pulse-subtle 1.5s ease-in-out infinite;
-  }
-
   .hide-scrollbar::-webkit-scrollbar {
     display: none;
   }

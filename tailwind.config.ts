@@ -68,12 +68,12 @@ export default {
           foreground: 'hsl(var(--success-foreground))',
         },
         navy: {
-          DEFAULT: '#0A1F33',
+          DEFAULT: '#050A0F',
           foreground: '#FFFFFF',
         },
         gold: {
-          DEFAULT: '#C7A15C',
-          foreground: '#FFFFFF',
+          DEFAULT: '#FACC15',
+          foreground: '#000000',
         },
         teal: {
           DEFAULT: '#0A5C6E',
@@ -92,7 +92,7 @@ export default {
           foreground: '#0A1F33',
         },
         charcoal: {
-          DEFAULT: '#2D2D2D',
+          DEFAULT: '#111827',
           foreground: '#FFFFFF',
         },
       },

@@ -8,18 +8,18 @@ export default function Layout() {
   const isHome = location.pathname === '/'
 
   return (
-    <div className="min-h-screen bg-slate-100/50 flex justify-center w-full font-sans">
-      {/* Mobile App Container Wrapper */}
-      <main className="w-full max-w-[480px] bg-background min-h-screen shadow-2xl relative flex flex-col overflow-hidden">
+    <div className="min-h-screen bg-[#050A0F] flex justify-center w-full font-sans text-white">
+      {/* Mobile & Desktop App Container Wrapper */}
+      <main className="w-full max-w-6xl bg-[#050A0F] min-h-screen relative flex flex-col overflow-hidden shadow-2xl">
         {/* Header */}
-        <header className="sticky top-0 z-50 bg-background/90 backdrop-blur-md border-b border-navy/5 px-4 h-16 flex items-center shrink-0">
+        <header className="sticky top-0 z-50 bg-[#050A0F]/90 backdrop-blur-md border-b border-white/10 px-4 h-16 flex items-center shrink-0">
           <div className="flex items-center w-full">
             {!isHome && (
               <Button
                 variant="ghost"
                 size="icon"
                 onClick={() => navigate(-1)}
-                className="mr-2 -ml-2 text-navy hover:bg-navy/10 hover:text-navy active:scale-95 transition-all"
+                className="mr-2 -ml-2 text-white hover:bg-white/10 hover:text-yellow-400 active:scale-95 transition-all"
               >
                 <ChevronLeft className="h-6 w-6" />
                 <span className="sr-only">Voltar</span>
@@ -29,10 +29,10 @@ export default function Layout() {
             <div
               className={`flex items-center gap-2 ${isHome ? 'mx-auto' : ''}`}
             >
-              <div className="bg-navy p-1.5 rounded-lg text-white">
+              <div className="bg-yellow-400 p-1.5 rounded-lg text-black">
                 <Sparkles className="h-4 w-4" />
               </div>
-              <h1 className="text-base font-bold text-navy tracking-tight uppercase">
+              <h1 className="text-base font-bold text-white tracking-tight uppercase">
                 Criativo AI Studio
               </h1>
             </div>
