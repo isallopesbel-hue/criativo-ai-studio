@@ -15,6 +15,7 @@ export interface PromptResult {
   option: string
   character: string
   date: string
+  timeDisplay?: string
   json: any
 }
 

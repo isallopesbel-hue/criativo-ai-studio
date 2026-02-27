@@ -67,6 +67,34 @@ export default {
           DEFAULT: 'hsl(var(--success))',
           foreground: 'hsl(var(--success-foreground))',
         },
+        navy: {
+          DEFAULT: '#0A1F33',
+          foreground: '#FFFFFF',
+        },
+        gold: {
+          DEFAULT: '#C7A15C',
+          foreground: '#FFFFFF',
+        },
+        teal: {
+          DEFAULT: '#0A5C6E',
+          foreground: '#FFFFFF',
+        },
+        coral: {
+          DEFAULT: '#FF6B4A',
+          foreground: '#FFFFFF',
+        },
+        cream: {
+          DEFAULT: '#FFF8E7',
+          foreground: '#0A1F33',
+        },
+        mint: {
+          DEFAULT: '#7ED4AD',
+          foreground: '#0A1F33',
+        },
+        charcoal: {
+          DEFAULT: '#2D2D2D',
+          foreground: '#FFFFFF',
+        },
       },
       borderRadius: {
         lg: 'var(--radius)',

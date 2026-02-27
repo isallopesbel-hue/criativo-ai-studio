@@ -6,62 +6,43 @@
 
 @layer base {
   :root {
-    /* Soft Cream */
-    --background: 44 100% 95%;
-    /* Charcoal */
-    --foreground: 0 0% 18%;
-
-    /* Soft Cream lighter for cards */
-    --card: 44 100% 98%;
-    --card-foreground: 0 0% 18%;
-
-    --popover: 44 100% 98%;
-    --popover-foreground: 0 0% 18%;
-
-    /* Deep Teal */
-    --primary: 191 83% 24%;
-    --primary-foreground: 44 100% 95%;
-
-    /* Teal lighter for secondary */
-    --secondary: 191 30% 90%;
-    --secondary-foreground: 191 83% 24%;
-
-    --muted: 44 20% 90%;
-    --muted-foreground: 0 0% 40%;
-
-    /* Warm Coral */
-    --accent: 11 100% 65%;
+    --background: 35 33% 94%; /* #F5F0E9 */
+    --foreground: 209 67% 12%; /* #0A1F33 */
+    --card: 0 0% 100%;
+    --card-foreground: 209 67% 12%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 209 67% 12%;
+    --primary: 191 83% 24%; /* #0A5C6E */
+    --primary-foreground: 35 33% 94%;
+    --secondary: 0 0% 18%; /* #2D2D2D */
+    --secondary-foreground: 35 33% 94%;
+    --muted: 35 20% 88%;
+    --muted-foreground: 209 20% 40%;
+    --accent: 11 100% 65%; /* #FF6B4A */
     --accent-foreground: 0 0% 100%;
-
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
-
-    /* Teal subtle border */
-    --border: 191 20% 85%;
-    --input: 191 20% 85%;
+    --border: 35 20% 85%;
+    --input: 35 20% 85%;
     --ring: 191 83% 24%;
-
     --radius: 1rem;
-
-    /* Mint for success */
-    --success: 153 53% 66%;
-    --success-foreground: 0 0% 10%;
+    --success: 153 53% 66%; /* #7ED4AD */
+    --success-foreground: 209 67% 12%;
   }
 
   .dark {
-    /* Kept mostly similar or inverted for dark mode, though spec focuses on light warm theme */
     --background: 0 0% 10%;
-    --foreground: 44 100% 95%;
+    --foreground: 35 33% 94%;
     --card: 0 0% 15%;
-    --card-foreground: 44 100% 95%;
+    --card-foreground: 35 33% 94%;
     --popover: 0 0% 15%;
-    --popover-foreground: 44 100% 95%;
+    --popover-foreground: 35 33% 94%;
     --primary: 191 83% 40%;
     --primary-foreground: 0 0% 10%;
     --secondary: 0 0% 20%;
-    --secondary-foreground: 44 100% 95%;
+    --secondary-foreground: 35 33% 94%;
     --muted: 0 0% 20%;
-    --muted-foreground: 44 20% 70%;
+    --muted-foreground: 35 20% 70%;
     --accent: 11 100% 60%;
     --accent-foreground: 0 0% 100%;
     --border: 0 0% 25%;
@@ -107,5 +88,13 @@
 
   .animate-pulse-subtle {
     animation: pulse-subtle 1.5s ease-in-out infinite;
+  }
+
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 }

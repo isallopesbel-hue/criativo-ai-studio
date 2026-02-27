@@ -30,10 +30,10 @@ export const NICHES: Niche[] = [
     title: 'Construção e Reforma',
     icon: '🏗️',
     options: [
-      'Casa moderna de dois andares',
-      'Cozinha industrial',
-      'Móveis planejados de luxo',
-      'Sala minimalista',
+      'Quero construir uma casa moderna de dois andares',
+      'Quero reformar uma cozinha industrial',
+      'Quero fabricar móveis planejados de luxo',
+      'Quero decorar uma sala minimalista',
     ],
   },
   {
@@ -41,9 +41,9 @@ export const NICHES: Niche[] = [
     title: 'Histórias Bíblicas',
     icon: '📖',
     options: [
-      'Davi enfrentando Golias',
+      'Davi enfrentando Golias no vale',
       'Moisés abrindo o Mar Vermelho',
-      'Arca de Noé',
+      'Arca de Noé com os animais',
       'Jesus andando sobre as águas',
     ],
   },
@@ -52,10 +52,10 @@ export const NICHES: Niche[] = [
     title: 'Histórias Infantis',
     icon: '🧸',
     options: [
-      'Coelho que não queria dormir',
-      'Fada que perdeu a varinha',
-      'Dragão que cuspia glitter',
-      'Princesa que salvou a si mesma',
+      'O coelho que não queria dormir',
+      'A fada que perdeu a varinha',
+      'O dragão que cuspia glitter',
+      'A princesa que salvou a si mesma',
     ],
   },
   {
@@ -63,8 +63,8 @@ export const NICHES: Niche[] = [
     title: 'Dark & Terror',
     icon: '👻',
     options: [
-      'Casa abandonada com vulto',
-      'Floresta nebulosa',
+      'Casa abandonada à noite com vulto',
+      'Floresta nebulosa com criatura',
       'Boneca que se mexe sozinha',
       'Cemitério com névoa',
     ],
@@ -74,10 +74,10 @@ export const NICHES: Niche[] = [
     title: 'Produtos Digitais',
     icon: '💰',
     options: [
-      'E-book com dinheiro',
-      'Curso online (aluno comemorando)',
-      'Mentoria (antes e depois)',
-      'Infoproduto (gráfico subindo)',
+      'E-book com dinheiro saindo',
+      'Curso online com aluno comemorando',
+      'Mentoria com antes e depois',
+      'Infoproduto com gráfico subindo',
     ],
   },
   {
@@ -107,10 +107,10 @@ export const NICHES: Niche[] = [
     title: 'TikTok/Insta/YT',
     icon: '🎬',
     options: [
-      'Vlog de viagem',
-      'Unboxing de tecnologia',
-      'Tutorial de maquiagem rápida',
-      'Desafio de dança viral',
+      'Vlog de viagem com transições dinâmicas',
+      'Unboxing de tecnologia minimalista',
+      'Tutorial de maquiagem rápida ring light',
+      'Desafio de dança viral com efeitos',
     ],
   },
   {
@@ -118,10 +118,10 @@ export const NICHES: Niche[] = [
     title: 'Objetos Falantes',
     icon: '🗣️',
     options: [
-      'Xícara de café conversando',
-      'Tênis de corrida motivador',
-      'Smartphone reclamando',
-      'Árvore sábia',
+      'Xícara de café conversando animada',
+      'Tênis de corrida motivador suado',
+      'Smartphone reclamando da bateria',
+      'Árvore sábia contando histórias',
     ],
   },
   {
@@ -130,9 +130,9 @@ export const NICHES: Niche[] = [
     icon: '📦',
     options: [
       'Garrafa térmica em cenário outdoor',
-      'Relógio de luxo em veludo',
-      'Tênis esportivo em ação',
-      'Cosméticos naturais',
+      'Relógio de luxo em veludo brilhante',
+      'Tênis esportivo em ação com poeira',
+      'Cosméticos naturais com folhas e água',
     ],
   },
   {
@@ -140,10 +140,10 @@ export const NICHES: Niche[] = [
     title: 'Desenhos Animados',
     icon: '🎨',
     options: [
-      'Estilo anime anos 90',
-      'Desenho clássico em preto e branco',
-      'Animação moderna vibrante',
-      'Estilo aquarela',
+      'Estilo anime anos 90 com filtro VHS',
+      'Desenho clássico em preto e branco rubber hose',
+      'Animação moderna vibrante flat design',
+      'Estilo aquarela suave e mágico',
     ],
   },
   {
@@ -151,10 +151,10 @@ export const NICHES: Niche[] = [
     title: 'Vídeos Aleatórios',
     icon: '🎲',
     options: [
-      'Explosão de cores abstratas',
-      'Time-lapse de cidade',
-      'Natureza macro',
-      'Cyberpunk futurista',
+      'Explosão de cores abstratas em câmera lenta',
+      'Time-lapse de cidade movimentada à noite',
+      "Natureza macro de gota d'água em folha",
+      'Cyberpunk futurista rua chuvosa com neon',
     ],
   },
 ]
@@ -163,13 +163,14 @@ export const MOCK_HISTORY = [
   {
     id: '1',
     nicheId: 'construcao',
-    nicheTitle: 'Construção e Reforma',
+    nicheTitle: 'CONSTRUÇÃO',
     nicheIcon: '🏗️',
     option: 'Casa moderna de dois andares',
     character: 'BellivroAberto',
-    date: '2026-02-26T10:00:00Z',
+    date: new Date().toISOString(),
+    timeDisplay: '10:30',
     json: {
-      nicho: 'Construção e Reforma',
+      nicho: 'Construção',
       opcao: 'Casa moderna de dois andares',
       personagem: 'BellivroAberto',
       estilo: 'moderno',
@@ -180,13 +181,14 @@ export const MOCK_HISTORY = [
   {
     id: '2',
     nicheId: 'historias-biblicas',
-    nicheTitle: 'Histórias Bíblicas',
+    nicheTitle: 'BÍBLICO',
     nicheIcon: '📖',
     option: 'Davi enfrentando Golias',
     character: 'Davi',
-    date: '2026-02-25T14:30:00Z',
+    date: new Date(Date.now() - 86400000).toISOString(),
+    timeDisplay: 'ontem',
     json: {
-      nicho: 'Histórias Bíblicas',
+      nicho: 'Bíblico',
       opcao: 'Davi enfrentando Golias',
       personagem: 'Davi',
       estilo: 'cinematográfico',
@@ -194,9 +196,26 @@ export const MOCK_HISTORY = [
       data: '2026-02-25',
     },
   },
+  {
+    id: '3',
+    nicheId: 'historias-infantis',
+    nicheTitle: 'INFANTIL',
+    nicheIcon: '🧸',
+    option: 'O coelho que não queria dormir',
+    character: 'Coelho',
+    date: new Date(Date.now() - 172800000).toISOString(),
+    timeDisplay: '2 dias',
+    json: {
+      nicho: 'Infantil',
+      opcao: 'O coelho que não queria dormir',
+      personagem: 'Coelho',
+      estilo: 'animação 3D',
+      iluminacao: 'suave e colorida',
+      data: '2026-02-24',
+    },
+  },
 ]
 
-// Helper to generate some logic for style and lighting based on the option
 export function generateMetadata(option: string) {
   const lower = option.toLowerCase()
   let estilo = 'realista'
@@ -205,10 +224,19 @@ export function generateMetadata(option: string) {
   if (lower.includes('modern')) {
     estilo = 'moderno'
     iluminacao = 'natural'
-  } else if (lower.includes('luxo') || lower.includes('dramátic')) {
+  } else if (
+    lower.includes('luxo') ||
+    lower.includes('dramátic') ||
+    lower.includes('noite') ||
+    lower.includes('terror')
+  ) {
     estilo = 'cinematográfico'
     iluminacao = 'dramática'
-  } else if (lower.includes('anim') || lower.includes('pixar')) {
+  } else if (
+    lower.includes('anim') ||
+    lower.includes('pixar') ||
+    lower.includes('infant')
+  ) {
     estilo = 'animação 3D'
     iluminacao = 'suave e colorida'
   } else if (lower.includes('vlog') || lower.includes('tiktok')) {
