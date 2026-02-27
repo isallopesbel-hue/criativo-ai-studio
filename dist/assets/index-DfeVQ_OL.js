@@ -23889,134 +23889,123 @@ const CHARACTERS = [{
 const NICHES = [
 	{
 		id: "construcao",
-		title: "Construção e Reforma",
+		title: "CONSTRUÇÃO E REFORMA",
 		icon: "🏗️",
 		options: [
-			"Quero construir uma casa moderna de dois andares",
-			"Quero reformar uma cozinha industrial",
-			"Quero fabricar móveis planejados de luxo",
-			"Quero decorar uma sala minimalista"
+			"Casa moderna de dois andares",
+			"Cozinha industrial",
+			"Móveis planejados de luxo",
+			"Sala minimalista"
 		]
 	},
 	{
 		id: "historias-biblicas",
-		title: "Histórias Bíblicas",
+		title: "HISTÓRIAS BÍBLICAS",
 		icon: "📖",
 		options: [
-			"Davi enfrentando Golias no vale",
+			"Davi enfrentando Golias",
 			"Moisés abrindo o Mar Vermelho",
-			"Arca de Noé com os animais",
+			"Arca de Noé com animais",
 			"Jesus andando sobre as águas"
 		]
 	},
 	{
 		id: "historias-infantis",
-		title: "Histórias Infantis",
+		title: "HISTÓRIAS INFANTIS",
 		icon: "🧸",
 		options: [
 			"O coelho que não queria dormir",
 			"A fada que perdeu a varinha",
-			"O dragão que cuspia glitter",
-			"A princesa que salvou a si mesma"
+			"O dragão amigável",
+			"A princesa que salvou o reino"
 		]
 	},
 	{
 		id: "dark-terror",
-		title: "Dark & Terror",
+		title: "DARK E TERROR",
 		icon: "👻",
 		options: [
-			"Casa abandonada à noite com vulto",
-			"Floresta nebulosa com criatura",
-			"Boneca que se mexe sozinha",
+			"Casa abandonada à noite",
+			"Floresta com criatura",
+			"Boneca que se mexe",
 			"Cemitério com névoa"
 		]
 	},
 	{
 		id: "produtos-digitais",
-		title: "Produtos Digitais",
+		title: "PRODUTOS DIGITAIS",
 		icon: "💰",
 		options: [
 			"E-book com dinheiro saindo",
-			"Curso online com aluno comemorando",
-			"Mentoria com antes e depois",
-			"Infoproduto com gráfico subindo"
+			"Curso online com aluno",
+			"Mentoria antes e depois",
+			"Infoproduto com gráfico"
 		]
 	},
 	{
 		id: "clipes-musicais",
-		title: "Clipes Musicais",
+		title: "CLIPES MUSICAIS",
 		icon: "🎵",
 		options: [
-			"Palco com luzes neon",
-			"Cantor em close dramático",
+			"Cantor em estúdio neon",
+			"Banda em show",
 			"Dançarinos urbanos",
-			"Guitarrista solo no topo"
-		]
-	},
-	{
-		id: "personagem-consistente",
-		title: "Personagem Consistente",
-		icon: "🖌️",
-		options: [
-			"Avatar estilo Pixar",
-			"Ilustração 2D plana",
-			"Render 3D hiper-realista",
-			"Esboço a lápis"
+			"Cena romântica"
 		]
 	},
 	{
 		id: "tiktok-instagram",
-		title: "TikTok/Insta/YT",
+		title: "TIKTOK / INSTAGRAM / YOUTUBE",
 		icon: "🎬",
 		options: [
-			"Vlog de viagem com transições dinâmicas",
-			"Unboxing de tecnologia minimalista",
-			"Tutorial de maquiagem rápida ring light",
-			"Desafio de dança viral com efeitos"
+			"Short de dicas rápidas",
+			"Reel com transição",
+			"Thumbnail chamativa",
+			"Story interativo"
 		]
 	},
 	{
 		id: "objetos-falantes",
-		title: "Objetos Falantes",
+		title: "OBJETOS FALANTES",
 		icon: "🗣️",
 		options: [
-			"Xícara de café conversando animada",
-			"Tênis de corrida motivador suado",
-			"Smartphone reclamando da bateria",
-			"Árvore sábia contando histórias"
+			"Lâmpada que dá conselhos",
+			"Celular contando história",
+			"Livro que ensina",
+			"Brinquedo que conversa"
 		]
 	},
 	{
 		id: "produtos-fisicos",
-		title: "Produtos Físicos",
+		title: "PRODUTOS FÍSICOS",
 		icon: "📦",
 		options: [
-			"Garrafa térmica em cenário outdoor",
-			"Relógio de luxo em veludo brilhante",
-			"Tênis esportivo em ação com poeira",
-			"Cosméticos naturais com folhas e água"
+			"Roupa em movimento",
+			"Cosmético com brilho",
+			"Eletrônico em uso",
+			"Embalagem abrindo"
 		]
 	},
 	{
 		id: "desenhos-animados",
-		title: "Desenhos Animados",
+		title: "DESENHOS ANIMADOS",
 		icon: "🎨",
 		options: [
-			"Estilo anime anos 90 com filtro VHS",
-			"Desenho clássico em preto e branco rubber hose",
-			"Animação moderna vibrante flat design",
-			"Estilo aquarela suave e mágico"
+			"Herói em ação",
+			"Vilão caricato",
+			"Cena de amizade",
+			"Aventura na floresta"
 		]
 	},
 	{
 		id: "videos-aleatorios",
-		title: "Vídeos Aleatórios",
+		title: "VÍDEOS ALEATÓRIOS",
 		icon: "🎲",
 		options: [
-			"Explosão de cores abstratas em câmera lenta",
-			"Time-lapse de cidade movimentada à noite",
-			"Natureza macro de gota d'água em folha",
-			"Cyberpunk futurista rua chuvosa com neon"
+			"Mistério para desvendar",
+			"Fato curioso",
+			"Desafio viral",
+			"Momento inusitado"
 		]
 	}
 ];
@@ -24024,14 +24013,14 @@ const MOCK_HISTORY = [
 	{
 		id: "1",
 		nicheId: "construcao",
-		nicheTitle: "CONSTRUÇÃO",
+		nicheTitle: "CONSTRUÇÃO E REFORMA",
 		nicheIcon: "🏗️",
 		option: "Casa moderna de dois andares",
 		character: "BellivroAberto",
 		date: (/* @__PURE__ */ new Date()).toISOString(),
 		timeDisplay: "10:30",
 		json: {
-			nicho: "Construção",
+			nicho: "CONSTRUÇÃO E REFORMA",
 			opcao: "Casa moderna de dois andares",
 			personagem: "BellivroAberto",
 			estilo: "moderno",
@@ -24042,14 +24031,14 @@ const MOCK_HISTORY = [
 	{
 		id: "2",
 		nicheId: "historias-biblicas",
-		nicheTitle: "BÍBLICO",
+		nicheTitle: "HISTÓRIAS BÍBLICAS",
 		nicheIcon: "📖",
 		option: "Davi enfrentando Golias",
 		character: "Davi",
 		date: (/* @__PURE__ */ new Date(Date.now() - 864e5)).toISOString(),
 		timeDisplay: "ontem",
 		json: {
-			nicho: "Bíblico",
+			nicho: "HISTÓRIAS BÍBLICAS",
 			opcao: "Davi enfrentando Golias",
 			personagem: "Davi",
 			estilo: "cinematográfico",
@@ -24060,14 +24049,14 @@ const MOCK_HISTORY = [
 	{
 		id: "3",
 		nicheId: "historias-infantis",
-		nicheTitle: "INFANTIL",
+		nicheTitle: "HISTÓRIAS INFANTIS",
 		nicheIcon: "🧸",
 		option: "O coelho que não queria dormir",
 		character: "Coelho",
 		date: (/* @__PURE__ */ new Date(Date.now() - 1728e5)).toISOString(),
 		timeDisplay: "2 dias",
 		json: {
-			nicho: "Infantil",
+			nicho: "HISTÓRIAS INFANTIS",
 			opcao: "O coelho que não queria dormir",
 			personagem: "Coelho",
 			estilo: "animação 3D",
@@ -24299,33 +24288,83 @@ var Index = () => {
 var Index_default = Index;
 var Nichos = () => {
 	const navigate = useNavigate();
-	const { setDraft } = usePromptStore();
-	const handleSelectNiche = (id) => {
-		setDraft({ nicheId: id });
-		navigate(`/options/${id}`);
+	const { setDraft, addResult } = usePromptStore();
+	const handleSelectOption = (niche, option) => {
+		setDraft({
+			nicheId: niche.id,
+			option
+		});
+		const { estilo, iluminacao } = generateMetadata(option);
+		const charName = "Personagem Padrão";
+		const newResult = {
+			id: Math.random().toString(36).substring(7),
+			nicheId: niche.id,
+			nicheTitle: niche.title,
+			nicheIcon: niche.icon,
+			option,
+			character: charName,
+			date: (/* @__PURE__ */ new Date()).toISOString(),
+			timeDisplay: "agora",
+			json: {
+				nicho: niche.title,
+				opcao: option,
+				personagem: charName,
+				estilo,
+				iluminacao,
+				data: (/* @__PURE__ */ new Date()).toISOString().split("T")[0]
+			}
+		};
+		addResult(newResult);
+		navigate("/result", { state: {
+			result: newResult,
+			isNew: true
+		} });
 	};
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: "animate-slide-in-right px-4 py-6",
+		className: "animate-slide-in-right pb-10 flex flex-col min-h-screen bg-background",
 		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			className: "mb-6 px-1",
-			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
-				className: "text-2xl font-bold text-navy mb-1",
-				children: "Escolha o Nicho"
-			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-				className: "text-muted-foreground text-sm",
-				children: "Selecione a categoria para focar seu prompt."
-			})]
+			className: "px-5 pt-8 pb-6",
+			children: [
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", {
+					className: "text-[28px] font-bold text-navy tracking-tight uppercase leading-none",
+					children: "GERADOR DE PROMPT"
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+					className: "text-[20px] font-bold text-muted-foreground mt-2 leading-none",
+					children: "Profissional"
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+					className: "text-[15px] text-muted-foreground mt-3",
+					children: "Escolha o nicho para começar"
+				})
+			]
 		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-			className: "grid grid-cols-2 gap-3",
-			children: NICHES.map((niche) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Card, {
-				onClick: () => handleSelectNiche(niche.id),
-				className: "group cursor-pointer p-4 flex flex-col items-center justify-center text-center gap-3 hover:border-navy/30 active:scale-95 transition-all shadow-sm h-32 border-transparent bg-white rounded-2xl",
-				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-					className: "text-3xl transition-transform group-hover:scale-110 duration-300",
-					children: niche.icon
-				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
-					className: "font-bold text-[13px] leading-tight text-navy",
-					children: niche.title
+			className: "flex flex-col gap-8",
+			children: NICHES.slice(0, 11).map((niche) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
+				className: "w-full",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("h3", {
+					className: "font-bold text-navy text-[15px] mb-3 px-5 uppercase flex items-center gap-2",
+					children: [
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+							className: "text-xl",
+							children: niche.icon
+						}),
+						" ",
+						niche.title
+					]
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					className: "flex overflow-x-auto gap-4 px-5 pb-2 snap-x hide-scrollbar",
+					children: niche.options.map((opt, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Card, {
+						onClick: () => handleSelectOption(niche, opt),
+						className: "snap-start shrink-0 w-[240px] p-4 flex flex-col justify-between cursor-pointer hover:border-navy/20 active:scale-[0.98] transition-all shadow-sm h-[120px] bg-slate-50 border border-slate-100 rounded-[10px]",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+							className: "font-semibold text-[14px] leading-snug text-navy line-clamp-2",
+							children: opt
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+							className: "text-blue-600 font-bold text-[12px] uppercase tracking-wide flex items-center",
+							children: "GERAR PROMPT →"
+						})]
+					}, i))
 				})]
 			}, niche.id))
 		})]
@@ -25354,4 +25393,4 @@ var App = () => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(BrowserRouter, {
 var App_default = App;
 (0, import_client.createRoot)(document.getElementById("root")).render(/* @__PURE__ */ (0, import_jsx_runtime.jsx)(App_default, {}));
 
-//# sourceMappingURL=index-DNudEWkX.js.map
+//# sourceMappingURL=index-DfeVQ_OL.js.map

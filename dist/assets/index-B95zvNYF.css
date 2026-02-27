@@ -856,12 +856,23 @@ section[aria-label='Notifications alt+T'] {
   margin-top: 6rem;
 }
 
+.mt-3{
+  margin-top: 0.75rem;
+}
+
 .mt-4{
   margin-top: 1rem;
 }
 
 .mt-auto{
   margin-top: auto;
+}
+
+.line-clamp-2{
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 
 .block{
@@ -938,10 +949,6 @@ section[aria-label='Notifications alt+T'] {
   height: 0.875rem;
 }
 
-.h-32{
-  height: 8rem;
-}
-
 .h-4{
   height: 1rem;
 }
@@ -968,6 +975,10 @@ section[aria-label='Notifications alt+T'] {
 
 .h-\[--cell-size\]{
   height: var(--cell-size);
+}
+
+.h-\[120px\]{
+  height: 120px;
 }
 
 .h-\[1px\]{
@@ -1140,6 +1151,10 @@ section[aria-label='Notifications alt+T'] {
 
 .w-\[1px\]{
   width: 1px;
+}
+
+.w-\[240px\]{
+  width: 240px;
 }
 
 .w-auto{
@@ -1434,6 +1449,10 @@ section[aria-label='Notifications alt+T'] {
   gap: 1.5rem;
 }
 
+.gap-8{
+  gap: 2rem;
+}
+
 .space-x-1 > :not([hidden]) ~ :not([hidden]){
   --tw-space-x-reverse: 0;
   margin-right: calc(0.25rem * var(--tw-space-x-reverse));
@@ -1528,6 +1547,10 @@ section[aria-label='Notifications alt+T'] {
 
 .rounded-2xl{
   border-radius: 1rem;
+}
+
+.rounded-\[10px\]{
+  border-radius: 10px;
 }
 
 .rounded-\[2px\]{
@@ -1663,6 +1686,11 @@ section[aria-label='Notifications alt+T'] {
   border-color: hsl(var(--primary));
 }
 
+.border-slate-100{
+  --tw-border-opacity: 1;
+  border-color: rgb(241 245 249 / var(--tw-border-opacity, 1));
+}
+
 .border-transparent{
   border-color: transparent;
 }
@@ -1787,6 +1815,11 @@ section[aria-label='Notifications alt+T'] {
 
 .bg-slate-100\/50{
   background-color: rgb(241 245 249 / 0.5);
+}
+
+.bg-slate-50{
+  --tw-bg-opacity: 1;
+  background-color: rgb(248 250 252 / var(--tw-bg-opacity, 1));
 }
 
 .bg-transparent{
@@ -1944,6 +1977,14 @@ section[aria-label='Notifications alt+T'] {
   padding-bottom: 2rem;
 }
 
+.pb-10{
+  padding-bottom: 2.5rem;
+}
+
+.pb-2{
+  padding-bottom: 0.5rem;
+}
+
 .pb-24{
   padding-bottom: 6rem;
 }
@@ -2016,6 +2057,10 @@ section[aria-label='Notifications alt+T'] {
   padding-top: 1rem;
 }
 
+.pt-8{
+  padding-top: 2rem;
+}
+
 .text-left{
   text-align: left;
 }
@@ -2063,12 +2108,28 @@ section[aria-label='Notifications alt+T'] {
   font-size: 11px;
 }
 
+.text-\[12px\]{
+  font-size: 12px;
+}
+
 .text-\[13px\]{
   font-size: 13px;
 }
 
+.text-\[14px\]{
+  font-size: 14px;
+}
+
 .text-\[15px\]{
   font-size: 15px;
+}
+
+.text-\[20px\]{
+  font-size: 20px;
+}
+
+.text-\[28px\]{
+  font-size: 28px;
 }
 
 .text-base{
@@ -2141,6 +2202,10 @@ section[aria-label='Notifications alt+T'] {
   letter-spacing: -0.025em;
 }
 
+.tracking-wide{
+  letter-spacing: 0.025em;
+}
+
 .tracking-wider{
   letter-spacing: 0.05em;
 }
@@ -2171,6 +2236,11 @@ section[aria-label='Notifications alt+T'] {
 .text-blue-500{
   --tw-text-opacity: 1;
   color: rgb(59 130 246 / var(--tw-text-opacity, 1));
+}
+
+.text-blue-600{
+  --tw-text-opacity: 1;
+  color: rgb(37 99 235 / var(--tw-text-opacity, 1));
 }
 
 .text-card-foreground{
@@ -2449,10 +2519,6 @@ section[aria-label='Notifications alt+T'] {
   transition-duration: 200ms;
 }
 
-.duration-300{
-  transition-duration: 300ms;
-}
-
 .ease-in-out{
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -2505,10 +2571,6 @@ section[aria-label='Notifications alt+T'] {
 
 .duration-200{
   animation-duration: 200ms;
-}
-
-.duration-300{
-  animation-duration: 300ms;
 }
 
 .ease-in-out{
@@ -2643,10 +2705,6 @@ section[aria-label='Notifications alt+T'] {
 
 .hover\:border-navy\/20:hover{
   border-color: rgb(10 31 51 / 0.2);
-}
-
-.hover\:border-navy\/30:hover{
-  border-color: rgb(10 31 51 / 0.3);
 }
 
 .hover\:bg-accent:hover{
@@ -2851,12 +2909,6 @@ section[aria-label='Notifications alt+T'] {
 
 .group\/menu-item:focus-within .group-focus-within\/menu-item\:opacity-100{
   opacity: 1;
-}
-
-.group:hover .group-hover\:scale-110{
-  --tw-scale-x: 1.1;
-  --tw-scale-y: 1.1;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
 .group\/menu-item:hover .group-hover\/menu-item\:opacity-100{
