@@ -210,17 +210,18 @@ const Options = () => {
     ]
   }, [niche])
 
+  // Normal Form States
   const [selectedOption, setSelectedOption] = useState<string>('')
   const [selectedCharacter, setSelectedCharacter] = useState<string>('')
   const [customCharacterDesc, setCustomCharacterDesc] = useState<string>('')
   const [cartoonStyle, setCartoonStyle] = useState<string>('pixar')
   const [sceneIdea, setSceneIdea] = useState<string>('')
 
-  // Consistent Character specific states
+  // Consistent Character specific states (Lean UI)
+  const [dnaGender, setDnaGender] = useState<string>('female')
+  const [dnaAge, setDnaAge] = useState<string>('25')
+  const [dnaDescription, setDnaDescription] = useState<string>('')
   const [sceneCount, setSceneCount] = useState<number[]>([1])
-  const [narrativeMode, setNarrativeMode] = useState<string>('narration')
-  const [gender, setGender] = useState<string>('female')
-  const [age, setAge] = useState<string>('25')
   const [scenesData, setScenesData] = useState<{ idea: string }[]>([
     { idea: '' },
   ])
@@ -242,12 +243,13 @@ const Options = () => {
   }, [sceneCount, isConsistentCharacter])
 
   const isFormValid = useMemo(() => {
+    if (isConsistentCharacter) {
+      return dnaAge.trim() !== '' && dnaDescription.trim() !== ''
+    }
+
     let valid = selectedOption !== '' && selectedCharacter !== ''
     if (selectedCharacter === 'custom') {
       valid = valid && customCharacterDesc.trim() !== ''
-    }
-    if (isConsistentCharacter) {
-      valid = valid && age.trim() !== ''
     }
     return valid
   }, [
@@ -255,7 +257,8 @@ const Options = () => {
     selectedCharacter,
     customCharacterDesc,
     isConsistentCharacter,
-    age,
+    dnaAge,
+    dnaDescription,
   ])
 
   if (!niche) {
@@ -266,92 +269,94 @@ const Options = () => {
     )
   }
 
-  const getVoiceProfile = (gen: string, a: string) => {
-    const ageNum = parseInt(a, 10)
-    if (isNaN(ageNum)) return 'Adult Female Voice'
-    let ageGroup = 'Adult'
-    if (ageNum < 13) ageGroup = 'Child'
-    else if (ageNum <= 19) ageGroup = 'Teen'
-    else if (ageNum >= 60) ageGroup = 'Elderly'
-    return `${ageGroup} ${gen === 'male' ? 'Male' : 'Female'} Voice`
-  }
-
   const handleGenerate = () => {
     if (!isFormValid) return
 
-    setDraft({ option: selectedOption, character: selectedCharacter })
-
-    const { estilo, iluminacao } = generateMetadata(selectedOption)
-    const selectedOptObj = niche.options.find((o) => o.pt === selectedOption)
-    const conceptEn = selectedOptObj ? selectedOptObj.en : selectedOption
-
-    let qualitySettings =
-      'Ultra Premium, 8K, ultra-realistic, cinematic lighting, high resolution, sharp focus, highly detailed, photorealistic, masterpiece, professional cinematography, no blur, perfectly crisp'
-
-    if (isCartoon) {
-      qualitySettings =
-        'Ultra Premium, 8K, high resolution, sharp focus, highly detailed, masterpiece, perfect animation quality, vibrant, clean lines, perfectly crisp'
-    }
-
-    let finalStyle = estilo
-    if (isCartoon) {
-      finalStyle =
-        CARTOON_STYLES.find((s) => s.id === cartoonStyle)?.en || estilo
-    }
-
-    let charProfileEn = ''
-    if (selectedCharacter === 'custom') {
-      charProfileEn = isCartoon
-        ? `Ultra Premium, highly detailed character design of ${customCharacterDesc.trim()}. Perfectly capturing the animation style, expressive features, and vivid colors.`
-        : `Ultra Premium, highly detailed, ultra-realistic portrait of ${customCharacterDesc.trim()}. The subject is deeply humanized with authentic skin texture, expressive eyes, natural posture, and a highly professional appearance. Rendered as a masterpiece portrait.`
-    } else {
-      const charObj = nicheCharacters.find((c) => c.id === selectedCharacter)
-      charProfileEn = `Ultra Premium, ${charObj?.descriptionEn || charObj?.name || selectedCharacter}`
-    }
-
-    const charObjToSave = nicheCharacters.find(
-      (c) => c.id === selectedCharacter,
-    )
-    const characterNamePt =
-      selectedCharacter === 'custom'
-        ? 'Personalizado (IA)'
-        : charObjToSave?.name || selectedCharacter
-
-    const fallbackScriptPt = `[AUTO-GENERATE SCRIPT] Crie um roteiro/diálogo envolvente, natural e altamente profissional em Português do Brasil (pt-BR) focado em '${selectedOption}', para ser dito por: ${characterNamePt}.`
-
     let jsonPayload: any = {}
+    let saveOption = ''
+    let saveCharacter = ''
 
     if (isConsistentCharacter) {
+      saveOption = 'Narrativa Consistente'
+      saveCharacter = 'DNA de Personagem'
+      setDraft({ option: saveOption, character: saveCharacter })
+
+      const genderEn = dnaGender === 'male' ? 'Male' : 'Female'
+      const charDnaEn = `Gender: ${genderEn}, Age: ${dnaAge}. Visual Description: [TRANSLATE TO ENGLISH] ${dnaDescription.trim()}`
+
       jsonPayload = {
         task: 'consistent_character_storytelling',
         niche_en: niche.titleEn,
-        concept_en: conceptEn,
+        character_dna_en: {
+          gender: dnaGender,
+          age: parseInt(dnaAge, 10) || 25,
+          visual_description_pt: dnaDescription.trim(),
+        },
         technical_specifications_en: {
-          quality: qualitySettings,
-          style: finalStyle,
-          lighting: iluminacao,
+          quality:
+            'Ultra Premium, 8K, ultra-realistic, cinematic lighting, high resolution, sharp focus, highly detailed, photorealistic, masterpiece, professional cinematography, no blur, perfectly crisp',
+          style: 'High-end commercial photography, modern aesthetic',
+          lighting: 'Balanced studio lighting, consistent across all scenes',
         },
-        character_profile_en: {
-          base_character_description: charProfileEn,
-          gender: gender === 'male' ? 'male' : 'female',
-          age: parseInt(age, 10),
-          voice_profile: getVoiceProfile(gender, age),
-        },
-        narrative_type: narrativeMode,
         scene_count: sceneCount[0],
-        scenes: scenesData.map((data, idx) => ({
-          scene_number: idx + 1,
-          visual_action_description_en: data.idea.trim()
-            ? `[TRANSLATE TO ENGLISH & ENHANCE] Visual action for scene ${idx + 1} based on: "${data.idea.trim()}"`
-            : `[AUTO-GENERATE IN ENGLISH] Create a highly detailed visual action description for scene ${idx + 1} of ${sceneCount[0]} seamlessly continuing the narrative for '${conceptEn}'.`,
-          character_speech_pt_br: data.idea.trim()
-            ? `[EXTRACT SPEECH/NARRATIVE IN PT-BR] Aprimore a fala ou crie uma narração em Português do Brasil baseada em: "${data.idea.trim()}"`
-            : `[AUTO-GENERATE SCRIPT] Crie a fala/narração para a cena ${idx + 1} em Português do Brasil, alinhada à narrativa de '${selectedOption}'.`,
-        })),
+        scenes: scenesData.map((data, idx) => {
+          const baseIdea = data.idea.trim()
+          return {
+            scene_number: idx + 1,
+            visual_action_description_en: baseIdea
+              ? `[TRANSLATE TO ENGLISH & ENHANCE] Scene ${idx + 1}. Character Profile: (${charDnaEn}). Action based on: "${baseIdea}"`
+              : `[AUTO-GENERATE IN ENGLISH] Scene ${idx + 1} of ${sceneCount[0]}. Character Profile: (${charDnaEn}). Create a highly detailed visual action description seamlessly continuing the narrative.`,
+            character_speech_pt_br: baseIdea
+              ? `[EXTRACT SPEECH/NARRATIVE IN PT-BR] Aprimore a fala ou crie uma narração natural em Português do Brasil baseada em: "${baseIdea}"`
+              : `[AUTO-GENERATE SCRIPT IN PT-BR] Crie a fala/narração para a cena ${idx + 1} em Português do Brasil, alinhada à sequência lógica do personagem.`,
+          }
+        }),
         system_instruction:
-          'CRITICAL: All visual descriptions are in English. All character speech and dialogues are STRICTLY in Brazilian Portuguese (pt-BR).',
+          "CRITICAL: Programmatically injected Character DNA metadata MUST be maintained across every scene's visual description. All visual action descriptions MUST be in English. All character speech and dialogues MUST be STRICTLY in Brazilian Portuguese (pt-BR).",
       }
     } else {
+      saveOption = selectedOption
+
+      const charObjToSave = nicheCharacters.find(
+        (c) => c.id === selectedCharacter,
+      )
+      saveCharacter =
+        selectedCharacter === 'custom'
+          ? 'Personalizado (IA)'
+          : charObjToSave?.name || selectedCharacter
+
+      setDraft({ option: saveOption, character: saveCharacter })
+
+      const { estilo, iluminacao } = generateMetadata(selectedOption)
+      const selectedOptObj = niche.options.find((o) => o.pt === selectedOption)
+      const conceptEn = selectedOptObj ? selectedOptObj.en : selectedOption
+
+      let qualitySettings =
+        'Ultra Premium, 8K, ultra-realistic, cinematic lighting, high resolution, sharp focus, highly detailed, photorealistic, masterpiece, professional cinematography, no blur, perfectly crisp'
+
+      if (isCartoon) {
+        qualitySettings =
+          'Ultra Premium, 8K, high resolution, sharp focus, highly detailed, masterpiece, perfect animation quality, vibrant, clean lines, perfectly crisp'
+      }
+
+      let finalStyle = estilo
+      if (isCartoon) {
+        finalStyle =
+          CARTOON_STYLES.find((s) => s.id === cartoonStyle)?.en || estilo
+      }
+
+      let charProfileEn = ''
+      if (selectedCharacter === 'custom') {
+        charProfileEn = isCartoon
+          ? `Ultra Premium, highly detailed character design of ${customCharacterDesc.trim()}. Perfectly capturing the animation style, expressive features, and vivid colors.`
+          : `Ultra Premium, highly detailed, ultra-realistic portrait of ${customCharacterDesc.trim()}. The subject is deeply humanized with authentic skin texture, expressive eyes, natural posture, and a highly professional appearance. Rendered as a masterpiece portrait.`
+      } else {
+        const charObj = nicheCharacters.find((c) => c.id === selectedCharacter)
+        charProfileEn = `Ultra Premium, ${charObj?.descriptionEn || charObj?.name || selectedCharacter}`
+      }
+
+      const fallbackScriptPt = `[AUTO-GENERATE SCRIPT] Crie um roteiro/diálogo envolvente, natural e altamente profissional em Português do Brasil (pt-BR) focado em '${selectedOption}', para ser dito por: ${saveCharacter}.`
+
       jsonPayload = {
         task: 'professional_content_generation',
         niche_en: niche.titleEn,
@@ -384,8 +389,8 @@ const Options = () => {
       nicheId: niche.id,
       nicheTitle: niche.title,
       nicheIcon: niche.icon,
-      option: selectedOption,
-      character: characterNamePt,
+      option: saveOption,
+      character: saveCharacter,
       date: new Date().toISOString(),
       timeDisplay: 'agora',
       json: jsonPayload,
@@ -413,106 +418,97 @@ const Options = () => {
       </div>
 
       <div className="flex-1 space-y-10 pb-28">
-        {/* 1. Estrutura Narrativa */}
-        <section className="space-y-4">
-          <Label className="text-xs font-bold text-muted-foreground uppercase tracking-widest flex items-center gap-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-muted-foreground" />
-            1. Estrutura Narrativa
-          </Label>
-          <RadioGroup
-            value={selectedOption}
-            onValueChange={setSelectedOption}
-            className="grid grid-cols-1 md:grid-cols-2 gap-3"
-          >
-            {niche.options.map((opt, i) => (
-              <RadioOption
-                key={i}
-                value={opt.pt}
-                label={opt.pt}
-                current={selectedOption}
-              />
-            ))}
-          </RadioGroup>
-        </section>
-
-        {isCartoon && (
-          <section className="space-y-4 animate-in fade-in slide-in-from-bottom-4 duration-500">
-            <Label className="text-xs font-bold text-muted-foreground uppercase tracking-widest flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-muted-foreground" />
-              2. Estilo de Animação
-            </Label>
-            <RadioGroup
-              value={cartoonStyle}
-              onValueChange={setCartoonStyle}
-              className="grid grid-cols-1 md:grid-cols-3 gap-3"
-            >
-              {CARTOON_STYLES.map((style) => (
-                <RadioOption
-                  key={style.id}
-                  value={style.id}
-                  label={style.label}
-                  icon={style.icon}
-                  current={cartoonStyle}
-                />
-              ))}
-            </RadioGroup>
-          </section>
-        )}
-
-        {/* 2/3. Perfil do Personagem */}
-        <section className="space-y-4 animate-in fade-in slide-in-from-bottom-4 duration-500">
-          <Label className="text-xs font-bold text-muted-foreground uppercase tracking-widest flex items-center gap-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-muted-foreground" />
-            {isCartoon ? '3.' : '2.'} Perfil do Personagem
-          </Label>
-          <RadioGroup
-            value={selectedCharacter}
-            onValueChange={setSelectedCharacter}
-            className="grid grid-cols-1 sm:grid-cols-2 gap-3"
-          >
-            {nicheCharacters.map((char) => (
-              <CharacterOption
-                key={char.id}
-                char={char}
-                current={selectedCharacter}
-              />
-            ))}
-          </RadioGroup>
-
-          {selectedCharacter === 'custom' && (
-            <div className="mt-4 p-5 bg-primary/5 border border-primary/20 rounded-xl animate-in fade-in slide-in-from-top-2">
-              <Label className="text-sm font-bold text-foreground mb-3 flex items-center gap-2">
-                Descreva seu Personagem
-              </Label>
-              <Textarea
-                value={customCharacterDesc}
-                onChange={(e) => setCustomCharacterDesc(e.target.value)}
-                placeholder="Ex: Um jovem na faixa dos 25 anos, com cabelo estilo bagunçado..."
-                className="min-h-[100px] bg-card border-border focus-visible:ring-primary/50"
-              />
-            </div>
-          )}
-        </section>
-
-        {isConsistentCharacter && (
-          <>
-            {/* Story Configuration */}
+        {isConsistentCharacter ? (
+          <div className="space-y-10">
+            {/* 1. Character DNA Profile */}
             <section className="space-y-4 animate-in fade-in slide-in-from-bottom-4 duration-500">
               <Label className="text-xs font-bold text-muted-foreground uppercase tracking-widest flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-muted-foreground" />
-                3. Configuração da História
+                <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+                1. DNA do Personagem (Identidade Visual)
               </Label>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="space-y-5 p-5 rounded-xl border border-border bg-card">
-                  <div className="flex items-center justify-between">
+              <div className="p-6 rounded-xl border border-border bg-card shadow-sm space-y-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <div className="space-y-3">
                     <Label className="text-sm font-bold text-foreground">
-                      Qtd. de Cenas
+                      Gênero
                     </Label>
-                    <span className="text-primary font-bold text-sm bg-primary/10 px-2.5 py-0.5 rounded-md">
-                      {sceneCount[0]}
+                    <RadioGroup
+                      value={dnaGender}
+                      onValueChange={setDnaGender}
+                      className="grid grid-cols-2 gap-3"
+                    >
+                      <RadioOption
+                        value="male"
+                        label="Masculino"
+                        current={dnaGender}
+                      />
+                      <RadioOption
+                        value="female"
+                        label="Feminino"
+                        current={dnaGender}
+                      />
+                    </RadioGroup>
+                  </div>
+                  <div className="space-y-3">
+                    <Label className="text-sm font-bold text-foreground">
+                      Idade Aparente
+                    </Label>
+                    <Input
+                      type="number"
+                      min="1"
+                      max="120"
+                      value={dnaAge}
+                      onChange={(e) => setDnaAge(e.target.value)}
+                      placeholder="Ex: 25"
+                      className="bg-background h-[54px]"
+                    />
+                  </div>
+                </div>
+
+                <div className="space-y-3">
+                  <Label className="text-sm font-bold text-foreground flex items-center justify-between">
+                    <span>Descrição Visual Detalhada</span>
+                  </Label>
+                  <Textarea
+                    value={dnaDescription}
+                    onChange={(e) => setDnaDescription(e.target.value)}
+                    placeholder="Ex: Cabelos curtos castanhos, olhos verdes expressivos, vestindo jaqueta de couro preta e camiseta branca..."
+                    className="min-h-[120px] text-sm bg-background border-border/50 focus-visible:ring-primary/50"
+                  />
+                  <p className="text-xs text-muted-foreground font-medium">
+                    Estes detalhes serão injetados em todas as cenas para
+                    garantir consistência visual absoluta.
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            {/* 2. Dynamic Scenes */}
+            <section className="space-y-4 animate-in fade-in slide-in-from-bottom-4 duration-500 delay-100">
+              <Label className="text-xs font-bold text-muted-foreground uppercase tracking-widest flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+                2. Gerador Dinâmico de Cenas
+              </Label>
+
+              <div className="space-y-5 p-6 rounded-xl border border-border bg-card shadow-sm">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                  <div className="space-y-1">
+                    <Label className="text-sm font-bold text-foreground">
+                      Quantidade de Cenas
+                    </Label>
+                    <p className="text-xs text-muted-foreground">
+                      Defina a duração da sua narrativa (1 a 8)
+                    </p>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <span className="text-primary font-bold text-lg bg-primary/10 px-4 py-1.5 rounded-lg border border-primary/20">
+                      {sceneCount[0]} {sceneCount[0] === 1 ? 'Cena' : 'Cenas'}
                     </span>
                   </div>
+                </div>
+
+                <div className="py-2">
                   <Slider
                     defaultValue={[1]}
                     max={8}
@@ -523,117 +519,136 @@ const Options = () => {
                     className="py-2"
                   />
                 </div>
-
-                <div className="space-y-3 p-5 rounded-xl border border-border bg-card">
-                  <Label className="text-sm font-bold text-foreground">
-                    Modo Narrativo
-                  </Label>
-                  <RadioGroup
-                    value={narrativeMode}
-                    onValueChange={setNarrativeMode}
-                    className="grid grid-cols-2 gap-2"
-                  >
-                    <RadioOption
-                      value="narration"
-                      label="Narração"
-                      current={narrativeMode}
-                    />
-                    <RadioOption
-                      value="dialogue"
-                      label="Diálogo"
-                      current={narrativeMode}
-                    />
-                  </RadioGroup>
-                </div>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 p-5 rounded-xl border border-border bg-card">
-                <div className="space-y-3">
-                  <Label className="text-sm font-bold text-foreground">
-                    Gênero da Voz
-                  </Label>
-                  <RadioGroup
-                    value={gender}
-                    onValueChange={setGender}
-                    className="grid grid-cols-2 gap-2"
-                  >
-                    <RadioOption value="male" label="Masc." current={gender} />
-                    <RadioOption value="female" label="Fem." current={gender} />
-                  </RadioGroup>
-                </div>
-                <div className="space-y-3">
-                  <Label className="text-sm font-bold text-foreground">
-                    Idade Aparente
-                  </Label>
-                  <Input
-                    type="number"
-                    min="1"
-                    max="120"
-                    value={age}
-                    onChange={(e) => setAge(e.target.value)}
-                    placeholder="Ex: 25"
-                    className="bg-background"
-                  />
-                </div>
-              </div>
-            </section>
-
-            {/* Dynamic Scenes Content */}
-            <section className="space-y-4 animate-in fade-in slide-in-from-bottom-4 duration-500 delay-200">
-              <Label className="text-xs font-bold text-muted-foreground uppercase tracking-widest flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-muted-foreground" />
-                4. Roteiro das Cenas
-              </Label>
-
-              <div className="space-y-4">
+              <div className="space-y-4 mt-6">
                 {scenesData.map((data, idx) => (
                   <div
                     key={idx}
-                    className="p-5 rounded-xl border border-border bg-card shadow-sm space-y-3"
+                    className="p-5 rounded-xl border border-border bg-card shadow-sm space-y-3 relative overflow-hidden group transition-all"
                   >
+                    <div className="absolute left-0 top-0 bottom-0 w-1 bg-primary/20 group-focus-within:bg-primary transition-colors" />
                     <Label className="text-xs font-bold text-primary uppercase tracking-widest flex items-center gap-2">
                       Cena {idx + 1}
                     </Label>
                     <div className="space-y-2">
-                      <Label className="text-xs font-semibold text-foreground">
-                        Fala / Ideia da Cena (Opcional)
-                      </Label>
                       <Textarea
-                        placeholder="Descreva a ação visual e/ou a fala desejada em português..."
+                        placeholder="Descreva a ação visual e/ou a fala desejada em português. (Opcional - a IA pode auto-completar a cena logicamente)"
                         value={data.idea}
                         onChange={(e) => {
                           const newContent = [...scenesData]
                           newContent[idx].idea = e.target.value
                           setScenesData(newContent)
                         }}
-                        className="min-h-[80px] text-sm bg-background focus-visible:ring-primary/50"
+                        className="min-h-[80px] text-sm bg-background border-border/50 focus-visible:ring-primary/50"
                       />
                     </div>
                   </div>
                 ))}
               </div>
             </section>
-          </>
-        )}
+          </div>
+        ) : (
+          <div className="space-y-10">
+            {/* 1. Estrutura Narrativa */}
+            <section className="space-y-4">
+              <Label className="text-xs font-bold text-muted-foreground uppercase tracking-widest flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-muted-foreground" />
+                1. Estrutura Narrativa
+              </Label>
+              <RadioGroup
+                value={selectedOption}
+                onValueChange={setSelectedOption}
+                className="grid grid-cols-1 md:grid-cols-2 gap-3"
+              >
+                {niche.options.map((opt, i) => (
+                  <RadioOption
+                    key={i}
+                    value={opt.pt}
+                    label={opt.pt}
+                    current={selectedOption}
+                  />
+                ))}
+              </RadioGroup>
+            </section>
 
-        {!isConsistentCharacter && (
-          <section className="space-y-4 animate-in fade-in slide-in-from-bottom-4 duration-500 delay-100">
-            <Label className="text-xs font-bold text-primary uppercase tracking-widest flex items-center gap-2">
-              <Sparkles className="w-3.5 h-3.5" />
-              {isCartoon ? '4.' : '3.'} Fala / Ideia da Cena (Opcional)
-            </Label>
-            <Textarea
-              value={sceneIdea}
-              onChange={(e) => setSceneIdea(e.target.value)}
-              placeholder="Descreva a ação que deve acontecer ou a fala exata do personagem em português..."
-              className="min-h-[120px] bg-card border-border focus-visible:ring-primary/50 text-base"
-            />
-            <p className="text-xs text-muted-foreground font-medium">
-              Instruções visuais serão convertidas para o Inglês. A fala será
-              mantida em Português do Brasil (pt-BR). Se em branco, a IA gerará
-              automaticamente.
-            </p>
-          </section>
+            {isCartoon && (
+              <section className="space-y-4 animate-in fade-in slide-in-from-bottom-4 duration-500">
+                <Label className="text-xs font-bold text-muted-foreground uppercase tracking-widest flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-muted-foreground" />
+                  2. Estilo de Animação
+                </Label>
+                <RadioGroup
+                  value={cartoonStyle}
+                  onValueChange={setCartoonStyle}
+                  className="grid grid-cols-1 md:grid-cols-3 gap-3"
+                >
+                  {CARTOON_STYLES.map((style) => (
+                    <RadioOption
+                      key={style.id}
+                      value={style.id}
+                      label={style.label}
+                      icon={style.icon}
+                      current={cartoonStyle}
+                    />
+                  ))}
+                </RadioGroup>
+              </section>
+            )}
+
+            {/* 2/3. Perfil do Personagem */}
+            <section className="space-y-4 animate-in fade-in slide-in-from-bottom-4 duration-500">
+              <Label className="text-xs font-bold text-muted-foreground uppercase tracking-widest flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-muted-foreground" />
+                {isCartoon ? '3.' : '2.'} Perfil do Personagem
+              </Label>
+              <RadioGroup
+                value={selectedCharacter}
+                onValueChange={setSelectedCharacter}
+                className="grid grid-cols-1 sm:grid-cols-2 gap-3"
+              >
+                {nicheCharacters.map((char) => (
+                  <CharacterOption
+                    key={char.id}
+                    char={char}
+                    current={selectedCharacter}
+                  />
+                ))}
+              </RadioGroup>
+
+              {selectedCharacter === 'custom' && (
+                <div className="mt-4 p-5 bg-primary/5 border border-primary/20 rounded-xl animate-in fade-in slide-in-from-top-2">
+                  <Label className="text-sm font-bold text-foreground mb-3 flex items-center gap-2">
+                    Descreva seu Personagem
+                  </Label>
+                  <Textarea
+                    value={customCharacterDesc}
+                    onChange={(e) => setCustomCharacterDesc(e.target.value)}
+                    placeholder="Ex: Um jovem na faixa dos 25 anos, com cabelo estilo bagunçado..."
+                    className="min-h-[100px] bg-card border-border focus-visible:ring-primary/50"
+                  />
+                </div>
+              )}
+            </section>
+
+            <section className="space-y-4 animate-in fade-in slide-in-from-bottom-4 duration-500 delay-100">
+              <Label className="text-xs font-bold text-primary uppercase tracking-widest flex items-center gap-2">
+                <Sparkles className="w-3.5 h-3.5" />
+                {isCartoon ? '4.' : '3.'} Fala / Ideia da Cena (Opcional)
+              </Label>
+              <Textarea
+                value={sceneIdea}
+                onChange={(e) => setSceneIdea(e.target.value)}
+                placeholder="Descreva a ação que deve acontecer ou a fala exata do personagem em português..."
+                className="min-h-[120px] bg-card border-border focus-visible:ring-primary/50 text-base"
+              />
+              <p className="text-xs text-muted-foreground font-medium">
+                Instruções visuais serão convertidas para o Inglês. A fala será
+                mantida em Português do Brasil (pt-BR). Se em branco, a IA
+                gerará automaticamente.
+              </p>
+            </section>
+          </div>
         )}
       </div>
 
