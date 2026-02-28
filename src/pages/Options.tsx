@@ -1,6 +1,6 @@
 import { useParams, useNavigate } from 'react-router-dom'
 import { useState, useMemo, useEffect } from 'react'
-import { NICHES, CHARACTERS, generateMetadata } from '@/lib/data'
+import { NICHES, generateMetadata } from '@/lib/data'
 import usePromptStore from '@/stores/usePromptStore'
 import { Button } from '@/components/ui/button'
 import { Label } from '@/components/ui/label'
@@ -126,6 +126,19 @@ const Options = () => {
   const niche = useMemo(() => NICHES.find((n) => n.id === nicheId), [nicheId])
   const isConsistentCharacter = niche?.id === 'personagem-consistente'
 
+  const nicheCharacters = useMemo(() => {
+    if (!niche) return []
+    return [
+      ...niche.characters,
+      {
+        id: 'custom',
+        name: 'Criar Personalizado',
+        description: 'Descreva e a IA otimizará',
+        descriptionEn: 'Custom AI Optimized Character Profile.',
+      },
+    ]
+  }, [niche])
+
   const [selectedOption, setSelectedOption] = useState<string>('')
   const [selectedCharacter, setSelectedCharacter] = useState<string>('')
   const [customCharacterDesc, setCustomCharacterDesc] = useState<string>('')
@@ -202,7 +215,7 @@ const Options = () => {
     if (selectedCharacter === 'custom') {
       charProfileEn = `A highly detailed, ultra-realistic portrait of ${customCharacterDesc.trim()}. The subject is deeply humanized with authentic skin texture, expressive eyes, natural posture, and a highly professional appearance. Rendered as a masterpiece portrait with striking emotional depth.`
     } else {
-      const charObj = CHARACTERS.find((c) => c.id === selectedCharacter)
+      const charObj = nicheCharacters.find((c) => c.id === selectedCharacter)
       charProfileEn =
         charObj?.descriptionEn || charObj?.name || selectedCharacter
     }
@@ -222,11 +235,12 @@ const Options = () => {
         lighting: iluminacao,
         character_profile: {
           base_character_description: charProfileEn,
-          gender: gender,
+          gender: gender === 'male' ? 'male' : 'female',
           age: parseInt(age, 10),
           voice_profile: getVoiceProfile(gender, age),
         },
-        narrative_type: narrativeMode,
+        narrative_type:
+          narrativeMode === 'narration' ? 'narration' : 'dialogue',
         scene_count: sceneCount[0],
         scenes: scenesContent.map((desc, idx) => ({
           [`scene_${idx + 1}`]: desc,
@@ -249,7 +263,9 @@ const Options = () => {
       }
     }
 
-    const charObjToSave = CHARACTERS.find((c) => c.id === selectedCharacter)
+    const charObjToSave = nicheCharacters.find(
+      (c) => c.id === selectedCharacter,
+    )
 
     const newResult = {
       id: Math.random().toString(36).substring(7),
@@ -331,7 +347,7 @@ const Options = () => {
             onValueChange={setSelectedCharacter}
             className="grid grid-cols-1 sm:grid-cols-2 gap-4"
           >
-            {CHARACTERS.map((char) => (
+            {nicheCharacters.map((char) => (
               <Label
                 key={char.id}
                 className={`relative flex flex-col p-6 rounded-2xl border cursor-pointer transition-all duration-300 group overflow-hidden ${
@@ -467,15 +483,15 @@ const Options = () => {
                   >
                     <RadioOption
                       value="narration"
-                      label="Narration"
-                      description="Voiceover reading the story"
+                      label="Narraçao"
+                      description="Locução narrando a história"
                       icon={Mic}
                       current={narrativeMode}
                     />
                     <RadioOption
                       value="dialogue"
-                      label="Character Dialogue"
-                      description="Character speaking directly"
+                      label="Diálogo do Personagem"
+                      description="Personagem falando diretamente"
                       icon={MessageSquareQuote}
                       current={narrativeMode}
                     />
@@ -509,13 +525,13 @@ const Options = () => {
                   >
                     <RadioOption
                       value="male"
-                      label="Male"
+                      label="Masculino"
                       icon={Mars}
                       current={gender}
                     />
                     <RadioOption
                       value="female"
-                      label="Female"
+                      label="Feminino"
                       icon={Venus}
                       current={gender}
                     />
@@ -563,9 +579,9 @@ const Options = () => {
                       Cena {idx + 1}
                     </Label>
                     <Textarea
-                      placeholder={`Describe actions, environment, and story details for Scene ${
+                      placeholder={`Descreva as ações, ambiente e detalhes da história para a Cena ${
                         idx + 1
-                      } (in English or Portuguese)...`}
+                      } (em português)...`}
                       value={content}
                       onChange={(e) => {
                         const newContent = [...scenesContent]

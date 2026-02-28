@@ -87,7 +87,7 @@ const Index = () => {
               </div>
               <div>
                 <h3 className="text-xl md:text-2xl font-extrabold text-foreground group-hover:text-[#FFC107] transition-colors">
-                  Cinematic Transformation Tool
+                  Ferramenta de Transformação Cinematográfica
                 </h3>
                 <p className="text-muted-foreground mt-1 text-sm md:text-base font-medium">
                   Transforme sua aparência em um personagem com um prompt IA 8K
@@ -113,7 +113,7 @@ const Index = () => {
               </div>
               <div>
                 <h3 className="text-xl md:text-2xl font-extrabold text-foreground group-hover:text-accent transition-colors">
-                  Photo Shoot Tool (Ensaio)
+                  Ferramenta de Ensaio Fotográfico
                 </h3>
                 <p className="text-muted-foreground mt-1 text-sm md:text-base font-medium">
                   Faça upload de imagens de referência e gere prompts de alta

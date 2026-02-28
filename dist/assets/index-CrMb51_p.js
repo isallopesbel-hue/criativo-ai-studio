@@ -24136,38 +24136,6 @@ var TooltipContent = import_react.forwardRef(({ className, sideOffset = 4, ...pr
 	...props
 }));
 TooltipContent.displayName = Content2.displayName;
-const CHARACTERS = [
-	{
-		id: "tech-innovator",
-		name: "Tech Innovator",
-		description: "Estilo Moderno, Analítico e Visionário",
-		descriptionEn: "Modern, analytical, and visionary tech professional."
-	},
-	{
-		id: "creative-artist",
-		name: "Creative Artist",
-		description: "Expressivo, Colorido e Boêmio",
-		descriptionEn: "Expressive, colorful, and bohemian artistic personality."
-	},
-	{
-		id: "corporate-exec",
-		name: "Corporate Exec",
-		description: "Apresentação Corporativa High-End",
-		descriptionEn: "Sharp, high-end corporate executive in a tailored suit."
-	},
-	{
-		id: "urban-explorer",
-		name: "Urban Explorer",
-		description: "Dinâmico, Streetwear e Aventureiro",
-		descriptionEn: "Dynamic streetwear urban explorer ready for action."
-	},
-	{
-		id: "custom",
-		name: "Criar Personalizado",
-		description: "Descreva e a IA otimizará",
-		descriptionEn: "Custom AI Optimized Character Profile."
-	}
-];
 const NICHES = [
 	{
 		id: "personagem-consistente",
@@ -24198,6 +24166,26 @@ const NICHES = [
 			{
 				pt: "Profissional focado em ambiente de trabalho",
 				en: "Focused professional in a workspace environment"
+			}
+		],
+		characters: [
+			{
+				id: "influenciador-digital",
+				name: "Influenciador Digital",
+				description: "Aparência carismática, estilo de vida moderno.",
+				descriptionEn: "Charismatic appearance, modern lifestyle digital influencer."
+			},
+			{
+				id: "avatar-corporativo",
+				name: "Avatar Corporativo",
+				description: "Profissional, elegante, transmite confiança.",
+				descriptionEn: "Professional, elegant corporate avatar conveying trust."
+			},
+			{
+				id: "mascote-3d",
+				name: "Mascote 3D",
+				description: "Personagem estilizado, expressivo e amigável.",
+				descriptionEn: "Stylized, expressive, and friendly 3D mascot character."
 			}
 		]
 	},
@@ -24231,6 +24219,26 @@ const NICHES = [
 				pt: "Transição de ilusão de ótica",
 				en: "Optical illusion transition"
 			}
+		],
+		characters: [
+			{
+				id: "narrador-misterioso",
+				name: "Narrador Misterioso",
+				description: "Voz profunda, presença enigmática.",
+				descriptionEn: "Deep voice, enigmatic presence narrator."
+			},
+			{
+				id: "guia-explorador",
+				name: "Guia Explorador",
+				description: "Aventureiro, energético, roupas práticas.",
+				descriptionEn: "Adventurous, energetic explorer guide in practical clothing."
+			},
+			{
+				id: "especialista-sabio",
+				name: "Especialista Sábio",
+				description: "Intelectual, óculos, ambiente de biblioteca.",
+				descriptionEn: "Intellectual wise expert with glasses in a library setting."
+			}
 		]
 	},
 	{
@@ -24262,6 +24270,26 @@ const NICHES = [
 			{
 				pt: "Mascote engraçado quebrando a quarta parede",
 				en: "Funny mascot breaking the fourth wall"
+			}
+		],
+		characters: [
+			{
+				id: "heroi-corajoso",
+				name: "Herói Corajoso",
+				description: "Traços fortes, olhar determinado, capa vibrante.",
+				descriptionEn: "Strong features, determined look, vibrant cape hero."
+			},
+			{
+				id: "vilao-comico",
+				name: "Vilão Cômico",
+				description: "Expressões exageradas, risada maquiavélica.",
+				descriptionEn: "Exaggerated expressions, machiavellian laugh comedic villain."
+			},
+			{
+				id: "ajudante-desastrado",
+				name: "Ajudante Desastrado",
+				description: "Pequeno, fofo, sempre tropeçando.",
+				descriptionEn: "Small, cute, always stumbling clumsy sidekick."
 			}
 		]
 	},
@@ -24295,6 +24323,26 @@ const NICHES = [
 				pt: "Batalha celestial épica",
 				en: "Epic celestial battle"
 			}
+		],
+		characters: [
+			{
+				id: "profeta-antigo",
+				name: "Profeta Antigo",
+				description: "Barba longa, vestes rústicas, olhar visionário.",
+				descriptionEn: "Long beard, rustic robes, visionary look ancient prophet."
+			},
+			{
+				id: "figura-angelical",
+				name: "Figura Angelical",
+				description: "Asas de luz, aura brilhante, serenidade.",
+				descriptionEn: "Wings of light, glowing aura, serene angelic figure."
+			},
+			{
+				id: "campones-simples",
+				name: "Camponês Simples",
+				description: "Roupas de época, humilde, trabalhador.",
+				descriptionEn: "Period clothing, humble, hardworking simple peasant."
+			}
 		]
 	},
 	{
@@ -24327,6 +24375,26 @@ const NICHES = [
 				pt: "O trem voador de brinquedo",
 				en: "The flying toy train"
 			}
+		],
+		characters: [
+			{
+				id: "crianca-aventureira",
+				name: "Criança Aventureira",
+				description: "Mochila nas costas, curiosidade no olhar.",
+				descriptionEn: "Backpack on back, curiosity in eyes adventurous child."
+			},
+			{
+				id: "fada-guia",
+				name: "Fada Guia",
+				description: "Pequena, brilhante, varinha mágica.",
+				descriptionEn: "Tiny, glowing, magic wand guide fairy."
+			},
+			{
+				id: "animal-falante",
+				name: "Animal Falante",
+				description: "Expressivo, antropomórfico, pelagem macia.",
+				descriptionEn: "Expressive, anthropomorphic, soft fur talking animal."
+			}
 		]
 	},
 	{
@@ -24336,28 +24404,36 @@ const NICHES = [
 		icon: "Skull",
 		options: [
 			{
-				pt: "Exploração em asilo abandonado",
-				en: "Exploration in an abandoned asylum"
+				pt: "Terror Psicológico",
+				en: "Psychological Horror focusing on paranoia, sanity, and internal dread"
 			},
 			{
-				pt: "Criatura espreitando na névoa",
-				en: "Creature lurking in the fog"
+				pt: "Horror Sobrenatural",
+				en: "Supernatural Horror focusing on ghosts, ancient curses, and paranormal entities"
 			},
 			{
-				pt: "Espelho que reflete o passado",
-				en: "Mirror that reflects the past"
+				pt: "Suspense Slasher",
+				en: "Slasher Thriller focusing on high tension, survival, and a persistent antagonist"
+			}
+		],
+		characters: [
+			{
+				id: "investigador-paranormal",
+				name: "Investigador Paranormal",
+				description: "Cético, experiente, carrega equipamentos antigos.",
+				descriptionEn: "Skeptical, experienced paranormal investigator carrying vintage equipment."
 			},
 			{
-				pt: "Ruas vazias à meia-noite",
-				en: "Empty streets at midnight"
+				id: "vitima-fugitiva",
+				name: "Vítima Fugitiva",
+				description: "Aterrorizada, exausta, lutando pela sobrevivência.",
+				descriptionEn: "Terrified, exhausted victim fighting for survival."
 			},
 			{
-				pt: "Floresta amaldiçoada sob lua cheia",
-				en: "Cursed forest under a full moon"
-			},
-			{
-				pt: "Sombra no final do corredor",
-				en: "Shadow at the end of the hallway"
+				id: "entidade-obscura",
+				name: "Entidade Obscura",
+				description: "Figura sombria, ameaçadora, indescritível.",
+				descriptionEn: "Shadowy, menacing, indescribable dark entity."
 			}
 		]
 	},
@@ -24391,6 +24467,26 @@ const NICHES = [
 				pt: "Cantor solista na chuva",
 				en: "Solo singer in the rain"
 			}
+		],
+		characters: [
+			{
+				id: "estrela-pop",
+				name: "Estrela Pop",
+				description: "Roupas extravagantes, carisma de palco.",
+				descriptionEn: "Extravagant clothes, stage charisma pop star."
+			},
+			{
+				id: "rapper-underground",
+				name: "Rapper Underground",
+				description: "Estilo urbano, atitude confiante, correntes.",
+				descriptionEn: "Urban style, confident attitude, chains underground rapper."
+			},
+			{
+				id: "dj-eletronico",
+				name: "DJ Eletrônico",
+				description: "Fones de ouvido, luzes neon, energia alta.",
+				descriptionEn: "Headphones, neon lights, high energy electronic DJ."
+			}
 		]
 	},
 	{
@@ -24422,6 +24518,26 @@ const NICHES = [
 			{
 				pt: "Espelho elogiando o visual",
 				en: "Mirror complimenting the outfit"
+			}
+		],
+		characters: [
+			{
+				id: "objeto-sabio",
+				name: "Objeto Sábio",
+				description: "Aparência antiga, voz conselheira.",
+				descriptionEn: "Ancient appearance, advising voice wise object."
+			},
+			{
+				id: "objeto-ranzinza",
+				name: "Objeto Ranzinza",
+				description: "Desgastado, reclamações cômicas.",
+				descriptionEn: "Worn out, comedic complaints grumpy object."
+			},
+			{
+				id: "objeto-animado",
+				name: "Objeto Animado",
+				description: "Cores vivas, saltitante, muito alegre.",
+				descriptionEn: "Bright colors, bouncy, very cheerful animated object."
 			}
 		]
 	},
@@ -24455,6 +24571,26 @@ const NICHES = [
 				pt: "Desafio de dança viral",
 				en: "Viral dance challenge"
 			}
+		],
+		characters: [
+			{
+				id: "vlogger-dinamico",
+				name: "Vlogger Dinâmico",
+				description: "Câmera na mão, sorridente, cortes rápidos.",
+				descriptionEn: "Camera in hand, smiling, fast-paced dynamic vlogger."
+			},
+			{
+				id: "dancarino-viral",
+				name: "Dançarino Viral",
+				description: "Roupas flexíveis, movimentos precisos.",
+				descriptionEn: "Flexible clothes, precise movements viral dancer."
+			},
+			{
+				id: "especialista-dicas",
+				name: "Especialista em Dicas",
+				description: "Aponta para textos imaginários, didático.",
+				descriptionEn: "Points to imaginary text, didactic tips expert."
+			}
 		]
 	},
 	{
@@ -24486,6 +24622,26 @@ const NICHES = [
 			{
 				pt: "Maquete 3D interativa",
 				en: "Interactive 3D architectural model"
+			}
+		],
+		characters: [
+			{
+				id: "arquiteto-senior",
+				name: "Arquiteto Sênior",
+				description: "Prancheta na mão, capacete branco, visão técnica.",
+				descriptionEn: "Clipboard in hand, white helmet, technical vision senior architect."
+			},
+			{
+				id: "engenheiro-obra",
+				name: "Engenheiro de Obra",
+				description: "Colete refletivo, botas pesadas, focado.",
+				descriptionEn: "Reflective vest, heavy boots, focused construction engineer."
+			},
+			{
+				id: "designer-interiores",
+				name: "Designer de Interiores",
+				description: "Estilo elegante, amostras de cores na mão.",
+				descriptionEn: "Elegant style, color swatches in hand interior designer."
 			}
 		]
 	},
@@ -24519,6 +24675,26 @@ const NICHES = [
 				pt: "Imersão Digital em Realidade Virtual",
 				en: "Virtual reality digital immersion"
 			}
+		],
+		characters: [
+			{
+				id: "estrategista-vendas",
+				name: "Estrategista de Vendas",
+				description: "Profissional confiante, vestuário moderno e analítico.",
+				descriptionEn: "Confident professional sales strategist, modern and analytical."
+			},
+			{
+				id: "criador-conteudo",
+				name: "Criador de Conteúdo",
+				description: "Carismático, ambiente de estúdio iluminado.",
+				descriptionEn: "Charismatic content creator in a well-lit studio environment."
+			},
+			{
+				id: "empreendedor-digital",
+				name: "Empreendedor Digital",
+				description: "Visionário, trabalhando em um laptop premium.",
+				descriptionEn: "Visionary digital entrepreneur working on a premium laptop."
+			}
 		]
 	},
 	{
@@ -24551,6 +24727,26 @@ const NICHES = [
 				pt: "Campanha de lifestyle urbano",
 				en: "Urban lifestyle product campaign"
 			}
+		],
+		characters: [
+			{
+				id: "modelo-estilo-vida",
+				name: "Modelo de Estilo de Vida",
+				description: "Aparência impecável, usando o produto naturalmente.",
+				descriptionEn: "Flawless appearance, naturally using the product lifestyle model."
+			},
+			{
+				id: "especialista-review",
+				name: "Especialista em Review",
+				description: "Analisando detalhes com lupa ou luz forte.",
+				descriptionEn: "Analyzing details with a magnifying glass or strong light review expert."
+			},
+			{
+				id: "usuario-diario",
+				name: "Usuário Diário",
+				description: "Pessoa comum, satisfeita, ambiente doméstico.",
+				descriptionEn: "Common person, satisfied, domestic environment daily user."
+			}
 		]
 	}
 ];
@@ -24560,14 +24756,14 @@ const MOCK_HISTORY = [{
 	nicheTitle: "Produtos Digitais",
 	nicheIcon: "MonitorPlay",
 	option: "Lançamento de Software SaaS",
-	character: "Tech Innovator",
+	character: "Empreendedor Digital",
 	date: (/* @__PURE__ */ new Date()).toISOString(),
 	timeDisplay: "10:30",
 	json: {
 		task: "professional_content_generation",
 		niche: "Digital Products",
 		narrative_concept: "SaaS software launch",
-		subject_and_character: "Modern, analytical, and visionary tech professional.",
+		subject_and_character: "Visionary digital entrepreneur working on a premium laptop.",
 		technical_specifications: {
 			quality: "8K, ultra-realistic, cinematic lighting, high resolution, sharp focus, highly detailed, photorealistic, masterpiece, no blur, perfectly crisp",
 			lighting: "Clean, natural and diffuse lighting",
@@ -24584,7 +24780,7 @@ function generateMetadata(optionPt) {
 	if (lower.includes("modern") || lower.includes("premium") || lower.includes("software") || lower.includes("saas")) {
 		estilo = "High-end commercial photography, modern aesthetic";
 		iluminacao = "Clean, natural and diffuse lighting";
-	} else if (lower.includes("luxo") || lower.includes("dramátic") || lower.includes("noite") || lower.includes("terror") || lower.includes("abandonad") || lower.includes("dark")) {
+	} else if (lower.includes("luxo") || lower.includes("dramátic") || lower.includes("noite") || lower.includes("terror") || lower.includes("sobrenatural") || lower.includes("slasher") || lower.includes("abandonad") || lower.includes("dark")) {
 		estilo = "Dark cinematic masterpiece";
 		iluminacao = "Dramatic high contrast, low key lighting, moody shadows";
 	} else if (lower.includes("anim") || lower.includes("cart") || lower.includes("infant") || lower.includes("coelho") || lower.includes("mascote")) {
@@ -24699,7 +24895,7 @@ var Index = () => {
 								children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(WandSparkles, { className: "w-8 h-8 md:w-10 md:h-10" })
 							}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
 								className: "text-xl md:text-2xl font-extrabold text-foreground group-hover:text-[#FFC107] transition-colors",
-								children: "Cinematic Transformation Tool"
+								children: "Ferramenta de Transformação Cinematográfica"
 							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
 								className: "text-muted-foreground mt-1 text-sm md:text-base font-medium",
 								children: "Transforme sua aparência em um personagem com um prompt IA 8K profissional em JSON."
@@ -24721,7 +24917,7 @@ var Index = () => {
 								children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Camera, { className: "w-8 h-8 md:w-10 md:h-10" })
 							}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
 								className: "text-xl md:text-2xl font-extrabold text-foreground group-hover:text-accent transition-colors",
-								children: "Photo Shoot Tool (Ensaio)"
+								children: "Ferramenta de Ensaio Fotográfico"
 							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
 								className: "text-muted-foreground mt-1 text-sm md:text-base font-medium",
 								children: "Faça upload de imagens de referência e gere prompts de alta qualidade."
@@ -25927,6 +26123,15 @@ var Options = () => {
 	const { setDraft, addResult } = usePromptStore();
 	const niche = (0, import_react.useMemo)(() => NICHES.find((n) => n.id === nicheId), [nicheId]);
 	const isConsistentCharacter = niche?.id === "personagem-consistente";
+	const nicheCharacters = (0, import_react.useMemo)(() => {
+		if (!niche) return [];
+		return [...niche.characters, {
+			id: "custom",
+			name: "Criar Personalizado",
+			description: "Descreva e a IA otimizará",
+			descriptionEn: "Custom AI Optimized Character Profile."
+		}];
+	}, [niche]);
 	const [selectedOption, setSelectedOption] = (0, import_react.useState)("");
 	const [selectedCharacter, setSelectedCharacter] = (0, import_react.useState)("");
 	const [customCharacterDesc, setCustomCharacterDesc] = (0, import_react.useState)("");
@@ -25984,7 +26189,7 @@ var Options = () => {
 		let charProfileEn = "";
 		if (selectedCharacter === "custom") charProfileEn = `A highly detailed, ultra-realistic portrait of ${customCharacterDesc.trim()}. The subject is deeply humanized with authentic skin texture, expressive eyes, natural posture, and a highly professional appearance. Rendered as a masterpiece portrait with striking emotional depth.`;
 		else {
-			const charObj = CHARACTERS.find((c) => c.id === selectedCharacter);
+			const charObj = nicheCharacters.find((c) => c.id === selectedCharacter);
 			charProfileEn = charObj?.descriptionEn || charObj?.name || selectedCharacter;
 		}
 		const qualitySettings = "8K, ultra-realistic, cinematic lighting, high resolution, sharp focus, highly detailed, photorealistic, masterpiece, professional cinematography, no blur, perfectly crisp";
@@ -25998,11 +26203,11 @@ var Options = () => {
 			lighting: iluminacao,
 			character_profile: {
 				base_character_description: charProfileEn,
-				gender,
+				gender: gender === "male" ? "male" : "female",
 				age: parseInt(age, 10),
 				voice_profile: getVoiceProfile(gender, age)
 			},
-			narrative_type: narrativeMode,
+			narrative_type: narrativeMode === "narration" ? "narration" : "dialogue",
 			scene_count: sceneCount[0],
 			scenes: scenesContent.map((desc, idx) => ({ [`scene_${idx + 1}`]: desc })),
 			language: "en"
@@ -26020,7 +26225,7 @@ var Options = () => {
 			},
 			language: "en"
 		};
-		const charObjToSave = CHARACTERS.find((c) => c.id === selectedCharacter);
+		const charObjToSave = nicheCharacters.find((c) => c.id === selectedCharacter);
 		const newResult = {
 			id: Math.random().toString(36).substring(7),
 			nicheId: niche.id,
@@ -26092,7 +26297,7 @@ var Options = () => {
 							value: selectedCharacter,
 							onValueChange: setSelectedCharacter,
 							className: "grid grid-cols-1 sm:grid-cols-2 gap-4",
-							children: CHARACTERS.map((char) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Label, {
+							children: nicheCharacters.map((char) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Label, {
 								className: `relative flex flex-col p-6 rounded-2xl border cursor-pointer transition-all duration-300 group overflow-hidden ${selectedCharacter === char.id ? "border-[#FFC107] bg-[#FFC107]/10 shadow-[0_0_20px_-5px_rgba(255,193,7,0.2)]" : "border-border bg-card hover:bg-secondary/80 hover:border-[#FFC107]/40 hover:shadow-lg"}`,
 								children: [
 									selectedCharacter === char.id && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute -inset-2 bg-gradient-to-r from-[#FFC107]/10 to-transparent blur-xl" }),
@@ -26197,14 +26402,14 @@ var Options = () => {
 										className: "grid gap-3",
 										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(RadioOption, {
 											value: "narration",
-											label: "Narration",
-											description: "Voiceover reading the story",
+											label: "Narraçao",
+											description: "Locução narrando a história",
 											icon: Mic,
 											current: narrativeMode
 										}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(RadioOption, {
 											value: "dialogue",
-											label: "Character Dialogue",
-											description: "Character speaking directly",
+											label: "Diálogo do Personagem",
+											description: "Personagem falando diretamente",
 											icon: MessageSquareQuote,
 											current: narrativeMode
 										})]
@@ -26237,12 +26442,12 @@ var Options = () => {
 										className: "grid grid-cols-2 gap-3",
 										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(RadioOption, {
 											value: "male",
-											label: "Male",
+											label: "Masculino",
 											icon: Mars,
 											current: gender
 										}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(RadioOption, {
 											value: "female",
-											label: "Female",
+											label: "Feminino",
 											icon: Venus,
 											current: gender
 										})]
@@ -26288,7 +26493,7 @@ var Options = () => {
 											idx + 1
 										]
 									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Textarea, {
-										placeholder: `Describe actions, environment, and story details for Scene ${idx + 1} (in English or Portuguese)...`,
+										placeholder: `Descreva as ações, ambiente e detalhes da história para a Cena ${idx + 1} (em português)...`,
 										value: content,
 										onChange: (e) => {
 											const newContent = [...scenesContent];
@@ -26589,8 +26794,8 @@ var Ensaio = () => {
 			navigator.clipboard.writeText(generatedJson);
 			setCopied(true);
 			toast$2({
-				title: "Copied!",
-				description: "JSON has been copied to your clipboard.",
+				title: "Copiado!",
+				description: "O JSON foi copiado para sua área de transferência.",
 				className: "bg-emerald-600 text-white border-none font-medium"
 			});
 			setTimeout(() => setCopied(false), 2e3);
@@ -26609,11 +26814,11 @@ var Ensaio = () => {
 					}),
 					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
 						className: "text-3xl md:text-5xl font-extrabold text-foreground tracking-tight",
-						children: "Photo Shoot Tool"
+						children: "Ensaio Fotográfico Profissional"
 					}),
 					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
 						className: "text-muted-foreground text-sm md:text-base font-medium max-w-xl mx-auto",
-						children: "Upload reference images and generate precise prompt structures for professional photoshoots in JSON format."
+						children: "Faça upload de imagens de referência e gere estruturas de prompt precisas para ensaios fotográficos profissionais em formato JSON."
 					})
 				]
 			}),
@@ -26624,7 +26829,7 @@ var Ensaio = () => {
 						className: "space-y-4",
 						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Label, {
 							className: "text-base font-bold text-foreground tracking-wide uppercase",
-							children: "1. Reference Image"
+							children: "1. Imagem de Referência"
 						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 							onClick: () => fileInputRef.current?.click(),
 							className: "border-2 border-dashed border-border hover:border-accent/50 bg-background/50 rounded-xl p-8 flex flex-col items-center justify-center text-center cursor-pointer transition-colors group",
@@ -26644,7 +26849,7 @@ var Ensaio = () => {
 									className: "absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center rounded-lg backdrop-blur-sm",
 									children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
 										className: "text-white font-bold flex items-center gap-2",
-										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Upload, { className: "w-5 h-5" }), " Change Image"]
+										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Upload, { className: "w-5 h-5" }), " Trocar Imagem"]
 									})
 								})]
 							}) : /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
@@ -26656,10 +26861,10 @@ var Ensaio = () => {
 									className: "space-y-1",
 									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
 										className: "font-bold text-foreground text-lg",
-										children: "Click to upload"
+										children: "Clique para enviar"
 									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
 										className: "text-sm font-medium",
-										children: "SVG, PNG, JPG or GIF (max. 5MB)"
+										children: "SVG, PNG, JPG ou GIF (máx. 5MB)"
 									})]
 								})]
 							})]
@@ -26670,10 +26875,10 @@ var Ensaio = () => {
 						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Label, {
 							htmlFor: "promptIdea",
 							className: "text-base font-bold text-foreground tracking-wide uppercase",
-							children: "2. Prompt Idea"
+							children: "2. Ideia do Prompt"
 						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Input, {
 							id: "promptIdea",
-							placeholder: "ex: beach, Paris, studio...",
+							placeholder: "ex: praia, Paris, estúdio...",
 							value: promptInput,
 							onChange: (e) => setPromptInput(e.target.value),
 							className: "h-14 text-base focus-visible:ring-accent focus-visible:border-accent"
@@ -26682,7 +26887,7 @@ var Ensaio = () => {
 					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Button, {
 						onClick: handleGenerate,
 						className: "w-full h-14 rounded-xl bg-accent hover:bg-accent/90 text-accent-foreground font-extrabold text-base tracking-wide shadow-[0_0_25px_-5px_rgba(8,145,178,0.4)] transition-all active:scale-[0.98]",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Sparkles, { className: "mr-2 h-5 w-5" }), "GENERATE PROMPT"]
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Sparkles, { className: "mr-2 h-5 w-5" }), "GERAR PROMPT"]
 					})
 				]
 			}),
@@ -26705,7 +26910,7 @@ var Ensaio = () => {
 							className: "text-accent hover:text-accent hover:bg-accent/10 h-9 gap-2 px-4 rounded-lg border border-accent/20 transition-all active:scale-95",
 							children: [copied ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Check, { className: "h-4 w-4" }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Copy, { className: "h-4 w-4" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
 								className: "text-xs font-bold",
-								children: copied ? "COPIED" : "COPY JSON"
+								children: copied ? "COPIADO" : "COPIAR JSON"
 							})]
 						})]
 					}),
@@ -26852,8 +27057,8 @@ var Transform = () => {
 	const handleGenerate = () => {
 		if (!referenceImage || !userImage) {
 			toast$2({
-				title: "Missing Images",
-				description: "Please upload both a reference image and your photo.",
+				title: "Imagens Ausentes",
+				description: "Por favor, envie tanto a imagem de referência quanto a sua foto.",
 				variant: "destructive"
 			});
 			return;
@@ -26872,8 +27077,8 @@ var Transform = () => {
 			navigator.clipboard.writeText(generatedJson);
 			setCopied(true);
 			toast$2({
-				title: "Copied!",
-				description: "JSON has been copied to your clipboard.",
+				title: "Copiado!",
+				description: "O JSON foi copiado para sua área de transferência.",
 				className: "bg-emerald-600 text-white border-none font-medium"
 			});
 			setTimeout(() => setCopied(false), 2e3);
@@ -26891,11 +27096,11 @@ var Transform = () => {
 					}),
 					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
 						className: "text-3xl md:text-5xl font-extrabold text-foreground tracking-tight",
-						children: "Cinematic Transformation"
+						children: "Transformação Cinematográfica"
 					}),
 					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
 						className: "text-muted-foreground text-sm md:text-base font-medium max-w-xl mx-auto",
-						children: "Upload a reference character or outfit and your photo to generate a professional 8K AI prompt in JSON format."
+						children: "Faça upload de um personagem ou roupa de referência e sua foto para gerar um prompt de IA 8K profissional em formato JSON."
 					})
 				]
 			}),
@@ -26908,11 +27113,11 @@ var Transform = () => {
 						children: [
 							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Label, {
 								className: "text-base font-bold text-foreground tracking-wide flex items-center gap-2",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Image, { className: "w-5 h-5 text-[#FFC107]" }), "1. Reference Image"]
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Image, { className: "w-5 h-5 text-[#FFC107]" }), "1. Imagem de Referência"]
 							}),
 							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
 								className: "text-xs text-muted-foreground",
-								children: "Target outfit, style, or character"
+								children: "Roupa, estilo ou personagem alvo"
 							}),
 							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 								onClick: () => referenceInputRef.current?.click(),
@@ -26933,7 +27138,7 @@ var Transform = () => {
 										className: "absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center rounded-lg backdrop-blur-sm",
 										children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
 											className: "text-white font-bold flex items-center gap-2",
-											children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Upload, { className: "w-5 h-5" }), " Change"]
+											children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Upload, { className: "w-5 h-5" }), " Trocar"]
 										})
 									})]
 								}) : /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
@@ -26943,7 +27148,7 @@ var Transform = () => {
 										children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Upload, { className: "w-6 h-6" })
 									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
 										className: "font-bold",
-										children: "Upload Reference"
+										children: "Enviar Referência"
 									})]
 								})]
 							})
@@ -26953,11 +27158,11 @@ var Transform = () => {
 						children: [
 							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Label, {
 								className: "text-base font-bold text-foreground tracking-wide flex items-center gap-2",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(User, { className: "w-5 h-5 text-[#FFC107]" }), "2. Your Photo"]
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(User, { className: "w-5 h-5 text-[#FFC107]" }), "2. Sua Foto"]
 							}),
 							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
 								className: "text-xs text-muted-foreground",
-								children: "The person to be transformed"
+								children: "A pessoa a ser transformada"
 							}),
 							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 								onClick: () => userInputRef.current?.click(),
@@ -26978,7 +27183,7 @@ var Transform = () => {
 										className: "absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center rounded-lg backdrop-blur-sm",
 										children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
 											className: "text-white font-bold flex items-center gap-2",
-											children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Upload, { className: "w-5 h-5" }), " Change"]
+											children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Upload, { className: "w-5 h-5" }), " Trocar"]
 										})
 									})]
 								}) : /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
@@ -26988,7 +27193,7 @@ var Transform = () => {
 										children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Upload, { className: "w-6 h-6" })
 									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
 										className: "font-bold",
-										children: "Upload Photo"
+										children: "Enviar Foto"
 									})]
 								})]
 							})
@@ -26997,7 +27202,7 @@ var Transform = () => {
 				}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Button, {
 					onClick: handleGenerate,
 					className: "w-full h-14 rounded-xl bg-[#FFC107] hover:bg-[#FFC107]/90 text-black font-extrabold text-base tracking-wide shadow-[0_0_25px_-5px_rgba(255,193,7,0.4)] transition-all active:scale-[0.98]",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Sparkles, { className: "mr-2 h-5 w-5 text-black" }), "GENERATE CINEMATIC PROMPT"]
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Sparkles, { className: "mr-2 h-5 w-5 text-black" }), "GERAR PROMPT CINEMÁTICO"]
 				})]
 			}),
 			generatedJson && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Card, {
@@ -27019,7 +27224,7 @@ var Transform = () => {
 							className: "text-[#FFC107] hover:text-[#FFC107] hover:bg-[#FFC107]/10 h-9 gap-2 px-4 rounded-lg border border-[#FFC107]/20 transition-all active:scale-95",
 							children: [copied ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Check, { className: "h-4 w-4" }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Copy, { className: "h-4 w-4" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
 								className: "text-xs font-bold",
-								children: copied ? "COPIED" : "COPY JSON"
+								children: copied ? "COPIADO" : "COPIAR JSON"
 							})]
 						})]
 					}),
@@ -27215,7 +27420,7 @@ function Layout() {
 							className: "text-[#FFC107] hover:text-[#FFC107] hover:bg-[#FFC107]/10 border border-transparent hover:border-[#FFC107]/20 transition-all px-2 sm:px-3",
 							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(WandSparkles, { className: "w-4 h-4 sm:mr-2" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
 								className: "hidden sm:inline font-bold tracking-wide",
-								children: "Transform"
+								children: "Transformar"
 							})]
 						})
 					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Link, {
@@ -27279,4 +27484,4 @@ var App = () => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(BrowserRouter, {
 var App_default = App;
 (0, import_client.createRoot)(document.getElementById("root")).render(/* @__PURE__ */ (0, import_jsx_runtime.jsx)(App_default, {}));
 
-//# sourceMappingURL=index-C5-MW_LM.js.map
+//# sourceMappingURL=index-CrMb51_p.js.map

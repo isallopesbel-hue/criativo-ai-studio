@@ -3,14 +3,6 @@ export interface NicheOption {
   en: string
 }
 
-export interface Niche {
-  id: string
-  title: string
-  titleEn: string
-  icon: string
-  options: NicheOption[]
-}
-
 export interface Character {
   id: string
   name: string
@@ -18,38 +10,14 @@ export interface Character {
   descriptionEn: string
 }
 
-export const CHARACTERS: Character[] = [
-  {
-    id: 'tech-innovator',
-    name: 'Tech Innovator',
-    description: 'Estilo Moderno, Analítico e Visionário',
-    descriptionEn: 'Modern, analytical, and visionary tech professional.',
-  },
-  {
-    id: 'creative-artist',
-    name: 'Creative Artist',
-    description: 'Expressivo, Colorido e Boêmio',
-    descriptionEn: 'Expressive, colorful, and bohemian artistic personality.',
-  },
-  {
-    id: 'corporate-exec',
-    name: 'Corporate Exec',
-    description: 'Apresentação Corporativa High-End',
-    descriptionEn: 'Sharp, high-end corporate executive in a tailored suit.',
-  },
-  {
-    id: 'urban-explorer',
-    name: 'Urban Explorer',
-    description: 'Dinâmico, Streetwear e Aventureiro',
-    descriptionEn: 'Dynamic streetwear urban explorer ready for action.',
-  },
-  {
-    id: 'custom',
-    name: 'Criar Personalizado',
-    description: 'Descreva e a IA otimizará',
-    descriptionEn: 'Custom AI Optimized Character Profile.',
-  },
-]
+export interface Niche {
+  id: string
+  title: string
+  titleEn: string
+  icon: string
+  options: NicheOption[]
+  characters: Character[]
+}
 
 export const NICHES: Niche[] = [
   {
@@ -80,6 +48,29 @@ export const NICHES: Niche[] = [
         en: 'Focused professional in a workspace environment',
       },
     ],
+    characters: [
+      {
+        id: 'influenciador-digital',
+        name: 'Influenciador Digital',
+        description: 'Aparência carismática, estilo de vida moderno.',
+        descriptionEn:
+          'Charismatic appearance, modern lifestyle digital influencer.',
+      },
+      {
+        id: 'avatar-corporativo',
+        name: 'Avatar Corporativo',
+        description: 'Profissional, elegante, transmite confiança.',
+        descriptionEn:
+          'Professional, elegant corporate avatar conveying trust.',
+      },
+      {
+        id: 'mascote-3d',
+        name: 'Mascote 3D',
+        description: 'Personagem estilizado, expressivo e amigável.',
+        descriptionEn:
+          'Stylized, expressive, and friendly 3D mascot character.',
+      },
+    ],
   },
   {
     id: 'videos-aleatorios',
@@ -96,6 +87,28 @@ export const NICHES: Niche[] = [
         en: 'Surreal landscape with floating elements',
       },
       { pt: 'Transição de ilusão de ótica', en: 'Optical illusion transition' },
+    ],
+    characters: [
+      {
+        id: 'narrador-misterioso',
+        name: 'Narrador Misterioso',
+        description: 'Voz profunda, presença enigmática.',
+        descriptionEn: 'Deep voice, enigmatic presence narrator.',
+      },
+      {
+        id: 'guia-explorador',
+        name: 'Guia Explorador',
+        description: 'Aventureiro, energético, roupas práticas.',
+        descriptionEn:
+          'Adventurous, energetic explorer guide in practical clothing.',
+      },
+      {
+        id: 'especialista-sabio',
+        name: 'Especialista Sábio',
+        description: 'Intelectual, óculos, ambiente de biblioteca.',
+        descriptionEn:
+          'Intellectual wise expert with glasses in a library setting.',
+      },
     ],
   },
   {
@@ -123,6 +136,27 @@ export const NICHES: Niche[] = [
         en: 'Funny mascot breaking the fourth wall',
       },
     ],
+    characters: [
+      {
+        id: 'heroi-corajoso',
+        name: 'Herói Corajoso',
+        description: 'Traços fortes, olhar determinado, capa vibrante.',
+        descriptionEn: 'Strong features, determined look, vibrant cape hero.',
+      },
+      {
+        id: 'vilao-comico',
+        name: 'Vilão Cômico',
+        description: 'Expressões exageradas, risada maquiavélica.',
+        descriptionEn:
+          'Exaggerated expressions, machiavellian laugh comedic villain.',
+      },
+      {
+        id: 'ajudante-desastrado',
+        name: 'Ajudante Desastrado',
+        description: 'Pequeno, fofo, sempre tropeçando.',
+        descriptionEn: 'Small, cute, always stumbling clumsy sidekick.',
+      },
+    ],
   },
   {
     id: 'historias-biblicas',
@@ -139,6 +173,27 @@ export const NICHES: Niche[] = [
       { pt: 'Milagre de Jesus no mar', en: 'Miracle of Jesus on the sea' },
       { pt: 'Criação do mundo no Éden', en: 'Creation of the world in Eden' },
       { pt: 'Batalha celestial épica', en: 'Epic celestial battle' },
+    ],
+    characters: [
+      {
+        id: 'profeta-antigo',
+        name: 'Profeta Antigo',
+        description: 'Barba longa, vestes rústicas, olhar visionário.',
+        descriptionEn:
+          'Long beard, rustic robes, visionary look ancient prophet.',
+      },
+      {
+        id: 'figura-angelical',
+        name: 'Figura Angelical',
+        description: 'Asas de luz, aura brilhante, serenidade.',
+        descriptionEn: 'Wings of light, glowing aura, serene angelic figure.',
+      },
+      {
+        id: 'campones-simples',
+        name: 'Camponês Simples',
+        description: 'Roupas de época, humilde, trabalhador.',
+        descriptionEn: 'Period clothing, humble, hardworking simple peasant.',
+      },
     ],
   },
   {
@@ -160,6 +215,26 @@ export const NICHES: Niche[] = [
       { pt: 'A árvore mágica sussurrante', en: 'The whispering magic tree' },
       { pt: 'O trem voador de brinquedo', en: 'The flying toy train' },
     ],
+    characters: [
+      {
+        id: 'crianca-aventureira',
+        name: 'Criança Aventureira',
+        description: 'Mochila nas costas, curiosidade no olhar.',
+        descriptionEn: 'Backpack on back, curiosity in eyes adventurous child.',
+      },
+      {
+        id: 'fada-guia',
+        name: 'Fada Guia',
+        description: 'Pequena, brilhante, varinha mágica.',
+        descriptionEn: 'Tiny, glowing, magic wand guide fairy.',
+      },
+      {
+        id: 'animal-falante',
+        name: 'Animal Falante',
+        description: 'Expressivo, antropomórfico, pelagem macia.',
+        descriptionEn: 'Expressive, anthropomorphic, soft fur talking animal.',
+      },
+    ],
   },
   {
     id: 'dark-terror',
@@ -168,25 +243,37 @@ export const NICHES: Niche[] = [
     icon: 'Skull',
     options: [
       {
-        pt: 'Exploração em asilo abandonado',
-        en: 'Exploration in an abandoned asylum',
+        pt: 'Terror Psicológico',
+        en: 'Psychological Horror focusing on paranoia, sanity, and internal dread',
       },
       {
-        pt: 'Criatura espreitando na névoa',
-        en: 'Creature lurking in the fog',
+        pt: 'Horror Sobrenatural',
+        en: 'Supernatural Horror focusing on ghosts, ancient curses, and paranormal entities',
       },
       {
-        pt: 'Espelho que reflete o passado',
-        en: 'Mirror that reflects the past',
+        pt: 'Suspense Slasher',
+        en: 'Slasher Thriller focusing on high tension, survival, and a persistent antagonist',
       },
-      { pt: 'Ruas vazias à meia-noite', en: 'Empty streets at midnight' },
+    ],
+    characters: [
       {
-        pt: 'Floresta amaldiçoada sob lua cheia',
-        en: 'Cursed forest under a full moon',
+        id: 'investigador-paranormal',
+        name: 'Investigador Paranormal',
+        description: 'Cético, experiente, carrega equipamentos antigos.',
+        descriptionEn:
+          'Skeptical, experienced paranormal investigator carrying vintage equipment.',
       },
       {
-        pt: 'Sombra no final do corredor',
-        en: 'Shadow at the end of the hallway',
+        id: 'vitima-fugitiva',
+        name: 'Vítima Fugitiva',
+        description: 'Aterrorizada, exausta, lutando pela sobrevivência.',
+        descriptionEn: 'Terrified, exhausted victim fighting for survival.',
+      },
+      {
+        id: 'entidade-obscura',
+        name: 'Entidade Obscura',
+        description: 'Figura sombria, ameaçadora, indescritível.',
+        descriptionEn: 'Shadowy, menacing, indescribable dark entity.',
       },
     ],
   },
@@ -212,6 +299,27 @@ export const NICHES: Niche[] = [
       },
       { pt: 'Cantor solista na chuva', en: 'Solo singer in the rain' },
     ],
+    characters: [
+      {
+        id: 'estrela-pop',
+        name: 'Estrela Pop',
+        description: 'Roupas extravagantes, carisma de palco.',
+        descriptionEn: 'Extravagant clothes, stage charisma pop star.',
+      },
+      {
+        id: 'rapper-underground',
+        name: 'Rapper Underground',
+        description: 'Estilo urbano, atitude confiante, correntes.',
+        descriptionEn:
+          'Urban style, confident attitude, chains underground rapper.',
+      },
+      {
+        id: 'dj-eletronico',
+        name: 'DJ Eletrônico',
+        description: 'Fones de ouvido, luzes neon, energia alta.',
+        descriptionEn: 'Headphones, neon lights, high energy electronic DJ.',
+      },
+    ],
   },
   {
     id: 'objetos-falantes',
@@ -232,6 +340,26 @@ export const NICHES: Niche[] = [
         en: 'Mirror complimenting the outfit',
       },
     ],
+    characters: [
+      {
+        id: 'objeto-sabio',
+        name: 'Objeto Sábio',
+        description: 'Aparência antiga, voz conselheira.',
+        descriptionEn: 'Ancient appearance, advising voice wise object.',
+      },
+      {
+        id: 'objeto-ranzinza',
+        name: 'Objeto Ranzinza',
+        description: 'Desgastado, reclamações cômicas.',
+        descriptionEn: 'Worn out, comedic complaints grumpy object.',
+      },
+      {
+        id: 'objeto-animado',
+        name: 'Objeto Animado',
+        description: 'Cores vivas, saltitante, muito alegre.',
+        descriptionEn: 'Bright colors, bouncy, very cheerful animated object.',
+      },
+    ],
   },
   {
     id: 'tiktok-instagram',
@@ -245,6 +373,26 @@ export const NICHES: Niche[] = [
       { pt: 'Vlog diário acelerado', en: 'Fast-paced daily vlog' },
       { pt: 'Unboxing ASMR satisfatório', en: 'Satisfying ASMR unboxing' },
       { pt: 'Desafio de dança viral', en: 'Viral dance challenge' },
+    ],
+    characters: [
+      {
+        id: 'vlogger-dinamico',
+        name: 'Vlogger Dinâmico',
+        description: 'Câmera na mão, sorridente, cortes rápidos.',
+        descriptionEn: 'Camera in hand, smiling, fast-paced dynamic vlogger.',
+      },
+      {
+        id: 'dancarino-viral',
+        name: 'Dançarino Viral',
+        description: 'Roupas flexíveis, movimentos precisos.',
+        descriptionEn: 'Flexible clothes, precise movements viral dancer.',
+      },
+      {
+        id: 'especialista-dicas',
+        name: 'Especialista em Dicas',
+        description: 'Aponta para textos imaginários, didático.',
+        descriptionEn: 'Points to imaginary text, didactic tips expert.',
+      },
     ],
   },
   {
@@ -266,6 +414,29 @@ export const NICHES: Niche[] = [
       },
       { pt: 'Maquete 3D interativa', en: 'Interactive 3D architectural model' },
     ],
+    characters: [
+      {
+        id: 'arquiteto-senior',
+        name: 'Arquiteto Sênior',
+        description: 'Prancheta na mão, capacete branco, visão técnica.',
+        descriptionEn:
+          'Clipboard in hand, white helmet, technical vision senior architect.',
+      },
+      {
+        id: 'engenheiro-obra',
+        name: 'Engenheiro de Obra',
+        description: 'Colete refletivo, botas pesadas, focado.',
+        descriptionEn:
+          'Reflective vest, heavy boots, focused construction engineer.',
+      },
+      {
+        id: 'designer-interiores',
+        name: 'Designer de Interiores',
+        description: 'Estilo elegante, amostras de cores na mão.',
+        descriptionEn:
+          'Elegant style, color swatches in hand interior designer.',
+      },
+    ],
   },
   {
     id: 'produtos-digitais',
@@ -284,6 +455,29 @@ export const NICHES: Niche[] = [
       {
         pt: 'Imersão Digital em Realidade Virtual',
         en: 'Virtual reality digital immersion',
+      },
+    ],
+    characters: [
+      {
+        id: 'estrategista-vendas',
+        name: 'Estrategista de Vendas',
+        description: 'Profissional confiante, vestuário moderno e analítico.',
+        descriptionEn:
+          'Confident professional sales strategist, modern and analytical.',
+      },
+      {
+        id: 'criador-conteudo',
+        name: 'Criador de Conteúdo',
+        description: 'Carismático, ambiente de estúdio iluminado.',
+        descriptionEn:
+          'Charismatic content creator in a well-lit studio environment.',
+      },
+      {
+        id: 'empreendedor-digital',
+        name: 'Empreendedor Digital',
+        description: 'Visionário, trabalhando em um laptop premium.',
+        descriptionEn:
+          'Visionary digital entrepreneur working on a premium laptop.',
       },
     ],
   },
@@ -306,6 +500,29 @@ export const NICHES: Niche[] = [
         en: 'Urban lifestyle product campaign',
       },
     ],
+    characters: [
+      {
+        id: 'modelo-estilo-vida',
+        name: 'Modelo de Estilo de Vida',
+        description: 'Aparência impecável, usando o produto naturalmente.',
+        descriptionEn:
+          'Flawless appearance, naturally using the product lifestyle model.',
+      },
+      {
+        id: 'especialista-review',
+        name: 'Especialista em Review',
+        description: 'Analisando detalhes com lupa ou luz forte.',
+        descriptionEn:
+          'Analyzing details with a magnifying glass or strong light review expert.',
+      },
+      {
+        id: 'usuario-diario',
+        name: 'Usuário Diário',
+        description: 'Pessoa comum, satisfeita, ambiente doméstico.',
+        descriptionEn:
+          'Common person, satisfied, domestic environment daily user.',
+      },
+    ],
   },
 ]
 
@@ -316,7 +533,7 @@ export const MOCK_HISTORY = [
     nicheTitle: 'Produtos Digitais',
     nicheIcon: 'MonitorPlay',
     option: 'Lançamento de Software SaaS',
-    character: 'Tech Innovator',
+    character: 'Empreendedor Digital',
     date: new Date().toISOString(),
     timeDisplay: '10:30',
     json: {
@@ -324,7 +541,7 @@ export const MOCK_HISTORY = [
       niche: 'Digital Products',
       narrative_concept: 'SaaS software launch',
       subject_and_character:
-        'Modern, analytical, and visionary tech professional.',
+        'Visionary digital entrepreneur working on a premium laptop.',
       technical_specifications: {
         quality:
           '8K, ultra-realistic, cinematic lighting, high resolution, sharp focus, highly detailed, photorealistic, masterpiece, no blur, perfectly crisp',
@@ -355,6 +572,8 @@ export function generateMetadata(optionPt: string) {
     lower.includes('dramátic') ||
     lower.includes('noite') ||
     lower.includes('terror') ||
+    lower.includes('sobrenatural') ||
+    lower.includes('slasher') ||
     lower.includes('abandonad') ||
     lower.includes('dark')
   ) {

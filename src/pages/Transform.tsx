@@ -40,8 +40,9 @@ const Transform = () => {
   const handleGenerate = () => {
     if (!referenceImage || !userImage) {
       toast({
-        title: 'Missing Images',
-        description: 'Please upload both a reference image and your photo.',
+        title: 'Imagens Ausentes',
+        description:
+          'Por favor, envie tanto a imagem de referência quanto a sua foto.',
         variant: 'destructive',
       })
       return
@@ -64,8 +65,8 @@ const Transform = () => {
       navigator.clipboard.writeText(generatedJson)
       setCopied(true)
       toast({
-        title: 'Copied!',
-        description: 'JSON has been copied to your clipboard.',
+        title: 'Copiado!',
+        description: 'O JSON foi copiado para sua área de transferência.',
         className: 'bg-emerald-600 text-white border-none font-medium',
       })
       setTimeout(() => setCopied(false), 2000)
@@ -79,11 +80,11 @@ const Transform = () => {
           <Wand2 className="h-8 w-8 text-[#FFC107]" />
         </div>
         <h2 className="text-3xl md:text-5xl font-extrabold text-foreground tracking-tight">
-          Cinematic Transformation
+          Transformação Cinematográfica
         </h2>
         <p className="text-muted-foreground text-sm md:text-base font-medium max-w-xl mx-auto">
-          Upload a reference character or outfit and your photo to generate a
-          professional 8K AI prompt in JSON format.
+          Faça upload de um personagem ou roupa de referência e sua foto para
+          gerar um prompt de IA 8K profissional em formato JSON.
         </p>
       </div>
 
@@ -93,10 +94,10 @@ const Transform = () => {
           <div className="space-y-4">
             <Label className="text-base font-bold text-foreground tracking-wide flex items-center gap-2">
               <ImageIcon className="w-5 h-5 text-[#FFC107]" />
-              1. Reference Image
+              1. Imagem de Referência
             </Label>
             <p className="text-xs text-muted-foreground">
-              Target outfit, style, or character
+              Roupa, estilo ou personagem alvo
             </p>
             <div
               onClick={() => referenceInputRef.current?.click()}
@@ -118,7 +119,7 @@ const Transform = () => {
                   />
                   <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center rounded-lg backdrop-blur-sm">
                     <span className="text-white font-bold flex items-center gap-2">
-                      <Upload className="w-5 h-5" /> Change
+                      <Upload className="w-5 h-5" /> Trocar
                     </span>
                   </div>
                 </div>
@@ -127,7 +128,7 @@ const Transform = () => {
                   <div className="p-4 bg-secondary rounded-full border border-border group-hover:border-[#FFC107]/30 shadow-sm">
                     <Upload className="w-6 h-6" />
                   </div>
-                  <span className="font-bold">Upload Reference</span>
+                  <span className="font-bold">Enviar Referência</span>
                 </div>
               )}
             </div>
@@ -137,10 +138,10 @@ const Transform = () => {
           <div className="space-y-4">
             <Label className="text-base font-bold text-foreground tracking-wide flex items-center gap-2">
               <User className="w-5 h-5 text-[#FFC107]" />
-              2. Your Photo
+              2. Sua Foto
             </Label>
             <p className="text-xs text-muted-foreground">
-              The person to be transformed
+              A pessoa a ser transformada
             </p>
             <div
               onClick={() => userInputRef.current?.click()}
@@ -162,7 +163,7 @@ const Transform = () => {
                   />
                   <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center rounded-lg backdrop-blur-sm">
                     <span className="text-white font-bold flex items-center gap-2">
-                      <Upload className="w-5 h-5" /> Change
+                      <Upload className="w-5 h-5" /> Trocar
                     </span>
                   </div>
                 </div>
@@ -171,7 +172,7 @@ const Transform = () => {
                   <div className="p-4 bg-secondary rounded-full border border-border group-hover:border-[#FFC107]/30 shadow-sm">
                     <Upload className="w-6 h-6" />
                   </div>
-                  <span className="font-bold">Upload Photo</span>
+                  <span className="font-bold">Enviar Foto</span>
                 </div>
               )}
             </div>
@@ -183,7 +184,7 @@ const Transform = () => {
           className="w-full h-14 rounded-xl bg-[#FFC107] hover:bg-[#FFC107]/90 text-black font-extrabold text-base tracking-wide shadow-[0_0_25px_-5px_rgba(255,193,7,0.4)] transition-all active:scale-[0.98]"
         >
           <Sparkles className="mr-2 h-5 w-5 text-black" />
-          GENERATE CINEMATIC PROMPT
+          GERAR PROMPT CINEMÁTICO
         </Button>
       </Card>
 
@@ -209,7 +210,7 @@ const Transform = () => {
                 <Copy className="h-4 w-4" />
               )}
               <span className="text-xs font-bold">
-                {copied ? 'COPIED' : 'COPY JSON'}
+                {copied ? 'COPIADO' : 'COPIAR JSON'}
               </span>
             </Button>
           </div>

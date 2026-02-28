@@ -48,7 +48,7 @@ export default function Layout() {
               >
                 <Wand2 className="w-4 h-4 sm:mr-2" />
                 <span className="hidden sm:inline font-bold tracking-wide">
-                  Transform
+                  Transformar
                 </span>
               </Button>
             </Link>

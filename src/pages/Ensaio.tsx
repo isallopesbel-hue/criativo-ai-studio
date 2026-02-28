@@ -38,8 +38,8 @@ const Ensaio = () => {
       navigator.clipboard.writeText(generatedJson)
       setCopied(true)
       toast({
-        title: 'Copied!',
-        description: 'JSON has been copied to your clipboard.',
+        title: 'Copiado!',
+        description: 'O JSON foi copiado para sua área de transferência.',
         className: 'bg-emerald-600 text-white border-none font-medium',
       })
       setTimeout(() => setCopied(false), 2000)
@@ -55,18 +55,18 @@ const Ensaio = () => {
           <ImageIcon className="h-8 w-8 text-accent" />
         </div>
         <h2 className="text-3xl md:text-5xl font-extrabold text-foreground tracking-tight">
-          Photo Shoot Tool
+          Ensaio Fotográfico Profissional
         </h2>
         <p className="text-muted-foreground text-sm md:text-base font-medium max-w-xl mx-auto">
-          Upload reference images and generate precise prompt structures for
-          professional photoshoots in JSON format.
+          Faça upload de imagens de referência e gere estruturas de prompt
+          precisas para ensaios fotográficos profissionais em formato JSON.
         </p>
       </div>
 
       <Card className="p-6 md:p-8 border-border bg-card shadow-2xl rounded-2xl space-y-8">
         <div className="space-y-4">
           <Label className="text-base font-bold text-foreground tracking-wide uppercase">
-            1. Reference Image
+            1. Imagem de Referência
           </Label>
           <div
             onClick={() => fileInputRef.current?.click()}
@@ -88,7 +88,7 @@ const Ensaio = () => {
                 />
                 <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center rounded-lg backdrop-blur-sm">
                   <span className="text-white font-bold flex items-center gap-2">
-                    <Upload className="w-5 h-5" /> Change Image
+                    <Upload className="w-5 h-5" /> Trocar Imagem
                   </span>
                 </div>
               </div>
@@ -99,10 +99,10 @@ const Ensaio = () => {
                 </div>
                 <div className="space-y-1">
                   <p className="font-bold text-foreground text-lg">
-                    Click to upload
+                    Clique para enviar
                   </p>
                   <p className="text-sm font-medium">
-                    SVG, PNG, JPG or GIF (max. 5MB)
+                    SVG, PNG, JPG ou GIF (máx. 5MB)
                   </p>
                 </div>
               </div>
@@ -115,11 +115,11 @@ const Ensaio = () => {
             htmlFor="promptIdea"
             className="text-base font-bold text-foreground tracking-wide uppercase"
           >
-            2. Prompt Idea
+            2. Ideia do Prompt
           </Label>
           <Input
             id="promptIdea"
-            placeholder="ex: beach, Paris, studio..."
+            placeholder="ex: praia, Paris, estúdio..."
             value={promptInput}
             onChange={(e) => setPromptInput(e.target.value)}
             className="h-14 text-base focus-visible:ring-accent focus-visible:border-accent"
@@ -131,7 +131,7 @@ const Ensaio = () => {
           className="w-full h-14 rounded-xl bg-accent hover:bg-accent/90 text-accent-foreground font-extrabold text-base tracking-wide shadow-[0_0_25px_-5px_rgba(8,145,178,0.4)] transition-all active:scale-[0.98]"
         >
           <Sparkles className="mr-2 h-5 w-5" />
-          GENERATE PROMPT
+          GERAR PROMPT
         </Button>
       </Card>
 
@@ -157,7 +157,7 @@ const Ensaio = () => {
                 <Copy className="h-4 w-4" />
               )}
               <span className="text-xs font-bold">
-                {copied ? 'COPIED' : 'COPY JSON'}
+                {copied ? 'COPIADO' : 'COPIAR JSON'}
               </span>
             </Button>
           </div>
