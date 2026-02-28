@@ -25645,19 +25645,6 @@ var Options = () => {
 			return prev.slice(0, count$2);
 		});
 	}, [sceneCount, isConsistentCharacter]);
-	if (!niche) return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-		className: "p-8 text-center text-muted-foreground",
-		children: "Categoria não encontrada no sistema."
-	});
-	const getVoiceProfile = (gen, a) => {
-		const ageNum = parseInt(a, 10);
-		if (isNaN(ageNum)) return "Adult Female Voice";
-		let ageGroup = "Adult";
-		if (ageNum < 13) ageGroup = "Child";
-		else if (ageNum <= 19) ageGroup = "Teen";
-		else if (ageNum >= 60) ageGroup = "Elderly";
-		return `${ageGroup} ${gen === "male" ? "Male" : "Female"} Voice`;
-	};
 	const isFormValid = (0, import_react.useMemo)(() => {
 		let valid = selectedOption !== "" && selectedCharacter !== "";
 		if (isConsistentCharacter) {
@@ -25672,6 +25659,19 @@ var Options = () => {
 		scenesContent,
 		age
 	]);
+	if (!niche) return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+		className: "p-8 text-center text-muted-foreground",
+		children: "Categoria não encontrada no sistema."
+	});
+	const getVoiceProfile = (gen, a) => {
+		const ageNum = parseInt(a, 10);
+		if (isNaN(ageNum)) return "Adult Female Voice";
+		let ageGroup = "Adult";
+		if (ageNum < 13) ageGroup = "Child";
+		else if (ageNum <= 19) ageGroup = "Teen";
+		else if (ageNum >= 60) ageGroup = "Elderly";
+		return `${ageGroup} ${gen === "male" ? "Male" : "Female"} Voice`;
+	};
 	const handleGenerate = () => {
 		if (!isFormValid) return;
 		setDraft({
@@ -26942,4 +26942,4 @@ var App = () => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(BrowserRouter, {
 var App_default = App;
 (0, import_client.createRoot)(document.getElementById("root")).render(/* @__PURE__ */ (0, import_jsx_runtime.jsx)(App_default, {}));
 
-//# sourceMappingURL=index-BT1iF5az.js.map
+//# sourceMappingURL=index-CQQGAASF.js.map

@@ -149,6 +149,21 @@ const Options = () => {
     }
   }, [sceneCount, isConsistentCharacter])
 
+  const isFormValid = useMemo(() => {
+    let valid = selectedOption !== '' && selectedCharacter !== ''
+    if (isConsistentCharacter) {
+      const scenesValid = scenesContent.every((s) => s.trim() !== '')
+      valid = valid && age.trim() !== '' && scenesValid
+    }
+    return valid
+  }, [
+    selectedOption,
+    selectedCharacter,
+    isConsistentCharacter,
+    scenesContent,
+    age,
+  ])
+
   if (!niche) {
     return (
       <div className="p-8 text-center text-muted-foreground">
@@ -168,21 +183,6 @@ const Options = () => {
     const genderStr = gen === 'male' ? 'Male' : 'Female'
     return `${ageGroup} ${genderStr} Voice`
   }
-
-  const isFormValid = useMemo(() => {
-    let valid = selectedOption !== '' && selectedCharacter !== ''
-    if (isConsistentCharacter) {
-      const scenesValid = scenesContent.every((s) => s.trim() !== '')
-      valid = valid && age.trim() !== '' && scenesValid
-    }
-    return valid
-  }, [
-    selectedOption,
-    selectedCharacter,
-    isConsistentCharacter,
-    scenesContent,
-    age,
-  ])
 
   const handleGenerate = () => {
     if (!isFormValid) return
