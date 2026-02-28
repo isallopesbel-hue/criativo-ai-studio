@@ -204,10 +204,7 @@ const Options = () => {
       valid = valid && customCharacterDesc.trim() !== ''
     }
     if (isConsistentCharacter) {
-      const scenesValid = scenesData.every(
-        (s) => s.visual.trim() !== '' && s.speech.trim() !== '',
-      )
-      valid = valid && age.trim() !== '' && scenesValid
+      valid = valid && age.trim() !== ''
     }
     return valid
   }, [
@@ -215,7 +212,6 @@ const Options = () => {
     selectedCharacter,
     customCharacterDesc,
     isConsistentCharacter,
-    scenesData,
     age,
   ])
 
@@ -274,6 +270,16 @@ const Options = () => {
       charProfileEn = `Ultra Premium, ${charObj?.descriptionEn || charObj?.name || selectedCharacter}`
     }
 
+    const charObjToSave = nicheCharacters.find(
+      (c) => c.id === selectedCharacter,
+    )
+    const characterNamePt =
+      selectedCharacter === 'custom'
+        ? 'Personalizado (IA)'
+        : charObjToSave?.name || selectedCharacter
+
+    const fallbackScriptPt = `[AUTO-GENERATE SCRIPT] Desenvolva uma narração ou diálogo de alta conversão, natural e profissional em Português do Brasil (pt-BR), baseada no conceito '${selectedOption}' e na persona: ${characterNamePt}.`
+
     let jsonPayload: any = {}
 
     if (isConsistentCharacter) {
@@ -297,8 +303,12 @@ const Options = () => {
         scene_count: sceneCount[0],
         scenes: scenesData.map((data, idx) => ({
           scene_number: idx + 1,
-          visual_action_description_en: `[English] ${data.visual}`,
-          character_speech_pt_br: `[Português Brasileiro] ${data.speech}`,
+          visual_action_description_en: data.visual.trim()
+            ? `[English] ${data.visual.trim()}`
+            : `[English] [AUTO-GENERATE] Create a highly detailed visual action description for scene ${idx + 1} of ${sceneCount[0]}, seamlessly continuing the narrative for the concept '${conceptEn}'.`,
+          character_speech_pt_br: data.speech.trim()
+            ? `[Português Brasileiro] [REWRITE & HUMANIZE] Aprimore o seguinte texto para soar profissional e natural: "${data.speech.trim()}"`
+            : `[Português Brasileiro] [AUTO-GENERATE SCRIPT] Crie a fala/narração para a cena ${idx + 1} em Português do Brasil, alinhada à narrativa de '${selectedOption}'.`,
         })),
         language_enforcement:
           'All visual descriptions are in English. All character speech and dialogues are STRICTLY in Brazilian Portuguese (pt-BR).',
@@ -319,18 +329,14 @@ const Options = () => {
         },
         audio_and_speech: {
           language: 'pt-BR',
-          character_speech_pt_br:
-            speechText.trim() ||
-            'Sua fala ou narração em Português do Brasil será inserida aqui.',
+          character_speech_pt_br: speechText.trim()
+            ? `[REWRITE & HUMANIZE] Reescreva, humanize e profissionalize o seguinte texto para um roteiro/fala em Português do Brasil (pt-BR), mantendo o contexto da narrativa: "${speechText.trim()}"`
+            : fallbackScriptPt,
         },
         language_enforcement:
           'All visual descriptions are in English. All character speech and dialogues are STRICTLY in Brazilian Portuguese (pt-BR).',
       }
     }
-
-    const charObjToSave = nicheCharacters.find(
-      (c) => c.id === selectedCharacter,
-    )
 
     const newResult = {
       id: Math.random().toString(36).substring(7),
@@ -338,10 +344,7 @@ const Options = () => {
       nicheTitle: niche.title,
       nicheIcon: niche.icon,
       option: selectedOption,
-      character:
-        selectedCharacter === 'custom'
-          ? 'Personalizado (IA)'
-          : charObjToSave?.name || selectedCharacter,
+      character: characterNamePt,
       date: new Date().toISOString(),
       timeDisplay: 'agora',
       json: jsonPayload,
@@ -520,7 +523,7 @@ const Options = () => {
               <Textarea
                 value={customCharacterDesc}
                 onChange={(e) => setCustomCharacterDesc(e.target.value)}
-                placeholder="Ex: Um jovem na faixa dos 25 anos, com cabelo estilo bagunçado, usando um moletom preto minimalista, com expressão focada e confiante..."
+                placeholder="Ex: Um jovem na faixa dos 25 anos, com cabelo estilo bagunçado, usando um moletom preto minimalista..."
                 className="min-h-[120px] bg-background border-border focus-visible:ring-[#FFC107]/50"
               />
               <p className="text-xs text-muted-foreground font-medium mt-3 flex items-center gap-2">
@@ -682,10 +685,10 @@ const Options = () => {
                       <div className="space-y-3">
                         <Label className="text-xs font-bold text-foreground uppercase flex items-center gap-2">
                           <Sparkles className="w-3.5 h-3.5 text-muted-foreground" />
-                          Visual (Em Inglês)
+                          Visual (Opcional - Em Inglês)
                         </Label>
                         <Textarea
-                          placeholder="Ex: A futuristic neon city, character walking confidently..."
+                          placeholder="Ex: A futuristic neon city... (Deixe em branco para a IA criar)"
                           value={data.visual}
                           onChange={(e) => {
                             const newContent = [...scenesData]
@@ -698,10 +701,10 @@ const Options = () => {
                       <div className="space-y-3">
                         <Label className="text-xs font-bold text-foreground uppercase flex items-center gap-2">
                           <Mic className="w-3.5 h-3.5 text-[#FFC107]" />
-                          Fala/Narração (Português)
+                          Fala/Narração (Opcional - Português)
                         </Label>
                         <Textarea
-                          placeholder="Ex: Esta cidade nunca dorme, e eu também não..."
+                          placeholder="Sua fala aqui... (Deixe em branco para a IA criar)"
                           value={data.speech}
                           onChange={(e) => {
                             const newContent = [...scenesData]
@@ -736,17 +739,18 @@ const Options = () => {
               <div className="bg-[#FFC107]/5 border border-[#FFC107]/30 rounded-2xl p-6 shadow-sm">
                 <Label className="text-sm font-bold text-foreground mb-3 flex items-center gap-2">
                   <Mic className="w-4 h-4 text-[#FFC107]" />O que o personagem
-                  vai dizer? (Em Português)
+                  vai dizer? (Opcional - Em Português)
                 </Label>
                 <Textarea
                   value={speechText}
                   onChange={(e) => setSpeechText(e.target.value)}
-                  placeholder="Digite a fala do personagem ou a narração do vídeo em Português do Brasil... (Opcional)"
+                  placeholder="Digite a fala do personagem ou deixe em branco para a IA gerar automaticamente..."
                   className="min-h-[100px] bg-background border-border focus-visible:ring-[#FFC107]/50 mt-2"
                 />
                 <p className="text-xs text-muted-foreground font-medium mt-3 flex items-center gap-2">
-                  Esta fala será processada com uma voz de IA e garantida no
-                  prompt final em Português Brasileiro (pt-BR).
+                  A IA aprimorará o seu texto para torná-lo mais profissional.
+                  Caso deixe em branco, uma fala/narração otimizada será gerada
+                  com base no seu nicho e personagem.
                 </p>
               </div>
             </section>
