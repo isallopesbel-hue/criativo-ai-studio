@@ -10,9 +10,9 @@ export default function Layout() {
   return (
     <div className="min-h-screen bg-[#0B0E14] flex justify-center w-full font-sans text-foreground">
       {/* Mobile & Desktop App Container Wrapper */}
-      <main className="w-full max-w-6xl bg-[#0B0E14] min-h-screen relative flex flex-col overflow-hidden shadow-2xl">
+      <main className="w-full max-w-6xl bg-[#0B0E14] min-h-screen relative flex flex-col shadow-2xl">
         {/* Header - Fixed navigation bar */}
-        <header className="sticky top-0 z-50 bg-[#0B0E14]/95 backdrop-blur-md border-b border-border/40 px-4 h-16 flex items-center shrink-0 transition-all justify-between">
+        <header className="sticky top-0 z-[100] bg-[#0B0E14] border-b border-border/40 px-4 h-16 flex items-center shrink-0 transition-all justify-between">
           <div className="flex items-center flex-1">
             {!isHome && (
               <Button
@@ -68,7 +68,7 @@ export default function Layout() {
         </header>
 
         {/* Scrollable Content Area */}
-        <div className="flex-1 overflow-y-auto overflow-x-hidden relative">
+        <div className="flex-1 relative flex flex-col overflow-x-hidden">
           <Outlet />
         </div>
       </main>

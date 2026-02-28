@@ -26840,9 +26840,9 @@ function Layout() {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 		className: "min-h-screen bg-[#0B0E14] flex justify-center w-full font-sans text-foreground",
 		children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("main", {
-			className: "w-full max-w-6xl bg-[#0B0E14] min-h-screen relative flex flex-col overflow-hidden shadow-2xl",
+			className: "w-full max-w-6xl bg-[#0B0E14] min-h-screen relative flex flex-col shadow-2xl",
 			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("header", {
-				className: "sticky top-0 z-50 bg-[#0B0E14]/95 backdrop-blur-md border-b border-border/40 px-4 h-16 flex items-center shrink-0 transition-all justify-between",
+				className: "sticky top-0 z-[100] bg-[#0B0E14] border-b border-border/40 px-4 h-16 flex items-center shrink-0 transition-all justify-between",
 				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 					className: "flex items-center flex-1",
 					children: [!(useLocation().pathname === "/") && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Button, {
@@ -26895,7 +26895,7 @@ function Layout() {
 					})]
 				})]
 			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "flex-1 overflow-y-auto overflow-x-hidden relative",
+				className: "flex-1 relative flex flex-col overflow-x-hidden",
 				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Outlet, {})
 			})]
 		})
@@ -26942,4 +26942,4 @@ var App = () => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(BrowserRouter, {
 var App_default = App;
 (0, import_client.createRoot)(document.getElementById("root")).render(/* @__PURE__ */ (0, import_jsx_runtime.jsx)(App_default, {}));
 
-//# sourceMappingURL=index-CQQGAASF.js.map
+//# sourceMappingURL=index-ChnG3Upd.js.map
