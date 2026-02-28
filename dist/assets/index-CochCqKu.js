@@ -26085,6 +26085,26 @@ var getIcon = (iconName, className) => {
 		ShoppingBag
 	}[iconName] || Sparkles, { className });
 };
+var CARTOON_STYLES = [
+	{
+		id: "pixar",
+		label: "Estilo 3D Pixar/Disney",
+		en: "Ultra Premium 3D animation, Pixar and Disney style masterpiece, highly detailed 3D render, vibrant colors, global illumination",
+		icon: Sparkles
+	},
+	{
+		id: "anime",
+		label: "Estilo Anime Japonês",
+		en: "Ultra Premium Japanese Anime style, Studio Ghibli or Ufotable quality, 2D animation, beautifully drawn, highly detailed backgrounds",
+		icon: WandSparkles
+	},
+	{
+		id: "classic2d",
+		label: "Estilo Desenho Clássico 2D",
+		en: "Ultra Premium classic 2D animation, 90s cartoon network style, traditional hand-drawn cel animation, flat colors, nostalgic aesthetic",
+		icon: Clapperboard
+	}
+];
 var RadioOption = ({ value, label, current, icon: Icon$1, description }) => {
 	const isSelected = current === value;
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Label, {
@@ -26123,6 +26143,7 @@ var Options = () => {
 	const { setDraft, addResult } = usePromptStore();
 	const niche = (0, import_react.useMemo)(() => NICHES.find((n) => n.id === nicheId), [nicheId]);
 	const isConsistentCharacter = niche?.id === "personagem-consistente";
+	const isCartoon = niche?.id === "desenhos-animados";
 	const nicheCharacters = (0, import_react.useMemo)(() => {
 		if (!niche) return [];
 		return [...niche.characters, {
@@ -26135,16 +26156,27 @@ var Options = () => {
 	const [selectedOption, setSelectedOption] = (0, import_react.useState)("");
 	const [selectedCharacter, setSelectedCharacter] = (0, import_react.useState)("");
 	const [customCharacterDesc, setCustomCharacterDesc] = (0, import_react.useState)("");
+	const [cartoonStyle, setCartoonStyle] = (0, import_react.useState)("pixar");
+	const [speechText, setSpeechText] = (0, import_react.useState)("");
 	const [sceneCount, setSceneCount] = (0, import_react.useState)([1]);
 	const [narrativeMode, setNarrativeMode] = (0, import_react.useState)("narration");
 	const [gender, setGender] = (0, import_react.useState)("female");
 	const [age, setAge] = (0, import_react.useState)("25");
-	const [scenesContent, setScenesContent] = (0, import_react.useState)([""]);
+	const [scenesData, setScenesData] = (0, import_react.useState)([{
+		visual: "",
+		speech: ""
+	}]);
 	(0, import_react.useEffect)(() => {
-		if (isConsistentCharacter) setScenesContent((prev) => {
+		if (isConsistentCharacter) setScenesData((prev) => {
 			const count$2 = sceneCount[0];
 			if (prev.length === count$2) return prev;
-			if (prev.length < count$2) return [...prev, ...Array(count$2 - prev.length).fill("")];
+			if (prev.length < count$2) {
+				const newItems = Array.from({ length: count$2 - prev.length }, () => ({
+					visual: "",
+					speech: ""
+				}));
+				return [...prev, ...newItems];
+			}
 			return prev.slice(0, count$2);
 		});
 	}, [sceneCount, isConsistentCharacter]);
@@ -26152,7 +26184,7 @@ var Options = () => {
 		let valid = selectedOption !== "" && selectedCharacter !== "";
 		if (selectedCharacter === "custom") valid = valid && customCharacterDesc.trim() !== "";
 		if (isConsistentCharacter) {
-			const scenesValid = scenesContent.every((s) => s.trim() !== "");
+			const scenesValid = scenesData.every((s) => s.visual.trim() !== "" && s.speech.trim() !== "");
 			valid = valid && age.trim() !== "" && scenesValid;
 		}
 		return valid;
@@ -26161,7 +26193,7 @@ var Options = () => {
 		selectedCharacter,
 		customCharacterDesc,
 		isConsistentCharacter,
-		scenesContent,
+		scenesData,
 		age
 	]);
 	if (!niche) return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
@@ -26186,22 +26218,28 @@ var Options = () => {
 		const { estilo, iluminacao } = generateMetadata(selectedOption);
 		const selectedOptObj = niche.options.find((o) => o.pt === selectedOption);
 		const conceptEn = selectedOptObj ? selectedOptObj.en : selectedOption;
+		let qualitySettings = "Ultra Premium, 8K, ultra-realistic, cinematic lighting, high resolution, sharp focus, highly detailed, photorealistic, masterpiece, professional cinematography, no blur, perfectly crisp";
+		if (isCartoon) qualitySettings = "Ultra Premium, high resolution, sharp focus, highly detailed, masterpiece, perfect animation quality, vibrant, clean lines, perfectly crisp";
+		let finalStyle = estilo;
+		if (isCartoon) finalStyle = CARTOON_STYLES.find((s) => s.id === cartoonStyle)?.en || estilo;
 		let charProfileEn = "";
-		if (selectedCharacter === "custom") charProfileEn = `A highly detailed, ultra-realistic portrait of ${customCharacterDesc.trim()}. The subject is deeply humanized with authentic skin texture, expressive eyes, natural posture, and a highly professional appearance. Rendered as a masterpiece portrait with striking emotional depth.`;
+		if (selectedCharacter === "custom") if (isCartoon) charProfileEn = `Ultra Premium, highly detailed character design of ${customCharacterDesc.trim()}. Perfectly capturing the animation style, expressive features, and vivid colors.`;
+		else charProfileEn = `Ultra Premium, highly detailed, ultra-realistic portrait of ${customCharacterDesc.trim()}. The subject is deeply humanized with authentic skin texture, expressive eyes, natural posture, and a highly professional appearance. Rendered as a masterpiece portrait with striking emotional depth.`;
 		else {
 			const charObj = nicheCharacters.find((c) => c.id === selectedCharacter);
-			charProfileEn = charObj?.descriptionEn || charObj?.name || selectedCharacter;
+			charProfileEn = `Ultra Premium, ${charObj?.descriptionEn || charObj?.name || selectedCharacter}`;
 		}
-		const qualitySettings = "8K, ultra-realistic, cinematic lighting, high resolution, sharp focus, highly detailed, photorealistic, masterpiece, professional cinematography, no blur, perfectly crisp";
 		let jsonPayload = {};
 		if (isConsistentCharacter) jsonPayload = {
 			task: "consistent_character_storytelling",
-			niche: niche.titleEn,
-			concept: conceptEn,
-			quality_settings: qualitySettings,
-			style: estilo,
-			lighting: iluminacao,
-			character_profile: {
+			niche_en: niche.titleEn,
+			concept_en: conceptEn,
+			technical_specifications_en: {
+				quality: qualitySettings,
+				style: finalStyle,
+				lighting: iluminacao
+			},
+			character_profile_en: {
 				base_character_description: charProfileEn,
 				gender: gender === "male" ? "male" : "female",
 				age: parseInt(age, 10),
@@ -26209,21 +26247,29 @@ var Options = () => {
 			},
 			narrative_type: narrativeMode === "narration" ? "narration" : "dialogue",
 			scene_count: sceneCount[0],
-			scenes: scenesContent.map((desc, idx) => ({ [`scene_${idx + 1}`]: desc })),
-			language: "en"
+			scenes: scenesData.map((data, idx) => ({
+				scene_number: idx + 1,
+				visual_action_description_en: `[English] ${data.visual}`,
+				character_speech_pt_br: `[Português Brasileiro] ${data.speech}`
+			})),
+			language_enforcement: "All visual descriptions are in English. All character speech and dialogues are STRICTLY in Brazilian Portuguese (pt-BR)."
 		};
 		else jsonPayload = {
 			task: "professional_content_generation",
-			niche: niche.titleEn,
-			narrative_concept: conceptEn,
-			subject_and_character: charProfileEn,
-			technical_specifications: {
+			niche_en: niche.titleEn,
+			narrative_concept_en: conceptEn,
+			subject_and_character_en: charProfileEn,
+			technical_specifications_en: {
 				quality: qualitySettings,
 				lighting: iluminacao,
-				camera: "Sharp focus, perfectly crisp, no blur, DSLR 50mm lens",
-				style: estilo
+				camera: isCartoon ? "Perfect framing, clear composition" : "Sharp focus, perfectly crisp, no blur, DSLR 50mm lens",
+				style: finalStyle
 			},
-			language: "en"
+			audio_and_speech: {
+				language: "pt-BR",
+				character_speech_pt_br: speechText.trim() || "Sua fala ou narração em Português do Brasil será inserida aqui."
+			},
+			language_enforcement: "All visual descriptions are in English. All character speech and dialogues are STRICTLY in Brazilian Portuguese (pt-BR)."
 		};
 		const charObjToSave = nicheCharacters.find((c) => c.id === selectedCharacter);
 		const newResult = {
@@ -26243,6 +26289,7 @@ var Options = () => {
 			isNew: true
 		} });
 	};
+	let stepNumber = 1;
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 		className: "animate-in fade-in slide-in-from-bottom-4 duration-500 p-6 md:p-12 flex flex-col min-h-[calc(100vh-4rem)] max-w-4xl mx-auto w-full",
 		children: [
@@ -26266,7 +26313,7 @@ var Options = () => {
 						className: "flex items-center gap-3 mb-6",
 						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 							className: "bg-[#FFC107]/10 text-[#FFC107] w-8 h-8 rounded-lg flex items-center justify-center font-bold text-sm border border-[#FFC107]/20",
-							children: "1"
+							children: stepNumber++
 						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
 							className: "font-bold text-base uppercase tracking-widest text-foreground",
 							children: "Estrutura Narrativa"
@@ -26281,74 +26328,100 @@ var Options = () => {
 							current: selectedOption
 						}, i))
 					})] }),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Separator, { className: "bg-border" }),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", { children: [
-						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					isCartoon && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Separator, { className: "bg-border" }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
+						className: "animate-in fade-in slide-in-from-bottom-4 duration-500",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 							className: "flex items-center gap-3 mb-6",
 							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 								className: "bg-[#FFC107]/10 text-[#FFC107] w-8 h-8 rounded-lg flex items-center justify-center font-bold text-sm border border-[#FFC107]/20",
-								children: "2"
+								children: stepNumber++
 							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
 								className: "font-bold text-base uppercase tracking-widest text-foreground",
-								children: "Perfil do Personagem"
+								children: "Estilo de Animação"
 							})]
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)(RadioGroup, {
-							value: selectedCharacter,
-							onValueChange: setSelectedCharacter,
-							className: "grid grid-cols-1 sm:grid-cols-2 gap-4",
-							children: nicheCharacters.map((char) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Label, {
-								className: `relative flex flex-col p-6 rounded-2xl border cursor-pointer transition-all duration-300 group overflow-hidden ${selectedCharacter === char.id ? "border-[#FFC107] bg-[#FFC107]/10 shadow-[0_0_20px_-5px_rgba(255,193,7,0.2)]" : "border-border bg-card hover:bg-secondary/80 hover:border-[#FFC107]/40 hover:shadow-lg"}`,
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(RadioGroup, {
+							value: cartoonStyle,
+							onValueChange: setCartoonStyle,
+							className: "grid grid-cols-1 md:grid-cols-3 gap-4",
+							children: CARTOON_STYLES.map((style) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(RadioOption, {
+								value: style.id,
+								label: style.label,
+								icon: style.icon,
+								current: cartoonStyle
+							}, style.id))
+						})]
+					})] }),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Separator, { className: "bg-border" }),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
+						className: "animate-in fade-in slide-in-from-bottom-4 duration-500",
+						children: [
+							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+								className: "flex items-center gap-3 mb-6",
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+									className: "bg-[#FFC107]/10 text-[#FFC107] w-8 h-8 rounded-lg flex items-center justify-center font-bold text-sm border border-[#FFC107]/20",
+									children: stepNumber++
+								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
+									className: "font-bold text-base uppercase tracking-widest text-foreground",
+									children: "Perfil do Personagem"
+								})]
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(RadioGroup, {
+								value: selectedCharacter,
+								onValueChange: setSelectedCharacter,
+								className: "grid grid-cols-1 sm:grid-cols-2 gap-4",
+								children: nicheCharacters.map((char) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Label, {
+									className: `relative flex flex-col p-6 rounded-2xl border cursor-pointer transition-all duration-300 group overflow-hidden ${selectedCharacter === char.id ? "border-[#FFC107] bg-[#FFC107]/10 shadow-[0_0_20px_-5px_rgba(255,193,7,0.2)]" : "border-border bg-card hover:bg-secondary/80 hover:border-[#FFC107]/40 hover:shadow-lg"}`,
+									children: [
+										selectedCharacter === char.id && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute -inset-2 bg-gradient-to-r from-[#FFC107]/10 to-transparent blur-xl" }),
+										/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+											className: "relative z-10 flex justify-between items-start w-full mb-5",
+											children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+												className: `flex items-center justify-center w-6 h-6 rounded-full border ${selectedCharacter === char.id ? "border-[#FFC107] text-[#FFC107]" : "border-muted-foreground/40 bg-background group-hover:border-[#FFC107]/40"}`,
+												children: selectedCharacter === char.id && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CircleCheck, { className: "w-6 h-6 absolute -inset-[1px]" })
+											}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+												className: `h-12 w-12 rounded-xl flex items-center justify-center transition-colors duration-300 ${selectedCharacter === char.id ? "bg-[#FFC107]/20 text-[#FFC107] border border-[#FFC107]/30" : "bg-background border border-border text-muted-foreground group-hover:text-[#FFC107]"}`,
+												children: char.id === "custom" ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PenTool, { className: "w-5 h-5" }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CircleUserRound, { className: "w-6 h-6" })
+											})]
+										}),
+										/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+											className: "relative z-10",
+											children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+												className: `font-bold text-lg block mb-1.5 ${selectedCharacter === char.id ? "text-[#FFC107]" : "text-foreground"}`,
+												children: char.name
+											}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+												className: "text-sm font-medium text-muted-foreground leading-relaxed",
+												children: char.description
+											})]
+										}),
+										/* @__PURE__ */ (0, import_jsx_runtime.jsx)(RadioGroupItem, {
+											value: char.id,
+											id: `char-${char.id}`,
+											className: "sr-only"
+										})
+									]
+								}, char.id))
+							}),
+							selectedCharacter === "custom" && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+								className: "mt-6 p-6 bg-[#FFC107]/5 border border-[#FFC107]/30 rounded-2xl animate-in fade-in slide-in-from-top-2 shadow-sm",
 								children: [
-									selectedCharacter === char.id && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute -inset-2 bg-gradient-to-r from-[#FFC107]/10 to-transparent blur-xl" }),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-										className: "relative z-10 flex justify-between items-start w-full mb-5",
-										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-											className: `flex items-center justify-center w-6 h-6 rounded-full border ${selectedCharacter === char.id ? "border-[#FFC107] text-[#FFC107]" : "border-muted-foreground/40 bg-background group-hover:border-[#FFC107]/40"}`,
-											children: selectedCharacter === char.id && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CircleCheck, { className: "w-6 h-6 absolute -inset-[1px]" })
-										}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-											className: `h-12 w-12 rounded-xl flex items-center justify-center transition-colors duration-300 ${selectedCharacter === char.id ? "bg-[#FFC107]/20 text-[#FFC107] border border-[#FFC107]/30" : "bg-background border border-border text-muted-foreground group-hover:text-[#FFC107]"}`,
-											children: char.id === "custom" ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PenTool, { className: "w-5 h-5" }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CircleUserRound, { className: "w-6 h-6" })
-										})]
+									/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Label, {
+										className: "text-sm font-bold text-foreground mb-3 flex items-center gap-2",
+										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Sparkles, { className: "w-4 h-4 text-[#FFC107]" }), "Descreva seu Personagem"]
 									}),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-										className: "relative z-10",
-										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-											className: `font-bold text-lg block mb-1.5 ${selectedCharacter === char.id ? "text-[#FFC107]" : "text-foreground"}`,
-											children: char.name
-										}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-											className: "text-sm font-medium text-muted-foreground leading-relaxed",
-											children: char.description
-										})]
+									/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Textarea, {
+										value: customCharacterDesc,
+										onChange: (e) => setCustomCharacterDesc(e.target.value),
+										placeholder: "Ex: Um jovem na faixa dos 25 anos, com cabelo estilo bagunçado, usando um moletom preto minimalista, com expressão focada e confiante...",
+										className: "min-h-[120px] bg-background border-border focus-visible:ring-[#FFC107]/50"
 									}),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)(RadioGroupItem, {
-										value: char.id,
-										id: `char-${char.id}`,
-										className: "sr-only"
+									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+										className: "text-xs text-muted-foreground font-medium mt-3 flex items-center gap-2",
+										children: "Nossa IA irá reescrever e humanizar esta descrição em Inglês para garantir máxima qualidade."
 									})
 								]
-							}, char.id))
-						}),
-						selectedCharacter === "custom" && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							className: "mt-6 p-6 bg-[#FFC107]/5 border border-[#FFC107]/30 rounded-2xl animate-in fade-in slide-in-from-top-2 shadow-sm",
-							children: [
-								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Label, {
-									className: "text-sm font-bold text-foreground mb-3 flex items-center gap-2",
-									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Sparkles, { className: "w-4 h-4 text-[#FFC107]" }), "Descreva seu Personagem"]
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Textarea, {
-									value: customCharacterDesc,
-									onChange: (e) => setCustomCharacterDesc(e.target.value),
-									placeholder: "Ex: Um jovem na faixa dos 25 anos, com cabelo estilo bagunçado, usando um moletom preto minimalista, com expressão focada e confiante...",
-									className: "min-h-[120px] bg-background border-border focus-visible:ring-[#FFC107]/50"
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-									className: "text-xs text-muted-foreground font-medium mt-3 flex items-center gap-2",
-									children: "Nossa IA irá reescrever e humanizar esta descrição para garantir máxima qualidade fotorealista 8K."
-								})
-							]
-						})
-					] }),
+							})
+						]
+					}),
 					isConsistentCharacter && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
 						/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Separator, { className: "bg-border" }),
 						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
@@ -26357,7 +26430,7 @@ var Options = () => {
 								className: "flex items-center gap-3 mb-6",
 								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 									className: "bg-[#FFC107]/10 text-[#FFC107] w-8 h-8 rounded-lg flex items-center justify-center font-bold text-sm border border-[#FFC107]/20",
-									children: "3"
+									children: stepNumber++
 								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
 									className: "font-bold text-base uppercase tracking-widest text-foreground",
 									children: "Configuração da História"
@@ -26424,7 +26497,7 @@ var Options = () => {
 								className: "flex items-center gap-3 mb-6",
 								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 									className: "bg-[#FFC107]/10 text-[#FFC107] w-8 h-8 rounded-lg flex items-center justify-center font-bold text-sm border border-[#FFC107]/20",
-									children: "4"
+									children: stepNumber++
 								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
 									className: "font-bold text-base uppercase tracking-widest text-foreground",
 									children: "Identidade Vocal & Perfil"
@@ -26476,36 +26549,91 @@ var Options = () => {
 								className: "flex items-center gap-3 mb-6",
 								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 									className: "bg-[#FFC107]/10 text-[#FFC107] w-8 h-8 rounded-lg flex items-center justify-center font-bold text-sm border border-[#FFC107]/20",
-									children: "5"
+									children: stepNumber++
 								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
 									className: "font-bold text-base uppercase tracking-widest text-foreground",
 									children: "Roteiro das Cenas"
 								})]
 							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 								className: "space-y-6",
-								children: scenesContent.map((content, idx) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-									className: "space-y-3 p-5 rounded-2xl border border-border bg-card shadow-sm",
+								children: scenesData.map((data, idx) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+									className: "space-y-5 p-6 rounded-2xl border border-border bg-card shadow-sm",
 									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Label, {
-										className: "text-xs font-bold text-[#FFC107] uppercase tracking-widest flex items-center gap-2",
+										className: "text-sm font-bold text-[#FFC107] uppercase tracking-widest flex items-center gap-2",
 										children: [
-											/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "w-1.5 h-1.5 rounded-full bg-[#FFC107]" }),
+											/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "w-2 h-2 rounded-full bg-[#FFC107]" }),
 											"Cena ",
 											idx + 1
 										]
-									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Textarea, {
-										placeholder: `Descreva as ações, ambiente e detalhes da história para a Cena ${idx + 1} (em português)...`,
-										value: content,
-										onChange: (e) => {
-											const newContent = [...scenesContent];
-											newContent[idx] = e.target.value;
-											setScenesContent(newContent);
-										},
-										className: "min-h-[100px] text-sm border-muted-foreground/20 focus-visible:ring-[#FFC107]/50 bg-background/50"
+									}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+										className: "grid grid-cols-1 md:grid-cols-2 gap-5",
+										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+											className: "space-y-3",
+											children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Label, {
+												className: "text-xs font-bold text-foreground uppercase flex items-center gap-2",
+												children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Sparkles, { className: "w-3.5 h-3.5 text-muted-foreground" }), "Visual (Em Inglês)"]
+											}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Textarea, {
+												placeholder: "Ex: A futuristic neon city, character walking confidently...",
+												value: data.visual,
+												onChange: (e) => {
+													const newContent = [...scenesData];
+													newContent[idx].visual = e.target.value;
+													setScenesData(newContent);
+												},
+												className: "min-h-[120px] text-sm border-border focus-visible:ring-[#FFC107]/50 bg-background/50"
+											})]
+										}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+											className: "space-y-3",
+											children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Label, {
+												className: "text-xs font-bold text-foreground uppercase flex items-center gap-2",
+												children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Mic, { className: "w-3.5 h-3.5 text-[#FFC107]" }), "Fala/Narração (Português)"]
+											}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Textarea, {
+												placeholder: "Ex: Esta cidade nunca dorme, e eu também não...",
+												value: data.speech,
+												onChange: (e) => {
+													const newContent = [...scenesData];
+													newContent[idx].speech = e.target.value;
+													setScenesData(newContent);
+												},
+												className: "min-h-[120px] text-sm border-border focus-visible:ring-[#FFC107]/50 bg-background/50"
+											})]
+										})]
 									})]
 								}, idx))
 							})]
 						})
-					] })
+					] }),
+					!isConsistentCharacter && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Separator, { className: "bg-border" }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
+						className: "space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500 delay-100",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							className: "flex items-center gap-3 mb-6",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+								className: "bg-[#FFC107]/10 text-[#FFC107] w-8 h-8 rounded-lg flex items-center justify-center font-bold text-sm border border-[#FFC107]/20",
+								children: stepNumber++
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
+								className: "font-bold text-base uppercase tracking-widest text-foreground",
+								children: "Áudio & Fala"
+							})]
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							className: "bg-[#FFC107]/5 border border-[#FFC107]/30 rounded-2xl p-6 shadow-sm",
+							children: [
+								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Label, {
+									className: "text-sm font-bold text-foreground mb-3 flex items-center gap-2",
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Mic, { className: "w-4 h-4 text-[#FFC107]" }), "O que o personagem vai dizer? (Em Português)"]
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Textarea, {
+									value: speechText,
+									onChange: (e) => setSpeechText(e.target.value),
+									placeholder: "Digite a fala do personagem ou a narração do vídeo em Português do Brasil... (Opcional)",
+									className: "min-h-[100px] bg-background border-border focus-visible:ring-[#FFC107]/50 mt-2"
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+									className: "text-xs text-muted-foreground font-medium mt-3 flex items-center gap-2",
+									children: "Esta fala será processada com uma voz de IA e garantida no prompt final em Português Brasileiro (pt-BR)."
+								})
+							]
+						})]
+					})] })
 				]
 			}),
 			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
@@ -27484,4 +27612,4 @@ var App = () => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(BrowserRouter, {
 var App_default = App;
 (0, import_client.createRoot)(document.getElementById("root")).render(/* @__PURE__ */ (0, import_jsx_runtime.jsx)(App_default, {}));
 
-//# sourceMappingURL=index-CrMb51_p.js.map
+//# sourceMappingURL=index-CochCqKu.js.map

@@ -31,6 +31,7 @@ import {
   Mars,
   Venus,
   PenTool,
+  Wand2,
 } from 'lucide-react'
 
 const getIcon = (iconName: string, className?: string) => {
@@ -51,6 +52,27 @@ const getIcon = (iconName: string, className?: string) => {
   const Icon = icons[iconName] || Sparkles
   return <Icon className={className} />
 }
+
+const CARTOON_STYLES = [
+  {
+    id: 'pixar',
+    label: 'Estilo 3D Pixar/Disney',
+    en: 'Ultra Premium 3D animation, Pixar and Disney style masterpiece, highly detailed 3D render, vibrant colors, global illumination',
+    icon: Sparkles,
+  },
+  {
+    id: 'anime',
+    label: 'Estilo Anime Japonês',
+    en: 'Ultra Premium Japanese Anime style, Studio Ghibli or Ufotable quality, 2D animation, beautifully drawn, highly detailed backgrounds',
+    icon: Wand2,
+  },
+  {
+    id: 'classic2d',
+    label: 'Estilo Desenho Clássico 2D',
+    en: 'Ultra Premium classic 2D animation, 90s cartoon network style, traditional hand-drawn cel animation, flat colors, nostalgic aesthetic',
+    icon: Clapperboard,
+  },
+]
 
 const RadioOption = ({
   value,
@@ -125,6 +147,7 @@ const Options = () => {
 
   const niche = useMemo(() => NICHES.find((n) => n.id === nicheId), [nicheId])
   const isConsistentCharacter = niche?.id === 'personagem-consistente'
+  const isCartoon = niche?.id === 'desenhos-animados'
 
   const nicheCharacters = useMemo(() => {
     if (!niche) return []
@@ -143,20 +166,32 @@ const Options = () => {
   const [selectedCharacter, setSelectedCharacter] = useState<string>('')
   const [customCharacterDesc, setCustomCharacterDesc] = useState<string>('')
 
+  // States for Cartoon Niche
+  const [cartoonStyle, setCartoonStyle] = useState<string>('pixar')
+
+  // States for Non-Consistent Character Speech
+  const [speechText, setSpeechText] = useState<string>('')
+
   // States for Consistent Character
   const [sceneCount, setSceneCount] = useState<number[]>([1])
   const [narrativeMode, setNarrativeMode] = useState<string>('narration')
   const [gender, setGender] = useState<string>('female')
   const [age, setAge] = useState<string>('25')
-  const [scenesContent, setScenesContent] = useState<string[]>([''])
+  const [scenesData, setScenesData] = useState<
+    { visual: string; speech: string }[]
+  >([{ visual: '', speech: '' }])
 
   useEffect(() => {
     if (isConsistentCharacter) {
-      setScenesContent((prev) => {
+      setScenesData((prev) => {
         const count = sceneCount[0]
         if (prev.length === count) return prev
         if (prev.length < count) {
-          return [...prev, ...Array(count - prev.length).fill('')]
+          const newItems = Array.from({ length: count - prev.length }, () => ({
+            visual: '',
+            speech: '',
+          }))
+          return [...prev, ...newItems]
         }
         return prev.slice(0, count)
       })
@@ -169,7 +204,9 @@ const Options = () => {
       valid = valid && customCharacterDesc.trim() !== ''
     }
     if (isConsistentCharacter) {
-      const scenesValid = scenesContent.every((s) => s.trim() !== '')
+      const scenesValid = scenesData.every(
+        (s) => s.visual.trim() !== '' && s.speech.trim() !== '',
+      )
       valid = valid && age.trim() !== '' && scenesValid
     }
     return valid
@@ -178,7 +215,7 @@ const Options = () => {
     selectedCharacter,
     customCharacterDesc,
     isConsistentCharacter,
-    scenesContent,
+    scenesData,
     age,
   ])
 
@@ -211,29 +248,45 @@ const Options = () => {
     const selectedOptObj = niche.options.find((o) => o.pt === selectedOption)
     const conceptEn = selectedOptObj ? selectedOptObj.en : selectedOption
 
-    let charProfileEn = ''
-    if (selectedCharacter === 'custom') {
-      charProfileEn = `A highly detailed, ultra-realistic portrait of ${customCharacterDesc.trim()}. The subject is deeply humanized with authentic skin texture, expressive eyes, natural posture, and a highly professional appearance. Rendered as a masterpiece portrait with striking emotional depth.`
-    } else {
-      const charObj = nicheCharacters.find((c) => c.id === selectedCharacter)
-      charProfileEn =
-        charObj?.descriptionEn || charObj?.name || selectedCharacter
+    let qualitySettings =
+      'Ultra Premium, 8K, ultra-realistic, cinematic lighting, high resolution, sharp focus, highly detailed, photorealistic, masterpiece, professional cinematography, no blur, perfectly crisp'
+
+    if (isCartoon) {
+      qualitySettings =
+        'Ultra Premium, high resolution, sharp focus, highly detailed, masterpiece, perfect animation quality, vibrant, clean lines, perfectly crisp'
     }
 
-    const qualitySettings =
-      '8K, ultra-realistic, cinematic lighting, high resolution, sharp focus, highly detailed, photorealistic, masterpiece, professional cinematography, no blur, perfectly crisp'
+    let finalStyle = estilo
+    if (isCartoon) {
+      finalStyle =
+        CARTOON_STYLES.find((s) => s.id === cartoonStyle)?.en || estilo
+    }
+
+    let charProfileEn = ''
+    if (selectedCharacter === 'custom') {
+      if (isCartoon) {
+        charProfileEn = `Ultra Premium, highly detailed character design of ${customCharacterDesc.trim()}. Perfectly capturing the animation style, expressive features, and vivid colors.`
+      } else {
+        charProfileEn = `Ultra Premium, highly detailed, ultra-realistic portrait of ${customCharacterDesc.trim()}. The subject is deeply humanized with authentic skin texture, expressive eyes, natural posture, and a highly professional appearance. Rendered as a masterpiece portrait with striking emotional depth.`
+      }
+    } else {
+      const charObj = nicheCharacters.find((c) => c.id === selectedCharacter)
+      charProfileEn = `Ultra Premium, ${charObj?.descriptionEn || charObj?.name || selectedCharacter}`
+    }
 
     let jsonPayload: any = {}
 
     if (isConsistentCharacter) {
       jsonPayload = {
         task: 'consistent_character_storytelling',
-        niche: niche.titleEn,
-        concept: conceptEn,
-        quality_settings: qualitySettings,
-        style: estilo,
-        lighting: iluminacao,
-        character_profile: {
+        niche_en: niche.titleEn,
+        concept_en: conceptEn,
+        technical_specifications_en: {
+          quality: qualitySettings,
+          style: finalStyle,
+          lighting: iluminacao,
+        },
+        character_profile_en: {
           base_character_description: charProfileEn,
           gender: gender === 'male' ? 'male' : 'female',
           age: parseInt(age, 10),
@@ -242,24 +295,36 @@ const Options = () => {
         narrative_type:
           narrativeMode === 'narration' ? 'narration' : 'dialogue',
         scene_count: sceneCount[0],
-        scenes: scenesContent.map((desc, idx) => ({
-          [`scene_${idx + 1}`]: desc,
+        scenes: scenesData.map((data, idx) => ({
+          scene_number: idx + 1,
+          visual_action_description_en: `[English] ${data.visual}`,
+          character_speech_pt_br: `[Português Brasileiro] ${data.speech}`,
         })),
-        language: 'en',
+        language_enforcement:
+          'All visual descriptions are in English. All character speech and dialogues are STRICTLY in Brazilian Portuguese (pt-BR).',
       }
     } else {
       jsonPayload = {
         task: 'professional_content_generation',
-        niche: niche.titleEn,
-        narrative_concept: conceptEn,
-        subject_and_character: charProfileEn,
-        technical_specifications: {
+        niche_en: niche.titleEn,
+        narrative_concept_en: conceptEn,
+        subject_and_character_en: charProfileEn,
+        technical_specifications_en: {
           quality: qualitySettings,
           lighting: iluminacao,
-          camera: 'Sharp focus, perfectly crisp, no blur, DSLR 50mm lens',
-          style: estilo,
+          camera: isCartoon
+            ? 'Perfect framing, clear composition'
+            : 'Sharp focus, perfectly crisp, no blur, DSLR 50mm lens',
+          style: finalStyle,
         },
-        language: 'en',
+        audio_and_speech: {
+          language: 'pt-BR',
+          character_speech_pt_br:
+            speechText.trim() ||
+            'Sua fala ou narração em Português do Brasil será inserida aqui.',
+        },
+        language_enforcement:
+          'All visual descriptions are in English. All character speech and dialogues are STRICTLY in Brazilian Portuguese (pt-BR).',
       }
     }
 
@@ -286,6 +351,8 @@ const Options = () => {
     navigate('/result', { state: { result: newResult, isNew: true } })
   }
 
+  let stepNumber = 1
+
   return (
     <div className="animate-in fade-in slide-in-from-bottom-4 duration-500 p-6 md:p-12 flex flex-col min-h-[calc(100vh-4rem)] max-w-4xl mx-auto w-full">
       <div className="mb-10 flex flex-col md:flex-row md:items-center gap-6">
@@ -304,11 +371,11 @@ const Options = () => {
       </div>
 
       <div className="flex-1 space-y-12 pb-28">
-        {/* Options Selection */}
+        {/* 1. Estrutura Narrativa */}
         <section>
           <div className="flex items-center gap-3 mb-6">
             <div className="bg-[#FFC107]/10 text-[#FFC107] w-8 h-8 rounded-lg flex items-center justify-center font-bold text-sm border border-[#FFC107]/20">
-              1
+              {stepNumber++}
             </div>
             <h3 className="font-bold text-base uppercase tracking-widest text-foreground">
               Estrutura Narrativa
@@ -330,13 +397,45 @@ const Options = () => {
           </RadioGroup>
         </section>
 
+        {isCartoon && (
+          <>
+            <Separator className="bg-border" />
+            {/* 2. Estilo de Animação (Only for Cartoon) */}
+            <section className="animate-in fade-in slide-in-from-bottom-4 duration-500">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="bg-[#FFC107]/10 text-[#FFC107] w-8 h-8 rounded-lg flex items-center justify-center font-bold text-sm border border-[#FFC107]/20">
+                  {stepNumber++}
+                </div>
+                <h3 className="font-bold text-base uppercase tracking-widest text-foreground">
+                  Estilo de Animação
+                </h3>
+              </div>
+              <RadioGroup
+                value={cartoonStyle}
+                onValueChange={setCartoonStyle}
+                className="grid grid-cols-1 md:grid-cols-3 gap-4"
+              >
+                {CARTOON_STYLES.map((style) => (
+                  <RadioOption
+                    key={style.id}
+                    value={style.id}
+                    label={style.label}
+                    icon={style.icon}
+                    current={cartoonStyle}
+                  />
+                ))}
+              </RadioGroup>
+            </section>
+          </>
+        )}
+
         <Separator className="bg-border" />
 
         {/* Character Selection */}
-        <section>
+        <section className="animate-in fade-in slide-in-from-bottom-4 duration-500">
           <div className="flex items-center gap-3 mb-6">
             <div className="bg-[#FFC107]/10 text-[#FFC107] w-8 h-8 rounded-lg flex items-center justify-center font-bold text-sm border border-[#FFC107]/20">
-              2
+              {stepNumber++}
             </div>
             <h3 className="font-bold text-base uppercase tracking-widest text-foreground">
               Perfil do Personagem
@@ -411,7 +510,7 @@ const Options = () => {
             ))}
           </RadioGroup>
 
-          {/* Custom Character Textarea (Visible only when 'custom' is selected) */}
+          {/* Custom Character Textarea */}
           {selectedCharacter === 'custom' && (
             <div className="mt-6 p-6 bg-[#FFC107]/5 border border-[#FFC107]/30 rounded-2xl animate-in fade-in slide-in-from-top-2 shadow-sm">
               <Label className="text-sm font-bold text-foreground mb-3 flex items-center gap-2">
@@ -425,8 +524,8 @@ const Options = () => {
                 className="min-h-[120px] bg-background border-border focus-visible:ring-[#FFC107]/50"
               />
               <p className="text-xs text-muted-foreground font-medium mt-3 flex items-center gap-2">
-                Nossa IA irá reescrever e humanizar esta descrição para garantir
-                máxima qualidade fotorealista 8K.
+                Nossa IA irá reescrever e humanizar esta descrição em Inglês
+                para garantir máxima qualidade.
               </p>
             </div>
           )}
@@ -440,7 +539,7 @@ const Options = () => {
             <section className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
               <div className="flex items-center gap-3 mb-6">
                 <div className="bg-[#FFC107]/10 text-[#FFC107] w-8 h-8 rounded-lg flex items-center justify-center font-bold text-sm border border-[#FFC107]/20">
-                  3
+                  {stepNumber++}
                 </div>
                 <h3 className="font-bold text-base uppercase tracking-widest text-foreground">
                   Configuração da História
@@ -506,7 +605,7 @@ const Options = () => {
             <section className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500 delay-100">
               <div className="flex items-center gap-3 mb-6">
                 <div className="bg-[#FFC107]/10 text-[#FFC107] w-8 h-8 rounded-lg flex items-center justify-center font-bold text-sm border border-[#FFC107]/20">
-                  4
+                  {stepNumber++}
                 </div>
                 <h3 className="font-bold text-base uppercase tracking-widest text-foreground">
                   Identidade Vocal & Perfil
@@ -561,7 +660,7 @@ const Options = () => {
             <section className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500 delay-200">
               <div className="flex items-center gap-3 mb-6">
                 <div className="bg-[#FFC107]/10 text-[#FFC107] w-8 h-8 rounded-lg flex items-center justify-center font-bold text-sm border border-[#FFC107]/20">
-                  5
+                  {stepNumber++}
                 </div>
                 <h3 className="font-bold text-base uppercase tracking-widest text-foreground">
                   Roteiro das Cenas
@@ -569,29 +668,86 @@ const Options = () => {
               </div>
 
               <div className="space-y-6">
-                {scenesContent.map((content, idx) => (
+                {scenesData.map((data, idx) => (
                   <div
                     key={idx}
-                    className="space-y-3 p-5 rounded-2xl border border-border bg-card shadow-sm"
+                    className="space-y-5 p-6 rounded-2xl border border-border bg-card shadow-sm"
                   >
-                    <Label className="text-xs font-bold text-[#FFC107] uppercase tracking-widest flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#FFC107]" />
+                    <Label className="text-sm font-bold text-[#FFC107] uppercase tracking-widest flex items-center gap-2">
+                      <span className="w-2 h-2 rounded-full bg-[#FFC107]" />
                       Cena {idx + 1}
                     </Label>
-                    <Textarea
-                      placeholder={`Descreva as ações, ambiente e detalhes da história para a Cena ${
-                        idx + 1
-                      } (em português)...`}
-                      value={content}
-                      onChange={(e) => {
-                        const newContent = [...scenesContent]
-                        newContent[idx] = e.target.value
-                        setScenesContent(newContent)
-                      }}
-                      className="min-h-[100px] text-sm border-muted-foreground/20 focus-visible:ring-[#FFC107]/50 bg-background/50"
-                    />
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                      <div className="space-y-3">
+                        <Label className="text-xs font-bold text-foreground uppercase flex items-center gap-2">
+                          <Sparkles className="w-3.5 h-3.5 text-muted-foreground" />
+                          Visual (Em Inglês)
+                        </Label>
+                        <Textarea
+                          placeholder="Ex: A futuristic neon city, character walking confidently..."
+                          value={data.visual}
+                          onChange={(e) => {
+                            const newContent = [...scenesData]
+                            newContent[idx].visual = e.target.value
+                            setScenesData(newContent)
+                          }}
+                          className="min-h-[120px] text-sm border-border focus-visible:ring-[#FFC107]/50 bg-background/50"
+                        />
+                      </div>
+                      <div className="space-y-3">
+                        <Label className="text-xs font-bold text-foreground uppercase flex items-center gap-2">
+                          <Mic className="w-3.5 h-3.5 text-[#FFC107]" />
+                          Fala/Narração (Português)
+                        </Label>
+                        <Textarea
+                          placeholder="Ex: Esta cidade nunca dorme, e eu também não..."
+                          value={data.speech}
+                          onChange={(e) => {
+                            const newContent = [...scenesData]
+                            newContent[idx].speech = e.target.value
+                            setScenesData(newContent)
+                          }}
+                          className="min-h-[120px] text-sm border-border focus-visible:ring-[#FFC107]/50 bg-background/50"
+                        />
+                      </div>
+                    </div>
                   </div>
                 ))}
+              </div>
+            </section>
+          </>
+        )}
+
+        {!isConsistentCharacter && (
+          <>
+            <Separator className="bg-border" />
+
+            <section className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500 delay-100">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="bg-[#FFC107]/10 text-[#FFC107] w-8 h-8 rounded-lg flex items-center justify-center font-bold text-sm border border-[#FFC107]/20">
+                  {stepNumber++}
+                </div>
+                <h3 className="font-bold text-base uppercase tracking-widest text-foreground">
+                  Áudio & Fala
+                </h3>
+              </div>
+
+              <div className="bg-[#FFC107]/5 border border-[#FFC107]/30 rounded-2xl p-6 shadow-sm">
+                <Label className="text-sm font-bold text-foreground mb-3 flex items-center gap-2">
+                  <Mic className="w-4 h-4 text-[#FFC107]" />O que o personagem
+                  vai dizer? (Em Português)
+                </Label>
+                <Textarea
+                  value={speechText}
+                  onChange={(e) => setSpeechText(e.target.value)}
+                  placeholder="Digite a fala do personagem ou a narração do vídeo em Português do Brasil... (Opcional)"
+                  className="min-h-[100px] bg-background border-border focus-visible:ring-[#FFC107]/50 mt-2"
+                />
+                <p className="text-xs text-muted-foreground font-medium mt-3 flex items-center gap-2">
+                  Esta fala será processada com uma voz de IA e garantida no
+                  prompt final em Português Brasileiro (pt-BR).
+                </p>
               </div>
             </section>
           </>
