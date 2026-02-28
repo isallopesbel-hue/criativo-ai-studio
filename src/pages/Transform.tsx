@@ -2,6 +2,7 @@ import { useState, useRef } from 'react'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { Label } from '@/components/ui/label'
+import { Textarea } from '@/components/ui/textarea'
 import {
   Copy,
   Check,
@@ -16,6 +17,7 @@ import { useToast } from '@/hooks/use-toast'
 const Transform = () => {
   const [referenceImage, setReferenceImage] = useState<string | null>(null)
   const [userImage, setUserImage] = useState<string | null>(null)
+  const [sceneIdea, setSceneIdea] = useState<string>('')
   const [generatedJson, setGeneratedJson] = useState<string | null>(null)
   const [copied, setCopied] = useState(false)
   const { toast } = useToast()
@@ -50,11 +52,16 @@ const Transform = () => {
 
     const json = {
       task: 'character_transformation',
-      reference_style: 'user_uploaded_reference',
-      subject: 'user_uploaded_photo',
-      quality: '8K ultra realistic, cinematic quality, high-end cinematography',
-      lighting: 'cinematic',
-      output_format: 'professional_photography',
+      reference_style_en: 'user_uploaded_reference',
+      subject_en: 'user_uploaded_photo',
+      scene_context_en: sceneIdea.trim()
+        ? `[TRANSLATE TO ENGLISH] ${sceneIdea}`
+        : 'Default cinematic transformation scene',
+      quality_en:
+        'Ultra Premium, 8K ultra realistic, cinematic quality, high-end cinematography',
+      lighting_en: 'cinematic',
+      output_format_en: 'professional_photography',
+      system_instruction: 'All parameters must be in English.',
     }
 
     setGeneratedJson(JSON.stringify(json, null, 2))
@@ -83,25 +90,22 @@ const Transform = () => {
           Transformação Cinematográfica
         </h2>
         <p className="text-muted-foreground text-sm md:text-base font-medium max-w-xl mx-auto">
-          Faça upload de um personagem ou roupa de referência e sua foto para
-          gerar um prompt de IA 8K profissional em formato JSON.
+          Faça upload de um personagem de referência e sua foto para gerar um
+          prompt IA 8K profissional.
         </p>
       </div>
 
-      <Card className="p-6 md:p-8 border-border bg-card shadow-2xl rounded-2xl space-y-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <Card className="p-6 md:p-8 border-border bg-card shadow-lg rounded-2xl space-y-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Reference Image Section */}
-          <div className="space-y-4">
-            <Label className="text-base font-bold text-foreground tracking-wide flex items-center gap-2">
-              <ImageIcon className="w-5 h-5 text-[#FFC107]" />
+          <div className="space-y-3">
+            <Label className="text-xs font-bold text-muted-foreground uppercase tracking-widest flex items-center gap-2">
+              <ImageIcon className="w-4 h-4 text-[#FFC107]" />
               1. Imagem de Referência
             </Label>
-            <p className="text-xs text-muted-foreground">
-              Roupa, estilo ou personagem alvo
-            </p>
             <div
               onClick={() => referenceInputRef.current?.click()}
-              className="border-2 border-dashed border-border hover:border-[#FFC107]/50 bg-background/50 rounded-xl p-6 flex flex-col items-center justify-center text-center cursor-pointer transition-colors group min-h-[250px]"
+              className="border-2 border-dashed border-border hover:border-[#FFC107]/50 bg-background/50 rounded-xl p-6 flex flex-col items-center justify-center text-center cursor-pointer transition-colors group min-h-[200px]"
             >
               <input
                 type="file"
@@ -115,7 +119,7 @@ const Transform = () => {
                   <img
                     src={referenceImage}
                     alt="Reference Preview"
-                    className="max-h-48 object-contain rounded-lg shadow-md"
+                    className="max-h-40 object-contain rounded-lg shadow-md"
                   />
                   <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center rounded-lg backdrop-blur-sm">
                     <span className="text-white font-bold flex items-center gap-2">
@@ -126,26 +130,23 @@ const Transform = () => {
               ) : (
                 <div className="flex flex-col items-center gap-3 text-muted-foreground group-hover:text-[#FFC107] transition-colors">
                   <div className="p-4 bg-secondary rounded-full border border-border group-hover:border-[#FFC107]/30 shadow-sm">
-                    <Upload className="w-6 h-6" />
+                    <Upload className="w-5 h-5" />
                   </div>
-                  <span className="font-bold">Enviar Referência</span>
+                  <span className="font-bold text-sm">Enviar Referência</span>
                 </div>
               )}
             </div>
           </div>
 
           {/* User Photo Section */}
-          <div className="space-y-4">
-            <Label className="text-base font-bold text-foreground tracking-wide flex items-center gap-2">
-              <User className="w-5 h-5 text-[#FFC107]" />
+          <div className="space-y-3">
+            <Label className="text-xs font-bold text-muted-foreground uppercase tracking-widest flex items-center gap-2">
+              <User className="w-4 h-4 text-[#FFC107]" />
               2. Sua Foto
             </Label>
-            <p className="text-xs text-muted-foreground">
-              A pessoa a ser transformada
-            </p>
             <div
               onClick={() => userInputRef.current?.click()}
-              className="border-2 border-dashed border-border hover:border-[#FFC107]/50 bg-background/50 rounded-xl p-6 flex flex-col items-center justify-center text-center cursor-pointer transition-colors group min-h-[250px]"
+              className="border-2 border-dashed border-border hover:border-[#FFC107]/50 bg-background/50 rounded-xl p-6 flex flex-col items-center justify-center text-center cursor-pointer transition-colors group min-h-[200px]"
             >
               <input
                 type="file"
@@ -159,7 +160,7 @@ const Transform = () => {
                   <img
                     src={userImage}
                     alt="User Preview"
-                    className="max-h-48 object-contain rounded-lg shadow-md"
+                    className="max-h-40 object-contain rounded-lg shadow-md"
                   />
                   <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center rounded-lg backdrop-blur-sm">
                     <span className="text-white font-bold flex items-center gap-2">
@@ -170,29 +171,46 @@ const Transform = () => {
               ) : (
                 <div className="flex flex-col items-center gap-3 text-muted-foreground group-hover:text-[#FFC107] transition-colors">
                   <div className="p-4 bg-secondary rounded-full border border-border group-hover:border-[#FFC107]/30 shadow-sm">
-                    <Upload className="w-6 h-6" />
+                    <Upload className="w-5 h-5" />
                   </div>
-                  <span className="font-bold">Enviar Foto</span>
+                  <span className="font-bold text-sm">Enviar Foto</span>
                 </div>
               )}
             </div>
           </div>
         </div>
 
+        <div className="space-y-3 pt-4 border-t border-border">
+          <Label
+            htmlFor="sceneIdea"
+            className="text-xs font-bold text-muted-foreground uppercase tracking-widest flex items-center gap-2"
+          >
+            <span className="w-1.5 h-1.5 rounded-full bg-[#FFC107]" />
+            3. Ideia da Cena (Opcional)
+          </Label>
+          <Textarea
+            id="sceneIdea"
+            placeholder="Ex: Um cavaleiro jedi em um campo de batalha galáctico noturno..."
+            value={sceneIdea}
+            onChange={(e) => setSceneIdea(e.target.value)}
+            className="min-h-[100px] text-base bg-background focus-visible:ring-[#FFC107] focus-visible:border-[#FFC107]"
+          />
+        </div>
+
         <Button
           onClick={handleGenerate}
-          className="w-full h-14 rounded-xl bg-[#FFC107] hover:bg-[#FFC107]/90 text-black font-extrabold text-base tracking-wide shadow-[0_0_25px_-5px_rgba(255,193,7,0.4)] transition-all active:scale-[0.98]"
+          className="w-full h-14 rounded-xl bg-[#FFC107] hover:bg-[#FFC107]/90 text-black font-extrabold text-base tracking-wide shadow-lg transition-all active:scale-[0.98]"
         >
           <Sparkles className="mr-2 h-5 w-5 text-black" />
-          GERAR PROMPT CINEMÁTICO
+          GERAR PROMPT
         </Button>
       </Card>
 
       {generatedJson && (
-        <Card className="overflow-hidden border border-border shadow-2xl bg-card rounded-2xl relative animate-in slide-in-from-top-4 fade-in duration-500">
+        <Card className="overflow-hidden border border-border shadow-xl bg-[#020617] rounded-xl relative animate-in slide-in-from-top-4 fade-in duration-500">
           <div className="absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-[#FFC107]/50 to-transparent" />
 
-          <div className="flex items-center justify-between px-5 py-4 border-b border-border bg-background/50">
+          <div className="flex items-center justify-between px-5 py-4 border-b border-border/50 bg-background/20">
             <div className="flex items-center gap-2.5 text-muted-foreground">
               <span className="text-xs font-mono font-bold tracking-widest uppercase text-[#FFC107]">
                 transformation.json
@@ -202,7 +220,7 @@ const Transform = () => {
               variant="ghost"
               size="sm"
               onClick={handleCopy}
-              className="text-[#FFC107] hover:text-[#FFC107] hover:bg-[#FFC107]/10 h-9 gap-2 px-4 rounded-lg border border-[#FFC107]/20 transition-all active:scale-95"
+              className="text-[#FFC107] hover:text-[#FFC107] hover:bg-[#FFC107]/10 h-9 gap-2 px-4 rounded-lg border border-[#FFC107]/20 transition-all"
             >
               {copied ? (
                 <Check className="h-4 w-4" />
@@ -215,45 +233,63 @@ const Transform = () => {
             </Button>
           </div>
 
-          <div className="p-6 md:p-8 overflow-x-auto bg-[#020617] hide-scrollbar">
-            <pre className="font-mono text-sm md:text-base leading-relaxed text-slate-300">
+          <div className="p-5 md:p-8 overflow-x-auto bg-[#020617] hide-scrollbar">
+            <pre className="font-mono text-sm leading-relaxed text-slate-300">
               <span className="text-cyan-400">{'{'}</span>
               <br />
               <span className="text-cyan-400"> "task"</span>
               <span className="text-slate-500">: </span>
               <span className="text-emerald-400">
-                "character_transformation"
+                "{JSON.parse(generatedJson).task}"
               </span>
               <span className="text-slate-500">,</span>
               <br />
-              <span className="text-cyan-400"> "reference_style"</span>
+              <span className="text-cyan-400"> "reference_style_en"</span>
               <span className="text-slate-500">: </span>
               <span className="text-emerald-400">
-                "user_uploaded_reference"
+                "{JSON.parse(generatedJson).reference_style_en}"
               </span>
               <span className="text-slate-500">,</span>
               <br />
-              <span className="text-cyan-400"> "subject"</span>
-              <span className="text-slate-500">: </span>
-              <span className="text-emerald-400">"user_uploaded_photo"</span>
-              <span className="text-slate-500">,</span>
-              <br />
-              <span className="text-cyan-400"> "quality"</span>
+              <span className="text-cyan-400"> "subject_en"</span>
               <span className="text-slate-500">: </span>
               <span className="text-emerald-400">
-                "8K ultra realistic, cinematic quality, high-end cinematography"
+                "{JSON.parse(generatedJson).subject_en}"
               </span>
               <span className="text-slate-500">,</span>
               <br />
-              <span className="text-cyan-400"> "lighting"</span>
-              <span className="text-slate-500">: </span>
-              <span className="text-emerald-400">"cinematic"</span>
-              <span className="text-slate-500">,</span>
-              <br />
-              <span className="text-cyan-400"> "output_format"</span>
+              <span className="text-cyan-400"> "scene_context_en"</span>
               <span className="text-slate-500">: </span>
               <span className="text-emerald-400">
-                "professional_photography"
+                "{JSON.parse(generatedJson).scene_context_en}"
+              </span>
+              <span className="text-slate-500">,</span>
+              <br />
+              <span className="text-cyan-400"> "quality_en"</span>
+              <span className="text-slate-500">: </span>
+              <span className="text-emerald-400">
+                "{JSON.parse(generatedJson).quality_en}"
+              </span>
+              <span className="text-slate-500">,</span>
+              <br />
+              <span className="text-cyan-400"> "lighting_en"</span>
+              <span className="text-slate-500">: </span>
+              <span className="text-emerald-400">
+                "{JSON.parse(generatedJson).lighting_en}"
+              </span>
+              <span className="text-slate-500">,</span>
+              <br />
+              <span className="text-cyan-400"> "output_format_en"</span>
+              <span className="text-slate-500">: </span>
+              <span className="text-emerald-400">
+                "{JSON.parse(generatedJson).output_format_en}"
+              </span>
+              <span className="text-slate-500">,</span>
+              <br />
+              <span className="text-cyan-400"> "system_instruction"</span>
+              <span className="text-slate-500">: </span>
+              <span className="text-emerald-400">
+                "{JSON.parse(generatedJson).system_instruction}"
               </span>
               <br />
               <span className="text-cyan-400">{'}'}</span>

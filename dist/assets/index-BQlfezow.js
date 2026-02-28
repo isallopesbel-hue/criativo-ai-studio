@@ -18050,7 +18050,7 @@ function handleAndDispatchCustomEvent$1(name, handler, detail, { discrete }) {
 	if (discrete) dispatchDiscreteCustomEvent(target, event);
 	else target.dispatchEvent(event);
 }
-var Root$6 = DismissableLayer;
+var Root$5 = DismissableLayer;
 var Branch = DismissableLayerBranch;
 var useLayoutEffect2 = globalThis?.document ? import_react.useLayoutEffect : () => {};
 var import_react_dom$4 = /* @__PURE__ */ __toESM(require_react_dom(), 1);
@@ -18229,7 +18229,7 @@ var VISUALLY_HIDDEN_STYLES = Object.freeze({
 	whiteSpace: "nowrap",
 	wordWrap: "normal"
 });
-var NAME$3 = "VisuallyHidden";
+var NAME$2 = "VisuallyHidden";
 var VisuallyHidden = import_react.forwardRef((props, forwardedRef) => {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Primitive.span, {
 		...props,
@@ -18240,8 +18240,8 @@ var VisuallyHidden = import_react.forwardRef((props, forwardedRef) => {
 		}
 	});
 });
-VisuallyHidden.displayName = NAME$3;
-var Root$5 = VisuallyHidden;
+VisuallyHidden.displayName = NAME$2;
+var Root$4 = VisuallyHidden;
 var import_react_dom$3 = /* @__PURE__ */ __toESM(require_react_dom(), 1);
 var PROVIDER_NAME$1 = "ToastProvider";
 var [Collection$2, useCollection$2, createCollectionScope$2] = createCollection("Toast");
@@ -18540,7 +18540,7 @@ var ToastImpl = import_react.forwardRef((props, forwardedRef) => {
 		onClose: handleClose,
 		children: import_react_dom$3.createPortal(/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Collection$2.ItemSlot, {
 			scope: __scopeToast,
-			children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Root$6, {
+			children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Root$5, {
 				asChild: true,
 				onEscapeKeyDown: composeEventHandlers(onEscapeKeyDown, () => {
 					if (!context.isFocusedToastEscapeKeyDownRef.current) handleClose();
@@ -19132,20 +19132,6 @@ var Dices = createLucideIcon("dices", [
 		key: "2061c0"
 	}]
 ]);
-var ExternalLink = createLucideIcon("external-link", [
-	["path", {
-		d: "M15 3h6v6",
-		key: "1q9fwt"
-	}],
-	["path", {
-		d: "M10 14 21 3",
-		key: "gplh6r"
-	}],
-	["path", {
-		d: "M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6",
-		key: "a6xqqp"
-	}]
-]);
 var Headphones = createLucideIcon("headphones", [["path", {
 	d: "M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3",
 	key: "1xhozi"
@@ -19171,58 +19157,10 @@ var Image = createLucideIcon("image", [
 		key: "1xmnt7"
 	}]
 ]);
-var Mars = createLucideIcon("mars", [
-	["path", {
-		d: "M16 3h5v5",
-		key: "1806ms"
-	}],
-	["path", {
-		d: "m21 3-6.75 6.75",
-		key: "pv0uzu"
-	}],
-	["circle", {
-		cx: "10",
-		cy: "14",
-		r: "6",
-		key: "1qwbdc"
-	}]
-]);
-var MessageSquareQuote = createLucideIcon("message-square-quote", [
-	["path", {
-		d: "M14 14a2 2 0 0 0 2-2V8h-2",
-		key: "1r06pg"
-	}],
-	["path", {
-		d: "M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z",
-		key: "18887p"
-	}],
-	["path", {
-		d: "M8 14a2 2 0 0 0 2-2V8H8",
-		key: "1jzu5j"
-	}]
-]);
 var MessageSquare = createLucideIcon("message-square", [["path", {
 	d: "M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z",
 	key: "18887p"
 }]]);
-var Mic = createLucideIcon("mic", [
-	["path", {
-		d: "M12 19v3",
-		key: "npa21l"
-	}],
-	["path", {
-		d: "M19 10v2a7 7 0 0 1-14 0v-2",
-		key: "1vc78b"
-	}],
-	["rect", {
-		x: "9",
-		y: "2",
-		width: "6",
-		height: "13",
-		rx: "3",
-		key: "s6n7sd"
-	}]
-]);
 var MonitorPlay = createLucideIcon("monitor-play", [
 	["path", {
 		d: "M15.033 9.44a.647.647 0 0 1 0 1.12l-4.065 2.352a.645.645 0 0 1-.968-.56V7.648a.645.645 0 0 1 .967-.56z",
@@ -19385,22 +19323,6 @@ var Users = createLucideIcon("users", [
 		cy: "7",
 		r: "4",
 		key: "nufk8"
-	}]
-]);
-var Venus = createLucideIcon("venus", [
-	["path", {
-		d: "M12 15v7",
-		key: "t2xh3l"
-	}],
-	["path", {
-		d: "M9 19h6",
-		key: "456am0"
-	}],
-	["circle", {
-		cx: "12",
-		cy: "9",
-		r: "6",
-		key: "1nw4tq"
 	}]
 ]);
 var WandSparkles = createLucideIcon("wand-sparkles", [
@@ -21233,10 +21155,10 @@ var Observer = class {
 			if (typeof id !== "string" && typeof id !== "number") return { unwrap };
 			else return Object.assign(id, { unwrap });
 		};
-		this.custom = (jsx$19, data) => {
+		this.custom = (jsx$18, data) => {
 			const id = (data == null ? void 0 : data.id) || toastsCounter++;
 			this.create({
-				jsx: jsx$19(id),
+				jsx: jsx$18(id),
 				id,
 				...data
 			});
@@ -23362,7 +23284,7 @@ var arrow = (options, deps) => ({
 	...arrow$1$1(options),
 	options: [options, deps]
 });
-var NAME$2 = "Arrow";
+var NAME$1 = "Arrow";
 var Arrow$1 = import_react.forwardRef((props, forwardedRef) => {
 	const { children, width = 10, height = 5, ...arrowProps } = props;
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Primitive.svg, {
@@ -23375,8 +23297,8 @@ var Arrow$1 = import_react.forwardRef((props, forwardedRef) => {
 		children: props.asChild ? children : /* @__PURE__ */ (0, import_jsx_runtime.jsx)("polygon", { points: "0,0 30,0 15,10" })
 	});
 });
-Arrow$1.displayName = NAME$2;
-var Root$4 = Arrow$1;
+Arrow$1.displayName = NAME$1;
+var Root$3 = Arrow$1;
 function useSize(element) {
 	const [size$3, setSize] = import_react.useState(void 0);
 	useLayoutEffect2(() => {
@@ -23593,7 +23515,7 @@ var PopperArrow = import_react.forwardRef(function PopperArrow2(props, forwarded
 			}[contentContext.placedSide],
 			visibility: contentContext.shouldHideArrow ? "hidden" : void 0
 		},
-		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Root$4, {
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Root$3, {
 			...arrowProps,
 			ref: forwardedRef,
 			style: {
@@ -23975,7 +23897,7 @@ var TooltipContentImpl = import_react.forwardRef((props, forwardedRef) => {
 			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Slottable, { children }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(VisuallyHiddenContentContextProvider, {
 				scope: __scopeTooltip,
 				isInside: true,
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Root$5, {
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Root$4, {
 					id: context.contentId,
 					role: "tooltip",
 					children: ariaLabel || children
@@ -25122,7 +25044,7 @@ var Primitive$1 = [
 		[node]: Node$1
 	};
 }, {});
-var NAME$1 = "Label";
+var NAME = "Label";
 var Label$1 = import_react.forwardRef((props, forwardedRef) => {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Primitive$1.label, {
 		...props,
@@ -25134,15 +25056,15 @@ var Label$1 = import_react.forwardRef((props, forwardedRef) => {
 		}
 	});
 });
-Label$1.displayName = NAME$1;
-var Root$3 = Label$1;
+Label$1.displayName = NAME;
+var Root$2 = Label$1;
 var labelVariants = cva("text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70");
-var Label = import_react.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Root$3, {
+var Label = import_react.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Root$2, {
 	ref,
 	className: cn(labelVariants(), className),
 	...props
 }));
-Label.displayName = Root$3.displayName;
+Label.displayName = Root$2.displayName;
 var DirectionContext = import_react.createContext(void 0);
 function useDirection(localDir) {
 	const globalDir = import_react.useContext(DirectionContext);
@@ -25328,7 +25250,7 @@ function focusFirst(candidates, preventScroll = false) {
 function wrapArray(array, startIndex) {
 	return array.map((_$1, index$1) => array[(startIndex + index$1) % array.length]);
 }
-var Root$2 = RovingFocusGroup;
+var Root$1 = RovingFocusGroup;
 var Item = RovingFocusGroupItem;
 function usePrevious(value) {
 	const ref = import_react.useRef({
@@ -25472,7 +25394,7 @@ var RadioGroup$1 = import_react.forwardRef((props, forwardedRef) => {
 		disabled,
 		value,
 		onValueChange: setValue,
-		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Root$2, {
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Root$1, {
 			asChild: true,
 			...rovingFocusGroupScope,
 			orientation,
@@ -25571,37 +25493,6 @@ var RadioGroupItem = import_react.forwardRef(({ className, ...props }, ref) => {
 	});
 });
 RadioGroupItem.displayName = Item2.displayName;
-var NAME = "Separator";
-var DEFAULT_ORIENTATION = "horizontal";
-var ORIENTATIONS = ["horizontal", "vertical"];
-var Separator$1 = import_react.forwardRef((props, forwardedRef) => {
-	const { decorative, orientation: orientationProp = DEFAULT_ORIENTATION, ...domProps } = props;
-	const orientation = isValidOrientation(orientationProp) ? orientationProp : DEFAULT_ORIENTATION;
-	const ariaOrientation = orientation === "vertical" ? orientation : void 0;
-	const semanticProps = decorative ? { role: "none" } : {
-		"aria-orientation": ariaOrientation,
-		role: "separator"
-	};
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Primitive$1.div, {
-		"data-orientation": orientation,
-		...semanticProps,
-		...domProps,
-		ref: forwardedRef
-	});
-});
-Separator$1.displayName = NAME;
-function isValidOrientation(orientation) {
-	return ORIENTATIONS.includes(orientation);
-}
-var Root$1 = Separator$1;
-var Separator = import_react.forwardRef(({ className, orientation = "horizontal", decorative = true, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Root$1, {
-	ref,
-	decorative,
-	orientation,
-	className: cn("shrink-0 bg-border", orientation === "horizontal" ? "h-[1px] w-full" : "h-full w-[1px]", className),
-	...props
-}));
-Separator.displayName = Root$1.displayName;
 function clamp(value, [min$1, max$1]) {
 	return Math.min(max$1, Math.max(min$1, value));
 }
@@ -26108,30 +25999,57 @@ var CARTOON_STYLES = [
 var RadioOption = ({ value, label, current, icon: Icon$1, description }) => {
 	const isSelected = current === value;
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Label, {
-		className: `relative flex items-center gap-4 p-4 md:p-5 rounded-2xl border cursor-pointer transition-all duration-300 overflow-hidden group ${isSelected ? "border-[#FFC107] bg-[#FFC107]/10 shadow-[0_0_20px_-5px_rgba(255,193,7,0.2)]" : "border-border bg-card hover:bg-secondary/80 hover:border-[#FFC107]/40 hover:shadow-lg"}`,
+		className: cn("relative flex items-start gap-4 p-4 rounded-xl border cursor-pointer transition-all duration-200 group", isSelected ? "border-primary bg-primary/5 shadow-sm" : "border-border bg-card hover:border-primary/40 hover:bg-secondary/50"),
 		children: [
-			isSelected && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute -inset-2 bg-gradient-to-r from-[#FFC107]/10 to-transparent blur-xl" }),
 			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: `relative z-10 flex items-center justify-center w-6 h-6 shrink-0 rounded-full border ${isSelected ? "border-[#FFC107] text-[#FFC107]" : "border-muted-foreground/40 bg-background group-hover:border-[#FFC107]/40"}`,
-				children: isSelected && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CircleCheck, { className: "w-6 h-6 absolute -inset-[1px]" })
+				className: cn("flex items-center justify-center w-5 h-5 shrink-0 rounded-full border mt-0.5 transition-colors", isSelected ? "border-primary bg-primary text-primary-foreground" : "border-muted-foreground/40 bg-background group-hover:border-primary/40"),
+				children: isSelected && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CircleCheck, { className: "w-3.5 h-3.5" })
 			}),
-			Icon$1 && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "relative z-10 flex items-center justify-center",
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Icon$1, { className: `w-6 h-6 ${isSelected ? "text-[#FFC107]" : "text-muted-foreground group-hover:text-[#FFC107]/70"}` })
-			}),
+			Icon$1 && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Icon$1, { className: cn("w-5 h-5 mt-0.5 shrink-0 transition-colors", isSelected ? "text-primary" : "text-muted-foreground") }),
 			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: "relative z-10 flex-1",
-				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-					className: `font-semibold text-sm md:text-base leading-snug block ${isSelected ? "text-[#FFC107]" : "text-foreground group-hover:text-foreground/90"}`,
+				className: "flex-1 space-y-1",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+					className: cn("font-semibold text-sm leading-none", isSelected ? "text-primary" : "text-foreground"),
 					children: label
-				}), description && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-					className: "text-xs text-muted-foreground mt-0.5 block font-medium",
+				}), description && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+					className: "text-xs text-muted-foreground font-medium",
 					children: description
 				})]
 			}),
 			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(RadioGroupItem, {
 				value,
 				id: `opt-${value}`,
+				className: "sr-only"
+			})
+		]
+	});
+};
+var CharacterOption = ({ char, current }) => {
+	const isSelected = current === char.id;
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Label, {
+		className: cn("relative flex items-start gap-4 p-5 rounded-xl border cursor-pointer transition-all duration-200 group", isSelected ? "border-primary bg-primary/5 shadow-sm" : "border-border bg-card hover:border-primary/40 hover:bg-secondary/50"),
+		children: [
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: cn("flex items-center justify-center w-5 h-5 shrink-0 rounded-full border mt-1 transition-colors", isSelected ? "border-primary bg-primary text-primary-foreground" : "border-muted-foreground/40 bg-background group-hover:border-primary/40"),
+				children: isSelected && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CircleCheck, { className: "w-3.5 h-3.5" })
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: cn("w-10 h-10 shrink-0 rounded-lg flex items-center justify-center transition-colors", isSelected ? "bg-primary/20 text-primary" : "bg-secondary text-muted-foreground group-hover:text-primary"),
+				children: char.id === "custom" ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PenTool, { className: "w-5 h-5" }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CircleUserRound, { className: "w-5 h-5" })
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "flex-1 space-y-1.5",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+					className: cn("font-bold text-base leading-tight", isSelected ? "text-primary" : "text-foreground"),
+					children: char.name
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+					className: "text-xs text-muted-foreground font-medium leading-relaxed",
+					children: char.description
+				})]
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(RadioGroupItem, {
+				value: char.id,
+				id: `char-${char.id}`,
 				className: "sr-only"
 			})
 		]
@@ -26149,7 +26067,7 @@ var Options = () => {
 		return [...niche.characters, {
 			id: "custom",
 			name: "Criar Personalizado",
-			description: "Descreva e a IA otimizará",
+			description: "Descreva os detalhes e a IA otimizará",
 			descriptionEn: "Custom AI Optimized Character Profile."
 		}];
 	}, [niche]);
@@ -26157,24 +26075,18 @@ var Options = () => {
 	const [selectedCharacter, setSelectedCharacter] = (0, import_react.useState)("");
 	const [customCharacterDesc, setCustomCharacterDesc] = (0, import_react.useState)("");
 	const [cartoonStyle, setCartoonStyle] = (0, import_react.useState)("pixar");
-	const [speechText, setSpeechText] = (0, import_react.useState)("");
+	const [sceneIdea, setSceneIdea] = (0, import_react.useState)("");
 	const [sceneCount, setSceneCount] = (0, import_react.useState)([1]);
 	const [narrativeMode, setNarrativeMode] = (0, import_react.useState)("narration");
 	const [gender, setGender] = (0, import_react.useState)("female");
 	const [age, setAge] = (0, import_react.useState)("25");
-	const [scenesData, setScenesData] = (0, import_react.useState)([{
-		visual: "",
-		speech: ""
-	}]);
+	const [scenesData, setScenesData] = (0, import_react.useState)([{ idea: "" }]);
 	(0, import_react.useEffect)(() => {
 		if (isConsistentCharacter) setScenesData((prev) => {
 			const count$2 = sceneCount[0];
 			if (prev.length === count$2) return prev;
 			if (prev.length < count$2) {
-				const newItems = Array.from({ length: count$2 - prev.length }, () => ({
-					visual: "",
-					speech: ""
-				}));
+				const newItems = Array.from({ length: count$2 - prev.length }, () => ({ idea: "" }));
 				return [...prev, ...newItems];
 			}
 			return prev.slice(0, count$2);
@@ -26215,19 +26127,18 @@ var Options = () => {
 		const selectedOptObj = niche.options.find((o) => o.pt === selectedOption);
 		const conceptEn = selectedOptObj ? selectedOptObj.en : selectedOption;
 		let qualitySettings = "Ultra Premium, 8K, ultra-realistic, cinematic lighting, high resolution, sharp focus, highly detailed, photorealistic, masterpiece, professional cinematography, no blur, perfectly crisp";
-		if (isCartoon) qualitySettings = "Ultra Premium, high resolution, sharp focus, highly detailed, masterpiece, perfect animation quality, vibrant, clean lines, perfectly crisp";
+		if (isCartoon) qualitySettings = "Ultra Premium, 8K, high resolution, sharp focus, highly detailed, masterpiece, perfect animation quality, vibrant, clean lines, perfectly crisp";
 		let finalStyle = estilo;
 		if (isCartoon) finalStyle = CARTOON_STYLES.find((s) => s.id === cartoonStyle)?.en || estilo;
 		let charProfileEn = "";
-		if (selectedCharacter === "custom") if (isCartoon) charProfileEn = `Ultra Premium, highly detailed character design of ${customCharacterDesc.trim()}. Perfectly capturing the animation style, expressive features, and vivid colors.`;
-		else charProfileEn = `Ultra Premium, highly detailed, ultra-realistic portrait of ${customCharacterDesc.trim()}. The subject is deeply humanized with authentic skin texture, expressive eyes, natural posture, and a highly professional appearance. Rendered as a masterpiece portrait with striking emotional depth.`;
+		if (selectedCharacter === "custom") charProfileEn = isCartoon ? `Ultra Premium, highly detailed character design of ${customCharacterDesc.trim()}. Perfectly capturing the animation style, expressive features, and vivid colors.` : `Ultra Premium, highly detailed, ultra-realistic portrait of ${customCharacterDesc.trim()}. The subject is deeply humanized with authentic skin texture, expressive eyes, natural posture, and a highly professional appearance. Rendered as a masterpiece portrait.`;
 		else {
 			const charObj = nicheCharacters.find((c) => c.id === selectedCharacter);
 			charProfileEn = `Ultra Premium, ${charObj?.descriptionEn || charObj?.name || selectedCharacter}`;
 		}
 		const charObjToSave = nicheCharacters.find((c) => c.id === selectedCharacter);
 		const characterNamePt = selectedCharacter === "custom" ? "Personalizado (IA)" : charObjToSave?.name || selectedCharacter;
-		const fallbackScriptPt = `[AUTO-GENERATE SCRIPT] Desenvolva uma narração ou diálogo de alta conversão, natural e profissional em Português do Brasil (pt-BR), baseada no conceito '${selectedOption}' e na persona: ${characterNamePt}.`;
+		const fallbackScriptPt = `[AUTO-GENERATE SCRIPT] Crie um roteiro/diálogo envolvente, natural e altamente profissional em Português do Brasil (pt-BR) focado em '${selectedOption}', para ser dito por: ${characterNamePt}.`;
 		let jsonPayload = {};
 		if (isConsistentCharacter) jsonPayload = {
 			task: "consistent_character_storytelling",
@@ -26244,14 +26155,14 @@ var Options = () => {
 				age: parseInt(age, 10),
 				voice_profile: getVoiceProfile(gender, age)
 			},
-			narrative_type: narrativeMode === "narration" ? "narration" : "dialogue",
+			narrative_type: narrativeMode,
 			scene_count: sceneCount[0],
 			scenes: scenesData.map((data, idx) => ({
 				scene_number: idx + 1,
-				visual_action_description_en: data.visual.trim() ? `[English] ${data.visual.trim()}` : `[English] [AUTO-GENERATE] Create a highly detailed visual action description for scene ${idx + 1} of ${sceneCount[0]}, seamlessly continuing the narrative for the concept '${conceptEn}'.`,
-				character_speech_pt_br: data.speech.trim() ? `[Português Brasileiro] [REWRITE & HUMANIZE] Aprimore o seguinte texto para soar profissional e natural: "${data.speech.trim()}"` : `[Português Brasileiro] [AUTO-GENERATE SCRIPT] Crie a fala/narração para a cena ${idx + 1} em Português do Brasil, alinhada à narrativa de '${selectedOption}'.`
+				visual_action_description_en: data.idea.trim() ? `[TRANSLATE TO ENGLISH & ENHANCE] Visual action for scene ${idx + 1} based on: "${data.idea.trim()}"` : `[AUTO-GENERATE IN ENGLISH] Create a highly detailed visual action description for scene ${idx + 1} of ${sceneCount[0]} seamlessly continuing the narrative for '${conceptEn}'.`,
+				character_speech_pt_br: data.idea.trim() ? `[EXTRACT SPEECH/NARRATIVE IN PT-BR] Aprimore a fala ou crie uma narração em Português do Brasil baseada em: "${data.idea.trim()}"` : `[AUTO-GENERATE SCRIPT] Crie a fala/narração para a cena ${idx + 1} em Português do Brasil, alinhada à narrativa de '${selectedOption}'.`
 			})),
-			language_enforcement: "All visual descriptions are in English. All character speech and dialogues are STRICTLY in Brazilian Portuguese (pt-BR)."
+			system_instruction: "CRITICAL: All visual descriptions are in English. All character speech and dialogues are STRICTLY in Brazilian Portuguese (pt-BR)."
 		};
 		else jsonPayload = {
 			task: "professional_content_generation",
@@ -26261,14 +26172,15 @@ var Options = () => {
 			technical_specifications_en: {
 				quality: qualitySettings,
 				lighting: iluminacao,
-				camera: isCartoon ? "Perfect framing, clear composition" : "Sharp focus, perfectly crisp, no blur, DSLR 50mm lens",
+				camera: isCartoon ? "Perfect framing, clear composition, ultra premium render" : "Sharp focus, perfectly crisp, no blur, DSLR 50mm lens",
 				style: finalStyle
 			},
+			scene_and_action_en: sceneIdea.trim() ? `[TRANSLATE TO ENGLISH & ENHANCE] Highly detailed visual prompt based on: "${sceneIdea.trim()}"` : `[AUTO-GENERATE VISUAL IN ENGLISH] Highly detailed visual scene description for the concept: '${conceptEn}'.`,
 			audio_and_speech: {
 				language: "pt-BR",
-				character_speech_pt_br: speechText.trim() ? `[REWRITE & HUMANIZE] Reescreva, humanize e profissionalize o seguinte texto para um roteiro/fala em Português do Brasil (pt-BR), mantendo o contexto da narrativa: "${speechText.trim()}"` : fallbackScriptPt
+				character_speech_pt_br: sceneIdea.trim() ? `[REWRITE & HUMANIZE] Reescreva o seguinte texto como uma fala/narração profissional em Português do Brasil: "${sceneIdea.trim()}"` : fallbackScriptPt
 			},
-			language_enforcement: "All visual descriptions are in English. All character speech and dialogues are STRICTLY in Brazilian Portuguese (pt-BR)."
+			system_instruction: "CRITICAL: All technical metadata and visual action descriptions MUST be in English. All dialogue, spoken lines, and narrations MUST be in Brazilian Portuguese (pt-BR)."
 		};
 		const newResult = {
 			id: Math.random().toString(36).substring(7),
@@ -26287,60 +26199,50 @@ var Options = () => {
 			isNew: true
 		} });
 	};
-	let stepNumber = 1;
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 		className: "animate-in fade-in slide-in-from-bottom-4 duration-500 p-6 md:p-12 flex flex-col min-h-[calc(100vh-4rem)] max-w-4xl mx-auto w-full",
 		children: [
 			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: "mb-10 flex flex-col md:flex-row md:items-center gap-6",
+				className: "mb-10 flex flex-col md:flex-row md:items-center gap-5",
 				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "h-20 w-20 shrink-0 rounded-2xl bg-card border border-[#FFC107]/40 shadow-[0_0_20px_-5px_rgba(255,193,7,0.3)] flex items-center justify-center text-[#FFC107] relative overflow-hidden",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute inset-0 bg-[#FFC107]/5" }), getIcon(niche.icon, "w-10 h-10 relative z-10")]
+					className: "h-16 w-16 shrink-0 rounded-2xl bg-card border border-primary/40 shadow-[0_0_20px_-5px_rgba(255,193,7,0.2)] flex items-center justify-center text-primary relative overflow-hidden",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute inset-0 bg-primary/5" }), getIcon(niche.icon, "w-8 h-8 relative z-10")]
 				}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
 					className: "text-3xl md:text-4xl font-extrabold text-foreground leading-tight tracking-tight",
 					children: niche.title
 				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-					className: "text-muted-foreground text-base font-medium mt-2",
+					className: "text-muted-foreground text-sm font-medium mt-1",
 					children: "Configure os parâmetros do prompt para geração de alta qualidade"
 				})] })]
 			}),
 			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: "flex-1 space-y-12 pb-28",
+				className: "flex-1 space-y-10 pb-28",
 				children: [
-					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "flex items-center gap-3 mb-6",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "bg-[#FFC107]/10 text-[#FFC107] w-8 h-8 rounded-lg flex items-center justify-center font-bold text-sm border border-[#FFC107]/20",
-							children: stepNumber++
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
-							className: "font-bold text-base uppercase tracking-widest text-foreground",
-							children: "Estrutura Narrativa"
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
+						className: "space-y-4",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Label, {
+							className: "text-xs font-bold text-muted-foreground uppercase tracking-widest flex items-center gap-2",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "w-1.5 h-1.5 rounded-full bg-muted-foreground" }), "1. Estrutura Narrativa"]
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(RadioGroup, {
+							value: selectedOption,
+							onValueChange: setSelectedOption,
+							className: "grid grid-cols-1 md:grid-cols-2 gap-3",
+							children: niche.options.map((opt, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(RadioOption, {
+								value: opt.pt,
+								label: opt.pt,
+								current: selectedOption
+							}, i))
 						})]
-					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(RadioGroup, {
-						value: selectedOption,
-						onValueChange: setSelectedOption,
-						className: "grid grid-cols-1 md:grid-cols-2 gap-4",
-						children: niche.options.map((opt, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(RadioOption, {
-							value: opt.pt,
-							label: opt.pt,
-							current: selectedOption
-						}, i))
-					})] }),
-					isCartoon && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Separator, { className: "bg-border" }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
-						className: "animate-in fade-in slide-in-from-bottom-4 duration-500",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							className: "flex items-center gap-3 mb-6",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-								className: "bg-[#FFC107]/10 text-[#FFC107] w-8 h-8 rounded-lg flex items-center justify-center font-bold text-sm border border-[#FFC107]/20",
-								children: stepNumber++
-							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
-								className: "font-bold text-base uppercase tracking-widest text-foreground",
-								children: "Estilo de Animação"
-							})]
+					}),
+					isCartoon && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
+						className: "space-y-4 animate-in fade-in slide-in-from-bottom-4 duration-500",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Label, {
+							className: "text-xs font-bold text-muted-foreground uppercase tracking-widest flex items-center gap-2",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "w-1.5 h-1.5 rounded-full bg-muted-foreground" }), "2. Estilo de Animação"]
 						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(RadioGroup, {
 							value: cartoonStyle,
 							onValueChange: setCartoonStyle,
-							className: "grid grid-cols-1 md:grid-cols-3 gap-4",
+							className: "grid grid-cols-1 md:grid-cols-3 gap-3",
 							children: CARTOON_STYLES.map((style) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(RadioOption, {
 								value: style.id,
 								label: style.label,
@@ -26348,186 +26250,117 @@ var Options = () => {
 								current: cartoonStyle
 							}, style.id))
 						})]
-					})] }),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Separator, { className: "bg-border" }),
+					}),
 					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
-						className: "animate-in fade-in slide-in-from-bottom-4 duration-500",
+						className: "space-y-4 animate-in fade-in slide-in-from-bottom-4 duration-500",
 						children: [
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								className: "flex items-center gap-3 mb-6",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-									className: "bg-[#FFC107]/10 text-[#FFC107] w-8 h-8 rounded-lg flex items-center justify-center font-bold text-sm border border-[#FFC107]/20",
-									children: stepNumber++
-								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
-									className: "font-bold text-base uppercase tracking-widest text-foreground",
-									children: "Perfil do Personagem"
-								})]
+							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Label, {
+								className: "text-xs font-bold text-muted-foreground uppercase tracking-widest flex items-center gap-2",
+								children: [
+									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "w-1.5 h-1.5 rounded-full bg-muted-foreground" }),
+									isCartoon ? "3." : "2.",
+									" Perfil do Personagem"
+								]
 							}),
 							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(RadioGroup, {
 								value: selectedCharacter,
 								onValueChange: setSelectedCharacter,
-								className: "grid grid-cols-1 sm:grid-cols-2 gap-4",
-								children: nicheCharacters.map((char) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Label, {
-									className: `relative flex flex-col p-6 rounded-2xl border cursor-pointer transition-all duration-300 group overflow-hidden ${selectedCharacter === char.id ? "border-[#FFC107] bg-[#FFC107]/10 shadow-[0_0_20px_-5px_rgba(255,193,7,0.2)]" : "border-border bg-card hover:bg-secondary/80 hover:border-[#FFC107]/40 hover:shadow-lg"}`,
-									children: [
-										selectedCharacter === char.id && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute -inset-2 bg-gradient-to-r from-[#FFC107]/10 to-transparent blur-xl" }),
-										/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-											className: "relative z-10 flex justify-between items-start w-full mb-5",
-											children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-												className: `flex items-center justify-center w-6 h-6 rounded-full border ${selectedCharacter === char.id ? "border-[#FFC107] text-[#FFC107]" : "border-muted-foreground/40 bg-background group-hover:border-[#FFC107]/40"}`,
-												children: selectedCharacter === char.id && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CircleCheck, { className: "w-6 h-6 absolute -inset-[1px]" })
-											}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-												className: `h-12 w-12 rounded-xl flex items-center justify-center transition-colors duration-300 ${selectedCharacter === char.id ? "bg-[#FFC107]/20 text-[#FFC107] border border-[#FFC107]/30" : "bg-background border border-border text-muted-foreground group-hover:text-[#FFC107]"}`,
-												children: char.id === "custom" ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PenTool, { className: "w-5 h-5" }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CircleUserRound, { className: "w-6 h-6" })
-											})]
-										}),
-										/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-											className: "relative z-10",
-											children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-												className: `font-bold text-lg block mb-1.5 ${selectedCharacter === char.id ? "text-[#FFC107]" : "text-foreground"}`,
-												children: char.name
-											}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-												className: "text-sm font-medium text-muted-foreground leading-relaxed",
-												children: char.description
-											})]
-										}),
-										/* @__PURE__ */ (0, import_jsx_runtime.jsx)(RadioGroupItem, {
-											value: char.id,
-											id: `char-${char.id}`,
-											className: "sr-only"
-										})
-									]
+								className: "grid grid-cols-1 sm:grid-cols-2 gap-3",
+								children: nicheCharacters.map((char) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CharacterOption, {
+									char,
+									current: selectedCharacter
 								}, char.id))
 							}),
 							selectedCharacter === "custom" && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								className: "mt-6 p-6 bg-[#FFC107]/5 border border-[#FFC107]/30 rounded-2xl animate-in fade-in slide-in-from-top-2 shadow-sm",
-								children: [
-									/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Label, {
-										className: "text-sm font-bold text-foreground mb-3 flex items-center gap-2",
-										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Sparkles, { className: "w-4 h-4 text-[#FFC107]" }), "Descreva seu Personagem"]
-									}),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Textarea, {
-										value: customCharacterDesc,
-										onChange: (e) => setCustomCharacterDesc(e.target.value),
-										placeholder: "Ex: Um jovem na faixa dos 25 anos, com cabelo estilo bagunçado, usando um moletom preto minimalista...",
-										className: "min-h-[120px] bg-background border-border focus-visible:ring-[#FFC107]/50"
-									}),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-										className: "text-xs text-muted-foreground font-medium mt-3 flex items-center gap-2",
-										children: "Nossa IA irá reescrever e humanizar esta descrição em Inglês para garantir máxima qualidade."
-									})
-								]
+								className: "mt-4 p-5 bg-primary/5 border border-primary/20 rounded-xl animate-in fade-in slide-in-from-top-2",
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Label, {
+									className: "text-sm font-bold text-foreground mb-3 flex items-center gap-2",
+									children: "Descreva seu Personagem"
+								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Textarea, {
+									value: customCharacterDesc,
+									onChange: (e) => setCustomCharacterDesc(e.target.value),
+									placeholder: "Ex: Um jovem na faixa dos 25 anos, com cabelo estilo bagunçado...",
+									className: "min-h-[100px] bg-card border-border focus-visible:ring-primary/50"
+								})]
 							})
 						]
 					}),
-					isConsistentCharacter && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Separator, { className: "bg-border" }),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
-							className: "space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								className: "flex items-center gap-3 mb-6",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-									className: "bg-[#FFC107]/10 text-[#FFC107] w-8 h-8 rounded-lg flex items-center justify-center font-bold text-sm border border-[#FFC107]/20",
-									children: stepNumber++
-								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
-									className: "font-bold text-base uppercase tracking-widest text-foreground",
-									children: "Configuração da História"
-								})]
-							}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								className: "grid grid-cols-1 md:grid-cols-2 gap-8",
+					isConsistentCharacter && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
+						className: "space-y-4 animate-in fade-in slide-in-from-bottom-4 duration-500",
+						children: [
+							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Label, {
+								className: "text-xs font-bold text-muted-foreground uppercase tracking-widest flex items-center gap-2",
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "w-1.5 h-1.5 rounded-full bg-muted-foreground" }), "3. Configuração da História"]
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+								className: "grid grid-cols-1 md:grid-cols-2 gap-4",
 								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-									className: "space-y-5 bg-card border border-border p-6 rounded-2xl shadow-sm",
-									children: [
-										/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-											className: "flex items-center justify-between",
-											children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Label, {
-												className: "text-sm font-bold text-foreground",
-												children: "Quantidade de Cenas"
-											}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-												className: "text-[#FFC107] font-bold text-lg bg-[#FFC107]/10 px-3 py-1 rounded-md",
-												children: sceneCount[0]
-											})]
-										}),
-										/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Slider, {
-											defaultValue: [1],
-											max: 8,
-											min: 1,
-											step: 1,
-											value: sceneCount,
-											onValueChange: setSceneCount,
-											className: "py-2"
-										}),
-										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-											className: "text-xs text-muted-foreground font-medium",
-											children: "Defina o número de cenas ou takes para a geração contínua do vídeo."
-										})
-									]
+									className: "space-y-5 p-5 rounded-xl border border-border bg-card",
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+										className: "flex items-center justify-between",
+										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Label, {
+											className: "text-sm font-bold text-foreground",
+											children: "Qtd. de Cenas"
+										}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+											className: "text-primary font-bold text-sm bg-primary/10 px-2.5 py-0.5 rounded-md",
+											children: sceneCount[0]
+										})]
+									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Slider, {
+										defaultValue: [1],
+										max: 8,
+										min: 1,
+										step: 1,
+										value: sceneCount,
+										onValueChange: setSceneCount,
+										className: "py-2"
+									})]
 								}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-									className: "space-y-4",
+									className: "space-y-3 p-5 rounded-xl border border-border bg-card",
 									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Label, {
-										className: "text-sm font-bold text-foreground mb-1 block",
-										children: "Modo de Narrativa"
+										className: "text-sm font-bold text-foreground",
+										children: "Modo Narrativo"
 									}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(RadioGroup, {
 										value: narrativeMode,
 										onValueChange: setNarrativeMode,
-										className: "grid gap-3",
+										className: "grid grid-cols-2 gap-2",
 										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(RadioOption, {
 											value: "narration",
-											label: "Narraçao",
-											description: "Locução narrando a história",
-											icon: Mic,
+											label: "Narração",
 											current: narrativeMode
 										}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(RadioOption, {
 											value: "dialogue",
-											label: "Diálogo do Personagem",
-											description: "Personagem falando diretamente",
-											icon: MessageSquareQuote,
+											label: "Diálogo",
 											current: narrativeMode
 										})]
 									})]
 								})]
-							})]
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Separator, { className: "bg-border" }),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
-							className: "space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500 delay-100",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								className: "flex items-center gap-3 mb-6",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-									className: "bg-[#FFC107]/10 text-[#FFC107] w-8 h-8 rounded-lg flex items-center justify-center font-bold text-sm border border-[#FFC107]/20",
-									children: stepNumber++
-								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
-									className: "font-bold text-base uppercase tracking-widest text-foreground",
-									children: "Identidade Vocal & Perfil"
-								})]
-							}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								className: "grid grid-cols-1 sm:grid-cols-2 gap-6",
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+								className: "grid grid-cols-1 sm:grid-cols-2 gap-4 p-5 rounded-xl border border-border bg-card",
 								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-									className: "space-y-4",
+									className: "space-y-3",
 									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Label, {
 										className: "text-sm font-bold text-foreground",
-										children: "Gênero do Personagem"
+										children: "Gênero da Voz"
 									}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(RadioGroup, {
 										value: gender,
 										onValueChange: setGender,
-										className: "grid grid-cols-2 gap-3",
+										className: "grid grid-cols-2 gap-2",
 										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(RadioOption, {
 											value: "male",
-											label: "Masculino",
-											icon: Mars,
+											label: "Masc.",
 											current: gender
 										}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(RadioOption, {
 											value: "female",
-											label: "Feminino",
-											icon: Venus,
+											label: "Fem.",
 											current: gender
 										})]
 									})]
 								}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-									className: "space-y-4",
+									className: "space-y-3",
 									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Label, {
 										className: "text-sm font-bold text-foreground",
-										children: "Idade (Para adequação de voz)"
+										children: "Idade Aparente"
 									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Input, {
 										type: "number",
 										min: "1",
@@ -26535,120 +26368,79 @@ var Options = () => {
 										value: age,
 										onChange: (e) => setAge(e.target.value),
 										placeholder: "Ex: 25",
-										className: "h-[76px] text-lg font-bold bg-card"
+										className: "bg-background"
 									})]
 								})]
-							})]
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Separator, { className: "bg-border" }),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
-							className: "space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500 delay-200",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								className: "flex items-center gap-3 mb-6",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-									className: "bg-[#FFC107]/10 text-[#FFC107] w-8 h-8 rounded-lg flex items-center justify-center font-bold text-sm border border-[#FFC107]/20",
-									children: stepNumber++
-								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
-									className: "font-bold text-base uppercase tracking-widest text-foreground",
-									children: "Roteiro das Cenas"
-								})]
-							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-								className: "space-y-6",
-								children: scenesData.map((data, idx) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-									className: "space-y-5 p-6 rounded-2xl border border-border bg-card shadow-sm",
-									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Label, {
-										className: "text-sm font-bold text-[#FFC107] uppercase tracking-widest flex items-center gap-2",
-										children: [
-											/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "w-2 h-2 rounded-full bg-[#FFC107]" }),
-											"Cena ",
-											idx + 1
-										]
-									}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-										className: "grid grid-cols-1 md:grid-cols-2 gap-5",
-										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-											className: "space-y-3",
-											children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Label, {
-												className: "text-xs font-bold text-foreground uppercase flex items-center gap-2",
-												children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Sparkles, { className: "w-3.5 h-3.5 text-muted-foreground" }), "Visual (Opcional - Em Inglês)"]
-											}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Textarea, {
-												placeholder: "Ex: A futuristic neon city... (Deixe em branco para a IA criar)",
-												value: data.visual,
-												onChange: (e) => {
-													const newContent = [...scenesData];
-													newContent[idx].visual = e.target.value;
-													setScenesData(newContent);
-												},
-												className: "min-h-[120px] text-sm border-border focus-visible:ring-[#FFC107]/50 bg-background/50"
-											})]
-										}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-											className: "space-y-3",
-											children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Label, {
-												className: "text-xs font-bold text-foreground uppercase flex items-center gap-2",
-												children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Mic, { className: "w-3.5 h-3.5 text-[#FFC107]" }), "Fala/Narração (Opcional - Português)"]
-											}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Textarea, {
-												placeholder: "Sua fala aqui... (Deixe em branco para a IA criar)",
-												value: data.speech,
-												onChange: (e) => {
-													const newContent = [...scenesData];
-													newContent[idx].speech = e.target.value;
-													setScenesData(newContent);
-												},
-												className: "min-h-[120px] text-sm border-border focus-visible:ring-[#FFC107]/50 bg-background/50"
-											})]
-										})]
+							})
+						]
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
+						className: "space-y-4 animate-in fade-in slide-in-from-bottom-4 duration-500 delay-200",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Label, {
+							className: "text-xs font-bold text-muted-foreground uppercase tracking-widest flex items-center gap-2",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "w-1.5 h-1.5 rounded-full bg-muted-foreground" }), "4. Roteiro das Cenas"]
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							className: "space-y-4",
+							children: scenesData.map((data, idx) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+								className: "p-5 rounded-xl border border-border bg-card shadow-sm space-y-3",
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Label, {
+									className: "text-xs font-bold text-primary uppercase tracking-widest flex items-center gap-2",
+									children: ["Cena ", idx + 1]
+								}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+									className: "space-y-2",
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Label, {
+										className: "text-xs font-semibold text-foreground",
+										children: "Fala / Ideia da Cena (Opcional)"
+									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Textarea, {
+										placeholder: "Descreva a ação visual e/ou a fala desejada em português...",
+										value: data.idea,
+										onChange: (e) => {
+											const newContent = [...scenesData];
+											newContent[idx].idea = e.target.value;
+											setScenesData(newContent);
+										},
+										className: "min-h-[80px] text-sm bg-background focus-visible:ring-primary/50"
 									})]
-								}, idx))
-							})]
-						})
-					] }),
-					!isConsistentCharacter && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Separator, { className: "bg-border" }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
-						className: "space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500 delay-100",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							className: "flex items-center gap-3 mb-6",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-								className: "bg-[#FFC107]/10 text-[#FFC107] w-8 h-8 rounded-lg flex items-center justify-center font-bold text-sm border border-[#FFC107]/20",
-								children: stepNumber++
-							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
-								className: "font-bold text-base uppercase tracking-widest text-foreground",
-								children: "Áudio & Fala"
-							})]
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							className: "bg-[#FFC107]/5 border border-[#FFC107]/30 rounded-2xl p-6 shadow-sm",
-							children: [
-								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Label, {
-									className: "text-sm font-bold text-foreground mb-3 flex items-center gap-2",
-									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Mic, { className: "w-4 h-4 text-[#FFC107]" }), "O que o personagem vai dizer? (Opcional - Em Português)"]
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Textarea, {
-									value: speechText,
-									onChange: (e) => setSpeechText(e.target.value),
-									placeholder: "Digite a fala do personagem ou deixe em branco para a IA gerar automaticamente...",
-									className: "min-h-[100px] bg-background border-border focus-visible:ring-[#FFC107]/50 mt-2"
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-									className: "text-xs text-muted-foreground font-medium mt-3 flex items-center gap-2",
-									children: "A IA aprimorará o seu texto para torná-lo mais profissional. Caso deixe em branco, uma fala/narração otimizada será gerada com base no seu nicho e personagem."
-								})
-							]
+								})]
+							}, idx))
 						})]
-					})] })
+					})] }),
+					!isConsistentCharacter && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
+						className: "space-y-4 animate-in fade-in slide-in-from-bottom-4 duration-500 delay-100",
+						children: [
+							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Label, {
+								className: "text-xs font-bold text-primary uppercase tracking-widest flex items-center gap-2",
+								children: [
+									/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Sparkles, { className: "w-3.5 h-3.5" }),
+									isCartoon ? "4." : "3.",
+									" Fala / Ideia da Cena (Opcional)"
+								]
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Textarea, {
+								value: sceneIdea,
+								onChange: (e) => setSceneIdea(e.target.value),
+								placeholder: "Descreva a ação que deve acontecer ou a fala exata do personagem em português...",
+								className: "min-h-[120px] bg-card border-border focus-visible:ring-primary/50 text-base"
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+								className: "text-xs text-muted-foreground font-medium",
+								children: "Instruções visuais serão convertidas para o Inglês. A fala será mantida em Português do Brasil (pt-BR). Se em branco, a IA gerará automaticamente."
+							})
+						]
+					})
 				]
 			}),
 			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "fixed bottom-0 left-0 w-full p-4 bg-background/95 backdrop-blur-xl border-t border-border z-50 flex justify-center shadow-[0_-10px_40px_rgba(0,0,0,0.5)]",
+				className: "fixed bottom-0 left-0 w-full p-4 bg-background/95 backdrop-blur-xl border-t border-border z-50 flex justify-center",
 				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 					className: "w-full max-w-4xl px-2",
 					children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Button, {
 						onClick: handleGenerate,
 						disabled: !isFormValid,
-						className: "w-full h-14 rounded-xl bg-[#FFC107] hover:bg-[#FFC107]/90 text-black font-extrabold text-base tracking-wide shadow-[0_0_25px_-5px_rgba(255,193,7,0.4)] transition-all duration-300 disabled:opacity-50 disabled:hover:bg-[#FFC107] disabled:shadow-none",
+						className: "w-full h-14 rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground font-extrabold text-base tracking-wide shadow-lg transition-all duration-300 disabled:opacity-50 disabled:shadow-none",
 						children: [
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Sparkles, { className: "mr-2 h-5 w-5 text-black" }),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-								className: "text-black",
-								children: "GERAR PROMPT MASTER"
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowRight, { className: "ml-2 h-5 w-5 text-black" })
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Sparkles, { className: "mr-2 h-5 w-5" }),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "GERAR PROMPT MASTER" }),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowRight, { className: "ml-2 h-5 w-5" })
 						]
 					})
 				})
@@ -26709,7 +26501,7 @@ var Result = () => {
 		if (isNew) {
 			const timer = setTimeout(() => {
 				setIsGenerating(false);
-			}, 1e3);
+			}, 800);
 			return () => clearTimeout(timer);
 		}
 	}, [
@@ -26788,109 +26580,78 @@ var Result = () => {
 		});
 	};
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: "animate-in fade-in slide-in-from-bottom-4 duration-500 p-6 md:p-12 flex flex-col gap-8 min-h-[calc(100vh-4rem)] max-w-4xl mx-auto w-full",
-		children: [
-			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: "text-center space-y-4 mt-4",
+		className: "animate-in fade-in slide-in-from-bottom-4 duration-500 p-6 md:p-12 flex flex-col gap-6 min-h-[calc(100vh-4rem)] max-w-4xl mx-auto w-full",
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "flex flex-col md:flex-row md:items-center justify-between gap-5 mt-2",
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+				className: "text-2xl md:text-3xl font-extrabold text-foreground tracking-tight",
+				children: "Prompt Master JSON"
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+				className: "text-muted-foreground text-sm font-medium mt-1",
+				children: "Pronto para exportação. Metadados em Inglês, narrativa em Português."
+			})] }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "flex flex-wrap gap-3",
 				children: [
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-						className: "inline-flex items-center justify-center p-5 bg-primary/10 rounded-2xl mb-2 border border-primary/20 shadow-[0_0_40px_-10px_rgba(251,191,36,0.25)]",
-						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Terminal, { className: "h-10 w-10 text-primary" })
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Button, {
+						onClick: handleCopy,
+						variant: "outline",
+						className: "font-bold border-primary/50 text-primary hover:bg-primary/10 h-11 px-5 rounded-xl bg-card",
+						children: [copied ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Check, { className: "mr-2 h-4 w-4" }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Copy, { className: "mr-2 h-4 w-4" }), copied ? "Copiado!" : "Copiar"]
 					}),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
-						className: "text-3xl md:text-5xl font-extrabold text-foreground tracking-tight",
-						children: "Prompt Compilado"
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button, {
+						onClick: handleWhisk,
+						className: "font-bold bg-indigo-600 hover:bg-indigo-500 text-white h-11 rounded-xl shadow-md",
+						children: "Whisk"
 					}),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-						className: "text-muted-foreground text-sm md:text-base font-medium max-w-lg mx-auto",
-						children: "O seu comando em formato JSON está estruturado e pronto para exportação para sua ferramenta de IA."
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button, {
+						onClick: handleFlow,
+						className: "font-bold bg-cyan-600 hover:bg-cyan-500 text-white h-11 rounded-xl shadow-md",
+						children: "Flow"
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Button, {
+						onClick: handleCapCut,
+						className: "font-bold bg-slate-100 hover:bg-white text-slate-900 h-11 rounded-xl shadow-md",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Play, { className: "mr-2 h-4 w-4 fill-slate-900" }), "CapCut"]
 					})
 				]
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Card, {
-				className: "overflow-hidden border border-border shadow-2xl bg-card rounded-2xl relative",
-				children: [
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-primary/50 to-transparent" }),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "flex items-center justify-between px-5 py-4 border-b border-border bg-background/50",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							className: "flex items-center gap-2.5 text-muted-foreground",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(CodeXml, { className: "h-5 w-5 text-primary" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-								className: "text-xs font-mono font-bold tracking-widest uppercase",
-								children: "prompt.json"
-							})]
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Button, {
-							variant: "ghost",
-							size: "sm",
-							onClick: handleCopy,
-							className: "text-primary hover:text-primary hover:bg-primary/10 h-9 gap-2 px-4 rounded-lg border border-primary/20 transition-all active:scale-95",
-							children: [copied ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Check, { className: "h-4 w-4" }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Copy, { className: "h-4 w-4" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-								className: "text-xs font-bold",
-								children: copied ? "COPIADO" : "COPIAR JSON"
-							})]
+			})]
+		}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Card, {
+			className: "overflow-hidden border border-border shadow-xl bg-[#020617] rounded-xl relative flex-1",
+			children: [
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-primary/50 to-transparent" }),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					className: "flex items-center justify-between px-5 py-3 border-b border-border/50 bg-background/20",
+					children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "flex items-center gap-2.5 text-muted-foreground",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(CodeXml, { className: "h-4 w-4 text-primary" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+							className: "text-xs font-mono font-bold tracking-widest uppercase",
+							children: "output.json"
 						})]
-					}),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-						className: "p-6 md:p-8 overflow-x-auto hide-scrollbar bg-[#020617]",
-						children: isGenerating ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							className: "animate-pulse space-y-5 py-2",
-							children: [
-								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-									className: "flex items-center gap-3",
-									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-4 h-4 rounded-full bg-primary/40 animate-ping" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-										className: "text-primary/60 font-mono text-sm",
-										children: "Compilando estrutura..."
-									})]
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "h-4 bg-secondary/50 rounded w-1/4" }),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "h-4 bg-secondary/50 rounded w-3/4" }),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "h-4 bg-secondary/50 rounded w-1/2" }),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "h-4 bg-secondary/50 rounded w-2/3" })
-							]
-						}) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)("pre", {
-							className: "font-mono text-sm md:text-base leading-relaxed text-slate-300",
-							children: renderHighlightedJSON(jsonString)
-						})
 					})
-				]
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: "space-y-6 pb-12",
-				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("h3", {
-					className: "font-bold text-sm uppercase tracking-widest text-muted-foreground flex items-center justify-center gap-3",
-					children: [
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "w-16 h-px bg-border" }),
-						"Exportar & Executar",
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "w-16 h-px bg-border" })
-					]
-				}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4",
-					children: [
-						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Button, {
-							onClick: handleCopy,
-							variant: "outline",
-							className: "h-14 rounded-xl border-border hover:border-primary/50 text-foreground hover:bg-secondary font-bold text-sm bg-card transition-all shadow-sm",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Copy, { className: "mr-2 h-4 w-4 text-primary" }), "COPIAR JSON"]
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Button, {
-							onClick: handleWhisk,
-							className: "h-14 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-sm shadow-[0_4px_14px_0_rgba(79,70,229,0.39)] transition-all",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ExternalLink, { className: "mr-2 h-4 w-4" }), "ABRIR WHISK"]
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Button, {
-							onClick: handleFlow,
-							className: "h-14 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white font-bold text-sm shadow-[0_4px_14px_0_rgba(8,145,178,0.39)] transition-all",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ExternalLink, { className: "mr-2 h-4 w-4" }), "ABRIR FLOW"]
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Button, {
-							onClick: handleCapCut,
-							className: "h-14 rounded-xl bg-slate-100 hover:bg-white text-slate-900 font-bold text-sm shadow-[0_4px_14px_0_rgba(255,255,255,0.2)] transition-all",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Play, { className: "mr-2 h-4 w-4 fill-slate-900" }), "CAPCUT"]
-						})
-					]
-				})]
-			})
-		]
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					className: "p-5 md:p-8 overflow-x-auto hide-scrollbar",
+					children: isGenerating ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "animate-pulse space-y-4 py-2",
+						children: [
+							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+								className: "flex items-center gap-3",
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-3 h-3 rounded-full bg-primary/50 animate-ping" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "text-primary/70 font-mono text-sm",
+									children: "Estruturando prompt..."
+								})]
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "h-3 bg-secondary/50 rounded w-1/4" }),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "h-3 bg-secondary/50 rounded w-3/4" }),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "h-3 bg-secondary/50 rounded w-1/2" })
+						]
+					}) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)("pre", {
+						className: "font-mono text-sm leading-relaxed text-slate-300",
+						children: renderHighlightedJSON(jsonString)
+					})
+				})
+			]
+		})]
 	});
 };
 var Result_default = Result;
@@ -26907,11 +26668,12 @@ var Ensaio = () => {
 	};
 	const handleGenerate = () => {
 		const json = {
-			subject: promptInput || "professional photoshoot",
-			style: "professional photography",
-			quality: "8K ultra realistic",
-			reference_image: image ? "user_provided" : "none",
-			language: "en"
+			task: "professional_photoshoot",
+			subject_en: promptInput.trim() ? `[TRANSLATE TO ENGLISH] ${promptInput}` : "Professional high-end photoshoot subject",
+			style_en: "Professional photography, masterpiece, ultra premium",
+			quality_en: "8K ultra realistic, highly detailed, perfect lighting",
+			reference_image_en: image ? "user_provided" : "none",
+			system_instruction: "All technical parameters and descriptions MUST be in English."
 		};
 		setGeneratedJson(JSON.stringify(json, null, 2));
 	};
@@ -26940,22 +26702,22 @@ var Ensaio = () => {
 					}),
 					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
 						className: "text-3xl md:text-5xl font-extrabold text-foreground tracking-tight",
-						children: "Ensaio Fotográfico Profissional"
+						children: "Ensaio Fotográfico"
 					}),
 					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
 						className: "text-muted-foreground text-sm md:text-base font-medium max-w-xl mx-auto",
-						children: "Faça upload de imagens de referência e gere estruturas de prompt precisas para ensaios fotográficos profissionais em formato JSON."
+						children: "Faça upload de imagens de referência e gere estruturas de prompt precisas para ensaios profissionais."
 					})
 				]
 			}),
 			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Card, {
-				className: "p-6 md:p-8 border-border bg-card shadow-2xl rounded-2xl space-y-8",
+				className: "p-6 md:p-8 border-border bg-card shadow-lg rounded-2xl space-y-8",
 				children: [
 					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 						className: "space-y-4",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Label, {
-							className: "text-base font-bold text-foreground tracking-wide uppercase",
-							children: "1. Imagem de Referência"
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Label, {
+							className: "text-xs font-bold text-muted-foreground tracking-widest uppercase flex items-center gap-2",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "w-1.5 h-1.5 rounded-full bg-accent" }), "1. Imagem de Referência"]
 						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 							onClick: () => fileInputRef.current?.click(),
 							className: "border-2 border-dashed border-border hover:border-accent/50 bg-background/50 rounded-xl p-8 flex flex-col items-center justify-center text-center cursor-pointer transition-colors group",
@@ -26970,7 +26732,7 @@ var Ensaio = () => {
 								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
 									src: image,
 									alt: "Reference Preview",
-									className: "max-h-64 object-contain rounded-lg border border-border shadow-md bg-black/20"
+									className: "max-h-64 object-contain rounded-lg shadow-md"
 								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 									className: "absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center rounded-lg backdrop-blur-sm",
 									children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
@@ -26979,50 +26741,44 @@ var Ensaio = () => {
 									})
 								})]
 							}) : /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								className: "flex flex-col items-center gap-4 text-muted-foreground group-hover:text-accent transition-colors",
+								className: "flex flex-col items-center gap-3 text-muted-foreground group-hover:text-accent transition-colors",
 								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-									className: "p-5 bg-secondary rounded-full border border-border group-hover:border-accent/30 shadow-sm",
-									children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Upload, { className: "w-8 h-8" })
-								}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-									className: "space-y-1",
-									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-										className: "font-bold text-foreground text-lg",
-										children: "Clique para enviar"
-									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-										className: "text-sm font-medium",
-										children: "SVG, PNG, JPG ou GIF (máx. 5MB)"
-									})]
+									className: "p-4 bg-secondary rounded-full border border-border group-hover:border-accent/30 shadow-sm",
+									children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Upload, { className: "w-6 h-6" })
+								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "font-bold",
+									children: "Clique para enviar foto"
 								})]
 							})]
 						})]
 					}),
 					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 						className: "space-y-4",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Label, {
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Label, {
 							htmlFor: "promptIdea",
-							className: "text-base font-bold text-foreground tracking-wide uppercase",
-							children: "2. Ideia do Prompt"
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Input, {
+							className: "text-xs font-bold text-muted-foreground tracking-widest uppercase flex items-center gap-2",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "w-1.5 h-1.5 rounded-full bg-accent" }), "2. Ideia da Cena / Contexto (Opcional)"]
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Textarea, {
 							id: "promptIdea",
-							placeholder: "ex: praia, Paris, estúdio...",
+							placeholder: "Ex: Ensaio corporativo em um escritório de luxo com iluminação natural...",
 							value: promptInput,
 							onChange: (e) => setPromptInput(e.target.value),
-							className: "h-14 text-base focus-visible:ring-accent focus-visible:border-accent"
+							className: "min-h-[100px] text-base bg-background focus-visible:ring-accent focus-visible:border-accent"
 						})]
 					}),
 					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Button, {
 						onClick: handleGenerate,
-						className: "w-full h-14 rounded-xl bg-accent hover:bg-accent/90 text-accent-foreground font-extrabold text-base tracking-wide shadow-[0_0_25px_-5px_rgba(8,145,178,0.4)] transition-all active:scale-[0.98]",
+						className: "w-full h-14 rounded-xl bg-accent hover:bg-accent/90 text-accent-foreground font-extrabold text-base tracking-wide shadow-lg transition-all active:scale-[0.98]",
 						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Sparkles, { className: "mr-2 h-5 w-5" }), "GERAR PROMPT"]
 					})
 				]
 			}),
 			parsedJson && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Card, {
-				className: "overflow-hidden border border-border shadow-2xl bg-card rounded-2xl relative animate-in slide-in-from-top-4 fade-in duration-500",
+				className: "overflow-hidden border border-border shadow-xl bg-[#020617] rounded-xl relative animate-in slide-in-from-top-4 fade-in duration-500",
 				children: [
 					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-accent/50 to-transparent" }),
 					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "flex items-center justify-between px-5 py-4 border-b border-border bg-background/50",
+						className: "flex items-center justify-between px-5 py-4 border-b border-border/50 bg-background/20",
 						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 							className: "flex items-center gap-2.5 text-muted-foreground",
 							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
@@ -27033,7 +26789,7 @@ var Ensaio = () => {
 							variant: "ghost",
 							size: "sm",
 							onClick: handleCopy,
-							className: "text-accent hover:text-accent hover:bg-accent/10 h-9 gap-2 px-4 rounded-lg border border-accent/20 transition-all active:scale-95",
+							className: "text-accent hover:text-accent hover:bg-accent/10 h-9 gap-2 px-4 rounded-lg border border-accent/20 transition-all",
 							children: [copied ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Check, { className: "h-4 w-4" }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Copy, { className: "h-4 w-4" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
 								className: "text-xs font-bold",
 								children: copied ? "COPIADO" : "COPIAR JSON"
@@ -27041,9 +26797,9 @@ var Ensaio = () => {
 						})]
 					}),
 					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-						className: "p-6 md:p-8 overflow-x-auto bg-[#020617] hide-scrollbar",
+						className: "p-5 md:p-8 overflow-x-auto bg-[#020617] hide-scrollbar",
 						children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("pre", {
-							className: "font-mono text-sm md:text-base leading-relaxed text-slate-300",
+							className: "font-mono text-sm leading-relaxed text-slate-300",
 							children: [
 								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
 									className: "text-cyan-400",
@@ -27052,7 +26808,7 @@ var Ensaio = () => {
 								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
 								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
 									className: "text-cyan-400",
-									children: " \"subject\""
+									children: " \"task\""
 								}),
 								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
 									className: "text-slate-500",
@@ -27062,7 +26818,7 @@ var Ensaio = () => {
 									className: "text-primary",
 									children: [
 										"\"",
-										parsedJson.subject,
+										parsedJson.task,
 										"\""
 									]
 								}),
@@ -27073,7 +26829,7 @@ var Ensaio = () => {
 								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
 								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
 									className: "text-cyan-400",
-									children: " \"style\""
+									children: " \"subject_en\""
 								}),
 								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
 									className: "text-slate-500",
@@ -27083,7 +26839,7 @@ var Ensaio = () => {
 									className: "text-primary",
 									children: [
 										"\"",
-										parsedJson.style,
+										parsedJson.subject_en,
 										"\""
 									]
 								}),
@@ -27094,7 +26850,7 @@ var Ensaio = () => {
 								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
 								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
 									className: "text-cyan-400",
-									children: " \"quality\""
+									children: " \"style_en\""
 								}),
 								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
 									className: "text-slate-500",
@@ -27104,7 +26860,7 @@ var Ensaio = () => {
 									className: "text-primary",
 									children: [
 										"\"",
-										parsedJson.quality,
+										parsedJson.style_en,
 										"\""
 									]
 								}),
@@ -27115,7 +26871,7 @@ var Ensaio = () => {
 								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
 								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
 									className: "text-cyan-400",
-									children: " \"reference_image\""
+									children: " \"quality_en\""
 								}),
 								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
 									className: "text-slate-500",
@@ -27125,7 +26881,7 @@ var Ensaio = () => {
 									className: "text-primary",
 									children: [
 										"\"",
-										parsedJson.reference_image,
+										parsedJson.quality_en,
 										"\""
 									]
 								}),
@@ -27136,7 +26892,7 @@ var Ensaio = () => {
 								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
 								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
 									className: "text-cyan-400",
-									children: " \"language\""
+									children: " \"reference_image_en\""
 								}),
 								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
 									className: "text-slate-500",
@@ -27146,7 +26902,28 @@ var Ensaio = () => {
 									className: "text-primary",
 									children: [
 										"\"",
-										parsedJson.language,
+										parsedJson.reference_image_en,
+										"\""
+									]
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "text-slate-500",
+									children: ","
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "text-cyan-400",
+									children: " \"system_instruction\""
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "text-slate-500",
+									children: ": "
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+									className: "text-primary",
+									children: [
+										"\"",
+										parsedJson.system_instruction,
 										"\""
 									]
 								}),
@@ -27167,6 +26944,7 @@ var Ensaio_default = Ensaio;
 var Transform = () => {
 	const [referenceImage, setReferenceImage] = (0, import_react.useState)(null);
 	const [userImage, setUserImage] = (0, import_react.useState)(null);
+	const [sceneIdea, setSceneIdea] = (0, import_react.useState)("");
 	const [generatedJson, setGeneratedJson] = (0, import_react.useState)(null);
 	const [copied, setCopied] = (0, import_react.useState)(false);
 	const { toast: toast$2 } = useToast();
@@ -27189,14 +26967,17 @@ var Transform = () => {
 			});
 			return;
 		}
-		setGeneratedJson(JSON.stringify({
+		const json = {
 			task: "character_transformation",
-			reference_style: "user_uploaded_reference",
-			subject: "user_uploaded_photo",
-			quality: "8K ultra realistic, cinematic quality, high-end cinematography",
-			lighting: "cinematic",
-			output_format: "professional_photography"
-		}, null, 2));
+			reference_style_en: "user_uploaded_reference",
+			subject_en: "user_uploaded_photo",
+			scene_context_en: sceneIdea.trim() ? `[TRANSLATE TO ENGLISH] ${sceneIdea}` : "Default cinematic transformation scene",
+			quality_en: "Ultra Premium, 8K ultra realistic, cinematic quality, high-end cinematography",
+			lighting_en: "cinematic",
+			output_format_en: "professional_photography",
+			system_instruction: "All parameters must be in English."
+		};
+		setGeneratedJson(JSON.stringify(json, null, 2));
 	};
 	const handleCopy = () => {
 		if (generatedJson) {
@@ -27226,28 +27007,23 @@ var Transform = () => {
 					}),
 					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
 						className: "text-muted-foreground text-sm md:text-base font-medium max-w-xl mx-auto",
-						children: "Faça upload de um personagem ou roupa de referência e sua foto para gerar um prompt de IA 8K profissional em formato JSON."
+						children: "Faça upload de um personagem de referência e sua foto para gerar um prompt IA 8K profissional."
 					})
 				]
 			}),
 			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Card, {
-				className: "p-6 md:p-8 border-border bg-card shadow-2xl rounded-2xl space-y-8",
-				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "grid grid-cols-1 md:grid-cols-2 gap-8",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "space-y-4",
-						children: [
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Label, {
-								className: "text-base font-bold text-foreground tracking-wide flex items-center gap-2",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Image, { className: "w-5 h-5 text-[#FFC107]" }), "1. Imagem de Referência"]
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-								className: "text-xs text-muted-foreground",
-								children: "Roupa, estilo ou personagem alvo"
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "p-6 md:p-8 border-border bg-card shadow-lg rounded-2xl space-y-6",
+				children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "grid grid-cols-1 md:grid-cols-2 gap-6",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							className: "space-y-3",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Label, {
+								className: "text-xs font-bold text-muted-foreground uppercase tracking-widest flex items-center gap-2",
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Image, { className: "w-4 h-4 text-[#FFC107]" }), "1. Imagem de Referência"]
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 								onClick: () => referenceInputRef.current?.click(),
-								className: "border-2 border-dashed border-border hover:border-[#FFC107]/50 bg-background/50 rounded-xl p-6 flex flex-col items-center justify-center text-center cursor-pointer transition-colors group min-h-[250px]",
+								className: "border-2 border-dashed border-border hover:border-[#FFC107]/50 bg-background/50 rounded-xl p-6 flex flex-col items-center justify-center text-center cursor-pointer transition-colors group min-h-[200px]",
 								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
 									type: "file",
 									ref: referenceInputRef,
@@ -27259,7 +27035,7 @@ var Transform = () => {
 									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
 										src: referenceImage,
 										alt: "Reference Preview",
-										className: "max-h-48 object-contain rounded-lg shadow-md"
+										className: "max-h-40 object-contain rounded-lg shadow-md"
 									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 										className: "absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center rounded-lg backdrop-blur-sm",
 										children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
@@ -27271,28 +27047,21 @@ var Transform = () => {
 									className: "flex flex-col items-center gap-3 text-muted-foreground group-hover:text-[#FFC107] transition-colors",
 									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 										className: "p-4 bg-secondary rounded-full border border-border group-hover:border-[#FFC107]/30 shadow-sm",
-										children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Upload, { className: "w-6 h-6" })
+										children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Upload, { className: "w-5 h-5" })
 									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-										className: "font-bold",
+										className: "font-bold text-sm",
 										children: "Enviar Referência"
 									})]
 								})]
-							})
-						]
-					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "space-y-4",
-						children: [
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Label, {
-								className: "text-base font-bold text-foreground tracking-wide flex items-center gap-2",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(User, { className: "w-5 h-5 text-[#FFC107]" }), "2. Sua Foto"]
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-								className: "text-xs text-muted-foreground",
-								children: "A pessoa a ser transformada"
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							})]
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							className: "space-y-3",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Label, {
+								className: "text-xs font-bold text-muted-foreground uppercase tracking-widest flex items-center gap-2",
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(User, { className: "w-4 h-4 text-[#FFC107]" }), "2. Sua Foto"]
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 								onClick: () => userInputRef.current?.click(),
-								className: "border-2 border-dashed border-border hover:border-[#FFC107]/50 bg-background/50 rounded-xl p-6 flex flex-col items-center justify-center text-center cursor-pointer transition-colors group min-h-[250px]",
+								className: "border-2 border-dashed border-border hover:border-[#FFC107]/50 bg-background/50 rounded-xl p-6 flex flex-col items-center justify-center text-center cursor-pointer transition-colors group min-h-[200px]",
 								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
 									type: "file",
 									ref: userInputRef,
@@ -27304,7 +27073,7 @@ var Transform = () => {
 									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
 										src: userImage,
 										alt: "User Preview",
-										className: "max-h-48 object-contain rounded-lg shadow-md"
+										className: "max-h-40 object-contain rounded-lg shadow-md"
 									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 										className: "absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center rounded-lg backdrop-blur-sm",
 										children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
@@ -27316,27 +27085,42 @@ var Transform = () => {
 									className: "flex flex-col items-center gap-3 text-muted-foreground group-hover:text-[#FFC107] transition-colors",
 									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 										className: "p-4 bg-secondary rounded-full border border-border group-hover:border-[#FFC107]/30 shadow-sm",
-										children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Upload, { className: "w-6 h-6" })
+										children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Upload, { className: "w-5 h-5" })
 									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-										className: "font-bold",
+										className: "font-bold text-sm",
 										children: "Enviar Foto"
 									})]
 								})]
-							})
-						]
-					})]
-				}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Button, {
-					onClick: handleGenerate,
-					className: "w-full h-14 rounded-xl bg-[#FFC107] hover:bg-[#FFC107]/90 text-black font-extrabold text-base tracking-wide shadow-[0_0_25px_-5px_rgba(255,193,7,0.4)] transition-all active:scale-[0.98]",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Sparkles, { className: "mr-2 h-5 w-5 text-black" }), "GERAR PROMPT CINEMÁTICO"]
-				})]
+							})]
+						})]
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "space-y-3 pt-4 border-t border-border",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Label, {
+							htmlFor: "sceneIdea",
+							className: "text-xs font-bold text-muted-foreground uppercase tracking-widest flex items-center gap-2",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "w-1.5 h-1.5 rounded-full bg-[#FFC107]" }), "3. Ideia da Cena (Opcional)"]
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Textarea, {
+							id: "sceneIdea",
+							placeholder: "Ex: Um cavaleiro jedi em um campo de batalha galáctico noturno...",
+							value: sceneIdea,
+							onChange: (e) => setSceneIdea(e.target.value),
+							className: "min-h-[100px] text-base bg-background focus-visible:ring-[#FFC107] focus-visible:border-[#FFC107]"
+						})]
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Button, {
+						onClick: handleGenerate,
+						className: "w-full h-14 rounded-xl bg-[#FFC107] hover:bg-[#FFC107]/90 text-black font-extrabold text-base tracking-wide shadow-lg transition-all active:scale-[0.98]",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Sparkles, { className: "mr-2 h-5 w-5 text-black" }), "GERAR PROMPT"]
+					})
+				]
 			}),
 			generatedJson && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Card, {
-				className: "overflow-hidden border border-border shadow-2xl bg-card rounded-2xl relative animate-in slide-in-from-top-4 fade-in duration-500",
+				className: "overflow-hidden border border-border shadow-xl bg-[#020617] rounded-xl relative animate-in slide-in-from-top-4 fade-in duration-500",
 				children: [
 					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-[#FFC107]/50 to-transparent" }),
 					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "flex items-center justify-between px-5 py-4 border-b border-border bg-background/50",
+						className: "flex items-center justify-between px-5 py-4 border-b border-border/50 bg-background/20",
 						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 							className: "flex items-center gap-2.5 text-muted-foreground",
 							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
@@ -27347,7 +27131,7 @@ var Transform = () => {
 							variant: "ghost",
 							size: "sm",
 							onClick: handleCopy,
-							className: "text-[#FFC107] hover:text-[#FFC107] hover:bg-[#FFC107]/10 h-9 gap-2 px-4 rounded-lg border border-[#FFC107]/20 transition-all active:scale-95",
+							className: "text-[#FFC107] hover:text-[#FFC107] hover:bg-[#FFC107]/10 h-9 gap-2 px-4 rounded-lg border border-[#FFC107]/20 transition-all",
 							children: [copied ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Check, { className: "h-4 w-4" }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Copy, { className: "h-4 w-4" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
 								className: "text-xs font-bold",
 								children: copied ? "COPIADO" : "COPIAR JSON"
@@ -27355,9 +27139,9 @@ var Transform = () => {
 						})]
 					}),
 					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-						className: "p-6 md:p-8 overflow-x-auto bg-[#020617] hide-scrollbar",
+						className: "p-5 md:p-8 overflow-x-auto bg-[#020617] hide-scrollbar",
 						children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("pre", {
-							className: "font-mono text-sm md:text-base leading-relaxed text-slate-300",
+							className: "font-mono text-sm leading-relaxed text-slate-300",
 							children: [
 								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
 									className: "text-cyan-400",
@@ -27372,9 +27156,13 @@ var Transform = () => {
 									className: "text-slate-500",
 									children: ": "
 								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
 									className: "text-emerald-400",
-									children: "\"character_transformation\""
+									children: [
+										"\"",
+										JSON.parse(generatedJson).task,
+										"\""
+									]
 								}),
 								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
 									className: "text-slate-500",
@@ -27383,15 +27171,19 @@ var Transform = () => {
 								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
 								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
 									className: "text-cyan-400",
-									children: " \"reference_style\""
+									children: " \"reference_style_en\""
 								}),
 								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
 									className: "text-slate-500",
 									children: ": "
 								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
 									className: "text-emerald-400",
-									children: "\"user_uploaded_reference\""
+									children: [
+										"\"",
+										JSON.parse(generatedJson).reference_style_en,
+										"\""
+									]
 								}),
 								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
 									className: "text-slate-500",
@@ -27400,15 +27192,19 @@ var Transform = () => {
 								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
 								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
 									className: "text-cyan-400",
-									children: " \"subject\""
+									children: " \"subject_en\""
 								}),
 								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
 									className: "text-slate-500",
 									children: ": "
 								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
 									className: "text-emerald-400",
-									children: "\"user_uploaded_photo\""
+									children: [
+										"\"",
+										JSON.parse(generatedJson).subject_en,
+										"\""
+									]
 								}),
 								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
 									className: "text-slate-500",
@@ -27417,15 +27213,19 @@ var Transform = () => {
 								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
 								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
 									className: "text-cyan-400",
-									children: " \"quality\""
+									children: " \"scene_context_en\""
 								}),
 								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
 									className: "text-slate-500",
 									children: ": "
 								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
 									className: "text-emerald-400",
-									children: "\"8K ultra realistic, cinematic quality, high-end cinematography\""
+									children: [
+										"\"",
+										JSON.parse(generatedJson).scene_context_en,
+										"\""
+									]
 								}),
 								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
 									className: "text-slate-500",
@@ -27434,15 +27234,19 @@ var Transform = () => {
 								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
 								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
 									className: "text-cyan-400",
-									children: " \"lighting\""
+									children: " \"quality_en\""
 								}),
 								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
 									className: "text-slate-500",
 									children: ": "
 								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
 									className: "text-emerald-400",
-									children: "\"cinematic\""
+									children: [
+										"\"",
+										JSON.parse(generatedJson).quality_en,
+										"\""
+									]
 								}),
 								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
 									className: "text-slate-500",
@@ -27451,15 +27255,61 @@ var Transform = () => {
 								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
 								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
 									className: "text-cyan-400",
-									children: " \"output_format\""
+									children: " \"lighting_en\""
 								}),
 								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
 									className: "text-slate-500",
 									children: ": "
 								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
 									className: "text-emerald-400",
-									children: "\"professional_photography\""
+									children: [
+										"\"",
+										JSON.parse(generatedJson).lighting_en,
+										"\""
+									]
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "text-slate-500",
+									children: ","
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "text-cyan-400",
+									children: " \"output_format_en\""
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "text-slate-500",
+									children: ": "
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+									className: "text-emerald-400",
+									children: [
+										"\"",
+										JSON.parse(generatedJson).output_format_en,
+										"\""
+									]
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "text-slate-500",
+									children: ","
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "text-cyan-400",
+									children: " \"system_instruction\""
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "text-slate-500",
+									children: ": "
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+									className: "text-emerald-400",
+									children: [
+										"\"",
+										JSON.parse(generatedJson).system_instruction,
+										"\""
+									]
 								}),
 								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
 								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
@@ -27610,4 +27460,4 @@ var App = () => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(BrowserRouter, {
 var App_default = App;
 (0, import_client.createRoot)(document.getElementById("root")).render(/* @__PURE__ */ (0, import_jsx_runtime.jsx)(App_default, {}));
 
-//# sourceMappingURL=index-DfXiYpNS.js.map
+//# sourceMappingURL=index-BQlfezow.js.map

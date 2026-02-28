@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
-import { Copy, ExternalLink, Play, Check, Code2, Terminal } from 'lucide-react'
+import { Copy, Check, Code2, Play } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { useToast } from '@/hooks/use-toast'
@@ -25,7 +25,7 @@ const Result = () => {
     if (isNew) {
       const timer = setTimeout(() => {
         setIsGenerating(false)
-      }, 1000)
+      }, 800)
       return () => clearTimeout(timer)
     }
   }, [result, isNew, navigate])
@@ -73,7 +73,6 @@ const Result = () => {
 
   const renderHighlightedJSON = (jsonStr: string) => {
     return jsonStr.split('\n').map((line, i) => {
-      // Basic formatting for standard JSON stringification
       if (line.includes('": "')) {
         const [keyPart, valPart] = line.split('": "')
         return (
@@ -110,111 +109,83 @@ const Result = () => {
   }
 
   return (
-    <div className="animate-in fade-in slide-in-from-bottom-4 duration-500 p-6 md:p-12 flex flex-col gap-8 min-h-[calc(100vh-4rem)] max-w-4xl mx-auto w-full">
-      <div className="text-center space-y-4 mt-4">
-        <div className="inline-flex items-center justify-center p-5 bg-primary/10 rounded-2xl mb-2 border border-primary/20 shadow-[0_0_40px_-10px_rgba(251,191,36,0.25)]">
-          <Terminal className="h-10 w-10 text-primary" />
+    <div className="animate-in fade-in slide-in-from-bottom-4 duration-500 p-6 md:p-12 flex flex-col gap-6 min-h-[calc(100vh-4rem)] max-w-4xl mx-auto w-full">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-5 mt-2">
+        <div>
+          <h2 className="text-2xl md:text-3xl font-extrabold text-foreground tracking-tight">
+            Prompt Master JSON
+          </h2>
+          <p className="text-muted-foreground text-sm font-medium mt-1">
+            Pronto para exportação. Metadados em Inglês, narrativa em Português.
+          </p>
         </div>
-        <h2 className="text-3xl md:text-5xl font-extrabold text-foreground tracking-tight">
-          Prompt Compilado
-        </h2>
-        <p className="text-muted-foreground text-sm md:text-base font-medium max-w-lg mx-auto">
-          O seu comando em formato JSON está estruturado e pronto para
-          exportação para sua ferramenta de IA.
-        </p>
-      </div>
-
-      <Card className="overflow-hidden border border-border shadow-2xl bg-card rounded-2xl relative">
-        <div className="absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
-
-        <div className="flex items-center justify-between px-5 py-4 border-b border-border bg-background/50">
-          <div className="flex items-center gap-2.5 text-muted-foreground">
-            <Code2 className="h-5 w-5 text-primary" />
-            <span className="text-xs font-mono font-bold tracking-widest uppercase">
-              prompt.json
-            </span>
-          </div>
+        <div className="flex flex-wrap gap-3">
           <Button
-            variant="ghost"
-            size="sm"
             onClick={handleCopy}
-            className="text-primary hover:text-primary hover:bg-primary/10 h-9 gap-2 px-4 rounded-lg border border-primary/20 transition-all active:scale-95"
+            variant="outline"
+            className="font-bold border-primary/50 text-primary hover:bg-primary/10 h-11 px-5 rounded-xl bg-card"
           >
             {copied ? (
-              <Check className="h-4 w-4" />
+              <Check className="mr-2 h-4 w-4" />
             ) : (
-              <Copy className="h-4 w-4" />
+              <Copy className="mr-2 h-4 w-4" />
             )}
-            <span className="text-xs font-bold">
-              {copied ? 'COPIADO' : 'COPIAR JSON'}
-            </span>
+            {copied ? 'Copiado!' : 'Copiar'}
+          </Button>
+          <Button
+            onClick={handleWhisk}
+            className="font-bold bg-indigo-600 hover:bg-indigo-500 text-white h-11 rounded-xl shadow-md"
+          >
+            Whisk
+          </Button>
+          <Button
+            onClick={handleFlow}
+            className="font-bold bg-cyan-600 hover:bg-cyan-500 text-white h-11 rounded-xl shadow-md"
+          >
+            Flow
+          </Button>
+          <Button
+            onClick={handleCapCut}
+            className="font-bold bg-slate-100 hover:bg-white text-slate-900 h-11 rounded-xl shadow-md"
+          >
+            <Play className="mr-2 h-4 w-4 fill-slate-900" />
+            CapCut
           </Button>
         </div>
+      </div>
 
-        <div className="p-6 md:p-8 overflow-x-auto hide-scrollbar bg-[#020617]">
+      <Card className="overflow-hidden border border-border shadow-xl bg-[#020617] rounded-xl relative flex-1">
+        <div className="absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
+
+        <div className="flex items-center justify-between px-5 py-3 border-b border-border/50 bg-background/20">
+          <div className="flex items-center gap-2.5 text-muted-foreground">
+            <Code2 className="h-4 w-4 text-primary" />
+            <span className="text-xs font-mono font-bold tracking-widest uppercase">
+              output.json
+            </span>
+          </div>
+        </div>
+
+        <div className="p-5 md:p-8 overflow-x-auto hide-scrollbar">
           {isGenerating ? (
-            <div className="animate-pulse space-y-5 py-2">
+            <div className="animate-pulse space-y-4 py-2">
               <div className="flex items-center gap-3">
-                <div className="w-4 h-4 rounded-full bg-primary/40 animate-ping" />
-                <span className="text-primary/60 font-mono text-sm">
-                  Compilando estrutura...
+                <div className="w-3 h-3 rounded-full bg-primary/50 animate-ping" />
+                <span className="text-primary/70 font-mono text-sm">
+                  Estruturando prompt...
                 </span>
               </div>
-              <div className="h-4 bg-secondary/50 rounded w-1/4"></div>
-              <div className="h-4 bg-secondary/50 rounded w-3/4"></div>
-              <div className="h-4 bg-secondary/50 rounded w-1/2"></div>
-              <div className="h-4 bg-secondary/50 rounded w-2/3"></div>
+              <div className="h-3 bg-secondary/50 rounded w-1/4"></div>
+              <div className="h-3 bg-secondary/50 rounded w-3/4"></div>
+              <div className="h-3 bg-secondary/50 rounded w-1/2"></div>
             </div>
           ) : (
-            <pre className="font-mono text-sm md:text-base leading-relaxed text-slate-300">
+            <pre className="font-mono text-sm leading-relaxed text-slate-300">
               {renderHighlightedJSON(jsonString)}
             </pre>
           )}
         </div>
       </Card>
-
-      <div className="space-y-6 pb-12">
-        <h3 className="font-bold text-sm uppercase tracking-widest text-muted-foreground flex items-center justify-center gap-3">
-          <span className="w-16 h-px bg-border"></span>
-          Exportar & Executar
-          <span className="w-16 h-px bg-border"></span>
-        </h3>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
-          <Button
-            onClick={handleCopy}
-            variant="outline"
-            className="h-14 rounded-xl border-border hover:border-primary/50 text-foreground hover:bg-secondary font-bold text-sm bg-card transition-all shadow-sm"
-          >
-            <Copy className="mr-2 h-4 w-4 text-primary" />
-            COPIAR JSON
-          </Button>
-
-          <Button
-            onClick={handleWhisk}
-            className="h-14 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-sm shadow-[0_4px_14px_0_rgba(79,70,229,0.39)] transition-all"
-          >
-            <ExternalLink className="mr-2 h-4 w-4" />
-            ABRIR WHISK
-          </Button>
-
-          <Button
-            onClick={handleFlow}
-            className="h-14 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white font-bold text-sm shadow-[0_4px_14px_0_rgba(8,145,178,0.39)] transition-all"
-          >
-            <ExternalLink className="mr-2 h-4 w-4" />
-            ABRIR FLOW
-          </Button>
-
-          <Button
-            onClick={handleCapCut}
-            className="h-14 rounded-xl bg-slate-100 hover:bg-white text-slate-900 font-bold text-sm shadow-[0_4px_14px_0_rgba(255,255,255,0.2)] transition-all"
-          >
-            <Play className="mr-2 h-4 w-4 fill-slate-900" />
-            CAPCUT
-          </Button>
-        </div>
-      </div>
     </div>
   )
 }
