@@ -18973,6 +18973,15 @@ var Building2 = createLucideIcon("building-2", [
 		key: "16ra0t"
 	}]
 ]);
+var Camera = createLucideIcon("camera", [["path", {
+	d: "M13.997 4a2 2 0 0 1 1.76 1.05l.486.9A2 2 0 0 0 18.003 7H20a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h1.997a2 2 0 0 0 1.759-1.048l.489-.904A2 2 0 0 1 10.004 4z",
+	key: "18u6gg"
+}], ["circle", {
+	cx: "12",
+	cy: "13",
+	r: "3",
+	key: "1vg3eu"
+}]]);
 var Castle = createLucideIcon("castle", [
 	["path", {
 		d: "M10 5V3",
@@ -19141,6 +19150,27 @@ var Headphones = createLucideIcon("headphones", [["path", {
 	d: "M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3",
 	key: "1xhozi"
 }]]);
+var Image = createLucideIcon("image", [
+	["rect", {
+		width: "18",
+		height: "18",
+		x: "3",
+		y: "3",
+		rx: "2",
+		ry: "2",
+		key: "1m3agn"
+	}],
+	["circle", {
+		cx: "9",
+		cy: "9",
+		r: "2",
+		key: "af1f0g"
+	}],
+	["path", {
+		d: "m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21",
+		key: "1xmnt7"
+	}]
+]);
 var MessageSquare = createLucideIcon("message-square", [["path", {
 	d: "M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z",
 	key: "18887p"
@@ -19246,6 +19276,20 @@ var Terminal = createLucideIcon("terminal", [["path", {
 	d: "m4 17 6-6-6-6",
 	key: "1yngyt"
 }]]);
+var Upload = createLucideIcon("upload", [
+	["path", {
+		d: "M12 3v12",
+		key: "1x0j5s"
+	}],
+	["path", {
+		d: "m17 8-5-5-5 5",
+		key: "7q97r8"
+	}],
+	["path", {
+		d: "M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4",
+		key: "ih7n3h"
+	}]
+]);
 var Users = createLucideIcon("users", [
 	["path", {
 		d: "M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2",
@@ -19592,7 +19636,7 @@ var isNever = () => false;
 var isShadow = (value) => shadowRegex.test(value);
 var isImage = (value) => imageRegex.test(value);
 var getDefaultConfig = () => {
-	const colors = fromTheme("colors");
+	const colors$1 = fromTheme("colors");
 	const spacing = fromTheme("spacing");
 	const blur = fromTheme("blur");
 	const brightness = fromTheme("brightness");
@@ -19719,7 +19763,7 @@ var getDefaultConfig = () => {
 				isArbitraryValue
 			],
 			brightness: getNumberAndArbitrary(),
-			borderColor: [colors],
+			borderColor: [colors$1],
 			borderRadius: [
 				"none",
 				"",
@@ -19734,7 +19778,7 @@ var getDefaultConfig = () => {
 			hueRotate: getNumberAndArbitrary(),
 			invert: getZeroAndEmpty(),
 			gap: getSpacingWithArbitrary(),
-			gradientColorStops: [colors],
+			gradientColorStops: [colors$1],
 			gradientColorStopPositions: [isPercent, isArbitraryLength],
 			inset: getSpacingWithAutoAndArbitrary(),
 			margin: getSpacingWithAutoAndArbitrary(),
@@ -20115,7 +20159,7 @@ var getDefaultConfig = () => {
 				isArbitraryValue
 			] }],
 			"list-style-position": [{ list: ["inside", "outside"] }],
-			"placeholder-color": [{ placeholder: [colors] }],
+			"placeholder-color": [{ placeholder: [colors$1] }],
 			"placeholder-opacity": [{ "placeholder-opacity": [opacity] }],
 			"text-alignment": [{ text: [
 				"left",
@@ -20125,7 +20169,7 @@ var getDefaultConfig = () => {
 				"start",
 				"end"
 			] }],
-			"text-color": [{ text: [colors] }],
+			"text-color": [{ text: [colors$1] }],
 			"text-opacity": [{ "text-opacity": [opacity] }],
 			"text-decoration": [
 				"underline",
@@ -20145,7 +20189,7 @@ var getDefaultConfig = () => {
 				isLength,
 				isArbitraryValue
 			] }],
-			"text-decoration-color": [{ decoration: [colors] }],
+			"text-decoration-color": [{ decoration: [colors$1] }],
 			"text-transform": [
 				"uppercase",
 				"lowercase",
@@ -20240,7 +20284,7 @@ var getDefaultConfig = () => {
 				] },
 				isArbitraryImage
 			] }],
-			"bg-color": [{ bg: [colors] }],
+			"bg-color": [{ bg: [colors$1] }],
 			"gradient-from-pos": [{ from: [gradientColorStopPositions] }],
 			"gradient-via-pos": [{ via: [gradientColorStopPositions] }],
 			"gradient-to-pos": [{ to: [gradientColorStopPositions] }],
@@ -20292,13 +20336,13 @@ var getDefaultConfig = () => {
 			"outline-style": [{ outline: ["", ...getLineStyles()] }],
 			"outline-offset": [{ "outline-offset": [isLength, isArbitraryValue] }],
 			"outline-w": [{ outline: [isLength, isArbitraryLength] }],
-			"outline-color": [{ outline: [colors] }],
+			"outline-color": [{ outline: [colors$1] }],
 			"ring-w": [{ ring: getLengthWithEmptyAndArbitrary() }],
 			"ring-w-inset": ["ring-inset"],
-			"ring-color": [{ ring: [colors] }],
+			"ring-color": [{ ring: [colors$1] }],
 			"ring-opacity": [{ "ring-opacity": [opacity] }],
 			"ring-offset-w": [{ "ring-offset": [isLength, isArbitraryLength] }],
-			"ring-offset-color": [{ "ring-offset": [colors] }],
+			"ring-offset-color": [{ "ring-offset": [colors$1] }],
 			shadow: [{ shadow: [
 				"",
 				"inner",
@@ -20397,7 +20441,7 @@ var getDefaultConfig = () => {
 				"top-left",
 				isArbitraryValue
 			] }],
-			accent: [{ accent: ["auto", colors] }],
+			accent: [{ accent: ["auto", colors$1] }],
 			appearance: [{ appearance: ["none", "auto"] }],
 			cursor: [{ cursor: [
 				"auto",
@@ -20438,7 +20482,7 @@ var getDefaultConfig = () => {
 				"zoom-out",
 				isArbitraryValue
 			] }],
-			"caret-color": [{ caret: [colors] }],
+			"caret-color": [{ caret: [colors$1] }],
 			"pointer-events": [{ "pointer-events": ["none", "auto"] }],
 			resize: [{ resize: [
 				"none",
@@ -20508,13 +20552,13 @@ var getDefaultConfig = () => {
 				"transform",
 				isArbitraryValue
 			] }],
-			fill: [{ fill: [colors, "none"] }],
+			fill: [{ fill: [colors$1, "none"] }],
 			"stroke-w": [{ stroke: [
 				isLength,
 				isArbitraryLength,
 				isArbitraryNumber
 			] }],
-			stroke: [{ stroke: [colors, "none"] }],
+			stroke: [{ stroke: [colors$1, "none"] }],
 			sr: ["sr-only", "not-sr-only"],
 			"forced-color-adjust": [{ "forced-color-adjust": ["auto", "none"] }]
 		},
@@ -24202,6 +24246,14 @@ var getIcon$1 = (iconName, className) => {
 		ShoppingBag
 	}[iconName] || Sparkles, { className });
 };
+var colors = [
+	"text-blue-400 bg-blue-400/10 border-blue-400/20 group-hover:border-blue-400/40 group-hover:bg-blue-400/20",
+	"text-emerald-400 bg-emerald-400/10 border-emerald-400/20 group-hover:border-emerald-400/40 group-hover:bg-emerald-400/20",
+	"text-purple-400 bg-purple-400/10 border-purple-400/20 group-hover:border-purple-400/40 group-hover:bg-purple-400/20",
+	"text-rose-400 bg-rose-400/10 border-rose-400/20 group-hover:border-rose-400/40 group-hover:bg-rose-400/20",
+	"text-amber-400 bg-amber-400/10 border-amber-400/20 group-hover:border-amber-400/40 group-hover:bg-amber-400/20",
+	"text-cyan-400 bg-cyan-400/10 border-cyan-400/20 group-hover:border-cyan-400/40 group-hover:bg-cyan-400/20"
+];
 var Index = () => {
 	const { clearDraft } = usePromptStore();
 	const navigate = useNavigate();
@@ -24211,46 +24263,78 @@ var Index = () => {
 	};
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 		className: "animate-in fade-in slide-in-from-bottom-4 duration-700 flex flex-col items-center gap-12 bg-background min-h-[calc(100vh-4rem)] p-6 md:p-12",
-		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
-			className: "text-center space-y-5 max-w-3xl mx-auto mt-6 md:mt-10",
-			children: [
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", {
-					className: "text-4xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-primary via-yellow-200 to-yellow-600 tracking-tight",
-					children: "PROMPT MASTER"
-				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
-					className: "text-lg md:text-2xl font-semibold text-foreground tracking-wide",
-					children: "Domine a Criação de Comandos para IA"
-				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-					className: "text-muted-foreground text-sm md:text-base leading-relaxed max-w-2xl mx-auto font-medium",
-					children: "Gere estruturas avançadas em JSON para automatizar vídeos, campanhas e conteúdos de alta conversão com engenharia de prompt profissional."
+		children: [
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
+				className: "text-center space-y-5 max-w-3xl mx-auto mt-6 md:mt-10",
+				children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", {
+						className: "text-4xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-primary via-yellow-200 to-yellow-600 tracking-tight",
+						children: "PROMPT MASTER"
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+						className: "text-lg md:text-2xl font-semibold text-foreground tracking-wide",
+						children: "Domine a Criação de Comandos para IA"
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+						className: "text-muted-foreground text-sm md:text-base leading-relaxed max-w-2xl mx-auto font-medium",
+						children: "Gere estruturas avançadas em JSON para automatizar vídeos, campanhas e conteúdos de alta conversão com engenharia de prompt profissional."
+					})
+				]
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("section", {
+				className: "w-full max-w-5xl mx-auto",
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Link, {
+					to: "/ensaio",
+					className: "block relative overflow-hidden rounded-2xl border border-accent/40 bg-card p-6 md:p-8 group hover:-translate-y-1 transition-all duration-300 hover:shadow-[0_10px_40px_-10px_rgba(8,145,178,0.3)]",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute inset-0 bg-gradient-to-r from-accent/10 to-transparent" }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							className: "flex items-center gap-5 md:gap-6",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+								className: "p-4 rounded-xl bg-accent/20 text-accent border border-accent/30 group-hover:bg-accent/30 transition-colors",
+								children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Camera, { className: "w-8 h-8 md:w-10 md:h-10" })
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
+								className: "text-xl md:text-2xl font-extrabold text-foreground group-hover:text-accent transition-colors",
+								children: "Photo Shoot Tool (Ensaio)"
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+								className: "text-muted-foreground mt-1 text-sm md:text-base font-medium",
+								children: "Faça upload de imagens de referência e gere prompts de alta qualidade."
+							})] })]
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							className: "inline-flex bg-accent text-accent-foreground px-6 py-3 rounded-xl font-bold items-center justify-center gap-2 group-hover:bg-accent/90 transition-colors w-full md:w-auto",
+							children: ["Acessar Ferramenta ", /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowRight, { className: "w-4 h-4" })]
+						})]
+					})]
 				})
-			]
-		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("section", {
-			className: "w-full max-w-5xl mx-auto pb-16",
-			children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6",
-				children: NICHES.map((niche) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					onClick: () => handleSelectNiche(niche.id),
-					className: "flex items-center gap-5 p-6 rounded-2xl border border-border bg-card hover:bg-secondary/60 hover:border-primary/50 hover:-translate-y-1 hover:shadow-[0_10px_40px_-10px_rgba(255,193,7,0.2)] transition-all duration-300 cursor-pointer group relative overflow-hidden",
-					children: [
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" }),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "relative z-10 p-3 rounded-xl bg-background border border-border group-hover:border-primary/30 group-hover:bg-primary/10 text-muted-foreground group-hover:text-primary transition-colors duration-300",
-							children: getIcon$1(niche.icon, "w-6 h-6")
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "relative z-10 flex-1",
-							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
-								className: "font-bold text-foreground text-base md:text-lg leading-snug group-hover:text-primary transition-colors duration-300",
-								children: niche.title
-							})
-						})
-					]
-				}, niche.id))
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("section", {
+				className: "w-full max-w-5xl mx-auto pb-16",
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					className: "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6",
+					children: NICHES.map((niche, index$1) => {
+						const colorClass = colors[index$1 % colors.length];
+						return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							onClick: () => handleSelectNiche(niche.id),
+							className: "flex items-center gap-5 p-6 rounded-2xl border border-border bg-card hover:bg-secondary/80 hover:border-primary/50 hover:-translate-y-1 hover:shadow-[0_10px_40px_-10px_rgba(255,193,7,0.15)] transition-all duration-300 cursor-pointer group relative overflow-hidden",
+							children: [
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" }),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+									className: `relative z-10 p-3 rounded-xl border transition-colors duration-300 ${colorClass}`,
+									children: getIcon$1(niche.icon, "w-6 h-6")
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+									className: "relative z-10 flex-1",
+									children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
+										className: "font-bold text-foreground text-base md:text-lg leading-snug group-hover:text-primary transition-colors duration-300",
+										children: niche.title
+									})
+								})
+							]
+						}, niche.id);
+					})
+				})
 			})
-		})]
+		]
 	});
 };
 var Index_default = Index;
@@ -25412,6 +25496,285 @@ var Result = () => {
 	});
 };
 var Result_default = Result;
+var Input = import_react.forwardRef(({ className, type, ...props }, ref) => {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+		type,
+		className: cn("flex h-12 w-full rounded-xl border border-border bg-card px-4 py-2 text-sm text-foreground shadow-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:border-primary/50 disabled:cursor-not-allowed disabled:opacity-50 transition-all duration-200", className),
+		ref,
+		...props
+	});
+});
+Input.displayName = "Input";
+var Ensaio = () => {
+	const [image, setImage] = (0, import_react.useState)(null);
+	const [promptInput, setPromptInput] = (0, import_react.useState)("");
+	const [generatedJson, setGeneratedJson] = (0, import_react.useState)(null);
+	const [copied, setCopied] = (0, import_react.useState)(false);
+	const { toast: toast$2 } = useToast();
+	const fileInputRef = (0, import_react.useRef)(null);
+	const handleImageUpload = (e) => {
+		const file = e.target.files?.[0];
+		if (file) setImage(URL.createObjectURL(file));
+	};
+	const handleGenerate = () => {
+		const json = {
+			subject: promptInput || "professional photoshoot",
+			style: "professional photography",
+			quality: "8K ultra realistic",
+			reference_image: image ? "user_provided" : "none",
+			language: "en"
+		};
+		setGeneratedJson(JSON.stringify(json, null, 2));
+	};
+	const handleCopy = () => {
+		if (generatedJson) {
+			navigator.clipboard.writeText(generatedJson);
+			setCopied(true);
+			toast$2({
+				title: "Copied!",
+				description: "JSON has been copied to your clipboard.",
+				className: "bg-emerald-600 text-white border-none font-medium"
+			});
+			setTimeout(() => setCopied(false), 2e3);
+		}
+	};
+	const parsedJson = generatedJson ? JSON.parse(generatedJson) : null;
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		className: "animate-in fade-in slide-in-from-bottom-4 duration-500 p-6 md:p-12 flex flex-col gap-8 min-h-[calc(100vh-4rem)] max-w-3xl mx-auto w-full",
+		children: [
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "text-center space-y-4",
+				children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "inline-flex items-center justify-center p-4 bg-accent/10 rounded-2xl mb-2 border border-accent/20 shadow-[0_0_30px_-5px_rgba(8,145,178,0.25)]",
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Image, { className: "h-8 w-8 text-accent" })
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+						className: "text-3xl md:text-5xl font-extrabold text-foreground tracking-tight",
+						children: "Photo Shoot Tool"
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+						className: "text-muted-foreground text-sm md:text-base font-medium max-w-xl mx-auto",
+						children: "Upload reference images and generate precise prompt structures for professional photoshoots in JSON format."
+					})
+				]
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Card, {
+				className: "p-6 md:p-8 border-border bg-card shadow-2xl rounded-2xl space-y-8",
+				children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "space-y-4",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Label, {
+							className: "text-base font-bold text-foreground tracking-wide uppercase",
+							children: "1. Reference Image"
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							onClick: () => fileInputRef.current?.click(),
+							className: "border-2 border-dashed border-border hover:border-accent/50 bg-background/50 rounded-xl p-8 flex flex-col items-center justify-center text-center cursor-pointer transition-colors group",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+								type: "file",
+								ref: fileInputRef,
+								onChange: handleImageUpload,
+								accept: "image/*",
+								className: "hidden"
+							}), image ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+								className: "relative w-full flex justify-center",
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
+									src: image,
+									alt: "Reference Preview",
+									className: "max-h-64 object-contain rounded-lg border border-border shadow-md bg-black/20"
+								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+									className: "absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center rounded-lg backdrop-blur-sm",
+									children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+										className: "text-white font-bold flex items-center gap-2",
+										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Upload, { className: "w-5 h-5" }), " Change Image"]
+									})
+								})]
+							}) : /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+								className: "flex flex-col items-center gap-4 text-muted-foreground group-hover:text-accent transition-colors",
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+									className: "p-5 bg-secondary rounded-full border border-border group-hover:border-accent/30 shadow-sm",
+									children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Upload, { className: "w-8 h-8" })
+								}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+									className: "space-y-1",
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+										className: "font-bold text-foreground text-lg",
+										children: "Click to upload"
+									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+										className: "text-sm font-medium",
+										children: "SVG, PNG, JPG or GIF (max. 5MB)"
+									})]
+								})]
+							})]
+						})]
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "space-y-4",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Label, {
+							htmlFor: "promptIdea",
+							className: "text-base font-bold text-foreground tracking-wide uppercase",
+							children: "2. Prompt Idea"
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Input, {
+							id: "promptIdea",
+							placeholder: "ex: beach, Paris, studio...",
+							value: promptInput,
+							onChange: (e) => setPromptInput(e.target.value),
+							className: "h-14 text-base focus-visible:ring-accent focus-visible:border-accent"
+						})]
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Button, {
+						onClick: handleGenerate,
+						className: "w-full h-14 rounded-xl bg-accent hover:bg-accent/90 text-accent-foreground font-extrabold text-base tracking-wide shadow-[0_0_25px_-5px_rgba(8,145,178,0.4)] transition-all active:scale-[0.98]",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Sparkles, { className: "mr-2 h-5 w-5" }), "GENERATE PROMPT"]
+					})
+				]
+			}),
+			parsedJson && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Card, {
+				className: "overflow-hidden border border-border shadow-2xl bg-card rounded-2xl relative animate-in slide-in-from-top-4 fade-in duration-500",
+				children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-accent/50 to-transparent" }),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "flex items-center justify-between px-5 py-4 border-b border-border bg-background/50",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							className: "flex items-center gap-2.5 text-muted-foreground",
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+								className: "text-xs font-mono font-bold tracking-widest uppercase text-accent",
+								children: "output.json"
+							})
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Button, {
+							variant: "ghost",
+							size: "sm",
+							onClick: handleCopy,
+							className: "text-accent hover:text-accent hover:bg-accent/10 h-9 gap-2 px-4 rounded-lg border border-accent/20 transition-all active:scale-95",
+							children: [copied ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Check, { className: "h-4 w-4" }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Copy, { className: "h-4 w-4" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+								className: "text-xs font-bold",
+								children: copied ? "COPIED" : "COPY JSON"
+							})]
+						})]
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "p-6 md:p-8 overflow-x-auto bg-[#020617] hide-scrollbar",
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("pre", {
+							className: "font-mono text-sm md:text-base leading-relaxed text-slate-300",
+							children: [
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "text-cyan-400",
+									children: "{"
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "text-cyan-400",
+									children: " \"subject\""
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "text-slate-500",
+									children: ": "
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+									className: "text-primary",
+									children: [
+										"\"",
+										parsedJson.subject,
+										"\""
+									]
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "text-slate-500",
+									children: ","
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "text-cyan-400",
+									children: " \"style\""
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "text-slate-500",
+									children: ": "
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+									className: "text-primary",
+									children: [
+										"\"",
+										parsedJson.style,
+										"\""
+									]
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "text-slate-500",
+									children: ","
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "text-cyan-400",
+									children: " \"quality\""
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "text-slate-500",
+									children: ": "
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+									className: "text-primary",
+									children: [
+										"\"",
+										parsedJson.quality,
+										"\""
+									]
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "text-slate-500",
+									children: ","
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "text-cyan-400",
+									children: " \"reference_image\""
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "text-slate-500",
+									children: ": "
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+									className: "text-primary",
+									children: [
+										"\"",
+										parsedJson.reference_image,
+										"\""
+									]
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "text-slate-500",
+									children: ","
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "text-cyan-400",
+									children: " \"language\""
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "text-slate-500",
+									children: ": "
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+									className: "text-primary",
+									children: [
+										"\"",
+										parsedJson.language,
+										"\""
+									]
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "text-cyan-400",
+									children: "}"
+								})
+							]
+						})
+					})
+				]
+			})
+		]
+	});
+};
+var Ensaio_default = Ensaio;
 var NotFound = () => {
 	const location = useLocation();
 	(0, import_react.useEffect)(() => {
@@ -25442,16 +25805,15 @@ var NotFound = () => {
 var NotFound_default = NotFound;
 function Layout() {
 	const navigate = useNavigate();
-	const isHome = useLocation().pathname === "/";
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 		className: "min-h-screen bg-background flex justify-center w-full font-sans text-foreground",
 		children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("main", {
 			className: "w-full max-w-6xl bg-background min-h-screen relative flex flex-col overflow-hidden shadow-2xl",
-			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("header", {
-				className: "sticky top-0 z-50 bg-background/95 backdrop-blur-md border-b border-border/40 px-4 h-16 flex items-center shrink-0 transition-all",
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "flex items-center w-full",
-					children: [!isHome && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Button, {
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("header", {
+				className: "sticky top-0 z-50 bg-background/95 backdrop-blur-md border-b border-border/40 px-4 h-16 flex items-center shrink-0 transition-all justify-between",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "flex items-center flex-1",
+					children: [!(useLocation().pathname === "/") && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Button, {
 						variant: "ghost",
 						size: "icon",
 						onClick: () => navigate(-1),
@@ -25460,8 +25822,9 @@ function Layout() {
 							className: "sr-only",
 							children: "Voltar"
 						})]
-					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: `flex items-center gap-3 ${isHome ? "mx-auto" : ""}`,
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Link, {
+						to: "/",
+						className: "flex items-center gap-3 hover:opacity-80 transition-opacity",
 						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 							className: "bg-primary w-8 h-8 rounded-[10px] flex items-center justify-center shadow-[0_0_15px_-3px_rgba(255,193,7,0.4)]",
 							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Terminal, {
@@ -25473,7 +25836,21 @@ function Layout() {
 							children: "PROMPT MASTER"
 						})]
 					})]
-				})
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					className: "flex items-center justify-end",
+					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Link, {
+						to: "/ensaio",
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Button, {
+							variant: "ghost",
+							size: "sm",
+							className: "text-accent hover:text-accent hover:bg-accent/10 border border-transparent hover:border-accent/20 transition-all",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Camera, { className: "w-4 h-4 sm:mr-2" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+								className: "hidden sm:inline font-bold tracking-wide",
+								children: "Ensaio Tool"
+							})]
+						})
+					})
+				})]
 			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 				className: "flex-1 overflow-y-auto overflow-x-hidden relative",
 				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Outlet, {})
@@ -25503,6 +25880,10 @@ var App = () => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(BrowserRouter, {
 				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
 					path: "/result",
 					element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Result_default, {})
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
+					path: "/ensaio",
+					element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Ensaio_default, {})
 				})
 			]
 		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
@@ -25514,4 +25895,4 @@ var App = () => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(BrowserRouter, {
 var App_default = App;
 (0, import_client.createRoot)(document.getElementById("root")).render(/* @__PURE__ */ (0, import_jsx_runtime.jsx)(App_default, {}));
 
-//# sourceMappingURL=index-DO2DKwSZ.js.map
+//# sourceMappingURL=index-YofvhwAN.js.map

@@ -1,5 +1,5 @@
-import { Outlet, useNavigate, useLocation } from 'react-router-dom'
-import { ChevronLeft, Terminal } from 'lucide-react'
+import { Outlet, useNavigate, useLocation, Link } from 'react-router-dom'
+import { ChevronLeft, Terminal, Camera } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
 export default function Layout() {
@@ -11,9 +11,9 @@ export default function Layout() {
     <div className="min-h-screen bg-background flex justify-center w-full font-sans text-foreground">
       {/* Mobile & Desktop App Container Wrapper */}
       <main className="w-full max-w-6xl bg-background min-h-screen relative flex flex-col overflow-hidden shadow-2xl">
-        {/* Header */}
-        <header className="sticky top-0 z-50 bg-background/95 backdrop-blur-md border-b border-border/40 px-4 h-16 flex items-center shrink-0 transition-all">
-          <div className="flex items-center w-full">
+        {/* Header - Fixed navigation bar */}
+        <header className="sticky top-0 z-50 bg-background/95 backdrop-blur-md border-b border-border/40 px-4 h-16 flex items-center shrink-0 transition-all justify-between">
+          <div className="flex items-center flex-1">
             {!isHome && (
               <Button
                 variant="ghost"
@@ -26,8 +26,9 @@ export default function Layout() {
               </Button>
             )}
 
-            <div
-              className={`flex items-center gap-3 ${isHome ? 'mx-auto' : ''}`}
+            <Link
+              to="/"
+              className="flex items-center gap-3 hover:opacity-80 transition-opacity"
             >
               <div className="bg-primary w-8 h-8 rounded-[10px] flex items-center justify-center shadow-[0_0_15px_-3px_rgba(255,193,7,0.4)]">
                 <Terminal
@@ -38,7 +39,22 @@ export default function Layout() {
               <h1 className="text-base sm:text-lg font-extrabold text-white tracking-widest uppercase mt-0.5">
                 PROMPT MASTER
               </h1>
-            </div>
+            </Link>
+          </div>
+
+          <div className="flex items-center justify-end">
+            <Link to="/ensaio">
+              <Button
+                variant="ghost"
+                size="sm"
+                className="text-accent hover:text-accent hover:bg-accent/10 border border-transparent hover:border-accent/20 transition-all"
+              >
+                <Camera className="w-4 h-4 sm:mr-2" />
+                <span className="hidden sm:inline font-bold tracking-wide">
+                  Ensaio Tool
+                </span>
+              </Button>
+            </Link>
           </div>
         </header>
 

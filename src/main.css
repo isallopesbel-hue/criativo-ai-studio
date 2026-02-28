@@ -6,23 +6,23 @@
 
 @layer base {
   :root {
-    --background: 222 47% 4%; /* Deep Charcoal / almost black blue */
-    --foreground: 210 40% 98%; /* Off-white */
-    --card: 222 47% 7%; /* Slightly lighter than background */
+    --background: 222 47% 4%;
+    --foreground: 210 40% 98%;
+    --card: 222 47% 7%;
     --card-foreground: 210 40% 98%;
     --popover: 222 47% 7%;
     --popover-foreground: 210 40% 98%;
-    --primary: 45 100% 51%; /* Vibrant Yellow #FFC107 */
+    --primary: 45 100% 51%;
     --primary-foreground: 222 47% 4%;
-    --secondary: 217 32% 12%; /* Slate 800-ish */
+    --secondary: 217 32% 12%;
     --secondary-foreground: 210 40% 98%;
     --muted: 217 32% 14%;
-    --muted-foreground: 215 20% 65%; /* Slate 400 */
-    --accent: 193 93% 48%; /* Cyan */
+    --muted-foreground: 215 20% 65%;
+    --accent: 193 93% 48%;
     --accent-foreground: 222 47% 11%;
     --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
-    --border: 217 32% 18%; /* Slate 800 */
+    --border: 217 32% 18%;
     --input: 217 32% 18%;
     --ring: 45 100% 51%;
     --radius: 1rem;
