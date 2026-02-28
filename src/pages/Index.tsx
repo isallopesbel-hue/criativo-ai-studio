@@ -17,6 +17,7 @@ import {
   Sparkles,
   Camera,
   ArrowRight,
+  Wand2,
 } from 'lucide-react'
 
 const getIcon = (iconName: string, className?: string) => {
@@ -72,8 +73,34 @@ const Index = () => {
         </p>
       </section>
 
-      {/* Special Tool Banner */}
-      <section className="w-full max-w-5xl mx-auto">
+      {/* Special Tools Banners */}
+      <section className="w-full max-w-5xl mx-auto space-y-6">
+        <Link
+          to="/transform"
+          className="block relative overflow-hidden rounded-2xl border border-[#FFC107]/40 bg-card p-6 md:p-8 group hover:-translate-y-1 transition-all duration-300 hover:shadow-[0_10px_40px_-10px_rgba(255,193,7,0.3)]"
+        >
+          <div className="absolute inset-0 bg-gradient-to-r from-[#FFC107]/10 to-transparent" />
+          <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
+            <div className="flex items-center gap-5 md:gap-6">
+              <div className="p-4 rounded-xl bg-[#FFC107]/20 text-[#FFC107] border border-[#FFC107]/30 group-hover:bg-[#FFC107]/30 transition-colors">
+                <Wand2 className="w-8 h-8 md:w-10 md:h-10" />
+              </div>
+              <div>
+                <h3 className="text-xl md:text-2xl font-extrabold text-foreground group-hover:text-[#FFC107] transition-colors">
+                  Cinematic Transformation Tool
+                </h3>
+                <p className="text-muted-foreground mt-1 text-sm md:text-base font-medium">
+                  Transforme sua aparência em um personagem com um prompt IA 8K
+                  profissional em JSON.
+                </p>
+              </div>
+            </div>
+            <div className="inline-flex bg-[#FFC107] text-black px-6 py-3 rounded-xl font-bold items-center justify-center gap-2 group-hover:bg-[#FFC107]/90 transition-colors w-full md:w-auto">
+              Acessar Ferramenta <ArrowRight className="w-4 h-4" />
+            </div>
+          </div>
+        </Link>
+
         <Link
           to="/ensaio"
           className="block relative overflow-hidden rounded-2xl border border-accent/40 bg-card p-6 md:p-8 group hover:-translate-y-1 transition-all duration-300 hover:shadow-[0_10px_40px_-10px_rgba(8,145,178,0.3)]"

@@ -6,6 +6,7 @@ import Index from './pages/Index'
 import Options from './pages/Options'
 import Result from './pages/Result'
 import Ensaio from './pages/Ensaio'
+import Transform from './pages/Transform'
 import NotFound from './pages/NotFound'
 import Layout from './components/Layout'
 import { PromptProvider } from './stores/usePromptStore'
@@ -24,6 +25,7 @@ const App = () => (
             <Route path="/options/:nicheId" element={<Options />} />
             <Route path="/result" element={<Result />} />
             <Route path="/ensaio" element={<Ensaio />} />
+            <Route path="/transform" element={<Transform />} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>

@@ -1,5 +1,5 @@
 import { Outlet, useNavigate, useLocation, Link } from 'react-router-dom'
-import { ChevronLeft, Terminal, Camera } from 'lucide-react'
+import { ChevronLeft, Terminal, Camera, Wand2 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
 export default function Layout() {
@@ -42,16 +42,28 @@ export default function Layout() {
             </Link>
           </div>
 
-          <div className="flex items-center justify-end">
+          <div className="flex items-center justify-end gap-1 sm:gap-2">
+            <Link to="/transform">
+              <Button
+                variant="ghost"
+                size="sm"
+                className="text-[#FFC107] hover:text-[#FFC107] hover:bg-[#FFC107]/10 border border-transparent hover:border-[#FFC107]/20 transition-all px-2 sm:px-3"
+              >
+                <Wand2 className="w-4 h-4 sm:mr-2" />
+                <span className="hidden sm:inline font-bold tracking-wide">
+                  Transform
+                </span>
+              </Button>
+            </Link>
             <Link to="/ensaio">
               <Button
                 variant="ghost"
                 size="sm"
-                className="text-accent hover:text-accent hover:bg-accent/10 border border-transparent hover:border-accent/20 transition-all"
+                className="text-accent hover:text-accent hover:bg-accent/10 border border-transparent hover:border-accent/20 transition-all px-2 sm:px-3"
               >
                 <Camera className="w-4 h-4 sm:mr-2" />
                 <span className="hidden sm:inline font-bold tracking-wide">
-                  Ensaio Tool
+                  Ensaio
                 </span>
               </Button>
             </Link>

@@ -19290,6 +19290,15 @@ var Upload = createLucideIcon("upload", [
 		key: "ih7n3h"
 	}]
 ]);
+var User = createLucideIcon("user", [["path", {
+	d: "M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2",
+	key: "975kel"
+}], ["circle", {
+	cx: "12",
+	cy: "7",
+	r: "4",
+	key: "17ys0d"
+}]]);
 var Users = createLucideIcon("users", [
 	["path", {
 		d: "M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2",
@@ -19308,6 +19317,40 @@ var Users = createLucideIcon("users", [
 		cy: "7",
 		r: "4",
 		key: "nufk8"
+	}]
+]);
+var WandSparkles = createLucideIcon("wand-sparkles", [
+	["path", {
+		d: "m21.64 3.64-1.28-1.28a1.21 1.21 0 0 0-1.72 0L2.36 18.64a1.21 1.21 0 0 0 0 1.72l1.28 1.28a1.2 1.2 0 0 0 1.72 0L21.64 5.36a1.2 1.2 0 0 0 0-1.72",
+		key: "ul74o6"
+	}],
+	["path", {
+		d: "m14 7 3 3",
+		key: "1r5n42"
+	}],
+	["path", {
+		d: "M5 6v4",
+		key: "ilb8ba"
+	}],
+	["path", {
+		d: "M19 14v4",
+		key: "blhpug"
+	}],
+	["path", {
+		d: "M10 2v2",
+		key: "7u0qdc"
+	}],
+	["path", {
+		d: "M7 8H3",
+		key: "zfb6yr"
+	}],
+	["path", {
+		d: "M21 16h-4",
+		key: "1cnmox"
+	}],
+	["path", {
+		d: "M11 3H9",
+		key: "1obp7u"
 	}]
 ]);
 var X = createLucideIcon("x", [["path", {
@@ -24281,9 +24324,31 @@ var Index = () => {
 					})
 				]
 			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("section", {
-				className: "w-full max-w-5xl mx-auto",
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Link, {
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
+				className: "w-full max-w-5xl mx-auto space-y-6",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Link, {
+					to: "/transform",
+					className: "block relative overflow-hidden rounded-2xl border border-[#FFC107]/40 bg-card p-6 md:p-8 group hover:-translate-y-1 transition-all duration-300 hover:shadow-[0_10px_40px_-10px_rgba(255,193,7,0.3)]",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute inset-0 bg-gradient-to-r from-[#FFC107]/10 to-transparent" }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							className: "flex items-center gap-5 md:gap-6",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+								className: "p-4 rounded-xl bg-[#FFC107]/20 text-[#FFC107] border border-[#FFC107]/30 group-hover:bg-[#FFC107]/30 transition-colors",
+								children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(WandSparkles, { className: "w-8 h-8 md:w-10 md:h-10" })
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
+								className: "text-xl md:text-2xl font-extrabold text-foreground group-hover:text-[#FFC107] transition-colors",
+								children: "Cinematic Transformation Tool"
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+								className: "text-muted-foreground mt-1 text-sm md:text-base font-medium",
+								children: "Transforme sua aparência em um personagem com um prompt IA 8K profissional em JSON."
+							})] })]
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							className: "inline-flex bg-[#FFC107] text-black px-6 py-3 rounded-xl font-bold items-center justify-center gap-2 group-hover:bg-[#FFC107]/90 transition-colors w-full md:w-auto",
+							children: ["Acessar Ferramenta ", /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowRight, { className: "w-4 h-4" })]
+						})]
+					})]
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Link, {
 					to: "/ensaio",
 					className: "block relative overflow-hidden rounded-2xl border border-accent/40 bg-card p-6 md:p-8 group hover:-translate-y-1 transition-all duration-300 hover:shadow-[0_10px_40px_-10px_rgba(8,145,178,0.3)]",
 					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute inset-0 bg-gradient-to-r from-accent/10 to-transparent" }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
@@ -24305,7 +24370,7 @@ var Index = () => {
 							children: ["Acessar Ferramenta ", /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowRight, { className: "w-4 h-4" })]
 						})]
 					})]
-				})
+				})]
 			}),
 			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("section", {
 				className: "w-full max-w-5xl mx-auto pb-16",
@@ -25775,6 +25840,317 @@ var Ensaio = () => {
 	});
 };
 var Ensaio_default = Ensaio;
+var Transform = () => {
+	const [referenceImage, setReferenceImage] = (0, import_react.useState)(null);
+	const [userImage, setUserImage] = (0, import_react.useState)(null);
+	const [generatedJson, setGeneratedJson] = (0, import_react.useState)(null);
+	const [copied, setCopied] = (0, import_react.useState)(false);
+	const { toast: toast$2 } = useToast();
+	const referenceInputRef = (0, import_react.useRef)(null);
+	const userInputRef = (0, import_react.useRef)(null);
+	const handleReferenceUpload = (e) => {
+		const file = e.target.files?.[0];
+		if (file) setReferenceImage(URL.createObjectURL(file));
+	};
+	const handleUserUpload = (e) => {
+		const file = e.target.files?.[0];
+		if (file) setUserImage(URL.createObjectURL(file));
+	};
+	const handleGenerate = () => {
+		if (!referenceImage || !userImage) {
+			toast$2({
+				title: "Missing Images",
+				description: "Please upload both a reference image and your photo.",
+				variant: "destructive"
+			});
+			return;
+		}
+		setGeneratedJson(JSON.stringify({
+			task: "character_transformation",
+			reference_style: "user_uploaded_reference",
+			subject: "user_uploaded_photo",
+			quality: "8K ultra realistic, cinematic quality, high-end cinematography",
+			lighting: "cinematic",
+			output_format: "professional_photography"
+		}, null, 2));
+	};
+	const handleCopy = () => {
+		if (generatedJson) {
+			navigator.clipboard.writeText(generatedJson);
+			setCopied(true);
+			toast$2({
+				title: "Copied!",
+				description: "JSON has been copied to your clipboard.",
+				className: "bg-emerald-600 text-white border-none font-medium"
+			});
+			setTimeout(() => setCopied(false), 2e3);
+		}
+	};
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		className: "animate-in fade-in slide-in-from-bottom-4 duration-500 p-6 md:p-12 flex flex-col gap-8 min-h-[calc(100vh-4rem)] max-w-4xl mx-auto w-full",
+		children: [
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "text-center space-y-4",
+				children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "inline-flex items-center justify-center p-4 bg-[#FFC107]/10 rounded-2xl mb-2 border border-[#FFC107]/20 shadow-[0_0_30px_-5px_rgba(255,193,7,0.25)]",
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(WandSparkles, { className: "h-8 w-8 text-[#FFC107]" })
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+						className: "text-3xl md:text-5xl font-extrabold text-foreground tracking-tight",
+						children: "Cinematic Transformation"
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+						className: "text-muted-foreground text-sm md:text-base font-medium max-w-xl mx-auto",
+						children: "Upload a reference character or outfit and your photo to generate a professional 8K AI prompt in JSON format."
+					})
+				]
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Card, {
+				className: "p-6 md:p-8 border-border bg-card shadow-2xl rounded-2xl space-y-8",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "grid grid-cols-1 md:grid-cols-2 gap-8",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "space-y-4",
+						children: [
+							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Label, {
+								className: "text-base font-bold text-foreground tracking-wide flex items-center gap-2",
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Image, { className: "w-5 h-5 text-[#FFC107]" }), "1. Reference Image"]
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+								className: "text-xs text-muted-foreground",
+								children: "Target outfit, style, or character"
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+								onClick: () => referenceInputRef.current?.click(),
+								className: "border-2 border-dashed border-border hover:border-[#FFC107]/50 bg-background/50 rounded-xl p-6 flex flex-col items-center justify-center text-center cursor-pointer transition-colors group min-h-[250px]",
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+									type: "file",
+									ref: referenceInputRef,
+									onChange: handleReferenceUpload,
+									accept: "image/*",
+									className: "hidden"
+								}), referenceImage ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+									className: "relative w-full h-full flex justify-center items-center",
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
+										src: referenceImage,
+										alt: "Reference Preview",
+										className: "max-h-48 object-contain rounded-lg shadow-md"
+									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+										className: "absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center rounded-lg backdrop-blur-sm",
+										children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+											className: "text-white font-bold flex items-center gap-2",
+											children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Upload, { className: "w-5 h-5" }), " Change"]
+										})
+									})]
+								}) : /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+									className: "flex flex-col items-center gap-3 text-muted-foreground group-hover:text-[#FFC107] transition-colors",
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+										className: "p-4 bg-secondary rounded-full border border-border group-hover:border-[#FFC107]/30 shadow-sm",
+										children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Upload, { className: "w-6 h-6" })
+									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+										className: "font-bold",
+										children: "Upload Reference"
+									})]
+								})]
+							})
+						]
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "space-y-4",
+						children: [
+							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Label, {
+								className: "text-base font-bold text-foreground tracking-wide flex items-center gap-2",
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(User, { className: "w-5 h-5 text-[#FFC107]" }), "2. Your Photo"]
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+								className: "text-xs text-muted-foreground",
+								children: "The person to be transformed"
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+								onClick: () => userInputRef.current?.click(),
+								className: "border-2 border-dashed border-border hover:border-[#FFC107]/50 bg-background/50 rounded-xl p-6 flex flex-col items-center justify-center text-center cursor-pointer transition-colors group min-h-[250px]",
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+									type: "file",
+									ref: userInputRef,
+									onChange: handleUserUpload,
+									accept: "image/*",
+									className: "hidden"
+								}), userImage ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+									className: "relative w-full h-full flex justify-center items-center",
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
+										src: userImage,
+										alt: "User Preview",
+										className: "max-h-48 object-contain rounded-lg shadow-md"
+									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+										className: "absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center rounded-lg backdrop-blur-sm",
+										children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+											className: "text-white font-bold flex items-center gap-2",
+											children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Upload, { className: "w-5 h-5" }), " Change"]
+										})
+									})]
+								}) : /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+									className: "flex flex-col items-center gap-3 text-muted-foreground group-hover:text-[#FFC107] transition-colors",
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+										className: "p-4 bg-secondary rounded-full border border-border group-hover:border-[#FFC107]/30 shadow-sm",
+										children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Upload, { className: "w-6 h-6" })
+									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+										className: "font-bold",
+										children: "Upload Photo"
+									})]
+								})]
+							})
+						]
+					})]
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Button, {
+					onClick: handleGenerate,
+					className: "w-full h-14 rounded-xl bg-[#FFC107] hover:bg-[#FFC107]/90 text-black font-extrabold text-base tracking-wide shadow-[0_0_25px_-5px_rgba(255,193,7,0.4)] transition-all active:scale-[0.98]",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Sparkles, { className: "mr-2 h-5 w-5 text-black" }), "GENERATE CINEMATIC PROMPT"]
+				})]
+			}),
+			generatedJson && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Card, {
+				className: "overflow-hidden border border-border shadow-2xl bg-card rounded-2xl relative animate-in slide-in-from-top-4 fade-in duration-500",
+				children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-[#FFC107]/50 to-transparent" }),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "flex items-center justify-between px-5 py-4 border-b border-border bg-background/50",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							className: "flex items-center gap-2.5 text-muted-foreground",
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+								className: "text-xs font-mono font-bold tracking-widest uppercase text-[#FFC107]",
+								children: "transformation.json"
+							})
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Button, {
+							variant: "ghost",
+							size: "sm",
+							onClick: handleCopy,
+							className: "text-[#FFC107] hover:text-[#FFC107] hover:bg-[#FFC107]/10 h-9 gap-2 px-4 rounded-lg border border-[#FFC107]/20 transition-all active:scale-95",
+							children: [copied ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Check, { className: "h-4 w-4" }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Copy, { className: "h-4 w-4" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+								className: "text-xs font-bold",
+								children: copied ? "COPIED" : "COPY JSON"
+							})]
+						})]
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "p-6 md:p-8 overflow-x-auto bg-[#020617] hide-scrollbar",
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("pre", {
+							className: "font-mono text-sm md:text-base leading-relaxed text-slate-300",
+							children: [
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "text-cyan-400",
+									children: "{"
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "text-cyan-400",
+									children: " \"task\""
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "text-slate-500",
+									children: ": "
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "text-emerald-400",
+									children: "\"character_transformation\""
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "text-slate-500",
+									children: ","
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "text-cyan-400",
+									children: " \"reference_style\""
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "text-slate-500",
+									children: ": "
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "text-emerald-400",
+									children: "\"user_uploaded_reference\""
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "text-slate-500",
+									children: ","
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "text-cyan-400",
+									children: " \"subject\""
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "text-slate-500",
+									children: ": "
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "text-emerald-400",
+									children: "\"user_uploaded_photo\""
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "text-slate-500",
+									children: ","
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "text-cyan-400",
+									children: " \"quality\""
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "text-slate-500",
+									children: ": "
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "text-emerald-400",
+									children: "\"8K ultra realistic, cinematic quality, high-end cinematography\""
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "text-slate-500",
+									children: ","
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "text-cyan-400",
+									children: " \"lighting\""
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "text-slate-500",
+									children: ": "
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "text-emerald-400",
+									children: "\"cinematic\""
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "text-slate-500",
+									children: ","
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "text-cyan-400",
+									children: " \"output_format\""
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "text-slate-500",
+									children: ": "
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "text-emerald-400",
+									children: "\"professional_photography\""
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "text-cyan-400",
+									children: "}"
+								})
+							]
+						})
+					})
+				]
+			})
+		]
+	});
+};
+var Transform_default = Transform;
 var NotFound = () => {
 	const location = useLocation();
 	(0, import_react.useEffect)(() => {
@@ -25836,20 +26212,31 @@ function Layout() {
 							children: "PROMPT MASTER"
 						})]
 					})]
-				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-					className: "flex items-center justify-end",
-					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Link, {
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "flex items-center justify-end gap-1 sm:gap-2",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Link, {
+						to: "/transform",
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Button, {
+							variant: "ghost",
+							size: "sm",
+							className: "text-[#FFC107] hover:text-[#FFC107] hover:bg-[#FFC107]/10 border border-transparent hover:border-[#FFC107]/20 transition-all px-2 sm:px-3",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(WandSparkles, { className: "w-4 h-4 sm:mr-2" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+								className: "hidden sm:inline font-bold tracking-wide",
+								children: "Transform"
+							})]
+						})
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Link, {
 						to: "/ensaio",
 						children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Button, {
 							variant: "ghost",
 							size: "sm",
-							className: "text-accent hover:text-accent hover:bg-accent/10 border border-transparent hover:border-accent/20 transition-all",
+							className: "text-accent hover:text-accent hover:bg-accent/10 border border-transparent hover:border-accent/20 transition-all px-2 sm:px-3",
 							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Camera, { className: "w-4 h-4 sm:mr-2" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
 								className: "hidden sm:inline font-bold tracking-wide",
-								children: "Ensaio Tool"
+								children: "Ensaio"
 							})]
 						})
-					})
+					})]
 				})]
 			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 				className: "flex-1 overflow-y-auto overflow-x-hidden relative",
@@ -25884,6 +26271,10 @@ var App = () => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(BrowserRouter, {
 				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
 					path: "/ensaio",
 					element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Ensaio_default, {})
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
+					path: "/transform",
+					element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Transform_default, {})
 				})
 			]
 		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
@@ -25895,4 +26286,4 @@ var App = () => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(BrowserRouter, {
 var App_default = App;
 (0, import_client.createRoot)(document.getElementById("root")).render(/* @__PURE__ */ (0, import_jsx_runtime.jsx)(App_default, {}));
 
-//# sourceMappingURL=index-YofvhwAN.js.map
+//# sourceMappingURL=index-DpDB-BvU.js.map
