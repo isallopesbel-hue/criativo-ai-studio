@@ -789,6 +789,10 @@ section[aria-label='Notifications alt+T'] {
   margin-bottom: 0.5rem;
 }
 
+.mb-3{
+  margin-bottom: 0.75rem;
+}
+
 .mb-4{
   margin-bottom: 1rem;
 }
@@ -835,6 +839,10 @@ section[aria-label='Notifications alt+T'] {
 
 .mt-24{
   margin-top: 6rem;
+}
+
+.mt-3{
+  margin-top: 0.75rem;
 }
 
 .mt-4{
@@ -1025,6 +1033,10 @@ section[aria-label='Notifications alt+T'] {
 
 .min-h-\[100px\]{
   min-height: 100px;
+}
+
+.min-h-\[120px\]{
+  min-height: 120px;
 }
 
 .min-h-\[250px\]{
@@ -1689,6 +1701,11 @@ section[aria-label='Notifications alt+T'] {
   border-style: none;
 }
 
+.border-\[\#FFC107\]{
+  --tw-border-opacity: 1;
+  border-color: rgb(255 193 7 / var(--tw-border-opacity, 1));
+}
+
 .border-\[\#FFC107\]\/20{
   border-color: rgb(255 193 7 / 0.2);
 }
@@ -1773,10 +1790,6 @@ section[aria-label='Notifications alt+T'] {
   border-color: hsl(var(--primary) / 0.2);
 }
 
-.border-primary\/30{
-  border-color: hsl(var(--primary) / 0.3);
-}
-
 .border-purple-400\/20{
   border-color: rgb(192 132 252 / 0.2);
 }
@@ -1820,6 +1833,10 @@ section[aria-label='Notifications alt+T'] {
   background-color: rgb(255 193 7 / 0.2);
 }
 
+.bg-\[\#FFC107\]\/5{
+  background-color: rgb(255 193 7 / 0.05);
+}
+
 .bg-\[--color-bg\]{
   background-color: var(--color-bg);
 }
@@ -1848,8 +1865,8 @@ section[aria-label='Notifications alt+T'] {
   background-color: hsl(var(--background) / 0.5);
 }
 
-.bg-background\/80{
-  background-color: hsl(var(--background) / 0.8);
+.bg-background\/95{
+  background-color: hsl(var(--background) / 0.95);
 }
 
 .bg-black\/20{
@@ -1936,16 +1953,8 @@ section[aria-label='Notifications alt+T'] {
   background-color: hsl(var(--primary) / 0.1);
 }
 
-.bg-primary\/20{
-  background-color: hsl(var(--primary) / 0.2);
-}
-
 .bg-primary\/40{
   background-color: hsl(var(--primary) / 0.4);
-}
-
-.bg-primary\/5{
-  background-color: hsl(var(--primary) / 0.05);
 }
 
 .bg-purple-400\/10{
@@ -1995,12 +2004,6 @@ section[aria-label='Notifications alt+T'] {
 
 .from-primary{
   --tw-gradient-from: hsl(var(--primary)) var(--tw-gradient-from-position);
-  --tw-gradient-to: hsl(var(--primary) / 0) var(--tw-gradient-to-position);
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-}
-
-.from-primary\/10{
-  --tw-gradient-from: hsl(var(--primary) / 0.1) var(--tw-gradient-from-position);
   --tw-gradient-to: hsl(var(--primary) / 0) var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
@@ -2556,6 +2559,12 @@ section[aria-label='Notifications alt+T'] {
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
+.shadow-\[0_0_20px_-5px_rgba\(255\2c 193\2c 7\2c 0\.3\)\]{
+  --tw-shadow: 0 0 20px -5px rgba(255,193,7,0.3);
+  --tw-shadow-colored: 0 0 20px -5px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
 .shadow-\[0_0_25px_-5px_rgba\(255\2c 193\2c 7\2c 0\.4\)\]{
   --tw-shadow: 0 0 25px -5px rgba(255,193,7,0.4);
   --tw-shadow-colored: 0 0 25px -5px var(--tw-shadow-color);
@@ -2667,6 +2676,11 @@ section[aria-label='Notifications alt+T'] {
 
 .ring-offset-background{
   --tw-ring-offset-color: hsl(var(--background));
+}
+
+.blur{
+  --tw-blur: blur(8px);
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
 .blur-xl{
@@ -2824,6 +2838,10 @@ section[aria-label='Notifications alt+T'] {
   --tw-enter-translate-y: 1rem;
 }
 
+.slide-in-from-top-2{
+  --tw-enter-translate-y: -0.5rem;
+}
+
 .slide-in-from-top-4{
   --tw-enter-translate-y: -1rem;
 }
@@ -2862,6 +2880,10 @@ section[aria-label='Notifications alt+T'] {
 
 .ease-linear{
   animation-timing-function: linear;
+}
+
+.running{
+  animation-play-state: running;
 }
 
 .hide-scrollbar::-webkit-scrollbar {
@@ -2962,6 +2984,10 @@ section[aria-label='Notifications alt+T'] {
   border-color: rgb(255 193 7 / 0.2);
 }
 
+.hover\:border-\[\#FFC107\]\/40:hover{
+  border-color: rgb(255 193 7 / 0.4);
+}
+
 .hover\:border-\[\#FFC107\]\/50:hover{
   border-color: rgb(255 193 7 / 0.5);
 }
@@ -2972,10 +2998,6 @@ section[aria-label='Notifications alt+T'] {
 
 .hover\:border-accent\/50:hover{
   border-color: hsl(var(--accent) / 0.5);
-}
-
-.hover\:border-primary\/40:hover{
-  border-color: hsl(var(--primary) / 0.4);
 }
 
 .hover\:border-primary\/50:hover{
@@ -3193,12 +3215,12 @@ section[aria-label='Notifications alt+T'] {
   box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
 }
 
-.focus-visible\:ring-accent:focus-visible{
-  --tw-ring-color: hsl(var(--accent));
+.focus-visible\:ring-\[\#FFC107\]\/50:focus-visible{
+  --tw-ring-color: rgb(255 193 7 / 0.5);
 }
 
-.focus-visible\:ring-primary\/40:focus-visible{
-  --tw-ring-color: hsl(var(--primary) / 0.4);
+.focus-visible\:ring-accent:focus-visible{
+  --tw-ring-color: hsl(var(--accent));
 }
 
 .focus-visible\:ring-primary\/50:focus-visible{
@@ -3251,8 +3273,9 @@ section[aria-label='Notifications alt+T'] {
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
-.disabled\:hover\:bg-primary:hover:disabled{
-  background-color: hsl(var(--primary));
+.disabled\:hover\:bg-\[\#FFC107\]:hover:disabled{
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 193 7 / var(--tw-bg-opacity, 1));
 }
 
 .group\/menu-item:focus-within .group-focus-within\/menu-item\:opacity-100{
@@ -3261,6 +3284,10 @@ section[aria-label='Notifications alt+T'] {
 
 .group:hover .group-hover\:border-\[\#FFC107\]\/30{
   border-color: rgb(255 193 7 / 0.3);
+}
+
+.group:hover .group-hover\:border-\[\#FFC107\]\/40{
+  border-color: rgb(255 193 7 / 0.4);
 }
 
 .group:hover .group-hover\:border-accent\/30{
@@ -3281,10 +3308,6 @@ section[aria-label='Notifications alt+T'] {
 
 .group:hover .group-hover\:border-emerald-400\/40{
   border-color: rgb(52 211 153 / 0.4);
-}
-
-.group:hover .group-hover\:border-primary\/40{
-  border-color: hsl(var(--primary) / 0.4);
 }
 
 .group:hover .group-hover\:border-purple-400\/40{
@@ -3340,6 +3363,10 @@ section[aria-label='Notifications alt+T'] {
   color: rgb(255 193 7 / var(--tw-text-opacity, 1));
 }
 
+.group:hover .group-hover\:text-\[\#FFC107\]\/70{
+  color: rgb(255 193 7 / 0.7);
+}
+
 .group:hover .group-hover\:text-accent{
   color: hsl(var(--accent));
 }
@@ -3350,10 +3377,6 @@ section[aria-label='Notifications alt+T'] {
 
 .group:hover .group-hover\:text-primary{
   color: hsl(var(--primary));
-}
-
-.group:hover .group-hover\:text-primary\/70{
-  color: hsl(var(--primary) / 0.7);
 }
 
 .group\/menu-item:hover .group-hover\/menu-item\:opacity-100{

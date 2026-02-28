@@ -30,6 +30,7 @@ import {
   MessageSquareQuote,
   Mars,
   Venus,
+  PenTool,
 } from 'lucide-react'
 
 const getIcon = (iconName: string, className?: string) => {
@@ -51,7 +52,6 @@ const getIcon = (iconName: string, className?: string) => {
   return <Icon className={className} />
 }
 
-// Reusable Radio Option Component to keep code DRY
 const RadioOption = ({
   value,
   label,
@@ -64,19 +64,19 @@ const RadioOption = ({
     <Label
       className={`relative flex items-center gap-4 p-4 md:p-5 rounded-2xl border cursor-pointer transition-all duration-300 overflow-hidden group ${
         isSelected
-          ? 'border-primary bg-primary/10 shadow-[0_0_20px_-5px_rgba(255,193,7,0.2)]'
-          : 'border-border bg-card hover:bg-secondary/80 hover:border-primary/40 hover:shadow-lg'
+          ? 'border-[#FFC107] bg-[#FFC107]/10 shadow-[0_0_20px_-5px_rgba(255,193,7,0.2)]'
+          : 'border-border bg-card hover:bg-secondary/80 hover:border-[#FFC107]/40 hover:shadow-lg'
       }`}
     >
       {isSelected && (
-        <div className="absolute -inset-2 bg-gradient-to-r from-primary/10 to-transparent blur-xl" />
+        <div className="absolute -inset-2 bg-gradient-to-r from-[#FFC107]/10 to-transparent blur-xl" />
       )}
 
       <div
         className={`relative z-10 flex items-center justify-center w-6 h-6 shrink-0 rounded-full border ${
           isSelected
-            ? 'border-primary text-primary'
-            : 'border-muted-foreground/40 bg-background group-hover:border-primary/40'
+            ? 'border-[#FFC107] text-[#FFC107]'
+            : 'border-muted-foreground/40 bg-background group-hover:border-[#FFC107]/40'
         }`}
       >
         {isSelected && (
@@ -89,8 +89,8 @@ const RadioOption = ({
           <Icon
             className={`w-6 h-6 ${
               isSelected
-                ? 'text-primary'
-                : 'text-muted-foreground group-hover:text-primary/70'
+                ? 'text-[#FFC107]'
+                : 'text-muted-foreground group-hover:text-[#FFC107]/70'
             }`}
           />
         </div>
@@ -100,7 +100,7 @@ const RadioOption = ({
         <span
           className={`font-semibold text-sm md:text-base leading-snug block ${
             isSelected
-              ? 'text-primary'
+              ? 'text-[#FFC107]'
               : 'text-foreground group-hover:text-foreground/90'
           }`}
         >
@@ -128,8 +128,9 @@ const Options = () => {
 
   const [selectedOption, setSelectedOption] = useState<string>('')
   const [selectedCharacter, setSelectedCharacter] = useState<string>('')
+  const [customCharacterDesc, setCustomCharacterDesc] = useState<string>('')
 
-  // New states for Consistent Character feature
+  // States for Consistent Character
   const [sceneCount, setSceneCount] = useState<number[]>([1])
   const [narrativeMode, setNarrativeMode] = useState<string>('narration')
   const [gender, setGender] = useState<string>('female')
@@ -151,6 +152,9 @@ const Options = () => {
 
   const isFormValid = useMemo(() => {
     let valid = selectedOption !== '' && selectedCharacter !== ''
+    if (selectedCharacter === 'custom') {
+      valid = valid && customCharacterDesc.trim() !== ''
+    }
     if (isConsistentCharacter) {
       const scenesValid = scenesContent.every((s) => s.trim() !== '')
       valid = valid && age.trim() !== '' && scenesValid
@@ -159,6 +163,7 @@ const Options = () => {
   }, [
     selectedOption,
     selectedCharacter,
+    customCharacterDesc,
     isConsistentCharacter,
     scenesContent,
     age,
@@ -190,22 +195,33 @@ const Options = () => {
     setDraft({ option: selectedOption, character: selectedCharacter })
 
     const { estilo, iluminacao } = generateMetadata(selectedOption)
-    const charName =
-      CHARACTERS.find((c) => c.id === selectedCharacter)?.name ||
-      selectedCharacter
+    const selectedOptObj = niche.options.find((o) => o.pt === selectedOption)
+    const conceptEn = selectedOptObj ? selectedOptObj.en : selectedOption
+
+    let charProfileEn = ''
+    if (selectedCharacter === 'custom') {
+      charProfileEn = `A highly detailed, ultra-realistic portrait of ${customCharacterDesc.trim()}. The subject is deeply humanized with authentic skin texture, expressive eyes, natural posture, and a highly professional appearance. Rendered as a masterpiece portrait with striking emotional depth.`
+    } else {
+      const charObj = CHARACTERS.find((c) => c.id === selectedCharacter)
+      charProfileEn =
+        charObj?.descriptionEn || charObj?.name || selectedCharacter
+    }
+
+    const qualitySettings =
+      '8K, ultra-realistic, cinematic lighting, high resolution, sharp focus, highly detailed, photorealistic, masterpiece, professional cinematography, no blur, perfectly crisp'
 
     let jsonPayload: any = {}
 
     if (isConsistentCharacter) {
       jsonPayload = {
         task: 'consistent_character_storytelling',
-        niche: niche.title,
-        concept: selectedOption,
-        quality_settings: '8K ultra-realistic, Cinematic Quality',
+        niche: niche.titleEn,
+        concept: conceptEn,
+        quality_settings: qualitySettings,
         style: estilo,
         lighting: iluminacao,
         character_profile: {
-          base_character: charName,
+          base_character_description: charProfileEn,
           gender: gender,
           age: parseInt(age, 10),
           voice_profile: getVoiceProfile(gender, age),
@@ -215,17 +231,25 @@ const Options = () => {
         scenes: scenesContent.map((desc, idx) => ({
           [`scene_${idx + 1}`]: desc,
         })),
+        language: 'en',
       }
     } else {
       jsonPayload = {
-        nicho: niche.title,
-        opcao: selectedOption,
-        personagem: charName,
-        estilo,
-        iluminacao,
-        data: new Date().toISOString().split('T')[0],
+        task: 'professional_content_generation',
+        niche: niche.titleEn,
+        narrative_concept: conceptEn,
+        subject_and_character: charProfileEn,
+        technical_specifications: {
+          quality: qualitySettings,
+          lighting: iluminacao,
+          camera: 'Sharp focus, perfectly crisp, no blur, DSLR 50mm lens',
+          style: estilo,
+        },
+        language: 'en',
       }
     }
+
+    const charObjToSave = CHARACTERS.find((c) => c.id === selectedCharacter)
 
     const newResult = {
       id: Math.random().toString(36).substring(7),
@@ -233,7 +257,10 @@ const Options = () => {
       nicheTitle: niche.title,
       nicheIcon: niche.icon,
       option: selectedOption,
-      character: charName,
+      character:
+        selectedCharacter === 'custom'
+          ? 'Personalizado (IA)'
+          : charObjToSave?.name || selectedCharacter,
       date: new Date().toISOString(),
       timeDisplay: 'agora',
       json: jsonPayload,
@@ -246,8 +273,8 @@ const Options = () => {
   return (
     <div className="animate-in fade-in slide-in-from-bottom-4 duration-500 p-6 md:p-12 flex flex-col min-h-[calc(100vh-4rem)] max-w-4xl mx-auto w-full">
       <div className="mb-10 flex flex-col md:flex-row md:items-center gap-6">
-        <div className="h-20 w-20 shrink-0 rounded-2xl bg-card border border-border shadow-lg flex items-center justify-center text-primary relative overflow-hidden">
-          <div className="absolute inset-0 bg-primary/5" />
+        <div className="h-20 w-20 shrink-0 rounded-2xl bg-card border border-[#FFC107]/40 shadow-[0_0_20px_-5px_rgba(255,193,7,0.3)] flex items-center justify-center text-[#FFC107] relative overflow-hidden">
+          <div className="absolute inset-0 bg-[#FFC107]/5" />
           {getIcon(niche.icon, 'w-10 h-10 relative z-10')}
         </div>
         <div>
@@ -264,7 +291,7 @@ const Options = () => {
         {/* Options Selection */}
         <section>
           <div className="flex items-center gap-3 mb-6">
-            <div className="bg-primary/10 text-primary w-8 h-8 rounded-lg flex items-center justify-center font-bold text-sm border border-primary/20">
+            <div className="bg-[#FFC107]/10 text-[#FFC107] w-8 h-8 rounded-lg flex items-center justify-center font-bold text-sm border border-[#FFC107]/20">
               1
             </div>
             <h3 className="font-bold text-base uppercase tracking-widest text-foreground">
@@ -279,8 +306,8 @@ const Options = () => {
             {niche.options.map((opt, i) => (
               <RadioOption
                 key={i}
-                value={opt}
-                label={opt}
+                value={opt.pt}
+                label={opt.pt}
                 current={selectedOption}
               />
             ))}
@@ -292,7 +319,7 @@ const Options = () => {
         {/* Character Selection */}
         <section>
           <div className="flex items-center gap-3 mb-6">
-            <div className="bg-primary/10 text-primary w-8 h-8 rounded-lg flex items-center justify-center font-bold text-sm border border-primary/20">
+            <div className="bg-[#FFC107]/10 text-[#FFC107] w-8 h-8 rounded-lg flex items-center justify-center font-bold text-sm border border-[#FFC107]/20">
               2
             </div>
             <h3 className="font-bold text-base uppercase tracking-widest text-foreground">
@@ -309,20 +336,20 @@ const Options = () => {
                 key={char.id}
                 className={`relative flex flex-col p-6 rounded-2xl border cursor-pointer transition-all duration-300 group overflow-hidden ${
                   selectedCharacter === char.id
-                    ? 'border-primary bg-primary/10 shadow-[0_0_20px_-5px_rgba(255,193,7,0.2)]'
-                    : 'border-border bg-card hover:bg-secondary/80 hover:border-primary/40 hover:shadow-lg'
+                    ? 'border-[#FFC107] bg-[#FFC107]/10 shadow-[0_0_20px_-5px_rgba(255,193,7,0.2)]'
+                    : 'border-border bg-card hover:bg-secondary/80 hover:border-[#FFC107]/40 hover:shadow-lg'
                 }`}
               >
                 {selectedCharacter === char.id && (
-                  <div className="absolute -inset-2 bg-gradient-to-r from-primary/10 to-transparent blur-xl" />
+                  <div className="absolute -inset-2 bg-gradient-to-r from-[#FFC107]/10 to-transparent blur-xl" />
                 )}
 
                 <div className="relative z-10 flex justify-between items-start w-full mb-5">
                   <div
                     className={`flex items-center justify-center w-6 h-6 rounded-full border ${
                       selectedCharacter === char.id
-                        ? 'border-primary text-primary'
-                        : 'border-muted-foreground/40 bg-background group-hover:border-primary/40'
+                        ? 'border-[#FFC107] text-[#FFC107]'
+                        : 'border-muted-foreground/40 bg-background group-hover:border-[#FFC107]/40'
                     }`}
                   >
                     {selectedCharacter === char.id && (
@@ -332,11 +359,15 @@ const Options = () => {
                   <div
                     className={`h-12 w-12 rounded-xl flex items-center justify-center transition-colors duration-300 ${
                       selectedCharacter === char.id
-                        ? 'bg-primary/20 text-primary border border-primary/30'
-                        : 'bg-background border border-border text-muted-foreground group-hover:text-primary'
+                        ? 'bg-[#FFC107]/20 text-[#FFC107] border border-[#FFC107]/30'
+                        : 'bg-background border border-border text-muted-foreground group-hover:text-[#FFC107]'
                     }`}
                   >
-                    <UserCircle2 className="w-6 h-6" />
+                    {char.id === 'custom' ? (
+                      <PenTool className="w-5 h-5" />
+                    ) : (
+                      <UserCircle2 className="w-6 h-6" />
+                    )}
                   </div>
                 </div>
 
@@ -344,7 +375,7 @@ const Options = () => {
                   <span
                     className={`font-bold text-lg block mb-1.5 ${
                       selectedCharacter === char.id
-                        ? 'text-primary'
+                        ? 'text-[#FFC107]'
                         : 'text-foreground'
                     }`}
                   >
@@ -363,6 +394,26 @@ const Options = () => {
               </Label>
             ))}
           </RadioGroup>
+
+          {/* Custom Character Textarea (Visible only when 'custom' is selected) */}
+          {selectedCharacter === 'custom' && (
+            <div className="mt-6 p-6 bg-[#FFC107]/5 border border-[#FFC107]/30 rounded-2xl animate-in fade-in slide-in-from-top-2 shadow-sm">
+              <Label className="text-sm font-bold text-foreground mb-3 flex items-center gap-2">
+                <Sparkles className="w-4 h-4 text-[#FFC107]" />
+                Descreva seu Personagem
+              </Label>
+              <Textarea
+                value={customCharacterDesc}
+                onChange={(e) => setCustomCharacterDesc(e.target.value)}
+                placeholder="Ex: Um jovem na faixa dos 25 anos, com cabelo estilo bagunçado, usando um moletom preto minimalista, com expressão focada e confiante..."
+                className="min-h-[120px] bg-background border-border focus-visible:ring-[#FFC107]/50"
+              />
+              <p className="text-xs text-muted-foreground font-medium mt-3 flex items-center gap-2">
+                Nossa IA irá reescrever e humanizar esta descrição para garantir
+                máxima qualidade fotorealista 8K.
+              </p>
+            </div>
+          )}
         </section>
 
         {isConsistentCharacter && (
@@ -372,7 +423,7 @@ const Options = () => {
             {/* Story Configuration */}
             <section className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
               <div className="flex items-center gap-3 mb-6">
-                <div className="bg-primary/10 text-primary w-8 h-8 rounded-lg flex items-center justify-center font-bold text-sm border border-primary/20">
+                <div className="bg-[#FFC107]/10 text-[#FFC107] w-8 h-8 rounded-lg flex items-center justify-center font-bold text-sm border border-[#FFC107]/20">
                   3
                 </div>
                 <h3 className="font-bold text-base uppercase tracking-widest text-foreground">
@@ -386,7 +437,7 @@ const Options = () => {
                     <Label className="text-sm font-bold text-foreground">
                       Quantidade de Cenas
                     </Label>
-                    <span className="text-primary font-bold text-lg bg-primary/10 px-3 py-1 rounded-md">
+                    <span className="text-[#FFC107] font-bold text-lg bg-[#FFC107]/10 px-3 py-1 rounded-md">
                       {sceneCount[0]}
                     </span>
                   </div>
@@ -438,7 +489,7 @@ const Options = () => {
             {/* Voice Profile Mapping */}
             <section className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500 delay-100">
               <div className="flex items-center gap-3 mb-6">
-                <div className="bg-primary/10 text-primary w-8 h-8 rounded-lg flex items-center justify-center font-bold text-sm border border-primary/20">
+                <div className="bg-[#FFC107]/10 text-[#FFC107] w-8 h-8 rounded-lg flex items-center justify-center font-bold text-sm border border-[#FFC107]/20">
                   4
                 </div>
                 <h3 className="font-bold text-base uppercase tracking-widest text-foreground">
@@ -493,7 +544,7 @@ const Options = () => {
             {/* Dynamic Scenes Content */}
             <section className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500 delay-200">
               <div className="flex items-center gap-3 mb-6">
-                <div className="bg-primary/10 text-primary w-8 h-8 rounded-lg flex items-center justify-center font-bold text-sm border border-primary/20">
+                <div className="bg-[#FFC107]/10 text-[#FFC107] w-8 h-8 rounded-lg flex items-center justify-center font-bold text-sm border border-[#FFC107]/20">
                   5
                 </div>
                 <h3 className="font-bold text-base uppercase tracking-widest text-foreground">
@@ -507,8 +558,8 @@ const Options = () => {
                     key={idx}
                     className="space-y-3 p-5 rounded-2xl border border-border bg-card shadow-sm"
                   >
-                    <Label className="text-xs font-bold text-primary uppercase tracking-widest flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+                    <Label className="text-xs font-bold text-[#FFC107] uppercase tracking-widest flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#FFC107]" />
                       Cena {idx + 1}
                     </Label>
                     <Textarea
@@ -521,7 +572,7 @@ const Options = () => {
                         newContent[idx] = e.target.value
                         setScenesContent(newContent)
                       }}
-                      className="min-h-[100px] text-sm border-muted-foreground/20 focus-visible:ring-primary/40 bg-background/50"
+                      className="min-h-[100px] text-sm border-muted-foreground/20 focus-visible:ring-[#FFC107]/50 bg-background/50"
                     />
                   </div>
                 ))}
@@ -532,12 +583,12 @@ const Options = () => {
       </div>
 
       {/* Fixed Footer CTA */}
-      <div className="fixed bottom-0 left-0 w-full p-4 bg-background/80 backdrop-blur-xl border-t border-border z-10 flex justify-center shadow-[0_-10px_40px_rgba(0,0,0,0.5)]">
+      <div className="fixed bottom-0 left-0 w-full p-4 bg-background/95 backdrop-blur-xl border-t border-border z-50 flex justify-center shadow-[0_-10px_40px_rgba(0,0,0,0.5)]">
         <div className="w-full max-w-4xl px-2">
           <Button
             onClick={handleGenerate}
             disabled={!isFormValid}
-            className="w-full h-14 rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground font-extrabold text-base tracking-wide shadow-[0_0_25px_-5px_rgba(255,193,7,0.4)] transition-all duration-300 disabled:opacity-50 disabled:hover:bg-primary disabled:shadow-none"
+            className="w-full h-14 rounded-xl bg-[#FFC107] hover:bg-[#FFC107]/90 text-black font-extrabold text-base tracking-wide shadow-[0_0_25px_-5px_rgba(255,193,7,0.4)] transition-all duration-300 disabled:opacity-50 disabled:hover:bg-[#FFC107] disabled:shadow-none"
           >
             <Sparkles className="mr-2 h-5 w-5 text-black" />
             <span className="text-black">GERAR PROMPT MASTER</span>
