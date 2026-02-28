@@ -17755,7 +17755,7 @@ function getElementRef$2(element) {
 }
 function createCollection(name) {
 	const PROVIDER_NAME$2 = name + "CollectionProvider";
-	const [createCollectionContext, createCollectionScope$2] = createContextScope(PROVIDER_NAME$2);
+	const [createCollectionContext, createCollectionScope$3] = createContextScope(PROVIDER_NAME$2);
 	const [CollectionProviderImpl, useCollectionContext] = createCollectionContext(PROVIDER_NAME$2, {
 		collectionRef: { current: null },
 		itemMap: /* @__PURE__ */ new Map()
@@ -17804,7 +17804,7 @@ function createCollection(name) {
 		});
 	});
 	CollectionItemSlot.displayName = ITEM_SLOT_NAME;
-	function useCollection$2(scope) {
+	function useCollection$3(scope) {
 		const context = useCollectionContext(name + "CollectionConsumer", scope);
 		return import_react.useCallback(() => {
 			const collectionNode = context.collectionRef.current;
@@ -17819,11 +17819,11 @@ function createCollection(name) {
 			Slot: CollectionSlot,
 			ItemSlot: CollectionItemSlot
 		},
-		useCollection$2,
-		createCollectionScope$2
+		useCollection$3,
+		createCollectionScope$3
 	];
 }
-var Primitive$1 = [
+var Primitive = [
 	"a",
 	"button",
 	"div",
@@ -17957,7 +17957,7 @@ var DismissableLayer = import_react.forwardRef((props, forwardedRef) => {
 		document.addEventListener(CONTEXT_UPDATE, handleUpdate);
 		return () => document.removeEventListener(CONTEXT_UPDATE, handleUpdate);
 	}, []);
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Primitive$1.div, {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Primitive.div, {
 		...layerProps,
 		ref: composedRefs,
 		style: {
@@ -17984,7 +17984,7 @@ var DismissableLayerBranch = import_react.forwardRef((props, forwardedRef) => {
 			};
 		}
 	}, [context.branches]);
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Primitive$1.div, {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Primitive.div, {
 		...props,
 		ref: composedRefs
 	});
@@ -18050,7 +18050,7 @@ function handleAndDispatchCustomEvent$1(name, handler, detail, { discrete }) {
 	if (discrete) dispatchDiscreteCustomEvent(target, event);
 	else target.dispatchEvent(event);
 }
-var Root$5 = DismissableLayer;
+var Root$6 = DismissableLayer;
 var Branch = DismissableLayerBranch;
 var useLayoutEffect2 = globalThis?.document ? import_react.useLayoutEffect : () => {};
 var import_react_dom$4 = /* @__PURE__ */ __toESM(require_react_dom(), 1);
@@ -18060,7 +18060,7 @@ var Portal = import_react.forwardRef((props, forwardedRef) => {
 	const [mounted, setMounted] = import_react.useState(false);
 	useLayoutEffect2(() => setMounted(true), []);
 	const container = containerProp || mounted && globalThis?.document?.body;
-	return container ? import_react_dom$4.createPortal(/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Primitive$1.div, {
+	return container ? import_react_dom$4.createPortal(/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Primitive.div, {
 		...portalProps,
 		ref: forwardedRef
 	}), container) : null;
@@ -18231,7 +18231,7 @@ var VISUALLY_HIDDEN_STYLES = Object.freeze({
 });
 var NAME$3 = "VisuallyHidden";
 var VisuallyHidden = import_react.forwardRef((props, forwardedRef) => {
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Primitive$1.span, {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Primitive.span, {
 		...props,
 		ref: forwardedRef,
 		style: {
@@ -18241,11 +18241,11 @@ var VisuallyHidden = import_react.forwardRef((props, forwardedRef) => {
 	});
 });
 VisuallyHidden.displayName = NAME$3;
-var Root$4 = VisuallyHidden;
+var Root$5 = VisuallyHidden;
 var import_react_dom$3 = /* @__PURE__ */ __toESM(require_react_dom(), 1);
 var PROVIDER_NAME$1 = "ToastProvider";
-var [Collection$1, useCollection$1, createCollectionScope$1] = createCollection("Toast");
-var [createToastContext, createToastScope] = createContextScope("Toast", [createCollectionScope$1]);
+var [Collection$2, useCollection$2, createCollectionScope$2] = createCollection("Toast");
+var [createToastContext, createToastScope] = createContextScope("Toast", [createCollectionScope$2]);
 var [ToastProviderProvider, useToastProviderContext] = createToastContext(PROVIDER_NAME$1);
 var ToastProvider$1 = (props) => {
 	const { __scopeToast, label = "Notification", duration = 5e3, swipeDirection = "right", swipeThreshold = 50, children } = props;
@@ -18254,7 +18254,7 @@ var ToastProvider$1 = (props) => {
 	const isFocusedToastEscapeKeyDownRef = import_react.useRef(false);
 	const isClosePausedRef = import_react.useRef(false);
 	if (!label.trim()) console.error(`Invalid prop \`label\` supplied to \`${PROVIDER_NAME$1}\`. Expected non-empty \`string\`.`);
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Collection$1.Provider, {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Collection$2.Provider, {
 		scope: __scopeToast,
 		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ToastProviderProvider, {
 			scope: __scopeToast,
@@ -18281,7 +18281,7 @@ var VIEWPORT_RESUME = "toast.viewportResume";
 var ToastViewport$1 = import_react.forwardRef((props, forwardedRef) => {
 	const { __scopeToast, hotkey = VIEWPORT_DEFAULT_HOTKEY, label = "Notifications ({hotkey})", ...viewportProps } = props;
 	const context = useToastProviderContext(VIEWPORT_NAME, __scopeToast);
-	const getItems = useCollection$1(__scopeToast);
+	const getItems = useCollection$2(__scopeToast);
 	const wrapperRef = import_react.useRef(null);
 	const headFocusProxyRef = import_react.useRef(null);
 	const tailFocusProxyRef = import_react.useRef(null);
@@ -18379,9 +18379,9 @@ var ToastViewport$1 = import_react.forwardRef((props, forwardedRef) => {
 					focusFirst$1(getSortedTabbableCandidates({ tabbingDirection: "forwards" }));
 				}
 			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Collection$1.Slot, {
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Collection$2.Slot, {
 				scope: __scopeToast,
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Primitive$1.ol, {
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Primitive.ol, {
 					tabIndex: -1,
 					...viewportProps,
 					ref: composedRefs
@@ -18538,15 +18538,15 @@ var ToastImpl = import_react.forwardRef((props, forwardedRef) => {
 	}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ToastInteractiveProvider, {
 		scope: __scopeToast,
 		onClose: handleClose,
-		children: import_react_dom$3.createPortal(/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Collection$1.ItemSlot, {
+		children: import_react_dom$3.createPortal(/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Collection$2.ItemSlot, {
 			scope: __scopeToast,
-			children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Root$5, {
+			children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Root$6, {
 				asChild: true,
 				onEscapeKeyDown: composeEventHandlers(onEscapeKeyDown, () => {
 					if (!context.isFocusedToastEscapeKeyDownRef.current) handleClose();
 					context.isFocusedToastEscapeKeyDownRef.current = false;
 				}),
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Primitive$1.li, {
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Primitive.li, {
 					tabIndex: 0,
 					"data-state": open ? "open" : "closed",
 					"data-swipe-direction": context.swipeDirection,
@@ -18578,9 +18578,9 @@ var ToastImpl = import_react.forwardRef((props, forwardedRef) => {
 						const y = event.clientY - pointerStartRef.current.y;
 						const hasSwipeMoveStarted = Boolean(swipeDeltaRef.current);
 						const isHorizontalSwipe = ["left", "right"].includes(context.swipeDirection);
-						const clamp$1 = ["left", "up"].includes(context.swipeDirection) ? Math.min : Math.max;
-						const clampedX = isHorizontalSwipe ? clamp$1(0, x$1) : 0;
-						const clampedY = !isHorizontalSwipe ? clamp$1(0, y) : 0;
+						const clamp$2 = ["left", "up"].includes(context.swipeDirection) ? Math.min : Math.max;
+						const clampedX = isHorizontalSwipe ? clamp$2(0, x$1) : 0;
+						const clampedY = !isHorizontalSwipe ? clamp$2(0, y) : 0;
 						const moveStartBuffer = event.pointerType === "touch" ? 10 : 2;
 						const delta = {
 							x: clampedX,
@@ -18646,7 +18646,7 @@ var ToastAnnounce = (props) => {
 var TITLE_NAME = "ToastTitle";
 var ToastTitle$1 = import_react.forwardRef((props, forwardedRef) => {
 	const { __scopeToast, ...titleProps } = props;
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Primitive$1.div, {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Primitive.div, {
 		...titleProps,
 		ref: forwardedRef
 	});
@@ -18655,7 +18655,7 @@ ToastTitle$1.displayName = TITLE_NAME;
 var DESCRIPTION_NAME = "ToastDescription";
 var ToastDescription$1 = import_react.forwardRef((props, forwardedRef) => {
 	const { __scopeToast, ...descriptionProps } = props;
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Primitive$1.div, {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Primitive.div, {
 		...descriptionProps,
 		ref: forwardedRef
 	});
@@ -18684,7 +18684,7 @@ var ToastClose$1 = import_react.forwardRef((props, forwardedRef) => {
 	const interactiveContext = useToastInteractiveContext(CLOSE_NAME, __scopeToast);
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ToastAnnounceExclude, {
 		asChild: true,
-		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Primitive$1.button, {
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Primitive.button, {
 			type: "button",
 			...closeProps,
 			ref: forwardedRef,
@@ -18695,7 +18695,7 @@ var ToastClose$1 = import_react.forwardRef((props, forwardedRef) => {
 ToastClose$1.displayName = CLOSE_NAME;
 var ToastAnnounceExclude = import_react.forwardRef((props, forwardedRef) => {
 	const { __scopeToast, altText, ...announceExcludeProps } = props;
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Primitive$1.div, {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Primitive.div, {
 		"data-radix-toast-announce-exclude": "",
 		"data-radix-toast-announce-alt": altText || void 0,
 		...announceExcludeProps,
@@ -19171,10 +19171,58 @@ var Image = createLucideIcon("image", [
 		key: "1xmnt7"
 	}]
 ]);
+var Mars = createLucideIcon("mars", [
+	["path", {
+		d: "M16 3h5v5",
+		key: "1806ms"
+	}],
+	["path", {
+		d: "m21 3-6.75 6.75",
+		key: "pv0uzu"
+	}],
+	["circle", {
+		cx: "10",
+		cy: "14",
+		r: "6",
+		key: "1qwbdc"
+	}]
+]);
+var MessageSquareQuote = createLucideIcon("message-square-quote", [
+	["path", {
+		d: "M14 14a2 2 0 0 0 2-2V8h-2",
+		key: "1r06pg"
+	}],
+	["path", {
+		d: "M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z",
+		key: "18887p"
+	}],
+	["path", {
+		d: "M8 14a2 2 0 0 0 2-2V8H8",
+		key: "1jzu5j"
+	}]
+]);
 var MessageSquare = createLucideIcon("message-square", [["path", {
 	d: "M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z",
 	key: "18887p"
 }]]);
+var Mic = createLucideIcon("mic", [
+	["path", {
+		d: "M12 19v3",
+		key: "npa21l"
+	}],
+	["path", {
+		d: "M19 10v2a7 7 0 0 1-14 0v-2",
+		key: "1vc78b"
+	}],
+	["rect", {
+		x: "9",
+		y: "2",
+		width: "6",
+		height: "13",
+		rx: "3",
+		key: "s6n7sd"
+	}]
+]);
 var MonitorPlay = createLucideIcon("monitor-play", [
 	["path", {
 		d: "M15.033 9.44a.647.647 0 0 1 0 1.12l-4.065 2.352a.645.645 0 0 1-.968-.56V7.648a.645.645 0 0 1 .967-.56z",
@@ -19317,6 +19365,22 @@ var Users = createLucideIcon("users", [
 		cy: "7",
 		r: "4",
 		key: "nufk8"
+	}]
+]);
+var Venus = createLucideIcon("venus", [
+	["path", {
+		d: "M12 15v7",
+		key: "t2xh3l"
+	}],
+	["path", {
+		d: "M9 19h6",
+		key: "456am0"
+	}],
+	["circle", {
+		cx: "12",
+		cy: "9",
+		r: "6",
+		key: "1nw4tq"
 	}]
 ]);
 var WandSparkles = createLucideIcon("wand-sparkles", [
@@ -21149,10 +21213,10 @@ var Observer = class {
 			if (typeof id !== "string" && typeof id !== "number") return { unwrap };
 			else return Object.assign(id, { unwrap });
 		};
-		this.custom = (jsx$18, data) => {
+		this.custom = (jsx$19, data) => {
 			const id = (data == null ? void 0 : data.id) || toastsCounter++;
 			this.create({
-				jsx: jsx$18(id),
+				jsx: jsx$19(id),
 				id,
 				...data
 			});
@@ -21805,7 +21869,7 @@ var oppositeAlignmentMap = {
 	start: "end",
 	end: "start"
 };
-function clamp(start, value, end) {
+function clamp$1(start, value, end) {
 	return max(start, min(value, end));
 }
 function evaluate(value, param) {
@@ -22093,7 +22157,7 @@ var arrow$2 = (options) => ({
 		const min$1 = minPadding;
 		const max$1 = clientSize - arrowDimensions[length] - maxPadding;
 		const center = clientSize / 2 - arrowDimensions[length] / 2 + centerToReference;
-		const offset$3 = clamp(min$1, center, max$1);
+		const offset$3 = clamp$1(min$1, center, max$1);
 		const shouldAddOffset = !middlewareData.arrow && getAlignment(placement) != null && center !== offset$3 && rects.reference[length] / 2 - (center < min$1 ? minPadding : maxPadding) - arrowDimensions[length] / 2 < 0;
 		const alignmentOffset = shouldAddOffset ? center < min$1 ? center - min$1 : center - max$1 : 0;
 		return {
@@ -22296,14 +22360,14 @@ var shift$2 = function(options) {
 				const maxSide = mainAxis === "y" ? "bottom" : "right";
 				const min$1 = mainAxisCoord + overflow[minSide];
 				const max$1 = mainAxisCoord - overflow[maxSide];
-				mainAxisCoord = clamp(min$1, mainAxisCoord, max$1);
+				mainAxisCoord = clamp$1(min$1, mainAxisCoord, max$1);
 			}
 			if (checkCrossAxis) {
 				const minSide = crossAxis === "y" ? "top" : "left";
 				const maxSide = crossAxis === "y" ? "bottom" : "right";
 				const min$1 = crossAxisCoord + overflow[minSide];
 				const max$1 = crossAxisCoord - overflow[maxSide];
-				crossAxisCoord = clamp(min$1, crossAxisCoord, max$1);
+				crossAxisCoord = clamp$1(min$1, crossAxisCoord, max$1);
 			}
 			const limitedCoords = limiter.fn({
 				...state,
@@ -23281,7 +23345,7 @@ var arrow = (options, deps) => ({
 var NAME$2 = "Arrow";
 var Arrow$1 = import_react.forwardRef((props, forwardedRef) => {
 	const { children, width = 10, height = 5, ...arrowProps } = props;
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Primitive$1.svg, {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Primitive.svg, {
 		...arrowProps,
 		ref: forwardedRef,
 		width,
@@ -23292,7 +23356,7 @@ var Arrow$1 = import_react.forwardRef((props, forwardedRef) => {
 	});
 });
 Arrow$1.displayName = NAME$2;
-var Root$3 = Arrow$1;
+var Root$4 = Arrow$1;
 function useSize(element) {
 	const [size$3, setSize] = import_react.useState(void 0);
 	useLayoutEffect2(() => {
@@ -23353,7 +23417,7 @@ var PopperAnchor = import_react.forwardRef((props, forwardedRef) => {
 		anchorRef.current = virtualRef?.current || ref.current;
 		if (previousAnchor !== anchorRef.current) context.onAnchorChange(anchorRef.current);
 	});
-	return virtualRef ? null : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Primitive$1.div, {
+	return virtualRef ? null : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Primitive.div, {
 		...anchorProps,
 		ref: composedRefs
 	});
@@ -23463,7 +23527,7 @@ var PopperContent = import_react.forwardRef((props, forwardedRef) => {
 			arrowX,
 			arrowY,
 			shouldHideArrow: cannotCenterArrow,
-			children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Primitive$1.div, {
+			children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Primitive.div, {
 				"data-side": placedSide,
 				"data-align": placedAlign,
 				...contentProps,
@@ -23509,7 +23573,7 @@ var PopperArrow = import_react.forwardRef(function PopperArrow2(props, forwarded
 			}[contentContext.placedSide],
 			visibility: contentContext.shouldHideArrow ? "hidden" : void 0
 		},
-		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Root$3, {
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Root$4, {
 			...arrowProps,
 			ref: forwardedRef,
 			style: {
@@ -23706,7 +23770,7 @@ var TooltipTrigger$1 = import_react.forwardRef((props, forwardedRef) => {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Anchor, {
 		asChild: true,
 		...popperScope,
-		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Primitive$1.button, {
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Primitive.button, {
 			"aria-describedby": context.open ? context.contentId : void 0,
 			"data-state": context.stateAttribute,
 			...triggerProps,
@@ -23891,7 +23955,7 @@ var TooltipContentImpl = import_react.forwardRef((props, forwardedRef) => {
 			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Slottable, { children }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(VisuallyHiddenContentContextProvider, {
 				scope: __scopeTooltip,
 				isInside: true,
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Root$4, {
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Root$5, {
 					id: context.contentId,
 					role: "tooltip",
 					children: ariaLabel || children
@@ -24530,7 +24594,7 @@ var Button = import_react.forwardRef(({ className, variant, size: size$3, asChil
 });
 Button.displayName = "Button";
 require_react_dom();
-var Primitive = [
+var Primitive$1 = [
 	"a",
 	"button",
 	"div",
@@ -24567,7 +24631,7 @@ var Primitive = [
 }, {});
 var NAME$1 = "Label";
 var Label$1 = import_react.forwardRef((props, forwardedRef) => {
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Primitive.label, {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Primitive$1.label, {
 		...props,
 		ref: forwardedRef,
 		onMouseDown: (event) => {
@@ -24578,14 +24642,14 @@ var Label$1 = import_react.forwardRef((props, forwardedRef) => {
 	});
 });
 Label$1.displayName = NAME$1;
-var Root$2 = Label$1;
+var Root$3 = Label$1;
 var labelVariants = cva("text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70");
-var Label = import_react.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Root$2, {
+var Label = import_react.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Root$3, {
 	ref,
 	className: cn(labelVariants(), className),
 	...props
 }));
-Label.displayName = Root$2.displayName;
+Label.displayName = Root$3.displayName;
 var DirectionContext = import_react.createContext(void 0);
 function useDirection(localDir) {
 	const globalDir = import_react.useContext(DirectionContext);
@@ -24597,13 +24661,13 @@ var EVENT_OPTIONS = {
 	cancelable: true
 };
 var GROUP_NAME = "RovingFocusGroup";
-var [Collection, useCollection, createCollectionScope] = createCollection(GROUP_NAME);
-var [createRovingFocusGroupContext, createRovingFocusGroupScope] = createContextScope(GROUP_NAME, [createCollectionScope]);
+var [Collection$1, useCollection$1, createCollectionScope$1] = createCollection(GROUP_NAME);
+var [createRovingFocusGroupContext, createRovingFocusGroupScope] = createContextScope(GROUP_NAME, [createCollectionScope$1]);
 var [RovingFocusProvider, useRovingFocusContext] = createRovingFocusGroupContext(GROUP_NAME);
 var RovingFocusGroup = import_react.forwardRef((props, forwardedRef) => {
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Collection.Provider, {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Collection$1.Provider, {
 		scope: props.__scopeRovingFocusGroup,
-		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Collection.Slot, {
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Collection$1.Slot, {
 			scope: props.__scopeRovingFocusGroup,
 			children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(RovingFocusGroupImpl, {
 				...props,
@@ -24626,7 +24690,7 @@ var RovingFocusGroupImpl = import_react.forwardRef((props, forwardedRef) => {
 	});
 	const [isTabbingBackOut, setIsTabbingBackOut] = import_react.useState(false);
 	const handleEntryFocus = useCallbackRef(onEntryFocus);
-	const getItems = useCollection(__scopeRovingFocusGroup);
+	const getItems = useCollection$1(__scopeRovingFocusGroup);
 	const isClickFocusRef = import_react.useRef(false);
 	const [focusableItemsCount, setFocusableItemsCount] = import_react.useState(0);
 	import_react.useEffect(() => {
@@ -24646,7 +24710,7 @@ var RovingFocusGroupImpl = import_react.forwardRef((props, forwardedRef) => {
 		onItemShiftTab: import_react.useCallback(() => setIsTabbingBackOut(true), []),
 		onFocusableItemAdd: import_react.useCallback(() => setFocusableItemsCount((prevCount) => prevCount + 1), []),
 		onFocusableItemRemove: import_react.useCallback(() => setFocusableItemsCount((prevCount) => prevCount - 1), []),
-		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Primitive$1.div, {
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Primitive.div, {
 			tabIndex: isTabbingBackOut || focusableItemsCount === 0 ? -1 : 0,
 			"data-orientation": orientation,
 			...groupProps,
@@ -24685,7 +24749,7 @@ var RovingFocusGroupItem = import_react.forwardRef((props, forwardedRef) => {
 	const id = tabStopId || autoId;
 	const context = useRovingFocusContext(ITEM_NAME$1, __scopeRovingFocusGroup);
 	const isCurrentTabStop = context.currentTabStopId === id;
-	const getItems = useCollection(__scopeRovingFocusGroup);
+	const getItems = useCollection$1(__scopeRovingFocusGroup);
 	const { onFocusableItemAdd, onFocusableItemRemove, currentTabStopId } = context;
 	import_react.useEffect(() => {
 		if (focusable) {
@@ -24697,12 +24761,12 @@ var RovingFocusGroupItem = import_react.forwardRef((props, forwardedRef) => {
 		onFocusableItemAdd,
 		onFocusableItemRemove
 	]);
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Collection.ItemSlot, {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Collection$1.ItemSlot, {
 		scope: __scopeRovingFocusGroup,
 		id,
 		focusable,
 		active,
-		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Primitive$1.span, {
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Primitive.span, {
 			tabIndex: isCurrentTabStop ? 0 : -1,
 			"data-orientation": context.orientation,
 			...itemProps,
@@ -24771,7 +24835,7 @@ function focusFirst(candidates, preventScroll = false) {
 function wrapArray(array, startIndex) {
 	return array.map((_$1, index$1) => array[(startIndex + index$1) % array.length]);
 }
-var Root$1 = RovingFocusGroup;
+var Root$2 = RovingFocusGroup;
 var Item = RovingFocusGroupItem;
 function usePrevious(value) {
 	const ref = import_react.useRef({
@@ -24799,7 +24863,7 @@ var Radio = import_react.forwardRef((props, forwardedRef) => {
 		scope: __scopeRadio,
 		checked,
 		disabled,
-		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Primitive$1.button, {
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Primitive.button, {
 			type: "button",
 			role: "radio",
 			"aria-checked": checked,
@@ -24836,7 +24900,7 @@ var RadioIndicator = import_react.forwardRef((props, forwardedRef) => {
 	const context = useRadioContext(INDICATOR_NAME, __scopeRadio);
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Presence, {
 		present: forceMount || context.checked,
-		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Primitive$1.span, {
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Primitive.span, {
 			"data-state": getState(context.checked),
 			"data-disabled": context.disabled ? "" : void 0,
 			...indicatorProps,
@@ -24845,7 +24909,7 @@ var RadioIndicator = import_react.forwardRef((props, forwardedRef) => {
 	});
 });
 RadioIndicator.displayName = INDICATOR_NAME;
-var BUBBLE_INPUT_NAME = "RadioBubbleInput";
+var BUBBLE_INPUT_NAME$1 = "RadioBubbleInput";
 var RadioBubbleInput = import_react.forwardRef(({ __scopeRadio, control, checked, bubbles = true, ...props }, forwardedRef) => {
 	const ref = import_react.useRef(null);
 	const composedRefs = useComposedRefs(ref, forwardedRef);
@@ -24866,7 +24930,7 @@ var RadioBubbleInput = import_react.forwardRef(({ __scopeRadio, control, checked
 		checked,
 		bubbles
 	]);
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Primitive$1.input, {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Primitive.input, {
 		type: "radio",
 		"aria-hidden": true,
 		defaultChecked: checked,
@@ -24883,11 +24947,11 @@ var RadioBubbleInput = import_react.forwardRef(({ __scopeRadio, control, checked
 		}
 	});
 });
-RadioBubbleInput.displayName = BUBBLE_INPUT_NAME;
+RadioBubbleInput.displayName = BUBBLE_INPUT_NAME$1;
 function getState(checked) {
 	return checked ? "checked" : "unchecked";
 }
-var ARROW_KEYS = [
+var ARROW_KEYS$1 = [
 	"ArrowUp",
 	"ArrowDown",
 	"ArrowLeft",
@@ -24915,13 +24979,13 @@ var RadioGroup$1 = import_react.forwardRef((props, forwardedRef) => {
 		disabled,
 		value,
 		onValueChange: setValue,
-		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Root$1, {
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Root$2, {
 			asChild: true,
 			...rovingFocusGroupScope,
 			orientation,
 			dir: direction,
 			loop,
-			children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Primitive$1.div, {
+			children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Primitive.div, {
 				role: "radiogroup",
 				"aria-required": required,
 				"aria-orientation": orientation,
@@ -24947,7 +25011,7 @@ var RadioGroupItem$1 = import_react.forwardRef((props, forwardedRef) => {
 	const isArrowKeyPressedRef = import_react.useRef(false);
 	import_react.useEffect(() => {
 		const handleKeyDown = (event) => {
-			if (ARROW_KEYS.includes(event.key)) isArrowKeyPressedRef.current = true;
+			if (ARROW_KEYS$1.includes(event.key)) isArrowKeyPressedRef.current = true;
 		};
 		const handleKeyUp = () => isArrowKeyPressedRef.current = false;
 		document.addEventListener("keydown", handleKeyDown);
@@ -25025,7 +25089,7 @@ var Separator$1 = import_react.forwardRef((props, forwardedRef) => {
 		"aria-orientation": ariaOrientation,
 		role: "separator"
 	};
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Primitive.div, {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Primitive$1.div, {
 		"data-orientation": orientation,
 		...semanticProps,
 		...domProps,
@@ -25036,15 +25100,482 @@ Separator$1.displayName = NAME;
 function isValidOrientation(orientation) {
 	return ORIENTATIONS.includes(orientation);
 }
-var Root = Separator$1;
-var Separator = import_react.forwardRef(({ className, orientation = "horizontal", decorative = true, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Root, {
+var Root$1 = Separator$1;
+var Separator = import_react.forwardRef(({ className, orientation = "horizontal", decorative = true, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Root$1, {
 	ref,
 	decorative,
 	orientation,
 	className: cn("shrink-0 bg-border", orientation === "horizontal" ? "h-[1px] w-full" : "h-full w-[1px]", className),
 	...props
 }));
-Separator.displayName = Root.displayName;
+Separator.displayName = Root$1.displayName;
+function clamp(value, [min$1, max$1]) {
+	return Math.min(max$1, Math.max(min$1, value));
+}
+var PAGE_KEYS = ["PageUp", "PageDown"];
+var ARROW_KEYS = [
+	"ArrowUp",
+	"ArrowDown",
+	"ArrowLeft",
+	"ArrowRight"
+];
+var BACK_KEYS = {
+	"from-left": [
+		"Home",
+		"PageDown",
+		"ArrowDown",
+		"ArrowLeft"
+	],
+	"from-right": [
+		"Home",
+		"PageDown",
+		"ArrowDown",
+		"ArrowRight"
+	],
+	"from-bottom": [
+		"Home",
+		"PageDown",
+		"ArrowDown",
+		"ArrowLeft"
+	],
+	"from-top": [
+		"Home",
+		"PageDown",
+		"ArrowUp",
+		"ArrowLeft"
+	]
+};
+var SLIDER_NAME = "Slider";
+var [Collection, useCollection, createCollectionScope] = createCollection(SLIDER_NAME);
+var [createSliderContext, createSliderScope] = createContextScope(SLIDER_NAME, [createCollectionScope]);
+var [SliderProvider, useSliderContext] = createSliderContext(SLIDER_NAME);
+var Slider$1 = import_react.forwardRef((props, forwardedRef) => {
+	const { name, min: min$1 = 0, max: max$1 = 100, step = 1, orientation = "horizontal", disabled = false, minStepsBetweenThumbs = 0, defaultValue = [min$1], value, onValueChange = () => {}, onValueCommit = () => {}, inverted = false, form, ...sliderProps } = props;
+	const thumbRefs = import_react.useRef(/* @__PURE__ */ new Set());
+	const valueIndexToChangeRef = import_react.useRef(0);
+	const SliderOrientation = orientation === "horizontal" ? SliderHorizontal : SliderVertical;
+	const [values = [], setValues] = useControllableState({
+		prop: value,
+		defaultProp: defaultValue,
+		onChange: (value2) => {
+			[...thumbRefs.current][valueIndexToChangeRef.current]?.focus();
+			onValueChange(value2);
+		}
+	});
+	const valuesBeforeSlideStartRef = import_react.useRef(values);
+	function handleSlideStart(value2) {
+		updateValues(value2, getClosestValueIndex(values, value2));
+	}
+	function handleSlideMove(value2) {
+		updateValues(value2, valueIndexToChangeRef.current);
+	}
+	function handleSlideEnd() {
+		const prevValue = valuesBeforeSlideStartRef.current[valueIndexToChangeRef.current];
+		if (values[valueIndexToChangeRef.current] !== prevValue) onValueCommit(values);
+	}
+	function updateValues(value2, atIndex, { commit } = { commit: false }) {
+		const decimalCount = getDecimalCount(step);
+		const nextValue = clamp(roundValue(Math.round((value2 - min$1) / step) * step + min$1, decimalCount), [min$1, max$1]);
+		setValues((prevValues = []) => {
+			const nextValues = getNextSortedValues(prevValues, nextValue, atIndex);
+			if (hasMinStepsBetweenValues(nextValues, minStepsBetweenThumbs * step)) {
+				valueIndexToChangeRef.current = nextValues.indexOf(nextValue);
+				const hasChanged = String(nextValues) !== String(prevValues);
+				if (hasChanged && commit) onValueCommit(nextValues);
+				return hasChanged ? nextValues : prevValues;
+			} else return prevValues;
+		});
+	}
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(SliderProvider, {
+		scope: props.__scopeSlider,
+		name,
+		disabled,
+		min: min$1,
+		max: max$1,
+		valueIndexToChangeRef,
+		thumbs: thumbRefs.current,
+		values,
+		orientation,
+		form,
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Collection.Provider, {
+			scope: props.__scopeSlider,
+			children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Collection.Slot, {
+				scope: props.__scopeSlider,
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(SliderOrientation, {
+					"aria-disabled": disabled,
+					"data-disabled": disabled ? "" : void 0,
+					...sliderProps,
+					ref: forwardedRef,
+					onPointerDown: composeEventHandlers(sliderProps.onPointerDown, () => {
+						if (!disabled) valuesBeforeSlideStartRef.current = values;
+					}),
+					min: min$1,
+					max: max$1,
+					inverted,
+					onSlideStart: disabled ? void 0 : handleSlideStart,
+					onSlideMove: disabled ? void 0 : handleSlideMove,
+					onSlideEnd: disabled ? void 0 : handleSlideEnd,
+					onHomeKeyDown: () => !disabled && updateValues(min$1, 0, { commit: true }),
+					onEndKeyDown: () => !disabled && updateValues(max$1, values.length - 1, { commit: true }),
+					onStepKeyDown: ({ event, direction: stepDirection }) => {
+						if (!disabled) {
+							const multiplier = PAGE_KEYS.includes(event.key) || event.shiftKey && ARROW_KEYS.includes(event.key) ? 10 : 1;
+							const atIndex = valueIndexToChangeRef.current;
+							const value2 = values[atIndex];
+							updateValues(value2 + step * multiplier * stepDirection, atIndex, { commit: true });
+						}
+					}
+				})
+			})
+		})
+	});
+});
+Slider$1.displayName = SLIDER_NAME;
+var [SliderOrientationProvider, useSliderOrientationContext] = createSliderContext(SLIDER_NAME, {
+	startEdge: "left",
+	endEdge: "right",
+	size: "width",
+	direction: 1
+});
+var SliderHorizontal = import_react.forwardRef((props, forwardedRef) => {
+	const { min: min$1, max: max$1, dir, inverted, onSlideStart, onSlideMove, onSlideEnd, onStepKeyDown, ...sliderProps } = props;
+	const [slider, setSlider] = import_react.useState(null);
+	const composedRefs = useComposedRefs(forwardedRef, (node) => setSlider(node));
+	const rectRef = import_react.useRef(void 0);
+	const direction = useDirection(dir);
+	const isDirectionLTR = direction === "ltr";
+	const isSlidingFromLeft = isDirectionLTR && !inverted || !isDirectionLTR && inverted;
+	function getValueFromPointer(pointerPosition) {
+		const rect = rectRef.current || slider.getBoundingClientRect();
+		const value = linearScale([0, rect.width], isSlidingFromLeft ? [min$1, max$1] : [max$1, min$1]);
+		rectRef.current = rect;
+		return value(pointerPosition - rect.left);
+	}
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(SliderOrientationProvider, {
+		scope: props.__scopeSlider,
+		startEdge: isSlidingFromLeft ? "left" : "right",
+		endEdge: isSlidingFromLeft ? "right" : "left",
+		direction: isSlidingFromLeft ? 1 : -1,
+		size: "width",
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(SliderImpl, {
+			dir: direction,
+			"data-orientation": "horizontal",
+			...sliderProps,
+			ref: composedRefs,
+			style: {
+				...sliderProps.style,
+				["--radix-slider-thumb-transform"]: "translateX(-50%)"
+			},
+			onSlideStart: (event) => {
+				const value = getValueFromPointer(event.clientX);
+				onSlideStart?.(value);
+			},
+			onSlideMove: (event) => {
+				const value = getValueFromPointer(event.clientX);
+				onSlideMove?.(value);
+			},
+			onSlideEnd: () => {
+				rectRef.current = void 0;
+				onSlideEnd?.();
+			},
+			onStepKeyDown: (event) => {
+				const isBackKey = BACK_KEYS[isSlidingFromLeft ? "from-left" : "from-right"].includes(event.key);
+				onStepKeyDown?.({
+					event,
+					direction: isBackKey ? -1 : 1
+				});
+			}
+		})
+	});
+});
+var SliderVertical = import_react.forwardRef((props, forwardedRef) => {
+	const { min: min$1, max: max$1, inverted, onSlideStart, onSlideMove, onSlideEnd, onStepKeyDown, ...sliderProps } = props;
+	const sliderRef = import_react.useRef(null);
+	const ref = useComposedRefs(forwardedRef, sliderRef);
+	const rectRef = import_react.useRef(void 0);
+	const isSlidingFromBottom = !inverted;
+	function getValueFromPointer(pointerPosition) {
+		const rect = rectRef.current || sliderRef.current.getBoundingClientRect();
+		const value = linearScale([0, rect.height], isSlidingFromBottom ? [max$1, min$1] : [min$1, max$1]);
+		rectRef.current = rect;
+		return value(pointerPosition - rect.top);
+	}
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(SliderOrientationProvider, {
+		scope: props.__scopeSlider,
+		startEdge: isSlidingFromBottom ? "bottom" : "top",
+		endEdge: isSlidingFromBottom ? "top" : "bottom",
+		size: "height",
+		direction: isSlidingFromBottom ? 1 : -1,
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(SliderImpl, {
+			"data-orientation": "vertical",
+			...sliderProps,
+			ref,
+			style: {
+				...sliderProps.style,
+				["--radix-slider-thumb-transform"]: "translateY(50%)"
+			},
+			onSlideStart: (event) => {
+				const value = getValueFromPointer(event.clientY);
+				onSlideStart?.(value);
+			},
+			onSlideMove: (event) => {
+				const value = getValueFromPointer(event.clientY);
+				onSlideMove?.(value);
+			},
+			onSlideEnd: () => {
+				rectRef.current = void 0;
+				onSlideEnd?.();
+			},
+			onStepKeyDown: (event) => {
+				const isBackKey = BACK_KEYS[isSlidingFromBottom ? "from-bottom" : "from-top"].includes(event.key);
+				onStepKeyDown?.({
+					event,
+					direction: isBackKey ? -1 : 1
+				});
+			}
+		})
+	});
+});
+var SliderImpl = import_react.forwardRef((props, forwardedRef) => {
+	const { __scopeSlider, onSlideStart, onSlideMove, onSlideEnd, onHomeKeyDown, onEndKeyDown, onStepKeyDown, ...sliderProps } = props;
+	const context = useSliderContext(SLIDER_NAME, __scopeSlider);
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Primitive.span, {
+		...sliderProps,
+		ref: forwardedRef,
+		onKeyDown: composeEventHandlers(props.onKeyDown, (event) => {
+			if (event.key === "Home") {
+				onHomeKeyDown(event);
+				event.preventDefault();
+			} else if (event.key === "End") {
+				onEndKeyDown(event);
+				event.preventDefault();
+			} else if (PAGE_KEYS.concat(ARROW_KEYS).includes(event.key)) {
+				onStepKeyDown(event);
+				event.preventDefault();
+			}
+		}),
+		onPointerDown: composeEventHandlers(props.onPointerDown, (event) => {
+			const target = event.target;
+			target.setPointerCapture(event.pointerId);
+			event.preventDefault();
+			if (context.thumbs.has(target)) target.focus();
+			else onSlideStart(event);
+		}),
+		onPointerMove: composeEventHandlers(props.onPointerMove, (event) => {
+			if (event.target.hasPointerCapture(event.pointerId)) onSlideMove(event);
+		}),
+		onPointerUp: composeEventHandlers(props.onPointerUp, (event) => {
+			const target = event.target;
+			if (target.hasPointerCapture(event.pointerId)) {
+				target.releasePointerCapture(event.pointerId);
+				onSlideEnd(event);
+			}
+		})
+	});
+});
+var TRACK_NAME = "SliderTrack";
+var SliderTrack = import_react.forwardRef((props, forwardedRef) => {
+	const { __scopeSlider, ...trackProps } = props;
+	const context = useSliderContext(TRACK_NAME, __scopeSlider);
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Primitive.span, {
+		"data-disabled": context.disabled ? "" : void 0,
+		"data-orientation": context.orientation,
+		...trackProps,
+		ref: forwardedRef
+	});
+});
+SliderTrack.displayName = TRACK_NAME;
+var RANGE_NAME = "SliderRange";
+var SliderRange = import_react.forwardRef((props, forwardedRef) => {
+	const { __scopeSlider, ...rangeProps } = props;
+	const context = useSliderContext(RANGE_NAME, __scopeSlider);
+	const orientation = useSliderOrientationContext(RANGE_NAME, __scopeSlider);
+	const composedRefs = useComposedRefs(forwardedRef, import_react.useRef(null));
+	const valuesCount = context.values.length;
+	const percentages = context.values.map((value) => convertValueToPercentage(value, context.min, context.max));
+	const offsetStart = valuesCount > 1 ? Math.min(...percentages) : 0;
+	const offsetEnd = 100 - Math.max(...percentages);
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Primitive.span, {
+		"data-orientation": context.orientation,
+		"data-disabled": context.disabled ? "" : void 0,
+		...rangeProps,
+		ref: composedRefs,
+		style: {
+			...props.style,
+			[orientation.startEdge]: offsetStart + "%",
+			[orientation.endEdge]: offsetEnd + "%"
+		}
+	});
+});
+SliderRange.displayName = RANGE_NAME;
+var THUMB_NAME = "SliderThumb";
+var SliderThumb = import_react.forwardRef((props, forwardedRef) => {
+	const getItems = useCollection(props.__scopeSlider);
+	const [thumb, setThumb] = import_react.useState(null);
+	const composedRefs = useComposedRefs(forwardedRef, (node) => setThumb(node));
+	const index$1 = import_react.useMemo(() => thumb ? getItems().findIndex((item) => item.ref.current === thumb) : -1, [getItems, thumb]);
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(SliderThumbImpl, {
+		...props,
+		ref: composedRefs,
+		index: index$1
+	});
+});
+var SliderThumbImpl = import_react.forwardRef((props, forwardedRef) => {
+	const { __scopeSlider, index: index$1, name, ...thumbProps } = props;
+	const context = useSliderContext(THUMB_NAME, __scopeSlider);
+	const orientation = useSliderOrientationContext(THUMB_NAME, __scopeSlider);
+	const [thumb, setThumb] = import_react.useState(null);
+	const composedRefs = useComposedRefs(forwardedRef, (node) => setThumb(node));
+	const isFormControl = thumb ? context.form || !!thumb.closest("form") : true;
+	const size$3 = useSize(thumb);
+	const value = context.values[index$1];
+	const percent = value === void 0 ? 0 : convertValueToPercentage(value, context.min, context.max);
+	const label = getLabel(index$1, context.values.length);
+	const orientationSize = size$3?.[orientation.size];
+	const thumbInBoundsOffset = orientationSize ? getThumbInBoundsOffset(orientationSize, percent, orientation.direction) : 0;
+	import_react.useEffect(() => {
+		if (thumb) {
+			context.thumbs.add(thumb);
+			return () => {
+				context.thumbs.delete(thumb);
+			};
+		}
+	}, [thumb, context.thumbs]);
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+		style: {
+			transform: "var(--radix-slider-thumb-transform)",
+			position: "absolute",
+			[orientation.startEdge]: `calc(${percent}% + ${thumbInBoundsOffset}px)`
+		},
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Collection.ItemSlot, {
+			scope: props.__scopeSlider,
+			children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Primitive.span, {
+				role: "slider",
+				"aria-label": props["aria-label"] || label,
+				"aria-valuemin": context.min,
+				"aria-valuenow": value,
+				"aria-valuemax": context.max,
+				"aria-orientation": context.orientation,
+				"data-orientation": context.orientation,
+				"data-disabled": context.disabled ? "" : void 0,
+				tabIndex: context.disabled ? void 0 : 0,
+				...thumbProps,
+				ref: composedRefs,
+				style: value === void 0 ? { display: "none" } : props.style,
+				onFocus: composeEventHandlers(props.onFocus, () => {
+					context.valueIndexToChangeRef.current = index$1;
+				})
+			})
+		}), isFormControl && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(SliderBubbleInput, {
+			name: name ?? (context.name ? context.name + (context.values.length > 1 ? "[]" : "") : void 0),
+			form: context.form,
+			value
+		}, index$1)]
+	});
+});
+SliderThumb.displayName = THUMB_NAME;
+var BUBBLE_INPUT_NAME = "RadioBubbleInput";
+var SliderBubbleInput = import_react.forwardRef(({ __scopeSlider, value, ...props }, forwardedRef) => {
+	const ref = import_react.useRef(null);
+	const composedRefs = useComposedRefs(ref, forwardedRef);
+	const prevValue = usePrevious(value);
+	import_react.useEffect(() => {
+		const input = ref.current;
+		if (!input) return;
+		const inputProto = window.HTMLInputElement.prototype;
+		const setValue = Object.getOwnPropertyDescriptor(inputProto, "value").set;
+		if (prevValue !== value && setValue) {
+			const event = new Event("input", { bubbles: true });
+			setValue.call(input, value);
+			input.dispatchEvent(event);
+		}
+	}, [prevValue, value]);
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Primitive.input, {
+		style: { display: "none" },
+		...props,
+		ref: composedRefs,
+		defaultValue: value
+	});
+});
+SliderBubbleInput.displayName = BUBBLE_INPUT_NAME;
+function getNextSortedValues(prevValues = [], nextValue, atIndex) {
+	const nextValues = [...prevValues];
+	nextValues[atIndex] = nextValue;
+	return nextValues.sort((a, b$1) => a - b$1);
+}
+function convertValueToPercentage(value, min$1, max$1) {
+	return clamp(100 / (max$1 - min$1) * (value - min$1), [0, 100]);
+}
+function getLabel(index$1, totalValues) {
+	if (totalValues > 2) return `Value ${index$1 + 1} of ${totalValues}`;
+	else if (totalValues === 2) return ["Minimum", "Maximum"][index$1];
+	else return;
+}
+function getClosestValueIndex(values, nextValue) {
+	if (values.length === 1) return 0;
+	const distances = values.map((value) => Math.abs(value - nextValue));
+	const closestDistance = Math.min(...distances);
+	return distances.indexOf(closestDistance);
+}
+function getThumbInBoundsOffset(width, left, direction) {
+	const halfWidth = width / 2;
+	return (halfWidth - linearScale([0, 50], [0, halfWidth])(left) * direction) * direction;
+}
+function getStepsBetweenValues(values) {
+	return values.slice(0, -1).map((value, index$1) => values[index$1 + 1] - value);
+}
+function hasMinStepsBetweenValues(values, minStepsBetweenValues) {
+	if (minStepsBetweenValues > 0) {
+		const stepsBetweenValues = getStepsBetweenValues(values);
+		return Math.min(...stepsBetweenValues) >= minStepsBetweenValues;
+	}
+	return true;
+}
+function linearScale(input, output) {
+	return (value) => {
+		if (input[0] === input[1] || output[0] === output[1]) return output[0];
+		const ratio = (output[1] - output[0]) / (input[1] - input[0]);
+		return output[0] + ratio * (value - input[0]);
+	};
+}
+function getDecimalCount(value) {
+	return (String(value).split(".")[1] || "").length;
+}
+function roundValue(value, decimalCount) {
+	const rounder = Math.pow(10, decimalCount);
+	return Math.round(value * rounder) / rounder;
+}
+var Root = Slider$1;
+var Track = SliderTrack;
+var Range = SliderRange;
+var Thumb = SliderThumb;
+var Slider = import_react.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Root, {
+	ref,
+	className: cn("relative flex w-full touch-none select-none items-center", className),
+	...props,
+	children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Track, {
+		className: "relative h-2 w-full grow overflow-hidden rounded-full bg-secondary",
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Range, { className: "absolute h-full bg-primary" })
+	}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Thumb, { className: "block h-5 w-5 rounded-full border-2 border-primary bg-background ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50" })]
+}));
+Slider.displayName = Root.displayName;
+var Input = import_react.forwardRef(({ className, type, ...props }, ref) => {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+		type,
+		className: cn("flex h-12 w-full rounded-xl border border-border bg-card px-4 py-2 text-sm text-foreground shadow-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:border-primary/50 disabled:cursor-not-allowed disabled:opacity-50 transition-all duration-200", className),
+		ref,
+		...props
+	});
+});
+Input.displayName = "Input";
+var Textarea = import_react.forwardRef(({ className, ...props }, ref) => {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("textarea", {
+		className: cn("flex min-h-[100px] w-full rounded-xl border border-border bg-card px-4 py-3 text-sm text-foreground shadow-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:border-primary/50 disabled:cursor-not-allowed disabled:opacity-50 transition-all duration-200 resize-y", className),
+		ref,
+		...props
+	});
+});
+Textarea.displayName = "Textarea";
 var getIcon = (iconName, className) => {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)({
 		Users,
@@ -25061,25 +25592,120 @@ var getIcon = (iconName, className) => {
 		ShoppingBag
 	}[iconName] || Sparkles, { className });
 };
+var RadioOption = ({ value, label, current, icon: Icon$1, description }) => {
+	const isSelected = current === value;
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Label, {
+		className: `relative flex items-center gap-4 p-4 md:p-5 rounded-2xl border cursor-pointer transition-all duration-300 overflow-hidden group ${isSelected ? "border-primary bg-primary/10 shadow-[0_0_20px_-5px_rgba(255,193,7,0.2)]" : "border-border bg-card hover:bg-secondary/80 hover:border-primary/40 hover:shadow-lg"}`,
+		children: [
+			isSelected && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute -inset-2 bg-gradient-to-r from-primary/10 to-transparent blur-xl" }),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: `relative z-10 flex items-center justify-center w-6 h-6 shrink-0 rounded-full border ${isSelected ? "border-primary text-primary" : "border-muted-foreground/40 bg-background group-hover:border-primary/40"}`,
+				children: isSelected && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CircleCheck, { className: "w-6 h-6 absolute -inset-[1px]" })
+			}),
+			Icon$1 && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "relative z-10 flex items-center justify-center",
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Icon$1, { className: `w-6 h-6 ${isSelected ? "text-primary" : "text-muted-foreground group-hover:text-primary/70"}` })
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "relative z-10 flex-1",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+					className: `font-semibold text-sm md:text-base leading-snug block ${isSelected ? "text-primary" : "text-foreground group-hover:text-foreground/90"}`,
+					children: label
+				}), description && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+					className: "text-xs text-muted-foreground mt-0.5 block font-medium",
+					children: description
+				})]
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(RadioGroupItem, {
+				value,
+				id: `opt-${value}`,
+				className: "sr-only"
+			})
+		]
+	});
+};
 var Options = () => {
 	const { nicheId } = useParams();
 	const navigate = useNavigate();
 	const { setDraft, addResult } = usePromptStore();
 	const niche = (0, import_react.useMemo)(() => NICHES.find((n) => n.id === nicheId), [nicheId]);
+	const isConsistentCharacter = niche?.id === "personagem-consistente";
 	const [selectedOption, setSelectedOption] = (0, import_react.useState)("");
 	const [selectedCharacter, setSelectedCharacter] = (0, import_react.useState)("");
+	const [sceneCount, setSceneCount] = (0, import_react.useState)([1]);
+	const [narrativeMode, setNarrativeMode] = (0, import_react.useState)("narration");
+	const [gender, setGender] = (0, import_react.useState)("female");
+	const [age, setAge] = (0, import_react.useState)("25");
+	const [scenesContent, setScenesContent] = (0, import_react.useState)([""]);
+	(0, import_react.useEffect)(() => {
+		if (isConsistentCharacter) setScenesContent((prev) => {
+			const count$2 = sceneCount[0];
+			if (prev.length === count$2) return prev;
+			if (prev.length < count$2) return [...prev, ...Array(count$2 - prev.length).fill("")];
+			return prev.slice(0, count$2);
+		});
+	}, [sceneCount, isConsistentCharacter]);
 	if (!niche) return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 		className: "p-8 text-center text-muted-foreground",
 		children: "Categoria não encontrada no sistema."
 	});
+	const getVoiceProfile = (gen, a) => {
+		const ageNum = parseInt(a, 10);
+		if (isNaN(ageNum)) return "Adult Female Voice";
+		let ageGroup = "Adult";
+		if (ageNum < 13) ageGroup = "Child";
+		else if (ageNum <= 19) ageGroup = "Teen";
+		else if (ageNum >= 60) ageGroup = "Elderly";
+		return `${ageGroup} ${gen === "male" ? "Male" : "Female"} Voice`;
+	};
+	const isFormValid = (0, import_react.useMemo)(() => {
+		let valid = selectedOption !== "" && selectedCharacter !== "";
+		if (isConsistentCharacter) {
+			const scenesValid = scenesContent.every((s) => s.trim() !== "");
+			valid = valid && age.trim() !== "" && scenesValid;
+		}
+		return valid;
+	}, [
+		selectedOption,
+		selectedCharacter,
+		isConsistentCharacter,
+		scenesContent,
+		age
+	]);
 	const handleGenerate = () => {
-		if (!selectedOption || !selectedCharacter) return;
+		if (!isFormValid) return;
 		setDraft({
 			option: selectedOption,
 			character: selectedCharacter
 		});
 		const { estilo, iluminacao } = generateMetadata(selectedOption);
 		const charName = CHARACTERS.find((c) => c.id === selectedCharacter)?.name || selectedCharacter;
+		let jsonPayload = {};
+		if (isConsistentCharacter) jsonPayload = {
+			task: "consistent_character_storytelling",
+			niche: niche.title,
+			concept: selectedOption,
+			quality_settings: "8K ultra-realistic, Cinematic Quality",
+			style: estilo,
+			lighting: iluminacao,
+			character_profile: {
+				base_character: charName,
+				gender,
+				age: parseInt(age, 10),
+				voice_profile: getVoiceProfile(gender, age)
+			},
+			narrative_type: narrativeMode,
+			scene_count: sceneCount[0],
+			scenes: scenesContent.map((desc, idx) => ({ [`scene_${idx + 1}`]: desc }))
+		};
+		else jsonPayload = {
+			nicho: niche.title,
+			opcao: selectedOption,
+			personagem: charName,
+			estilo,
+			iluminacao,
+			data: (/* @__PURE__ */ new Date()).toISOString().split("T")[0]
+		};
 		const newResult = {
 			id: Math.random().toString(36).substring(7),
 			nicheId: niche.id,
@@ -25089,14 +25715,7 @@ var Options = () => {
 			character: charName,
 			date: (/* @__PURE__ */ new Date()).toISOString(),
 			timeDisplay: "agora",
-			json: {
-				nicho: niche.title,
-				opcao: selectedOption,
-				personagem: charName,
-				estilo,
-				iluminacao,
-				data: (/* @__PURE__ */ new Date()).toISOString().split("T")[0]
-			}
+			json: jsonPayload
 		};
 		addResult(newResult);
 		navigate("/result", { state: {
@@ -25104,7 +25723,6 @@ var Options = () => {
 			isNew: true
 		} });
 	};
-	const isFormValid = selectedOption !== "" && selectedCharacter !== "";
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 		className: "animate-in fade-in slide-in-from-bottom-4 duration-500 p-6 md:p-12 flex flex-col min-h-[calc(100vh-4rem)] max-w-4xl mx-auto w-full",
 		children: [
@@ -25137,31 +25755,11 @@ var Options = () => {
 						value: selectedOption,
 						onValueChange: setSelectedOption,
 						className: "grid grid-cols-1 md:grid-cols-2 gap-4",
-						children: niche.options.map((opt, i) => {
-							const isSelected = selectedOption === opt;
-							return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Label, {
-								className: `relative flex items-center gap-4 p-5 rounded-2xl border cursor-pointer transition-all duration-300 overflow-hidden group ${isSelected ? "border-primary bg-primary/10 shadow-[0_0_20px_-5px_rgba(255,193,7,0.2)]" : "border-border bg-card hover:bg-secondary/80 hover:border-primary/40 hover:shadow-lg"}`,
-								children: [
-									isSelected && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute -inset-2 bg-gradient-to-r from-primary/10 to-transparent blur-xl" }),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-										className: `relative z-10 flex items-center justify-center w-6 h-6 shrink-0 rounded-full border ${isSelected ? "border-primary text-primary" : "border-muted-foreground/40 bg-background group-hover:border-primary/40"}`,
-										children: isSelected && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CircleCheck, { className: "w-6 h-6 absolute -inset-[1px]" })
-									}),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-										className: "relative z-10 flex-1",
-										children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-											className: `font-semibold text-sm md:text-base leading-snug block ${isSelected ? "text-primary" : "text-foreground group-hover:text-foreground/90"}`,
-											children: opt
-										})
-									}),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)(RadioGroupItem, {
-										value: opt,
-										id: `opt-${i}`,
-										className: "sr-only"
-									})
-								]
-							}, i);
-						})
+						children: niche.options.map((opt, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(RadioOption, {
+							value: opt,
+							label: opt,
+							current: selectedOption
+						}, i))
 					})] }),
 					/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Separator, { className: "bg-border" }),
 					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
@@ -25177,41 +25775,195 @@ var Options = () => {
 						value: selectedCharacter,
 						onValueChange: setSelectedCharacter,
 						className: "grid grid-cols-1 sm:grid-cols-2 gap-4",
-						children: CHARACTERS.map((char) => {
-							const isSelected = selectedCharacter === char.id;
-							return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Label, {
-								className: `relative flex flex-col p-6 rounded-2xl border cursor-pointer transition-all duration-300 group overflow-hidden ${isSelected ? "border-primary bg-primary/10 shadow-[0_0_20px_-5px_rgba(255,193,7,0.2)]" : "border-border bg-card hover:bg-secondary/80 hover:border-primary/40 hover:shadow-lg"}`,
-								children: [
-									isSelected && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute -inset-2 bg-gradient-to-r from-primary/10 to-transparent blur-xl" }),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-										className: "relative z-10 flex justify-between items-start w-full mb-5",
-										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-											className: `flex items-center justify-center w-6 h-6 rounded-full border ${isSelected ? "border-primary text-primary" : "border-muted-foreground/40 bg-background group-hover:border-primary/40"}`,
-											children: isSelected && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CircleCheck, { className: "w-6 h-6 absolute -inset-[1px]" })
-										}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-											className: `h-12 w-12 rounded-xl flex items-center justify-center transition-colors duration-300 ${isSelected ? "bg-primary/20 text-primary border border-primary/30" : "bg-background border border-border text-muted-foreground group-hover:text-primary"}`,
-											children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CircleUserRound, { className: "w-6 h-6" })
+						children: CHARACTERS.map((char) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Label, {
+							className: `relative flex flex-col p-6 rounded-2xl border cursor-pointer transition-all duration-300 group overflow-hidden ${selectedCharacter === char.id ? "border-primary bg-primary/10 shadow-[0_0_20px_-5px_rgba(255,193,7,0.2)]" : "border-border bg-card hover:bg-secondary/80 hover:border-primary/40 hover:shadow-lg"}`,
+							children: [
+								selectedCharacter === char.id && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute -inset-2 bg-gradient-to-r from-primary/10 to-transparent blur-xl" }),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+									className: "relative z-10 flex justify-between items-start w-full mb-5",
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+										className: `flex items-center justify-center w-6 h-6 rounded-full border ${selectedCharacter === char.id ? "border-primary text-primary" : "border-muted-foreground/40 bg-background group-hover:border-primary/40"}`,
+										children: selectedCharacter === char.id && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CircleCheck, { className: "w-6 h-6 absolute -inset-[1px]" })
+									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+										className: `h-12 w-12 rounded-xl flex items-center justify-center transition-colors duration-300 ${selectedCharacter === char.id ? "bg-primary/20 text-primary border border-primary/30" : "bg-background border border-border text-muted-foreground group-hover:text-primary"}`,
+										children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CircleUserRound, { className: "w-6 h-6" })
+									})]
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+									className: "relative z-10",
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+										className: `font-bold text-lg block mb-1.5 ${selectedCharacter === char.id ? "text-primary" : "text-foreground"}`,
+										children: char.name
+									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+										className: "text-sm font-medium text-muted-foreground leading-relaxed",
+										children: char.description
+									})]
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)(RadioGroupItem, {
+									value: char.id,
+									id: `char-${char.id}`,
+									className: "sr-only"
+								})
+							]
+						}, char.id))
+					})] }),
+					isConsistentCharacter && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Separator, { className: "bg-border" }),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
+							className: "space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+								className: "flex items-center gap-3 mb-6",
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+									className: "bg-primary/10 text-primary w-8 h-8 rounded-lg flex items-center justify-center font-bold text-sm border border-primary/20",
+									children: "3"
+								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
+									className: "font-bold text-base uppercase tracking-widest text-foreground",
+									children: "Configuração da História"
+								})]
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+								className: "grid grid-cols-1 md:grid-cols-2 gap-8",
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+									className: "space-y-5 bg-card border border-border p-6 rounded-2xl shadow-sm",
+									children: [
+										/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+											className: "flex items-center justify-between",
+											children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Label, {
+												className: "text-sm font-bold text-foreground",
+												children: "Quantidade de Cenas"
+											}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+												className: "text-primary font-bold text-lg bg-primary/10 px-3 py-1 rounded-md",
+												children: sceneCount[0]
+											})]
+										}),
+										/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Slider, {
+											defaultValue: [1],
+											max: 8,
+											min: 1,
+											step: 1,
+											value: sceneCount,
+											onValueChange: setSceneCount,
+											className: "py-2"
+										}),
+										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+											className: "text-xs text-muted-foreground font-medium",
+											children: "Defina o número de cenas ou takes para a geração contínua do vídeo."
+										})
+									]
+								}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+									className: "space-y-4",
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Label, {
+										className: "text-sm font-bold text-foreground mb-1 block",
+										children: "Modo de Narrativa"
+									}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(RadioGroup, {
+										value: narrativeMode,
+										onValueChange: setNarrativeMode,
+										className: "grid gap-3",
+										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(RadioOption, {
+											value: "narration",
+											label: "Narration",
+											description: "Voiceover reading the story",
+											icon: Mic,
+											current: narrativeMode
+										}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(RadioOption, {
+											value: "dialogue",
+											label: "Character Dialogue",
+											description: "Character speaking directly",
+											icon: MessageSquareQuote,
+											current: narrativeMode
 										})]
-									}),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-										className: "relative z-10",
-										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-											className: `font-bold text-lg block mb-1.5 ${isSelected ? "text-primary" : "text-foreground"}`,
-											children: char.name
-										}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-											className: "text-sm font-medium text-muted-foreground leading-relaxed",
-											children: char.description
+									})]
+								})]
+							})]
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Separator, { className: "bg-border" }),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
+							className: "space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500 delay-100",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+								className: "flex items-center gap-3 mb-6",
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+									className: "bg-primary/10 text-primary w-8 h-8 rounded-lg flex items-center justify-center font-bold text-sm border border-primary/20",
+									children: "4"
+								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
+									className: "font-bold text-base uppercase tracking-widest text-foreground",
+									children: "Identidade Vocal & Perfil"
+								})]
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+								className: "grid grid-cols-1 sm:grid-cols-2 gap-6",
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+									className: "space-y-4",
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Label, {
+										className: "text-sm font-bold text-foreground",
+										children: "Gênero do Personagem"
+									}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(RadioGroup, {
+										value: gender,
+										onValueChange: setGender,
+										className: "grid grid-cols-2 gap-3",
+										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(RadioOption, {
+											value: "male",
+											label: "Male",
+											icon: Mars,
+											current: gender
+										}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(RadioOption, {
+											value: "female",
+											label: "Female",
+											icon: Venus,
+											current: gender
 										})]
-									}),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)(RadioGroupItem, {
-										value: char.id,
-										id: `char-${char.id}`,
-										className: "sr-only"
-									})
-								]
-							}, char.id);
+									})]
+								}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+									className: "space-y-4",
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Label, {
+										className: "text-sm font-bold text-foreground",
+										children: "Idade (Para adequação de voz)"
+									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Input, {
+										type: "number",
+										min: "1",
+										max: "120",
+										value: age,
+										onChange: (e) => setAge(e.target.value),
+										placeholder: "Ex: 25",
+										className: "h-[76px] text-lg font-bold bg-card"
+									})]
+								})]
+							})]
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Separator, { className: "bg-border" }),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
+							className: "space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500 delay-200",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+								className: "flex items-center gap-3 mb-6",
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+									className: "bg-primary/10 text-primary w-8 h-8 rounded-lg flex items-center justify-center font-bold text-sm border border-primary/20",
+									children: "5"
+								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
+									className: "font-bold text-base uppercase tracking-widest text-foreground",
+									children: "Roteiro das Cenas"
+								})]
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+								className: "space-y-6",
+								children: scenesContent.map((content, idx) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+									className: "space-y-3 p-5 rounded-2xl border border-border bg-card shadow-sm",
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Label, {
+										className: "text-xs font-bold text-primary uppercase tracking-widest flex items-center gap-2",
+										children: [
+											/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "w-1.5 h-1.5 rounded-full bg-primary" }),
+											"Cena ",
+											idx + 1
+										]
+									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Textarea, {
+										placeholder: `Describe actions, environment, and story details for Scene ${idx + 1} (in English or Portuguese)...`,
+										value: content,
+										onChange: (e) => {
+											const newContent = [...scenesContent];
+											newContent[idx] = e.target.value;
+											setScenesContent(newContent);
+										},
+										className: "min-h-[100px] text-sm border-muted-foreground/20 focus-visible:ring-primary/40 bg-background/50"
+									})]
+								}, idx))
+							})]
 						})
-					})] })
+					] })
 				]
 			}),
 			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
@@ -25223,9 +25975,12 @@ var Options = () => {
 						disabled: !isFormValid,
 						className: "w-full h-14 rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground font-extrabold text-base tracking-wide shadow-[0_0_25px_-5px_rgba(255,193,7,0.4)] transition-all duration-300 disabled:opacity-50 disabled:hover:bg-primary disabled:shadow-none",
 						children: [
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Sparkles, { className: "mr-2 h-5 w-5" }),
-							"GERAR PROMPT MASTER",
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowRight, { className: "ml-2 h-5 w-5" })
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Sparkles, { className: "mr-2 h-5 w-5 text-black" }),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+								className: "text-black",
+								children: "GERAR PROMPT MASTER"
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowRight, { className: "ml-2 h-5 w-5 text-black" })
 						]
 					})
 				})
@@ -25322,6 +26077,48 @@ var Result = () => {
 			});
 		}, 500);
 	};
+	const renderHighlightedJSON = (jsonStr) => {
+		return jsonStr.split("\n").map((line, i) => {
+			if (line.includes("\": \"")) {
+				const [keyPart, valPart] = line.split("\": \"");
+				return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+						className: "text-cyan-400",
+						children: [keyPart, "\""]
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+						className: "text-slate-500",
+						children: ": "
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+						className: "text-primary",
+						children: ["\"", valPart]
+					})
+				] }, i);
+			} else if (line.includes("\": ")) {
+				const [keyPart, valPart] = line.split("\": ");
+				const isNumberOrBool = !valPart.startsWith("\"") && !valPart.startsWith("{") && !valPart.startsWith("[");
+				return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+						className: "text-cyan-400",
+						children: [keyPart, "\""]
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+						className: "text-slate-500",
+						children: ": "
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+						className: isNumberOrBool ? "text-emerald-400" : "text-slate-300",
+						children: valPart
+					})
+				] }, i);
+			}
+			return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "text-cyan-400",
+				children: line
+			}, i);
+		});
+	};
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 		className: "animate-in fade-in slide-in-from-bottom-4 duration-500 p-6 md:p-12 flex flex-col gap-8 min-h-[calc(100vh-4rem)] max-w-4xl mx-auto w-full",
 		children: [
@@ -25382,141 +26179,9 @@ var Result = () => {
 								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "h-4 bg-secondary/50 rounded w-1/2" }),
 								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "h-4 bg-secondary/50 rounded w-2/3" })
 							]
-						}) : /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("pre", {
+						}) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)("pre", {
 							className: "font-mono text-sm md:text-base leading-relaxed text-slate-300",
-							children: [
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									className: "text-cyan-400",
-									children: "{"
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									className: "text-cyan-400",
-									children: " \"nicho\""
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									className: "text-slate-500",
-									children: ": "
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-									className: "text-primary",
-									children: [
-										"\"",
-										result.json.nicho,
-										"\""
-									]
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									className: "text-slate-500",
-									children: ","
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									className: "text-cyan-400",
-									children: " \"opcao\""
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									className: "text-slate-500",
-									children: ": "
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-									className: "text-primary",
-									children: [
-										"\"",
-										result.json.opcao,
-										"\""
-									]
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									className: "text-slate-500",
-									children: ","
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									className: "text-cyan-400",
-									children: " \"personagem\""
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									className: "text-slate-500",
-									children: ": "
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-									className: "text-primary",
-									children: [
-										"\"",
-										result.json.personagem,
-										"\""
-									]
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									className: "text-slate-500",
-									children: ","
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									className: "text-cyan-400",
-									children: " \"estilo\""
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									className: "text-slate-500",
-									children: ": "
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-									className: "text-primary",
-									children: [
-										"\"",
-										result.json.estilo,
-										"\""
-									]
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									className: "text-slate-500",
-									children: ","
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									className: "text-cyan-400",
-									children: " \"iluminacao\""
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									className: "text-slate-500",
-									children: ": "
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-									className: "text-primary",
-									children: [
-										"\"",
-										result.json.iluminacao,
-										"\""
-									]
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									className: "text-slate-500",
-									children: ","
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									className: "text-cyan-400",
-									children: " \"data\""
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									className: "text-slate-500",
-									children: ": "
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-									className: "text-primary",
-									children: [
-										"\"",
-										result.json.data,
-										"\""
-									]
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									className: "text-cyan-400",
-									children: "}"
-								})
-							]
+							children: renderHighlightedJSON(jsonString)
 						})
 					})
 				]
@@ -25561,15 +26226,6 @@ var Result = () => {
 	});
 };
 var Result_default = Result;
-var Input = import_react.forwardRef(({ className, type, ...props }, ref) => {
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
-		type,
-		className: cn("flex h-12 w-full rounded-xl border border-border bg-card px-4 py-2 text-sm text-foreground shadow-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:border-primary/50 disabled:cursor-not-allowed disabled:opacity-50 transition-all duration-200", className),
-		ref,
-		...props
-	});
-});
-Input.displayName = "Input";
 var Ensaio = () => {
 	const [image, setImage] = (0, import_react.useState)(null);
 	const [promptInput, setPromptInput] = (0, import_react.useState)("");
@@ -26182,18 +26838,18 @@ var NotFound_default = NotFound;
 function Layout() {
 	const navigate = useNavigate();
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-		className: "min-h-screen bg-background flex justify-center w-full font-sans text-foreground",
+		className: "min-h-screen bg-[#0B0E14] flex justify-center w-full font-sans text-foreground",
 		children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("main", {
-			className: "w-full max-w-6xl bg-background min-h-screen relative flex flex-col overflow-hidden shadow-2xl",
+			className: "w-full max-w-6xl bg-[#0B0E14] min-h-screen relative flex flex-col overflow-hidden shadow-2xl",
 			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("header", {
-				className: "sticky top-0 z-50 bg-background/95 backdrop-blur-md border-b border-border/40 px-4 h-16 flex items-center shrink-0 transition-all justify-between",
+				className: "sticky top-0 z-50 bg-[#0B0E14]/95 backdrop-blur-md border-b border-border/40 px-4 h-16 flex items-center shrink-0 transition-all justify-between",
 				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 					className: "flex items-center flex-1",
 					children: [!(useLocation().pathname === "/") && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Button, {
 						variant: "ghost",
 						size: "icon",
 						onClick: () => navigate(-1),
-						className: "mr-2 -ml-2 text-muted-foreground hover:bg-secondary hover:text-primary active:scale-95 transition-all",
+						className: "mr-2 -ml-2 text-muted-foreground hover:bg-secondary hover:text-[#FFC107] active:scale-95 transition-all",
 						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ChevronLeft, { className: "h-6 w-6" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
 							className: "sr-only",
 							children: "Voltar"
@@ -26202,10 +26858,10 @@ function Layout() {
 						to: "/",
 						className: "flex items-center gap-3 hover:opacity-80 transition-opacity",
 						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "bg-primary w-8 h-8 rounded-[10px] flex items-center justify-center shadow-[0_0_15px_-3px_rgba(255,193,7,0.4)]",
+							className: "bg-[#FFC107] w-8 h-8 rounded-[10px] flex items-center justify-center shadow-[0_0_15px_-3px_rgba(255,193,7,0.4)]",
 							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Terminal, {
 								strokeWidth: 2.5,
-								className: "h-4 w-4 text-primary-foreground"
+								className: "h-4 w-4 text-black"
 							})
 						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", {
 							className: "text-base sm:text-lg font-extrabold text-white tracking-widest uppercase mt-0.5",
@@ -26286,4 +26942,4 @@ var App = () => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(BrowserRouter, {
 var App_default = App;
 (0, import_client.createRoot)(document.getElementById("root")).render(/* @__PURE__ */ (0, import_jsx_runtime.jsx)(App_default, {}));
 
-//# sourceMappingURL=index-DpDB-BvU.js.map
+//# sourceMappingURL=index-BT1iF5az.js.map

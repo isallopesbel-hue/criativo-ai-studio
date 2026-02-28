@@ -71,6 +71,44 @@ const Result = () => {
     }, 500)
   }
 
+  const renderHighlightedJSON = (jsonStr: string) => {
+    return jsonStr.split('\n').map((line, i) => {
+      // Basic formatting for standard JSON stringification
+      if (line.includes('": "')) {
+        const [keyPart, valPart] = line.split('": "')
+        return (
+          <div key={i}>
+            <span className="text-cyan-400">{keyPart}"</span>
+            <span className="text-slate-500">: </span>
+            <span className="text-primary">"{valPart}</span>
+          </div>
+        )
+      } else if (line.includes('": ')) {
+        const [keyPart, valPart] = line.split('": ')
+        const isNumberOrBool =
+          !valPart.startsWith('"') &&
+          !valPart.startsWith('{') &&
+          !valPart.startsWith('[')
+        return (
+          <div key={i}>
+            <span className="text-cyan-400">{keyPart}"</span>
+            <span className="text-slate-500">: </span>
+            <span
+              className={isNumberOrBool ? 'text-emerald-400' : 'text-slate-300'}
+            >
+              {valPart}
+            </span>
+          </div>
+        )
+      }
+      return (
+        <div key={i} className="text-cyan-400">
+          {line}
+        </div>
+      )
+    })
+  }
+
   return (
     <div className="animate-in fade-in slide-in-from-bottom-4 duration-500 p-6 md:p-12 flex flex-col gap-8 min-h-[calc(100vh-4rem)] max-w-4xl mx-auto w-full">
       <div className="text-center space-y-4 mt-4">
@@ -129,38 +167,7 @@ const Result = () => {
             </div>
           ) : (
             <pre className="font-mono text-sm md:text-base leading-relaxed text-slate-300">
-              <span className="text-cyan-400">{'{'}</span>
-              <br />
-              <span className="text-cyan-400"> "nicho"</span>
-              <span className="text-slate-500">: </span>
-              <span className="text-primary">"{result.json.nicho}"</span>
-              <span className="text-slate-500">,</span>
-              <br />
-              <span className="text-cyan-400"> "opcao"</span>
-              <span className="text-slate-500">: </span>
-              <span className="text-primary">"{result.json.opcao}"</span>
-              <span className="text-slate-500">,</span>
-              <br />
-              <span className="text-cyan-400"> "personagem"</span>
-              <span className="text-slate-500">: </span>
-              <span className="text-primary">"{result.json.personagem}"</span>
-              <span className="text-slate-500">,</span>
-              <br />
-              <span className="text-cyan-400"> "estilo"</span>
-              <span className="text-slate-500">: </span>
-              <span className="text-primary">"{result.json.estilo}"</span>
-              <span className="text-slate-500">,</span>
-              <br />
-              <span className="text-cyan-400"> "iluminacao"</span>
-              <span className="text-slate-500">: </span>
-              <span className="text-primary">"{result.json.iluminacao}"</span>
-              <span className="text-slate-500">,</span>
-              <br />
-              <span className="text-cyan-400"> "data"</span>
-              <span className="text-slate-500">: </span>
-              <span className="text-primary">"{result.json.data}"</span>
-              <br />
-              <span className="text-cyan-400">{'}'}</span>
+              {renderHighlightedJSON(jsonString)}
             </pre>
           )}
         </div>
