@@ -1,4 +1,5 @@
 import { useState, useRef } from 'react'
+import { PromptCompiler } from '@/lib/PromptCompiler'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { Label } from '@/components/ui/label'
@@ -50,21 +51,13 @@ const Transform = () => {
       return
     }
 
-    const json = {
-      task: 'character_transformation',
-      reference_style_en: 'user_uploaded_reference',
-      subject_en: 'user_uploaded_photo',
-      scene_context_en: sceneIdea.trim()
-        ? `[TRANSLATE TO ENGLISH] ${sceneIdea}`
-        : 'Default cinematic transformation scene',
-      quality_en:
-        'Ultra Premium, 8K ultra realistic, cinematic quality, high-end cinematography',
-      lighting_en: 'cinematic',
-      output_format_en: 'professional_photography',
-      system_instruction: 'All parameters must be in English.',
-    }
+    const jsonPayload = PromptCompiler.compileTransform({
+      sceneIdea,
+      hasReference: !!referenceImage,
+      hasUserImage: !!userImage,
+    })
 
-    setGeneratedJson(JSON.stringify(json, null, 2))
+    setGeneratedJson(JSON.stringify(jsonPayload, null, 2))
   }
 
   const handleCopy = () => {
@@ -78,6 +71,43 @@ const Transform = () => {
       })
       setTimeout(() => setCopied(false), 2000)
     }
+  }
+
+  const renderHighlightedJSON = (jsonStr: string) => {
+    return jsonStr.split('\n').map((line, i) => {
+      if (line.includes('": "')) {
+        const [keyPart, valPart] = line.split('": "')
+        return (
+          <div key={i}>
+            <span className="text-cyan-400">{keyPart}"</span>
+            <span className="text-slate-500">: </span>
+            <span className="text-emerald-400">"{valPart}</span>
+          </div>
+        )
+      } else if (line.includes('": ')) {
+        const [keyPart, valPart] = line.split('": ')
+        const isNumberOrBool =
+          !valPart.startsWith('"') &&
+          !valPart.startsWith('{') &&
+          !valPart.startsWith('[')
+        return (
+          <div key={i}>
+            <span className="text-cyan-400">{keyPart}"</span>
+            <span className="text-slate-500">: </span>
+            <span
+              className={isNumberOrBool ? 'text-emerald-400' : 'text-slate-300'}
+            >
+              {valPart}
+            </span>
+          </div>
+        )
+      }
+      return (
+        <div key={i} className="text-cyan-400">
+          {line}
+        </div>
+      )
+    })
   }
 
   return (
@@ -97,7 +127,6 @@ const Transform = () => {
 
       <Card className="p-6 md:p-8 border-border bg-card shadow-lg rounded-2xl space-y-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {/* Reference Image Section */}
           <div className="space-y-3">
             <Label className="text-xs font-bold text-muted-foreground uppercase tracking-widest flex items-center gap-2">
               <ImageIcon className="w-4 h-4 text-[#FFC107]" />
@@ -138,7 +167,6 @@ const Transform = () => {
             </div>
           </div>
 
-          {/* User Photo Section */}
           <div className="space-y-3">
             <Label className="text-xs font-bold text-muted-foreground uppercase tracking-widest flex items-center gap-2">
               <User className="w-4 h-4 text-[#FFC107]" />
@@ -235,64 +263,7 @@ const Transform = () => {
 
           <div className="p-5 md:p-8 overflow-x-auto bg-[#020617] hide-scrollbar">
             <pre className="font-mono text-sm leading-relaxed text-slate-300">
-              <span className="text-cyan-400">{'{'}</span>
-              <br />
-              <span className="text-cyan-400"> "task"</span>
-              <span className="text-slate-500">: </span>
-              <span className="text-emerald-400">
-                "{JSON.parse(generatedJson).task}"
-              </span>
-              <span className="text-slate-500">,</span>
-              <br />
-              <span className="text-cyan-400"> "reference_style_en"</span>
-              <span className="text-slate-500">: </span>
-              <span className="text-emerald-400">
-                "{JSON.parse(generatedJson).reference_style_en}"
-              </span>
-              <span className="text-slate-500">,</span>
-              <br />
-              <span className="text-cyan-400"> "subject_en"</span>
-              <span className="text-slate-500">: </span>
-              <span className="text-emerald-400">
-                "{JSON.parse(generatedJson).subject_en}"
-              </span>
-              <span className="text-slate-500">,</span>
-              <br />
-              <span className="text-cyan-400"> "scene_context_en"</span>
-              <span className="text-slate-500">: </span>
-              <span className="text-emerald-400">
-                "{JSON.parse(generatedJson).scene_context_en}"
-              </span>
-              <span className="text-slate-500">,</span>
-              <br />
-              <span className="text-cyan-400"> "quality_en"</span>
-              <span className="text-slate-500">: </span>
-              <span className="text-emerald-400">
-                "{JSON.parse(generatedJson).quality_en}"
-              </span>
-              <span className="text-slate-500">,</span>
-              <br />
-              <span className="text-cyan-400"> "lighting_en"</span>
-              <span className="text-slate-500">: </span>
-              <span className="text-emerald-400">
-                "{JSON.parse(generatedJson).lighting_en}"
-              </span>
-              <span className="text-slate-500">,</span>
-              <br />
-              <span className="text-cyan-400"> "output_format_en"</span>
-              <span className="text-slate-500">: </span>
-              <span className="text-emerald-400">
-                "{JSON.parse(generatedJson).output_format_en}"
-              </span>
-              <span className="text-slate-500">,</span>
-              <br />
-              <span className="text-cyan-400"> "system_instruction"</span>
-              <span className="text-slate-500">: </span>
-              <span className="text-emerald-400">
-                "{JSON.parse(generatedJson).system_instruction}"
-              </span>
-              <br />
-              <span className="text-cyan-400">{'}'}</span>
+              {renderHighlightedJSON(generatedJson)}
             </pre>
           </div>
         </Card>

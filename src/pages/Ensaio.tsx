@@ -1,4 +1,5 @@
 import { useState, useRef } from 'react'
+import { PromptCompiler } from '@/lib/PromptCompiler'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { Label } from '@/components/ui/label'
@@ -23,18 +24,11 @@ const Ensaio = () => {
   }
 
   const handleGenerate = () => {
-    const json = {
-      task: 'professional_photoshoot',
-      subject_en: promptInput.trim()
-        ? `[TRANSLATE TO ENGLISH] ${promptInput}`
-        : 'Professional high-end photoshoot subject',
-      style_en: 'Professional photography, masterpiece, ultra premium',
-      quality_en: '8K ultra realistic, highly detailed, perfect lighting',
-      reference_image_en: image ? 'user_provided' : 'none',
-      system_instruction:
-        'All technical parameters and descriptions MUST be in English.',
-    }
-    setGeneratedJson(JSON.stringify(json, null, 2))
+    const jsonPayload = PromptCompiler.compileEnsaio({
+      promptInput,
+      hasImage: !!image,
+    })
+    setGeneratedJson(JSON.stringify(jsonPayload, null, 2))
   }
 
   const handleCopy = () => {
@@ -50,7 +44,42 @@ const Ensaio = () => {
     }
   }
 
-  const parsedJson = generatedJson ? JSON.parse(generatedJson) : null
+  const renderHighlightedJSON = (jsonStr: string) => {
+    return jsonStr.split('\n').map((line, i) => {
+      if (line.includes('": "')) {
+        const [keyPart, valPart] = line.split('": "')
+        return (
+          <div key={i}>
+            <span className="text-cyan-400">{keyPart}"</span>
+            <span className="text-slate-500">: </span>
+            <span className="text-primary">"{valPart}</span>
+          </div>
+        )
+      } else if (line.includes('": ')) {
+        const [keyPart, valPart] = line.split('": ')
+        const isNumberOrBool =
+          !valPart.startsWith('"') &&
+          !valPart.startsWith('{') &&
+          !valPart.startsWith('[')
+        return (
+          <div key={i}>
+            <span className="text-cyan-400">{keyPart}"</span>
+            <span className="text-slate-500">: </span>
+            <span
+              className={isNumberOrBool ? 'text-emerald-400' : 'text-slate-300'}
+            >
+              {valPart}
+            </span>
+          </div>
+        )
+      }
+      return (
+        <div key={i} className="text-cyan-400">
+          {line}
+        </div>
+      )
+    })
+  }
 
   return (
     <div className="animate-in fade-in slide-in-from-bottom-4 duration-500 p-6 md:p-12 flex flex-col gap-8 min-h-[calc(100vh-4rem)] max-w-3xl mx-auto w-full">
@@ -134,7 +163,7 @@ const Ensaio = () => {
         </Button>
       </Card>
 
-      {parsedJson && (
+      {generatedJson && (
         <Card className="overflow-hidden border border-border shadow-xl bg-[#020617] rounded-xl relative animate-in slide-in-from-top-4 fade-in duration-500">
           <div className="absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-accent/50 to-transparent" />
 
@@ -163,42 +192,7 @@ const Ensaio = () => {
 
           <div className="p-5 md:p-8 overflow-x-auto bg-[#020617] hide-scrollbar">
             <pre className="font-mono text-sm leading-relaxed text-slate-300">
-              <span className="text-cyan-400">{'{'}</span>
-              <br />
-              <span className="text-cyan-400"> "task"</span>
-              <span className="text-slate-500">: </span>
-              <span className="text-primary">"{parsedJson.task}"</span>
-              <span className="text-slate-500">,</span>
-              <br />
-              <span className="text-cyan-400"> "subject_en"</span>
-              <span className="text-slate-500">: </span>
-              <span className="text-primary">"{parsedJson.subject_en}"</span>
-              <span className="text-slate-500">,</span>
-              <br />
-              <span className="text-cyan-400"> "style_en"</span>
-              <span className="text-slate-500">: </span>
-              <span className="text-primary">"{parsedJson.style_en}"</span>
-              <span className="text-slate-500">,</span>
-              <br />
-              <span className="text-cyan-400"> "quality_en"</span>
-              <span className="text-slate-500">: </span>
-              <span className="text-primary">"{parsedJson.quality_en}"</span>
-              <span className="text-slate-500">,</span>
-              <br />
-              <span className="text-cyan-400"> "reference_image_en"</span>
-              <span className="text-slate-500">: </span>
-              <span className="text-primary">
-                "{parsedJson.reference_image_en}"
-              </span>
-              <span className="text-slate-500">,</span>
-              <br />
-              <span className="text-cyan-400"> "system_instruction"</span>
-              <span className="text-slate-500">: </span>
-              <span className="text-primary">
-                "{parsedJson.system_instruction}"
-              </span>
-              <br />
-              <span className="text-cyan-400">{'}'}</span>
+              {renderHighlightedJSON(generatedJson)}
             </pre>
           </div>
         </Card>

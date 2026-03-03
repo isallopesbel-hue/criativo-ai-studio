@@ -24058,6 +24058,40 @@ var TooltipContent = import_react.forwardRef(({ className, sideOffset = 4, ...pr
 	...props
 }));
 TooltipContent.displayName = Content2.displayName;
+const CARTOON_STYLES = [
+	{
+		id: "pixar",
+		label: "Estilo 3D Pixar/Disney",
+		en: "Ultra Premium 3D animation, Pixar and Disney style masterpiece, highly detailed 3D render, vibrant colors, global illumination"
+	},
+	{
+		id: "anime",
+		label: "Estilo Anime Japonês",
+		en: "Ultra Premium Japanese Anime style, Studio Ghibli or Ufotable quality, 2D animation, beautifully drawn, highly detailed backgrounds"
+	},
+	{
+		id: "classic2d",
+		label: "Estilo Desenho Clássico 2D",
+		en: "Ultra Premium classic 2D animation, 90s cartoon network style, traditional hand-drawn cel animation, flat colors, nostalgic aesthetic"
+	}
+];
+const STYLE_PRESETS = {
+	cyberpunk: {
+		lighting: "neon",
+		atmosphere: "rain/heavy fog",
+		lens: "35mm"
+	},
+	medieval: {
+		lighting: "torch light/fire",
+		atmosphere: "foggy/mystic",
+		lens: "50mm dramatic"
+	},
+	pixar: {
+		lighting: "soft global illumination",
+		atmosphere: "vibrant/clean",
+		volumetric_light: true
+	}
+};
 const NICHES = [
 	{
 		id: "personagem-consistente",
@@ -24882,6 +24916,116 @@ var Index = () => {
 	});
 };
 var Index_default = Index;
+var PromptCompiler = class {
+	static applyIntelligentPresets(text, baseSpecs) {
+		const lowerText = text.toLowerCase();
+		let specs = { ...baseSpecs };
+		if (lowerText.includes("cyberpunk") || lowerText.includes("neon") || lowerText.includes("futurist")) specs = {
+			...specs,
+			...STYLE_PRESETS.cyberpunk
+		};
+		if (lowerText.includes("medieval") || lowerText.includes("cavaleiro") || lowerText.includes("dragão") || lowerText.includes("castelo") || lowerText.includes("mística")) specs = {
+			...specs,
+			...STYLE_PRESETS.medieval
+		};
+		if (lowerText.includes("pixar") || lowerText.includes("3d") || lowerText.includes("animaç") || lowerText.includes("cartoon") || lowerText.includes("disney")) specs = {
+			...specs,
+			...STYLE_PRESETS.pixar
+		};
+		return specs;
+	}
+	static compileConsistentCharacter({ nicheEn, dnaGender, dnaAge, dnaDescription, sceneCount, scenesData }) {
+		const charDnaEn = `Gender: ${dnaGender === "male" ? "Male" : "Female"}, Age: ${dnaAge}. Visual Description: [TRANSLATE TO ENGLISH] ${dnaDescription.trim()}`;
+		const baseSpecs = {
+			quality: "Ultra Premium, 8K, ultra-realistic, cinematic lighting, high resolution, sharp focus, highly detailed, photorealistic, masterpiece, professional cinematography, no blur, perfectly crisp",
+			style: "High-end commercial photography, modern aesthetic",
+			lighting: "Balanced studio lighting, consistent across all scenes"
+		};
+		const combinedText = `${dnaDescription} ${scenesData.map((s) => s.idea).join(" ")}`;
+		const specs = this.applyIntelligentPresets(combinedText, baseSpecs);
+		return {
+			task: "consistent_character_storytelling",
+			niche_en: nicheEn,
+			character_dna_en: {
+				gender: dnaGender,
+				age: parseInt(dnaAge, 10) || 25,
+				visual_description_pt: dnaDescription.trim()
+			},
+			technical_specifications_en: specs,
+			scene_count: sceneCount,
+			scenes: scenesData.map((data, idx) => {
+				const baseIdea = data.idea.trim();
+				return {
+					scene_number: idx + 1,
+					visual_action_description_en: baseIdea ? `[TRANSLATE TO ENGLISH & ENHANCE] Scene ${idx + 1}. Character Profile: (${charDnaEn}). Action based on: "${baseIdea}"` : `[AUTO-GENERATE IN ENGLISH] Scene ${idx + 1} of ${sceneCount}. Character Profile: (${charDnaEn}). Create a highly detailed visual action description seamlessly continuing the narrative.`,
+					character_speech_pt_br: baseIdea ? `[EXTRACT SPEECH/NARRATIVE IN PT-BR] Aprimore a fala ou crie uma narração natural em Português do Brasil baseada em: "${baseIdea}"` : `[AUTO-GENERATE SCRIPT IN PT-BR] Crie a fala/narração para a cena ${idx + 1} em Português do Brasil, alinhada à sequência lógica do personagem.`
+				};
+			}),
+			system_instruction: "CRITICAL: Programmatically injected Character DNA metadata MUST be maintained across every scene's visual description. All visual action descriptions MUST be in English. All character speech and dialogues MUST be STRICTLY in Brazilian Portuguese (pt-BR)."
+		};
+	}
+	static compileNiche({ nicheEn, selectedOption, optionEn, selectedCharacter, characterName, characterEn, customCharacterDesc, isCartoon, cartoonStyle, sceneIdea }) {
+		const { estilo, iluminacao } = generateMetadata(selectedOption);
+		let qualitySettings = "Ultra Premium, 8K, ultra-realistic, cinematic lighting, high resolution, sharp focus, highly detailed, photorealistic, masterpiece, professional cinematography, no blur, perfectly crisp";
+		if (isCartoon) qualitySettings = "Ultra Premium, 8K, high resolution, sharp focus, highly detailed, masterpiece, perfect animation quality, vibrant, clean lines, perfectly crisp";
+		let finalStyle = isCartoon ? CARTOON_STYLES.find((s) => s.id === cartoonStyle)?.en || estilo : estilo;
+		let charProfileEn = "";
+		if (selectedCharacter === "custom") charProfileEn = isCartoon ? `Ultra Premium, highly detailed character design of ${customCharacterDesc.trim()}. Perfectly capturing the animation style, expressive features, and vivid colors.` : `Ultra Premium, highly detailed, ultra-realistic portrait of ${customCharacterDesc.trim()}. The subject is deeply humanized with authentic skin texture, expressive eyes, natural posture, and a highly professional appearance. Rendered as a masterpiece portrait.`;
+		else charProfileEn = `Ultra Premium, ${characterEn || characterName || selectedCharacter}`;
+		const fallbackScriptPt = `[AUTO-GENERATE SCRIPT] Crie um roteiro/diálogo envolvente, natural e altamente profissional em Português do Brasil (pt-BR) focado em '${selectedOption}', para ser dito por: ${characterName}.`;
+		const baseSpecs = {
+			quality: qualitySettings,
+			lighting: iluminacao,
+			camera: isCartoon ? "Perfect framing, clear composition, ultra premium render" : "Sharp focus, perfectly crisp, no blur, DSLR 50mm lens",
+			style: finalStyle
+		};
+		const combinedText = `${selectedOption} ${sceneIdea} ${finalStyle}`;
+		const specs = this.applyIntelligentPresets(combinedText, baseSpecs);
+		return {
+			task: "professional_content_generation",
+			niche_en: nicheEn,
+			narrative_concept_en: optionEn || selectedOption,
+			subject_and_character_en: charProfileEn,
+			technical_specifications_en: specs,
+			scene_and_action_en: sceneIdea.trim() ? `[TRANSLATE TO ENGLISH & ENHANCE] Highly detailed visual prompt based on: "${sceneIdea.trim()}"` : `[AUTO-GENERATE VISUAL IN ENGLISH] Highly detailed visual scene description for the concept: '${optionEn || selectedOption}'.`,
+			audio_and_speech: {
+				language: "pt-BR",
+				character_speech_pt_br: sceneIdea.trim() ? `[REWRITE & HUMANIZE] Reescreva o seguinte texto como uma fala/narração profissional em Português do Brasil: "${sceneIdea.trim()}"` : fallbackScriptPt
+			},
+			system_instruction: "CRITICAL: All technical metadata and visual action descriptions MUST be in English. All dialogue, spoken lines, and narrations MUST be in Brazilian Portuguese (pt-BR)."
+		};
+	}
+	static compileEnsaio({ promptInput, hasImage }) {
+		const specs = this.applyIntelligentPresets(promptInput, {
+			quality: "8K ultra realistic, highly detailed, perfect lighting",
+			style: "Professional photography, masterpiece, ultra premium",
+			camera: "DSLR 85mm portrait lens"
+		});
+		return {
+			task: "professional_photoshoot",
+			subject_en: promptInput.trim() ? `[TRANSLATE TO ENGLISH] ${promptInput}` : "Professional high-end photoshoot subject",
+			reference_image_en: hasImage ? "user_provided" : "none",
+			technical_specifications_en: specs,
+			system_instruction: "All technical parameters and descriptions MUST be in English."
+		};
+	}
+	static compileTransform({ sceneIdea, hasReference, hasUserImage }) {
+		const specs = this.applyIntelligentPresets(sceneIdea, {
+			quality: "Ultra Premium, 8K ultra realistic, cinematic quality, high-end cinematography",
+			lighting: "cinematic",
+			lens: "50mm cinematic lens"
+		});
+		return {
+			task: "character_transformation",
+			reference_style_en: hasReference ? "user_uploaded_reference" : "none",
+			subject_en: hasUserImage ? "user_uploaded_photo" : "none",
+			scene_context_en: sceneIdea.trim() ? `[TRANSLATE TO ENGLISH] ${sceneIdea}` : "Default cinematic transformation scene",
+			technical_specifications_en: specs,
+			output_format_en: "professional_photography",
+			system_instruction: "All parameters must be in English."
+		};
+	}
+};
 var REACT_LAZY_TYPE = Symbol.for("react.lazy");
 var use = import_react[" use ".trim().toString()];
 function isPromiseLike(value) {
@@ -25976,26 +26120,11 @@ var getIcon = (iconName, className) => {
 		ShoppingBag
 	}[iconName] || Sparkles, { className });
 };
-var CARTOON_STYLES = [
-	{
-		id: "pixar",
-		label: "Estilo 3D Pixar/Disney",
-		en: "Ultra Premium 3D animation, Pixar and Disney style masterpiece, highly detailed 3D render, vibrant colors, global illumination",
-		icon: Sparkles
-	},
-	{
-		id: "anime",
-		label: "Estilo Anime Japonês",
-		en: "Ultra Premium Japanese Anime style, Studio Ghibli or Ufotable quality, 2D animation, beautifully drawn, highly detailed backgrounds",
-		icon: WandSparkles
-	},
-	{
-		id: "classic2d",
-		label: "Estilo Desenho Clássico 2D",
-		en: "Ultra Premium classic 2D animation, 90s cartoon network style, traditional hand-drawn cel animation, flat colors, nostalgic aesthetic",
-		icon: Clapperboard
-	}
-];
+var cartoonIcons = {
+	pixar: Sparkles,
+	anime: WandSparkles,
+	classic2d: Clapperboard
+};
 var RadioOption = ({ value, label, current, icon: Icon$1, description }) => {
 	const isSelected = current === value;
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Label, {
@@ -26121,31 +26250,14 @@ var Options = () => {
 				option: saveOption,
 				character: saveCharacter
 			});
-			const charDnaEn = `Gender: ${dnaGender === "male" ? "Male" : "Female"}, Age: ${dnaAge}. Visual Description: [TRANSLATE TO ENGLISH] ${dnaDescription.trim()}`;
-			jsonPayload = {
-				task: "consistent_character_storytelling",
-				niche_en: niche.titleEn,
-				character_dna_en: {
-					gender: dnaGender,
-					age: parseInt(dnaAge, 10) || 25,
-					visual_description_pt: dnaDescription.trim()
-				},
-				technical_specifications_en: {
-					quality: "Ultra Premium, 8K, ultra-realistic, cinematic lighting, high resolution, sharp focus, highly detailed, photorealistic, masterpiece, professional cinematography, no blur, perfectly crisp",
-					style: "High-end commercial photography, modern aesthetic",
-					lighting: "Balanced studio lighting, consistent across all scenes"
-				},
-				scene_count: sceneCount[0],
-				scenes: scenesData.map((data, idx) => {
-					const baseIdea = data.idea.trim();
-					return {
-						scene_number: idx + 1,
-						visual_action_description_en: baseIdea ? `[TRANSLATE TO ENGLISH & ENHANCE] Scene ${idx + 1}. Character Profile: (${charDnaEn}). Action based on: "${baseIdea}"` : `[AUTO-GENERATE IN ENGLISH] Scene ${idx + 1} of ${sceneCount[0]}. Character Profile: (${charDnaEn}). Create a highly detailed visual action description seamlessly continuing the narrative.`,
-						character_speech_pt_br: baseIdea ? `[EXTRACT SPEECH/NARRATIVE IN PT-BR] Aprimore a fala ou crie uma narração natural em Português do Brasil baseada em: "${baseIdea}"` : `[AUTO-GENERATE SCRIPT IN PT-BR] Crie a fala/narração para a cena ${idx + 1} em Português do Brasil, alinhada à sequência lógica do personagem.`
-					};
-				}),
-				system_instruction: "CRITICAL: Programmatically injected Character DNA metadata MUST be maintained across every scene's visual description. All visual action descriptions MUST be in English. All character speech and dialogues MUST be STRICTLY in Brazilian Portuguese (pt-BR)."
-			};
+			jsonPayload = PromptCompiler.compileConsistentCharacter({
+				nicheEn: niche.titleEn,
+				dnaGender,
+				dnaAge,
+				dnaDescription,
+				sceneCount: sceneCount[0],
+				scenesData
+			});
 		} else {
 			saveOption = selectedOption;
 			const charObjToSave = nicheCharacters.find((c) => c.id === selectedCharacter);
@@ -26154,38 +26266,19 @@ var Options = () => {
 				option: saveOption,
 				character: saveCharacter
 			});
-			const { estilo, iluminacao } = generateMetadata(selectedOption);
 			const selectedOptObj = niche.options.find((o) => o.pt === selectedOption);
-			const conceptEn = selectedOptObj ? selectedOptObj.en : selectedOption;
-			let qualitySettings = "Ultra Premium, 8K, ultra-realistic, cinematic lighting, high resolution, sharp focus, highly detailed, photorealistic, masterpiece, professional cinematography, no blur, perfectly crisp";
-			if (isCartoon) qualitySettings = "Ultra Premium, 8K, high resolution, sharp focus, highly detailed, masterpiece, perfect animation quality, vibrant, clean lines, perfectly crisp";
-			let finalStyle = estilo;
-			if (isCartoon) finalStyle = CARTOON_STYLES.find((s) => s.id === cartoonStyle)?.en || estilo;
-			let charProfileEn = "";
-			if (selectedCharacter === "custom") charProfileEn = isCartoon ? `Ultra Premium, highly detailed character design of ${customCharacterDesc.trim()}. Perfectly capturing the animation style, expressive features, and vivid colors.` : `Ultra Premium, highly detailed, ultra-realistic portrait of ${customCharacterDesc.trim()}. The subject is deeply humanized with authentic skin texture, expressive eyes, natural posture, and a highly professional appearance. Rendered as a masterpiece portrait.`;
-			else {
-				const charObj = nicheCharacters.find((c) => c.id === selectedCharacter);
-				charProfileEn = `Ultra Premium, ${charObj?.descriptionEn || charObj?.name || selectedCharacter}`;
-			}
-			const fallbackScriptPt = `[AUTO-GENERATE SCRIPT] Crie um roteiro/diálogo envolvente, natural e altamente profissional em Português do Brasil (pt-BR) focado em '${selectedOption}', para ser dito por: ${saveCharacter}.`;
-			jsonPayload = {
-				task: "professional_content_generation",
-				niche_en: niche.titleEn,
-				narrative_concept_en: conceptEn,
-				subject_and_character_en: charProfileEn,
-				technical_specifications_en: {
-					quality: qualitySettings,
-					lighting: iluminacao,
-					camera: isCartoon ? "Perfect framing, clear composition, ultra premium render" : "Sharp focus, perfectly crisp, no blur, DSLR 50mm lens",
-					style: finalStyle
-				},
-				scene_and_action_en: sceneIdea.trim() ? `[TRANSLATE TO ENGLISH & ENHANCE] Highly detailed visual prompt based on: "${sceneIdea.trim()}"` : `[AUTO-GENERATE VISUAL IN ENGLISH] Highly detailed visual scene description for the concept: '${conceptEn}'.`,
-				audio_and_speech: {
-					language: "pt-BR",
-					character_speech_pt_br: sceneIdea.trim() ? `[REWRITE & HUMANIZE] Reescreva o seguinte texto como uma fala/narração profissional em Português do Brasil: "${sceneIdea.trim()}"` : fallbackScriptPt
-				},
-				system_instruction: "CRITICAL: All technical metadata and visual action descriptions MUST be in English. All dialogue, spoken lines, and narrations MUST be in Brazilian Portuguese (pt-BR)."
-			};
+			jsonPayload = PromptCompiler.compileNiche({
+				nicheEn: niche.titleEn,
+				selectedOption,
+				optionEn: selectedOptObj ? selectedOptObj.en : selectedOption,
+				selectedCharacter,
+				characterName: charObjToSave?.name || selectedCharacter,
+				characterEn: charObjToSave?.descriptionEn || "",
+				customCharacterDesc,
+				isCartoon,
+				cartoonStyle,
+				sceneIdea
+			});
 		}
 		const newResult = {
 			id: Math.random().toString(36).substring(7),
@@ -26269,22 +26362,15 @@ var Options = () => {
 								})]
 							}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 								className: "space-y-3",
-								children: [
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Label, {
-										className: "text-sm font-bold text-foreground flex items-center justify-between",
-										children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Descrição Visual Detalhada" })
-									}),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Textarea, {
-										value: dnaDescription,
-										onChange: (e) => setDnaDescription(e.target.value),
-										placeholder: "Ex: Cabelos curtos castanhos, olhos verdes expressivos, vestindo jaqueta de couro preta e camiseta branca...",
-										className: "min-h-[120px] text-sm bg-background border-border/50 focus-visible:ring-primary/50"
-									}),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-										className: "text-xs text-muted-foreground font-medium",
-										children: "Estes detalhes serão injetados em todas as cenas para garantir consistência visual absoluta."
-									})
-								]
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Label, {
+									className: "text-sm font-bold text-foreground flex items-center justify-between",
+									children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Descrição Visual Detalhada" })
+								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Textarea, {
+									value: dnaDescription,
+									onChange: (e) => setDnaDescription(e.target.value),
+									placeholder: "Ex: Cabelos curtos castanhos, olhos verdes expressivos...",
+									className: "min-h-[120px] text-sm bg-background border-border/50 focus-visible:ring-primary/50"
+								})]
 							})]
 						})]
 					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
@@ -26298,61 +26384,49 @@ var Options = () => {
 								className: "space-y-5 p-6 rounded-xl border border-border bg-card shadow-sm",
 								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 									className: "flex flex-col sm:flex-row sm:items-center justify-between gap-4",
-									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 										className: "space-y-1",
-										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Label, {
+										children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Label, {
 											className: "text-sm font-bold text-foreground",
 											children: "Quantidade de Cenas"
-										}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-											className: "text-xs text-muted-foreground",
-											children: "Defina a duração da sua narrativa (1 a 8)"
-										})]
-									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-										className: "flex items-center gap-3",
-										children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-											className: "text-primary font-bold text-lg bg-primary/10 px-4 py-1.5 rounded-lg border border-primary/20",
-											children: [
-												sceneCount[0],
-												" ",
-												sceneCount[0] === 1 ? "Cena" : "Cenas"
-											]
 										})
+									}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+										className: "text-primary font-bold text-lg bg-primary/10 px-4 py-1.5 rounded-lg border border-primary/20",
+										children: [
+											sceneCount[0],
+											" ",
+											sceneCount[0] === 1 ? "Cena" : "Cenas"
+										]
 									})]
-								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-									className: "py-2",
-									children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Slider, {
-										defaultValue: [1],
-										max: 8,
-										min: 1,
-										step: 1,
-										value: sceneCount,
-										onValueChange: setSceneCount,
-										className: "py-2"
-									})
+								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Slider, {
+									defaultValue: [1],
+									max: 8,
+									min: 1,
+									step: 1,
+									value: sceneCount,
+									onValueChange: setSceneCount,
+									className: "py-2"
 								})]
 							}),
 							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 								className: "space-y-4 mt-6",
 								children: scenesData.map((data, idx) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-									className: "p-5 rounded-xl border border-border bg-card shadow-sm space-y-3 relative overflow-hidden group transition-all",
+									className: "p-5 rounded-xl border border-border bg-card shadow-sm space-y-3 relative overflow-hidden group",
 									children: [
 										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute left-0 top-0 bottom-0 w-1 bg-primary/20 group-focus-within:bg-primary transition-colors" }),
 										/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Label, {
 											className: "text-xs font-bold text-primary uppercase tracking-widest flex items-center gap-2",
 											children: ["Cena ", idx + 1]
 										}),
-										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-											className: "space-y-2",
-											children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Textarea, {
-												placeholder: "Descreva a ação visual e/ou a fala desejada em português. (Opcional - a IA pode auto-completar a cena logicamente)",
-												value: data.idea,
-												onChange: (e) => {
-													const newContent = [...scenesData];
-													newContent[idx].idea = e.target.value;
-													setScenesData(newContent);
-												},
-												className: "min-h-[80px] text-sm bg-background border-border/50 focus-visible:ring-primary/50"
-											})
+										/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Textarea, {
+											placeholder: "Descreva a ação visual ou fala desejada (Opcional)",
+											value: data.idea,
+											onChange: (e) => {
+												const newContent = [...scenesData];
+												newContent[idx].idea = e.target.value;
+												setScenesData(newContent);
+											},
+											className: "min-h-[80px] text-sm bg-background border-border/50 focus-visible:ring-primary/50"
 										})
 									]
 								}, idx))
@@ -26390,7 +26464,7 @@ var Options = () => {
 								children: CARTOON_STYLES.map((style) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(RadioOption, {
 									value: style.id,
 									label: style.label,
-									icon: style.icon,
+									icon: cartoonIcons[style.id],
 									current: cartoonStyle
 								}, style.id))
 							})]
@@ -26423,7 +26497,7 @@ var Options = () => {
 									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Textarea, {
 										value: customCharacterDesc,
 										onChange: (e) => setCustomCharacterDesc(e.target.value),
-										placeholder: "Ex: Um jovem na faixa dos 25 anos, com cabelo estilo bagunçado...",
+										placeholder: "Ex: Um jovem na faixa dos 25 anos...",
 										className: "min-h-[100px] bg-card border-border focus-visible:ring-primary/50"
 									})]
 								})
@@ -26431,26 +26505,19 @@ var Options = () => {
 						}),
 						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
 							className: "space-y-4 animate-in fade-in slide-in-from-bottom-4 duration-500 delay-100",
-							children: [
-								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Label, {
-									className: "text-xs font-bold text-primary uppercase tracking-widest flex items-center gap-2",
-									children: [
-										/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Sparkles, { className: "w-3.5 h-3.5" }),
-										isCartoon ? "4." : "3.",
-										" Fala / Ideia da Cena (Opcional)"
-									]
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Textarea, {
-									value: sceneIdea,
-									onChange: (e) => setSceneIdea(e.target.value),
-									placeholder: "Descreva a ação que deve acontecer ou a fala exata do personagem em português...",
-									className: "min-h-[120px] bg-card border-border focus-visible:ring-primary/50 text-base"
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-									className: "text-xs text-muted-foreground font-medium",
-									children: "Instruções visuais serão convertidas para o Inglês. A fala será mantida em Português do Brasil (pt-BR). Se em branco, a IA gerará automaticamente."
-								})
-							]
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Label, {
+								className: "text-xs font-bold text-primary uppercase tracking-widest flex items-center gap-2",
+								children: [
+									/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Sparkles, { className: "w-3.5 h-3.5" }),
+									isCartoon ? "4." : "3.",
+									" Fala / Ideia da Cena (Opcional)"
+								]
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Textarea, {
+								value: sceneIdea,
+								onChange: (e) => setSceneIdea(e.target.value),
+								placeholder: "Descreva a ação que deve acontecer...",
+								className: "min-h-[120px] bg-card border-border focus-visible:ring-primary/50 text-base"
+							})]
 						})
 					]
 				})
@@ -26462,7 +26529,7 @@ var Options = () => {
 					children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Button, {
 						onClick: handleGenerate,
 						disabled: !isFormValid,
-						className: "w-full h-14 rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground font-extrabold text-base tracking-wide shadow-lg transition-all duration-300 disabled:opacity-50 disabled:shadow-none",
+						className: "w-full h-14 rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground font-extrabold text-base tracking-wide shadow-lg transition-all duration-300 disabled:opacity-50",
 						children: [
 							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Sparkles, { className: "mr-2 h-5 w-5" }),
 							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "GERAR PROMPT MASTER" }),
@@ -26693,15 +26760,11 @@ var Ensaio = () => {
 		if (file) setImage(URL.createObjectURL(file));
 	};
 	const handleGenerate = () => {
-		const json = {
-			task: "professional_photoshoot",
-			subject_en: promptInput.trim() ? `[TRANSLATE TO ENGLISH] ${promptInput}` : "Professional high-end photoshoot subject",
-			style_en: "Professional photography, masterpiece, ultra premium",
-			quality_en: "8K ultra realistic, highly detailed, perfect lighting",
-			reference_image_en: image ? "user_provided" : "none",
-			system_instruction: "All technical parameters and descriptions MUST be in English."
-		};
-		setGeneratedJson(JSON.stringify(json, null, 2));
+		const jsonPayload = PromptCompiler.compileEnsaio({
+			promptInput,
+			hasImage: !!image
+		});
+		setGeneratedJson(JSON.stringify(jsonPayload, null, 2));
 	};
 	const handleCopy = () => {
 		if (generatedJson) {
@@ -26715,7 +26778,48 @@ var Ensaio = () => {
 			setTimeout(() => setCopied(false), 2e3);
 		}
 	};
-	const parsedJson = generatedJson ? JSON.parse(generatedJson) : null;
+	const renderHighlightedJSON = (jsonStr) => {
+		return jsonStr.split("\n").map((line, i) => {
+			if (line.includes("\": \"")) {
+				const [keyPart, valPart] = line.split("\": \"");
+				return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+						className: "text-cyan-400",
+						children: [keyPart, "\""]
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+						className: "text-slate-500",
+						children: ": "
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+						className: "text-primary",
+						children: ["\"", valPart]
+					})
+				] }, i);
+			} else if (line.includes("\": ")) {
+				const [keyPart, valPart] = line.split("\": ");
+				const isNumberOrBool = !valPart.startsWith("\"") && !valPart.startsWith("{") && !valPart.startsWith("[");
+				return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+						className: "text-cyan-400",
+						children: [keyPart, "\""]
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+						className: "text-slate-500",
+						children: ": "
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+						className: isNumberOrBool ? "text-emerald-400" : "text-slate-300",
+						children: valPart
+					})
+				] }, i);
+			}
+			return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "text-cyan-400",
+				children: line
+			}, i);
+		});
+	};
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 		className: "animate-in fade-in slide-in-from-bottom-4 duration-500 p-6 md:p-12 flex flex-col gap-8 min-h-[calc(100vh-4rem)] max-w-3xl mx-auto w-full",
 		children: [
@@ -26799,7 +26903,7 @@ var Ensaio = () => {
 					})
 				]
 			}),
-			parsedJson && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Card, {
+			generatedJson && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Card, {
 				className: "overflow-hidden border border-border shadow-xl bg-[#020617] rounded-xl relative animate-in slide-in-from-top-4 fade-in duration-500",
 				children: [
 					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-accent/50 to-transparent" }),
@@ -26824,141 +26928,9 @@ var Ensaio = () => {
 					}),
 					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 						className: "p-5 md:p-8 overflow-x-auto bg-[#020617] hide-scrollbar",
-						children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("pre", {
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("pre", {
 							className: "font-mono text-sm leading-relaxed text-slate-300",
-							children: [
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									className: "text-cyan-400",
-									children: "{"
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									className: "text-cyan-400",
-									children: " \"task\""
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									className: "text-slate-500",
-									children: ": "
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-									className: "text-primary",
-									children: [
-										"\"",
-										parsedJson.task,
-										"\""
-									]
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									className: "text-slate-500",
-									children: ","
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									className: "text-cyan-400",
-									children: " \"subject_en\""
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									className: "text-slate-500",
-									children: ": "
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-									className: "text-primary",
-									children: [
-										"\"",
-										parsedJson.subject_en,
-										"\""
-									]
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									className: "text-slate-500",
-									children: ","
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									className: "text-cyan-400",
-									children: " \"style_en\""
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									className: "text-slate-500",
-									children: ": "
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-									className: "text-primary",
-									children: [
-										"\"",
-										parsedJson.style_en,
-										"\""
-									]
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									className: "text-slate-500",
-									children: ","
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									className: "text-cyan-400",
-									children: " \"quality_en\""
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									className: "text-slate-500",
-									children: ": "
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-									className: "text-primary",
-									children: [
-										"\"",
-										parsedJson.quality_en,
-										"\""
-									]
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									className: "text-slate-500",
-									children: ","
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									className: "text-cyan-400",
-									children: " \"reference_image_en\""
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									className: "text-slate-500",
-									children: ": "
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-									className: "text-primary",
-									children: [
-										"\"",
-										parsedJson.reference_image_en,
-										"\""
-									]
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									className: "text-slate-500",
-									children: ","
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									className: "text-cyan-400",
-									children: " \"system_instruction\""
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									className: "text-slate-500",
-									children: ": "
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-									className: "text-primary",
-									children: [
-										"\"",
-										parsedJson.system_instruction,
-										"\""
-									]
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									className: "text-cyan-400",
-									children: "}"
-								})
-							]
+							children: renderHighlightedJSON(generatedJson)
 						})
 					})
 				]
@@ -26993,17 +26965,12 @@ var Transform = () => {
 			});
 			return;
 		}
-		const json = {
-			task: "character_transformation",
-			reference_style_en: "user_uploaded_reference",
-			subject_en: "user_uploaded_photo",
-			scene_context_en: sceneIdea.trim() ? `[TRANSLATE TO ENGLISH] ${sceneIdea}` : "Default cinematic transformation scene",
-			quality_en: "Ultra Premium, 8K ultra realistic, cinematic quality, high-end cinematography",
-			lighting_en: "cinematic",
-			output_format_en: "professional_photography",
-			system_instruction: "All parameters must be in English."
-		};
-		setGeneratedJson(JSON.stringify(json, null, 2));
+		const jsonPayload = PromptCompiler.compileTransform({
+			sceneIdea,
+			hasReference: !!referenceImage,
+			hasUserImage: !!userImage
+		});
+		setGeneratedJson(JSON.stringify(jsonPayload, null, 2));
 	};
 	const handleCopy = () => {
 		if (generatedJson) {
@@ -27016,6 +26983,48 @@ var Transform = () => {
 			});
 			setTimeout(() => setCopied(false), 2e3);
 		}
+	};
+	const renderHighlightedJSON = (jsonStr) => {
+		return jsonStr.split("\n").map((line, i) => {
+			if (line.includes("\": \"")) {
+				const [keyPart, valPart] = line.split("\": \"");
+				return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+						className: "text-cyan-400",
+						children: [keyPart, "\""]
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+						className: "text-slate-500",
+						children: ": "
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+						className: "text-emerald-400",
+						children: ["\"", valPart]
+					})
+				] }, i);
+			} else if (line.includes("\": ")) {
+				const [keyPart, valPart] = line.split("\": ");
+				const isNumberOrBool = !valPart.startsWith("\"") && !valPart.startsWith("{") && !valPart.startsWith("[");
+				return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+						className: "text-cyan-400",
+						children: [keyPart, "\""]
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+						className: "text-slate-500",
+						children: ": "
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+						className: isNumberOrBool ? "text-emerald-400" : "text-slate-300",
+						children: valPart
+					})
+				] }, i);
+			}
+			return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "text-cyan-400",
+				children: line
+			}, i);
+		});
 	};
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 		className: "animate-in fade-in slide-in-from-bottom-4 duration-500 p-6 md:p-12 flex flex-col gap-8 min-h-[calc(100vh-4rem)] max-w-4xl mx-auto w-full",
@@ -27166,183 +27175,9 @@ var Transform = () => {
 					}),
 					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 						className: "p-5 md:p-8 overflow-x-auto bg-[#020617] hide-scrollbar",
-						children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("pre", {
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("pre", {
 							className: "font-mono text-sm leading-relaxed text-slate-300",
-							children: [
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									className: "text-cyan-400",
-									children: "{"
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									className: "text-cyan-400",
-									children: " \"task\""
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									className: "text-slate-500",
-									children: ": "
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-									className: "text-emerald-400",
-									children: [
-										"\"",
-										JSON.parse(generatedJson).task,
-										"\""
-									]
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									className: "text-slate-500",
-									children: ","
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									className: "text-cyan-400",
-									children: " \"reference_style_en\""
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									className: "text-slate-500",
-									children: ": "
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-									className: "text-emerald-400",
-									children: [
-										"\"",
-										JSON.parse(generatedJson).reference_style_en,
-										"\""
-									]
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									className: "text-slate-500",
-									children: ","
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									className: "text-cyan-400",
-									children: " \"subject_en\""
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									className: "text-slate-500",
-									children: ": "
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-									className: "text-emerald-400",
-									children: [
-										"\"",
-										JSON.parse(generatedJson).subject_en,
-										"\""
-									]
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									className: "text-slate-500",
-									children: ","
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									className: "text-cyan-400",
-									children: " \"scene_context_en\""
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									className: "text-slate-500",
-									children: ": "
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-									className: "text-emerald-400",
-									children: [
-										"\"",
-										JSON.parse(generatedJson).scene_context_en,
-										"\""
-									]
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									className: "text-slate-500",
-									children: ","
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									className: "text-cyan-400",
-									children: " \"quality_en\""
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									className: "text-slate-500",
-									children: ": "
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-									className: "text-emerald-400",
-									children: [
-										"\"",
-										JSON.parse(generatedJson).quality_en,
-										"\""
-									]
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									className: "text-slate-500",
-									children: ","
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									className: "text-cyan-400",
-									children: " \"lighting_en\""
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									className: "text-slate-500",
-									children: ": "
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-									className: "text-emerald-400",
-									children: [
-										"\"",
-										JSON.parse(generatedJson).lighting_en,
-										"\""
-									]
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									className: "text-slate-500",
-									children: ","
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									className: "text-cyan-400",
-									children: " \"output_format_en\""
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									className: "text-slate-500",
-									children: ": "
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-									className: "text-emerald-400",
-									children: [
-										"\"",
-										JSON.parse(generatedJson).output_format_en,
-										"\""
-									]
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									className: "text-slate-500",
-									children: ","
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									className: "text-cyan-400",
-									children: " \"system_instruction\""
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									className: "text-slate-500",
-									children: ": "
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-									className: "text-emerald-400",
-									children: [
-										"\"",
-										JSON.parse(generatedJson).system_instruction,
-										"\""
-									]
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									className: "text-cyan-400",
-									children: "}"
-								})
-							]
+							children: renderHighlightedJSON(generatedJson)
 						})
 					})
 				]
@@ -27486,4 +27321,4 @@ var App = () => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(BrowserRouter, {
 var App_default = App;
 (0, import_client.createRoot)(document.getElementById("root")).render(/* @__PURE__ */ (0, import_jsx_runtime.jsx)(App_default, {}));
 
-//# sourceMappingURL=index-BnL7xZkI.js.map
+//# sourceMappingURL=index-BkYJe4I1.js.map

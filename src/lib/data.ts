@@ -19,6 +19,42 @@ export interface Niche {
   characters: Character[]
 }
 
+export const CARTOON_STYLES = [
+  {
+    id: 'pixar',
+    label: 'Estilo 3D Pixar/Disney',
+    en: 'Ultra Premium 3D animation, Pixar and Disney style masterpiece, highly detailed 3D render, vibrant colors, global illumination',
+  },
+  {
+    id: 'anime',
+    label: 'Estilo Anime Japonês',
+    en: 'Ultra Premium Japanese Anime style, Studio Ghibli or Ufotable quality, 2D animation, beautifully drawn, highly detailed backgrounds',
+  },
+  {
+    id: 'classic2d',
+    label: 'Estilo Desenho Clássico 2D',
+    en: 'Ultra Premium classic 2D animation, 90s cartoon network style, traditional hand-drawn cel animation, flat colors, nostalgic aesthetic',
+  },
+]
+
+export const STYLE_PRESETS = {
+  cyberpunk: {
+    lighting: 'neon',
+    atmosphere: 'rain/heavy fog',
+    lens: '35mm',
+  },
+  medieval: {
+    lighting: 'torch light/fire',
+    atmosphere: 'foggy/mystic',
+    lens: '50mm dramatic',
+  },
+  pixar: {
+    lighting: 'soft global illumination',
+    atmosphere: 'vibrant/clean',
+    volumetric_light: true,
+  },
+}
+
 export const NICHES: Niche[] = [
   {
     id: 'personagem-consistente',
