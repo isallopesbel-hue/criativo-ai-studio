@@ -10,6 +10,7 @@ import Transform from './pages/Transform'
 import NotFound from './pages/NotFound'
 import Layout from './components/Layout'
 import { PromptProvider } from './stores/usePromptStore'
+import { CharacterProvider } from './stores/useCharacterStore'
 
 const App = () => (
   <BrowserRouter
@@ -17,18 +18,20 @@ const App = () => (
   >
     <TooltipProvider>
       <PromptProvider>
-        <Toaster />
-        <Sonner />
-        <Routes>
-          <Route element={<Layout />}>
-            <Route path="/" element={<Index />} />
-            <Route path="/options/:nicheId" element={<Options />} />
-            <Route path="/result" element={<Result />} />
-            <Route path="/ensaio" element={<Ensaio />} />
-            <Route path="/transform" element={<Transform />} />
-          </Route>
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <CharacterProvider>
+          <Toaster />
+          <Sonner />
+          <Routes>
+            <Route element={<Layout />}>
+              <Route path="/" element={<Index />} />
+              <Route path="/options/:nicheId" element={<Options />} />
+              <Route path="/result" element={<Result />} />
+              <Route path="/ensaio" element={<Ensaio />} />
+              <Route path="/transform" element={<Transform />} />
+            </Route>
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </CharacterProvider>
       </PromptProvider>
     </TooltipProvider>
   </BrowserRouter>

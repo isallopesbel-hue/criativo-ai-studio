@@ -837,6 +837,13 @@ section[aria-label='Notifications alt+T'] {
   margin-top: auto;
 }
 
+.line-clamp-2{
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
 .block{
   display: block;
 }
@@ -945,10 +952,6 @@ section[aria-label='Notifications alt+T'] {
 
 .h-\[2px\]{
   height: 2px;
-}
-
-.h-\[54px\]{
-  height: 54px;
 }
 
 .h-\[var\(--radix-navigation-menu-viewport-height\)\]{
@@ -1383,10 +1386,6 @@ section[aria-label='Notifications alt+T'] {
   grid-template-columns: repeat(1, minmax(0, 1fr));
 }
 
-.grid-cols-2{
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
 .flex-row{
   flex-direction: row;
 }
@@ -1475,6 +1474,12 @@ section[aria-label='Notifications alt+T'] {
   --tw-space-x-reverse: 0;
   margin-right: calc(0.25rem * var(--tw-space-x-reverse));
   margin-left: calc(0.25rem * calc(1 - var(--tw-space-x-reverse)));
+}
+
+.space-x-2 > :not([hidden]) ~ :not([hidden]){
+  --tw-space-x-reverse: 0;
+  margin-right: calc(0.5rem * var(--tw-space-x-reverse));
+  margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
 }
 
 .space-x-4 > :not([hidden]) ~ :not([hidden]){
@@ -2260,6 +2265,10 @@ section[aria-label='Notifications alt+T'] {
   font-size: 0.8rem;
 }
 
+.text-\[10px\]{
+  font-size: 10px;
+}
+
 .text-base{
   font-size: 1rem;
   line-height: 1.5rem;
@@ -2976,10 +2985,6 @@ section[aria-label='Notifications alt+T'] {
   background-color: hsl(var(--secondary));
 }
 
-.hover\:bg-secondary\/50:hover{
-  background-color: hsl(var(--secondary) / 0.5);
-}
-
 .hover\:bg-secondary\/80:hover{
   background-color: hsl(var(--secondary) / 0.8);
 }
@@ -3207,10 +3212,6 @@ section[aria-label='Notifications alt+T'] {
 
 .group:hover .group-hover\:border-emerald-400\/40{
   border-color: rgb(52 211 153 / 0.4);
-}
-
-.group:hover .group-hover\:border-primary\/40{
-  border-color: hsl(var(--primary) / 0.4);
 }
 
 .group:hover .group-hover\:border-purple-400\/40{

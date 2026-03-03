@@ -19136,6 +19136,20 @@ var Headphones = createLucideIcon("headphones", [["path", {
 	d: "M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3",
 	key: "1xhozi"
 }]]);
+var History = createLucideIcon("history", [
+	["path", {
+		d: "M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8",
+		key: "1357e3"
+	}],
+	["path", {
+		d: "M3 3v5h5",
+		key: "1xhq8a"
+	}],
+	["path", {
+		d: "M12 7v5l4 2",
+		key: "1fdv2h"
+	}]
+]);
 var Image = createLucideIcon("image", [
 	["rect", {
 		width: "18",
@@ -19207,6 +19221,41 @@ var Play = createLucideIcon("play", [["path", {
 	d: "M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z",
 	key: "10ikf1"
 }]]);
+var Plus = createLucideIcon("plus", [["path", {
+	d: "M5 12h14",
+	key: "1ays0h"
+}], ["path", {
+	d: "M12 5v14",
+	key: "s699le"
+}]]);
+var Save = createLucideIcon("save", [
+	["path", {
+		d: "M15.2 3a2 2 0 0 1 1.4.6l3.8 3.8a2 2 0 0 1 .6 1.4V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z",
+		key: "1c8476"
+	}],
+	["path", {
+		d: "M17 21v-7a1 1 0 0 0-1-1H8a1 1 0 0 0-1 1v7",
+		key: "1ydtos"
+	}],
+	["path", {
+		d: "M7 3v4a1 1 0 0 0 1 1h7",
+		key: "t51u73"
+	}]
+]);
+var ShieldAlert = createLucideIcon("shield-alert", [
+	["path", {
+		d: "M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z",
+		key: "oel41y"
+	}],
+	["path", {
+		d: "M12 8v4",
+		key: "1got3b"
+	}],
+	["path", {
+		d: "M12 16h.01",
+		key: "1drbdi"
+	}]
+]);
 var ShoppingBag = createLucideIcon("shopping-bag", [
 	["path", {
 		d: "M16 10a4 4 0 0 1-8 0",
@@ -24935,7 +24984,7 @@ var PromptCompiler = class {
 		return specs;
 	}
 	static compileConsistentCharacter({ nicheEn, dnaGender, dnaAge, dnaDescription, sceneCount, scenesData }) {
-		const charDnaEn = `Gender: ${dnaGender === "male" ? "Male" : "Female"}, Age: ${dnaAge}. Visual Description: [TRANSLATE TO ENGLISH] ${dnaDescription.trim()}`;
+		const charDnaEn = `Gender: ${dnaGender === "male" ? "Male" : "Female"}, Age: ${dnaAge}. Visual Description: [OPTIMIZE & ENSURE ENGLISH NATIVE] ${dnaDescription.trim()}`;
 		const baseSpecs = {
 			quality: "Ultra Premium, 8K, ultra-realistic, cinematic lighting, high resolution, sharp focus, highly detailed, photorealistic, masterpiece, professional cinematography, no blur, perfectly crisp",
 			style: "High-end commercial photography, modern aesthetic",
@@ -24949,7 +24998,7 @@ var PromptCompiler = class {
 			character_dna_en: {
 				gender: dnaGender,
 				age: parseInt(dnaAge, 10) || 25,
-				visual_description_pt: dnaDescription.trim()
+				visual_description_en: `[TRANSLATE TO NATIVE ENGLISH] ${dnaDescription.trim()}`
 			},
 			technical_specifications_en: specs,
 			scene_count: sceneCount,
@@ -24961,7 +25010,7 @@ var PromptCompiler = class {
 					character_speech_pt_br: baseIdea ? `[EXTRACT SPEECH/NARRATIVE IN PT-BR] Aprimore a fala ou crie uma narração natural em Português do Brasil baseada em: "${baseIdea}"` : `[AUTO-GENERATE SCRIPT IN PT-BR] Crie a fala/narração para a cena ${idx + 1} em Português do Brasil, alinhada à sequência lógica do personagem.`
 				};
 			}),
-			system_instruction: "CRITICAL: Programmatically injected Character DNA metadata MUST be maintained across every scene's visual description. All visual action descriptions MUST be in English. All character speech and dialogues MUST be STRICTLY in Brazilian Portuguese (pt-BR)."
+			system_instruction: "CRITICAL: Programmatically injected Character DNA metadata MUST be maintained across every scene's visual description. All visual action descriptions MUST be natively translated to English. All character speech and dialogues MUST be STRICTLY in Brazilian Portuguese (pt-BR)."
 		};
 	}
 	static compileNiche({ nicheEn, selectedOption, optionEn, selectedCharacter, characterName, characterEn, customCharacterDesc, isCartoon, cartoonStyle, sceneIdea }) {
@@ -24992,7 +25041,7 @@ var PromptCompiler = class {
 				language: "pt-BR",
 				character_speech_pt_br: sceneIdea.trim() ? `[REWRITE & HUMANIZE] Reescreva o seguinte texto como uma fala/narração profissional em Português do Brasil: "${sceneIdea.trim()}"` : fallbackScriptPt
 			},
-			system_instruction: "CRITICAL: All technical metadata and visual action descriptions MUST be in English. All dialogue, spoken lines, and narrations MUST be in Brazilian Portuguese (pt-BR)."
+			system_instruction: "CRITICAL: All technical metadata and visual action descriptions MUST be natively translated to English. All dialogue, spoken lines, and narrations MUST be in Brazilian Portuguese (pt-BR)."
 		};
 	}
 	static compileEnsaio({ promptInput, hasImage }) {
@@ -25026,6 +25075,165 @@ var PromptCompiler = class {
 		};
 	}
 };
+const mockDb = {
+	getTable: (table) => {
+		try {
+			const data = localStorage.getItem(`sb_mock_${table}`);
+			return data ? JSON.parse(data) : [];
+		} catch {
+			return [];
+		}
+	},
+	setTable: (table, data) => {
+		localStorage.setItem(`sb_mock_${table}`, JSON.stringify(data));
+	},
+	insert: (table, record) => {
+		const data = mockDb.getTable(table);
+		data.push(record);
+		mockDb.setTable(table, data);
+		return record;
+	},
+	update: (table, id, updates) => {
+		const data = mockDb.getTable(table);
+		const index$1 = data.findIndex((item) => item.id === id);
+		if (index$1 === -1) throw new Error(`Record not found in ${table}`);
+		data[index$1] = {
+			...data[index$1],
+			...updates
+		};
+		mockDb.setTable(table, data);
+		return data[index$1];
+	}
+};
+var CharacterProfileRepository = class {
+	static PROFILES_TABLE = "character_profiles";
+	static VERSIONS_TABLE = "character_dna_versions";
+	static async getProfiles() {
+		await new Promise((resolve) => setTimeout(resolve, 300));
+		return mockDb.getTable(this.PROFILES_TABLE).sort((a, b$1) => new Date(b$1.updated_at).getTime() - new Date(a.updated_at).getTime());
+	}
+	static async createProfile(name, coreTraits, visualDescription) {
+		const id = crypto.randomUUID();
+		const now = (/* @__PURE__ */ new Date()).toISOString();
+		const newProfile = {
+			id,
+			name,
+			core_traits: coreTraits,
+			visual_description_en: visualDescription,
+			created_at: now,
+			updated_at: now,
+			current_version: 1
+		};
+		mockDb.insert(this.PROFILES_TABLE, newProfile);
+		this.saveVersionSnapshot(id, 1, newProfile, "Initial profile creation");
+		return newProfile;
+	}
+	static async updateProfile(id, updates) {
+		const existing = mockDb.getTable(this.PROFILES_TABLE).find((p) => p.id === id);
+		if (!existing) throw new Error("Profile not found");
+		if (updates.core_traits) {
+			if (JSON.stringify(existing.core_traits) !== JSON.stringify(updates.core_traits)) throw new Error("MUTATION_GUARD: Core traits (Gender, Age) are immutable once finalized.");
+		}
+		const nextVersion = existing.current_version + 1;
+		const updatedProfile = mockDb.update(this.PROFILES_TABLE, id, {
+			...updates,
+			updated_at: (/* @__PURE__ */ new Date()).toISOString(),
+			current_version: nextVersion
+		});
+		this.saveVersionSnapshot(id, nextVersion, updatedProfile, `Updated ${updates.visual_description_en ? "visual description" : "profile"}`);
+		return updatedProfile;
+	}
+	static saveVersionSnapshot(profileId, versionNumber, snapshot, summary) {
+		const version = {
+			id: crypto.randomUUID(),
+			profile_id: profileId,
+			version_number: versionNumber,
+			dna_snapshot: snapshot,
+			change_summary: summary,
+			created_at: (/* @__PURE__ */ new Date()).toISOString()
+		};
+		mockDb.insert(this.VERSIONS_TABLE, version);
+	}
+};
+var CharacterContext = (0, import_react.createContext)(void 0);
+function CharacterProvider({ children }) {
+	const [profiles, setProfiles] = (0, import_react.useState)([]);
+	const [activeProfile, setActiveProfile] = (0, import_react.useState)(null);
+	const [isLoading, setIsLoading] = (0, import_react.useState)(true);
+	const { toast: toast$2 } = useToast();
+	const loadProfiles = (0, import_react.useCallback)(async () => {
+		setIsLoading(true);
+		try {
+			setProfiles(await CharacterProfileRepository.getProfiles());
+		} catch (error) {
+			console.error("Failed to load profiles", error);
+		} finally {
+			setIsLoading(false);
+		}
+	}, []);
+	(0, import_react.useEffect)(() => {
+		loadProfiles();
+	}, [loadProfiles]);
+	const createProfile = async (name, traits, desc) => {
+		try {
+			const newProfile = await CharacterProfileRepository.createProfile(name, traits, desc);
+			setProfiles((prev) => [newProfile, ...prev]);
+			toast$2({
+				title: "Character created",
+				description: `${name} saved successfully.`
+			});
+			return newProfile;
+		} catch (error) {
+			toast$2({
+				title: "Error",
+				description: error.message,
+				variant: "destructive"
+			});
+			return null;
+		}
+	};
+	const updateProfile = async (id, updates) => {
+		try {
+			const updated = await CharacterProfileRepository.updateProfile(id, updates);
+			setProfiles((prev) => prev.map((p) => p.id === id ? updated : p));
+			if (activeProfile?.id === id) setActiveProfile(updated);
+			toast$2({
+				title: "Character updated",
+				description: `Version ${updated.current_version} saved.`
+			});
+			return updated;
+		} catch (error) {
+			if (error.message.includes("MUTATION_GUARD")) toast$2({
+				title: "MutationGuard Blocked Update",
+				description: "Core traits like Age and Gender cannot be changed after creation to maintain consistency.",
+				variant: "destructive"
+			});
+			else toast$2({
+				title: "Error updating",
+				description: error.message,
+				variant: "destructive"
+			});
+			return null;
+		}
+	};
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CharacterContext.Provider, {
+		value: {
+			profiles,
+			activeProfile,
+			isLoading,
+			setActiveProfile,
+			loadProfiles,
+			createProfile,
+			updateProfile
+		},
+		children
+	});
+}
+function useCharacterStore() {
+	const context = (0, import_react.useContext)(CharacterContext);
+	if (context === void 0) throw new Error("useCharacterStore must be used within a CharacterProvider");
+	return context;
+}
 var REACT_LAZY_TYPE = Symbol.for("react.lazy");
 var use = import_react[" use ".trim().toString()];
 function isPromiseLike(value) {
@@ -25152,6 +25360,15 @@ var Button = import_react.forwardRef(({ className, variant, size: size$3, asChil
 	});
 });
 Button.displayName = "Button";
+var Input = import_react.forwardRef(({ className, type, ...props }, ref) => {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+		type,
+		className: cn("flex h-12 w-full rounded-xl border border-border bg-card px-4 py-2 text-sm text-foreground shadow-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:border-primary/50 disabled:cursor-not-allowed disabled:opacity-50 transition-all duration-200", className),
+		ref,
+		...props
+	});
+});
+Input.displayName = "Input";
 require_react_dom();
 var Primitive$1 = [
 	"a",
@@ -25209,6 +25426,14 @@ var Label = import_react.forwardRef(({ className, ...props }, ref) => /* @__PURE
 	...props
 }));
 Label.displayName = Root$2.displayName;
+var Textarea = import_react.forwardRef(({ className, ...props }, ref) => {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("textarea", {
+		className: cn("flex min-h-[100px] w-full rounded-xl border border-border bg-card px-4 py-3 text-sm text-foreground shadow-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:border-primary/50 disabled:cursor-not-allowed disabled:opacity-50 transition-all duration-200 resize-y", className),
+		ref,
+		...props
+	});
+});
+Textarea.displayName = "Textarea";
 var DirectionContext = import_react.createContext(void 0);
 function useDirection(localDir) {
 	const globalDir = import_react.useContext(DirectionContext);
@@ -25637,6 +25862,226 @@ var RadioGroupItem = import_react.forwardRef(({ className, ...props }, ref) => {
 	});
 });
 RadioGroupItem.displayName = Item2.displayName;
+function CharacterManager() {
+	const { profiles, activeProfile, setActiveProfile, createProfile, updateProfile } = useCharacterStore();
+	const [isFormOpen, setIsFormOpen] = (0, import_react.useState)(false);
+	const [isEditing, setIsEditing] = (0, import_react.useState)(false);
+	const [name, setName] = (0, import_react.useState)("");
+	const [gender, setGender] = (0, import_react.useState)("female");
+	const [age, setAge] = (0, import_react.useState)("25");
+	const [desc, setDesc] = (0, import_react.useState)("");
+	(0, import_react.useEffect)(() => {
+		if (!activeProfile && profiles.length > 0 && !isFormOpen) setActiveProfile(profiles[0]);
+	}, [
+		profiles,
+		activeProfile,
+		isFormOpen,
+		setActiveProfile
+	]);
+	const handleOpenNew = () => {
+		setIsEditing(false);
+		setName("");
+		setGender("female");
+		setAge("25");
+		setDesc("");
+		setActiveProfile(null);
+		setIsFormOpen(true);
+	};
+	const handleOpenEdit = (profile) => {
+		setIsEditing(true);
+		setName(profile.name);
+		setGender(profile.core_traits.gender);
+		setAge(profile.core_traits.age.toString());
+		setDesc(profile.visual_description_en);
+		setActiveProfile(profile);
+		setIsFormOpen(true);
+	};
+	const handleSave = async () => {
+		if (!name.trim() || !desc.trim() || !age) return;
+		if (isEditing && activeProfile) {
+			const updated = await updateProfile(activeProfile.id, {
+				name,
+				core_traits: {
+					gender,
+					age: parseInt(age, 10)
+				},
+				visual_description_en: desc
+			});
+			if (updated) {
+				setIsFormOpen(false);
+				setActiveProfile(updated);
+			}
+		} else {
+			const created = await createProfile(name, {
+				gender,
+				age: parseInt(age, 10)
+			}, desc);
+			if (created) {
+				setIsFormOpen(false);
+				setActiveProfile(created);
+			}
+		}
+	};
+	if (isFormOpen) return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		className: "p-6 rounded-xl border border-border bg-card shadow-sm space-y-6 animate-in fade-in slide-in-from-top-4",
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "flex items-center justify-between",
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("h3", {
+				className: "text-lg font-bold flex items-center gap-2",
+				children: [isEditing ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(History, { className: "w-5 h-5 text-primary" }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Plus, { className: "w-5 h-5 text-primary" }), isEditing ? `Editar DNA (Versão ${activeProfile?.current_version})` : "Novo Personagem"]
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button, {
+				variant: "ghost",
+				size: "sm",
+				onClick: () => setIsFormOpen(false),
+				children: "Cancelar"
+			})]
+		}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "space-y-5",
+			children: [
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "space-y-3",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Label, {
+						className: "text-sm font-bold",
+						children: "Nome do Personagem"
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Input, {
+						value: name,
+						onChange: (e) => setName(e.target.value),
+						placeholder: "Ex: Alex Vance"
+					})]
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "grid grid-cols-1 sm:grid-cols-2 gap-6",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "space-y-3 relative group",
+						children: [
+							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Label, {
+								className: "text-sm font-bold flex items-center gap-2",
+								children: [
+									"Gênero",
+									" ",
+									isEditing && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ShieldAlert, { className: "w-4 h-4 text-muted-foreground" })
+								]
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(RadioGroup, {
+								value: gender,
+								onValueChange: setGender,
+								className: "flex gap-3",
+								disabled: isEditing,
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+									className: "flex items-center space-x-2",
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(RadioGroupItem, {
+										value: "male",
+										id: "r1"
+									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Label, {
+										htmlFor: "r1",
+										children: "Masculino"
+									})]
+								}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+									className: "flex items-center space-x-2",
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(RadioGroupItem, {
+										value: "female",
+										id: "r2"
+									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Label, {
+										htmlFor: "r2",
+										children: "Feminino"
+									})]
+								})]
+							}),
+							isEditing && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+								className: "text-xs text-muted-foreground mt-1",
+								children: "Core trait protegido (MutationGuard)"
+							})
+						]
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "space-y-3",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Label, {
+							className: "text-sm font-bold flex items-center gap-2",
+							children: [
+								"Idade Aparente",
+								" ",
+								isEditing && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ShieldAlert, { className: "w-4 h-4 text-muted-foreground" })
+							]
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Input, {
+							type: "number",
+							value: age,
+							onChange: (e) => setAge(e.target.value),
+							disabled: isEditing
+						})]
+					})]
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "space-y-3",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Label, {
+						className: "text-sm font-bold",
+						children: "Descrição Visual (Será otimizada em Inglês)"
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Textarea, {
+						value: desc,
+						onChange: (e) => setDesc(e.target.value),
+						placeholder: "Descreva roupas, cabelo, estilo...",
+						className: "min-h-[100px]"
+					})]
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Button, {
+					onClick: handleSave,
+					className: "w-full h-12 font-bold gap-2",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Save, { className: "w-4 h-4" }), " Salvar Perfil"]
+				})
+			]
+		})]
+	});
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+		className: "space-y-4",
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "grid grid-cols-1 sm:grid-cols-2 gap-4",
+			children: [profiles.map((p) => {
+				const isSelected = activeProfile?.id === p.id;
+				return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					onClick: () => setActiveProfile(p),
+					className: cn("relative flex flex-col p-4 rounded-xl border cursor-pointer transition-all", isSelected ? "border-primary bg-primary/5 shadow-sm" : "border-border bg-card hover:border-primary/40"),
+					children: [
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							className: "flex justify-between items-start mb-2",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+								className: "flex items-center gap-2",
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(CircleUserRound, { className: cn("w-5 h-5", isSelected ? "text-primary" : "text-muted-foreground") }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: cn("font-bold", isSelected && "text-primary"),
+									children: p.name
+								})]
+							}), isSelected && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CircleCheck, { className: "w-5 h-5 text-primary" })]
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+							className: "text-xs text-muted-foreground line-clamp-2 mb-3",
+							children: p.visual_description_en
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							className: "mt-auto flex items-center justify-between pt-3 border-t border-border/50",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+								className: "text-[10px] font-mono font-semibold px-2 py-1 bg-secondary rounded-md",
+								children: ["v", p.current_version]
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button, {
+								variant: "ghost",
+								size: "sm",
+								className: "h-6 text-xs px-2",
+								onClick: (e) => {
+									e.stopPropagation();
+									handleOpenEdit(p);
+								},
+								children: "Editar DNA"
+							})]
+						})
+					]
+				}, p.id);
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				onClick: handleOpenNew,
+				className: "border-2 border-dashed border-border hover:border-primary/50 bg-background/50 rounded-xl p-4 flex flex-col items-center justify-center text-center cursor-pointer min-h-[120px] transition-colors",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Plus, { className: "w-6 h-6 text-muted-foreground mb-2" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+					className: "font-bold text-sm text-muted-foreground",
+					children: "Criar Novo Personagem"
+				})]
+			})]
+		})
+	});
+}
 function clamp(value, [min$1, max$1]) {
 	return Math.min(max$1, Math.max(min$1, value));
 }
@@ -26087,23 +26532,6 @@ var Slider = import_react.forwardRef(({ className, ...props }, ref) => /* @__PUR
 	}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Thumb, { className: "block h-5 w-5 rounded-full border-2 border-primary bg-background ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50" })]
 }));
 Slider.displayName = Root.displayName;
-var Input = import_react.forwardRef(({ className, type, ...props }, ref) => {
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
-		type,
-		className: cn("flex h-12 w-full rounded-xl border border-border bg-card px-4 py-2 text-sm text-foreground shadow-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:border-primary/50 disabled:cursor-not-allowed disabled:opacity-50 transition-all duration-200", className),
-		ref,
-		...props
-	});
-});
-Input.displayName = "Input";
-var Textarea = import_react.forwardRef(({ className, ...props }, ref) => {
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("textarea", {
-		className: cn("flex min-h-[100px] w-full rounded-xl border border-border bg-card px-4 py-3 text-sm text-foreground shadow-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:border-primary/50 disabled:cursor-not-allowed disabled:opacity-50 transition-all duration-200 resize-y", className),
-		ref,
-		...props
-	});
-});
-Textarea.displayName = "Textarea";
 var getIcon = (iconName, className) => {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)({
 		Users,
@@ -26128,13 +26556,13 @@ var cartoonIcons = {
 var RadioOption = ({ value, label, current, icon: Icon$1, description }) => {
 	const isSelected = current === value;
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Label, {
-		className: cn("relative flex items-start gap-4 p-4 rounded-xl border cursor-pointer transition-all duration-200 group", isSelected ? "border-primary bg-primary/5 shadow-sm" : "border-border bg-card hover:border-primary/40 hover:bg-secondary/50"),
+		className: cn("relative flex items-start gap-4 p-4 rounded-xl border cursor-pointer transition-all duration-200 group", isSelected ? "border-primary bg-primary/5 shadow-sm" : "border-border bg-card hover:border-primary/40"),
 		children: [
 			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: cn("flex items-center justify-center w-5 h-5 shrink-0 rounded-full border mt-0.5 transition-colors", isSelected ? "border-primary bg-primary text-primary-foreground" : "border-muted-foreground/40 bg-background group-hover:border-primary/40"),
+				className: cn("flex items-center justify-center w-5 h-5 shrink-0 rounded-full border mt-0.5", isSelected ? "border-primary bg-primary text-primary-foreground" : "border-muted-foreground/40 bg-background"),
 				children: isSelected && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CircleCheck, { className: "w-3.5 h-3.5" })
 			}),
-			Icon$1 && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Icon$1, { className: cn("w-5 h-5 mt-0.5 shrink-0 transition-colors", isSelected ? "text-primary" : "text-muted-foreground") }),
+			Icon$1 && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Icon$1, { className: cn("w-5 h-5 mt-0.5 shrink-0", isSelected ? "text-primary" : "text-muted-foreground") }),
 			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 				className: "flex-1 space-y-1",
 				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
@@ -26156,14 +26584,14 @@ var RadioOption = ({ value, label, current, icon: Icon$1, description }) => {
 var CharacterOption = ({ char, current }) => {
 	const isSelected = current === char.id;
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Label, {
-		className: cn("relative flex items-start gap-4 p-5 rounded-xl border cursor-pointer transition-all duration-200 group", isSelected ? "border-primary bg-primary/5 shadow-sm" : "border-border bg-card hover:border-primary/40 hover:bg-secondary/50"),
+		className: cn("relative flex items-start gap-4 p-5 rounded-xl border cursor-pointer transition-all duration-200 group", isSelected ? "border-primary bg-primary/5 shadow-sm" : "border-border bg-card hover:border-primary/40"),
 		children: [
 			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: cn("flex items-center justify-center w-5 h-5 shrink-0 rounded-full border mt-1 transition-colors", isSelected ? "border-primary bg-primary text-primary-foreground" : "border-muted-foreground/40 bg-background group-hover:border-primary/40"),
+				className: cn("flex items-center justify-center w-5 h-5 shrink-0 rounded-full border mt-1", isSelected ? "border-primary bg-primary text-primary-foreground" : "border-muted-foreground/40 bg-background"),
 				children: isSelected && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CircleCheck, { className: "w-3.5 h-3.5" })
 			}),
 			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: cn("w-10 h-10 shrink-0 rounded-lg flex items-center justify-center transition-colors", isSelected ? "bg-primary/20 text-primary" : "bg-secondary text-muted-foreground group-hover:text-primary"),
+				className: cn("w-10 h-10 shrink-0 rounded-lg flex items-center justify-center", isSelected ? "bg-primary/20 text-primary" : "bg-secondary text-muted-foreground"),
 				children: char.id === "custom" ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PenTool, { className: "w-5 h-5" }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CircleUserRound, { className: "w-5 h-5" })
 			}),
 			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
@@ -26188,6 +26616,7 @@ var Options = () => {
 	const { nicheId } = useParams();
 	const navigate = useNavigate();
 	const { setDraft, addResult } = usePromptStore();
+	const { activeProfile } = useCharacterStore();
 	const niche = (0, import_react.useMemo)(() => NICHES.find((n) => n.id === nicheId), [nicheId]);
 	const isConsistentCharacter = niche?.id === "personagem-consistente";
 	const isCartoon = niche?.id === "desenhos-animados";
@@ -26205,24 +26634,18 @@ var Options = () => {
 	const [customCharacterDesc, setCustomCharacterDesc] = (0, import_react.useState)("");
 	const [cartoonStyle, setCartoonStyle] = (0, import_react.useState)("pixar");
 	const [sceneIdea, setSceneIdea] = (0, import_react.useState)("");
-	const [dnaGender, setDnaGender] = (0, import_react.useState)("female");
-	const [dnaAge, setDnaAge] = (0, import_react.useState)("25");
-	const [dnaDescription, setDnaDescription] = (0, import_react.useState)("");
 	const [sceneCount, setSceneCount] = (0, import_react.useState)([1]);
 	const [scenesData, setScenesData] = (0, import_react.useState)([{ idea: "" }]);
 	(0, import_react.useEffect)(() => {
 		if (isConsistentCharacter) setScenesData((prev) => {
 			const count$2 = sceneCount[0];
 			if (prev.length === count$2) return prev;
-			if (prev.length < count$2) {
-				const newItems = Array.from({ length: count$2 - prev.length }, () => ({ idea: "" }));
-				return [...prev, ...newItems];
-			}
+			if (prev.length < count$2) return [...prev, ...Array.from({ length: count$2 - prev.length }, () => ({ idea: "" }))];
 			return prev.slice(0, count$2);
 		});
 	}, [sceneCount, isConsistentCharacter]);
 	const isFormValid = (0, import_react.useMemo)(() => {
-		if (isConsistentCharacter) return dnaAge.trim() !== "" && dnaDescription.trim() !== "";
+		if (isConsistentCharacter) return !!activeProfile;
 		let valid = selectedOption !== "" && selectedCharacter !== "";
 		if (selectedCharacter === "custom") valid = valid && customCharacterDesc.trim() !== "";
 		return valid;
@@ -26231,8 +26654,7 @@ var Options = () => {
 		selectedCharacter,
 		customCharacterDesc,
 		isConsistentCharacter,
-		dnaAge,
-		dnaDescription
+		activeProfile
 	]);
 	if (!niche) return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 		className: "p-8 text-center text-muted-foreground",
@@ -26243,18 +26665,18 @@ var Options = () => {
 		let jsonPayload = {};
 		let saveOption = "";
 		let saveCharacter = "";
-		if (isConsistentCharacter) {
+		if (isConsistentCharacter && activeProfile) {
 			saveOption = "Narrativa Consistente";
-			saveCharacter = "DNA de Personagem";
+			saveCharacter = `DNA: ${activeProfile.name} (v${activeProfile.current_version})`;
 			setDraft({
 				option: saveOption,
 				character: saveCharacter
 			});
 			jsonPayload = PromptCompiler.compileConsistentCharacter({
 				nicheEn: niche.titleEn,
-				dnaGender,
-				dnaAge,
-				dnaDescription,
+				dnaGender: activeProfile.core_traits.gender,
+				dnaAge: activeProfile.core_traits.age,
+				dnaDescription: activeProfile.visual_description_en,
 				sceneCount: sceneCount[0],
 				scenesData
 			});
@@ -26321,58 +26743,8 @@ var Options = () => {
 						className: "space-y-4 animate-in fade-in slide-in-from-bottom-4 duration-500",
 						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Label, {
 							className: "text-xs font-bold text-muted-foreground uppercase tracking-widest flex items-center gap-2",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "w-1.5 h-1.5 rounded-full bg-primary" }), "1. DNA do Personagem (Identidade Visual)"]
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							className: "p-6 rounded-xl border border-border bg-card shadow-sm space-y-6",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								className: "grid grid-cols-1 sm:grid-cols-2 gap-6",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-									className: "space-y-3",
-									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Label, {
-										className: "text-sm font-bold text-foreground",
-										children: "Gênero"
-									}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(RadioGroup, {
-										value: dnaGender,
-										onValueChange: setDnaGender,
-										className: "grid grid-cols-2 gap-3",
-										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(RadioOption, {
-											value: "male",
-											label: "Masculino",
-											current: dnaGender
-										}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(RadioOption, {
-											value: "female",
-											label: "Feminino",
-											current: dnaGender
-										})]
-									})]
-								}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-									className: "space-y-3",
-									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Label, {
-										className: "text-sm font-bold text-foreground",
-										children: "Idade Aparente"
-									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Input, {
-										type: "number",
-										min: "1",
-										max: "120",
-										value: dnaAge,
-										onChange: (e) => setDnaAge(e.target.value),
-										placeholder: "Ex: 25",
-										className: "bg-background h-[54px]"
-									})]
-								})]
-							}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								className: "space-y-3",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Label, {
-									className: "text-sm font-bold text-foreground flex items-center justify-between",
-									children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Descrição Visual Detalhada" })
-								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Textarea, {
-									value: dnaDescription,
-									onChange: (e) => setDnaDescription(e.target.value),
-									placeholder: "Ex: Cabelos curtos castanhos, olhos verdes expressivos...",
-									className: "min-h-[120px] text-sm bg-background border-border/50 focus-visible:ring-primary/50"
-								})]
-							})]
-						})]
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "w-1.5 h-1.5 rounded-full bg-primary" }), "1. DNA do Personagem (Repositório)"]
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CharacterManager, {})]
 					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
 						className: "space-y-4 animate-in fade-in slide-in-from-bottom-4 duration-500 delay-100",
 						children: [
@@ -26384,12 +26756,9 @@ var Options = () => {
 								className: "space-y-5 p-6 rounded-xl border border-border bg-card shadow-sm",
 								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 									className: "flex flex-col sm:flex-row sm:items-center justify-between gap-4",
-									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-										className: "space-y-1",
-										children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Label, {
-											className: "text-sm font-bold text-foreground",
-											children: "Quantidade de Cenas"
-										})
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Label, {
+										className: "text-sm font-bold text-foreground",
+										children: "Quantidade de Cenas"
 									}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
 										className: "text-primary font-bold text-lg bg-primary/10 px-4 py-1.5 rounded-lg border border-primary/20",
 										children: [
@@ -26415,7 +26784,7 @@ var Options = () => {
 									children: [
 										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute left-0 top-0 bottom-0 w-1 bg-primary/20 group-focus-within:bg-primary transition-colors" }),
 										/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Label, {
-											className: "text-xs font-bold text-primary uppercase tracking-widest flex items-center gap-2",
+											className: "text-xs font-bold text-primary uppercase tracking-widest",
 											children: ["Cena ", idx + 1]
 										}),
 										/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Textarea, {
@@ -26426,7 +26795,7 @@ var Options = () => {
 												newContent[idx].idea = e.target.value;
 												setScenesData(newContent);
 											},
-											className: "min-h-[80px] text-sm bg-background border-border/50 focus-visible:ring-primary/50"
+											className: "min-h-[80px]"
 										})
 									]
 								}, idx))
@@ -26498,7 +26867,7 @@ var Options = () => {
 										value: customCharacterDesc,
 										onChange: (e) => setCustomCharacterDesc(e.target.value),
 										placeholder: "Ex: Um jovem na faixa dos 25 anos...",
-										className: "min-h-[100px] bg-card border-border focus-visible:ring-primary/50"
+										className: "min-h-[100px]"
 									})]
 								})
 							]
@@ -26516,7 +26885,7 @@ var Options = () => {
 								value: sceneIdea,
 								onChange: (e) => setSceneIdea(e.target.value),
 								placeholder: "Descreva a ação que deve acontecer...",
-								className: "min-h-[120px] bg-card border-border focus-visible:ring-primary/50 text-base"
+								className: "min-h-[120px]"
 							})]
 						})
 					]
@@ -27285,7 +27654,7 @@ var App = () => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(BrowserRouter, {
 		v7_startTransition: false,
 		v7_relativeSplatPath: false
 	},
-	children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TooltipProvider, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(PromptProvider, { children: [
+	children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TooltipProvider, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PromptProvider, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(CharacterProvider, { children: [
 		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Toaster, {}),
 		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Toaster$1, {}),
 		/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Routes, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Route, {
@@ -27316,9 +27685,9 @@ var App = () => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(BrowserRouter, {
 			path: "*",
 			element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(NotFound_default, {})
 		})] })
-	] }) })
+	] }) }) })
 });
 var App_default = App;
 (0, import_client.createRoot)(document.getElementById("root")).render(/* @__PURE__ */ (0, import_jsx_runtime.jsx)(App_default, {}));
 
-//# sourceMappingURL=index-BkYJe4I1.js.map
+//# sourceMappingURL=index-DwRZ15LE.js.map

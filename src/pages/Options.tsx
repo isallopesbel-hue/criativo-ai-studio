@@ -3,11 +3,12 @@ import { useState, useMemo, useEffect } from 'react'
 import { NICHES, CARTOON_STYLES } from '@/lib/data'
 import { PromptCompiler } from '@/lib/PromptCompiler'
 import usePromptStore from '@/stores/usePromptStore'
+import { useCharacterStore } from '@/stores/useCharacterStore'
+import { CharacterManager } from '@/components/CharacterManager'
 import { Button } from '@/components/ui/button'
 import { Label } from '@/components/ui/label'
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
 import { Slider } from '@/components/ui/slider'
-import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { cn } from '@/lib/utils'
 import {
@@ -70,29 +71,27 @@ const RadioOption = ({
         'relative flex items-start gap-4 p-4 rounded-xl border cursor-pointer transition-all duration-200 group',
         isSelected
           ? 'border-primary bg-primary/5 shadow-sm'
-          : 'border-border bg-card hover:border-primary/40 hover:bg-secondary/50',
+          : 'border-border bg-card hover:border-primary/40',
       )}
     >
       <div
         className={cn(
-          'flex items-center justify-center w-5 h-5 shrink-0 rounded-full border mt-0.5 transition-colors',
+          'flex items-center justify-center w-5 h-5 shrink-0 rounded-full border mt-0.5',
           isSelected
             ? 'border-primary bg-primary text-primary-foreground'
-            : 'border-muted-foreground/40 bg-background group-hover:border-primary/40',
+            : 'border-muted-foreground/40 bg-background',
         )}
       >
         {isSelected && <CheckCircle2 className="w-3.5 h-3.5" />}
       </div>
-
       {Icon && (
         <Icon
           className={cn(
-            'w-5 h-5 mt-0.5 shrink-0 transition-colors',
+            'w-5 h-5 mt-0.5 shrink-0',
             isSelected ? 'text-primary' : 'text-muted-foreground',
           )}
         />
       )}
-
       <div className="flex-1 space-y-1">
         <p
           className={cn(
@@ -108,7 +107,6 @@ const RadioOption = ({
           </p>
         )}
       </div>
-
       <RadioGroupItem value={value} id={`opt-${value}`} className="sr-only" />
     </Label>
   )
@@ -122,26 +120,25 @@ const CharacterOption = ({ char, current }: any) => {
         'relative flex items-start gap-4 p-5 rounded-xl border cursor-pointer transition-all duration-200 group',
         isSelected
           ? 'border-primary bg-primary/5 shadow-sm'
-          : 'border-border bg-card hover:border-primary/40 hover:bg-secondary/50',
+          : 'border-border bg-card hover:border-primary/40',
       )}
     >
       <div
         className={cn(
-          'flex items-center justify-center w-5 h-5 shrink-0 rounded-full border mt-1 transition-colors',
+          'flex items-center justify-center w-5 h-5 shrink-0 rounded-full border mt-1',
           isSelected
             ? 'border-primary bg-primary text-primary-foreground'
-            : 'border-muted-foreground/40 bg-background group-hover:border-primary/40',
+            : 'border-muted-foreground/40 bg-background',
         )}
       >
         {isSelected && <CheckCircle2 className="w-3.5 h-3.5" />}
       </div>
-
       <div
         className={cn(
-          'w-10 h-10 shrink-0 rounded-lg flex items-center justify-center transition-colors',
+          'w-10 h-10 shrink-0 rounded-lg flex items-center justify-center',
           isSelected
             ? 'bg-primary/20 text-primary'
-            : 'bg-secondary text-muted-foreground group-hover:text-primary',
+            : 'bg-secondary text-muted-foreground',
         )}
       >
         {char.id === 'custom' ? (
@@ -150,7 +147,6 @@ const CharacterOption = ({ char, current }: any) => {
           <UserCircle2 className="w-5 h-5" />
         )}
       </div>
-
       <div className="flex-1 space-y-1.5">
         <p
           className={cn(
@@ -164,7 +160,6 @@ const CharacterOption = ({ char, current }: any) => {
           {char.description}
         </p>
       </div>
-
       <RadioGroupItem
         value={char.id}
         id={`char-${char.id}`}
@@ -178,6 +173,7 @@ const Options = () => {
   const { nicheId } = useParams()
   const navigate = useNavigate()
   const { setDraft, addResult } = usePromptStore()
+  const { activeProfile } = useCharacterStore()
 
   const niche = useMemo(() => NICHES.find((n) => n.id === nicheId), [nicheId])
   const isConsistentCharacter = niche?.id === 'personagem-consistente'
@@ -202,9 +198,6 @@ const Options = () => {
   const [cartoonStyle, setCartoonStyle] = useState<string>('pixar')
   const [sceneIdea, setSceneIdea] = useState<string>('')
 
-  const [dnaGender, setDnaGender] = useState<string>('female')
-  const [dnaAge, setDnaAge] = useState<string>('25')
-  const [dnaDescription, setDnaDescription] = useState<string>('')
   const [sceneCount, setSceneCount] = useState<number[]>([1])
   const [scenesData, setScenesData] = useState<{ idea: string }[]>([
     { idea: '' },
@@ -216,10 +209,12 @@ const Options = () => {
         const count = sceneCount[0]
         if (prev.length === count) return prev
         if (prev.length < count) {
-          const newItems = Array.from({ length: count - prev.length }, () => ({
-            idea: '',
-          }))
-          return [...prev, ...newItems]
+          return [
+            ...prev,
+            ...Array.from({ length: count - prev.length }, () => ({
+              idea: '',
+            })),
+          ]
         }
         return prev.slice(0, count)
       })
@@ -227,22 +222,17 @@ const Options = () => {
   }, [sceneCount, isConsistentCharacter])
 
   const isFormValid = useMemo(() => {
-    if (isConsistentCharacter) {
-      return dnaAge.trim() !== '' && dnaDescription.trim() !== ''
-    }
-
+    if (isConsistentCharacter) return !!activeProfile
     let valid = selectedOption !== '' && selectedCharacter !== ''
-    if (selectedCharacter === 'custom') {
+    if (selectedCharacter === 'custom')
       valid = valid && customCharacterDesc.trim() !== ''
-    }
     return valid
   }, [
     selectedOption,
     selectedCharacter,
     customCharacterDesc,
     isConsistentCharacter,
-    dnaAge,
-    dnaDescription,
+    activeProfile,
   ])
 
   if (!niche) {
@@ -260,16 +250,16 @@ const Options = () => {
     let saveOption = ''
     let saveCharacter = ''
 
-    if (isConsistentCharacter) {
+    if (isConsistentCharacter && activeProfile) {
       saveOption = 'Narrativa Consistente'
-      saveCharacter = 'DNA de Personagem'
+      saveCharacter = `DNA: ${activeProfile.name} (v${activeProfile.current_version})`
       setDraft({ option: saveOption, character: saveCharacter })
 
       jsonPayload = PromptCompiler.compileConsistentCharacter({
         nicheEn: niche.titleEn,
-        dnaGender,
-        dnaAge,
-        dnaDescription,
+        dnaGender: activeProfile.core_traits.gender,
+        dnaAge: activeProfile.core_traits.age,
+        dnaDescription: activeProfile.visual_description_en,
         sceneCount: sceneCount[0],
         scenesData,
       })
@@ -285,7 +275,6 @@ const Options = () => {
       setDraft({ option: saveOption, character: saveCharacter })
 
       const selectedOptObj = niche.options.find((o) => o.pt === selectedOption)
-
       jsonPayload = PromptCompiler.compileNiche({
         nicheEn: niche.titleEn,
         selectedOption,
@@ -339,58 +328,9 @@ const Options = () => {
             <section className="space-y-4 animate-in fade-in slide-in-from-bottom-4 duration-500">
               <Label className="text-xs font-bold text-muted-foreground uppercase tracking-widest flex items-center gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-                1. DNA do Personagem (Identidade Visual)
+                1. DNA do Personagem (Repositório)
               </Label>
-              <div className="p-6 rounded-xl border border-border bg-card shadow-sm space-y-6">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  <div className="space-y-3">
-                    <Label className="text-sm font-bold text-foreground">
-                      Gênero
-                    </Label>
-                    <RadioGroup
-                      value={dnaGender}
-                      onValueChange={setDnaGender}
-                      className="grid grid-cols-2 gap-3"
-                    >
-                      <RadioOption
-                        value="male"
-                        label="Masculino"
-                        current={dnaGender}
-                      />
-                      <RadioOption
-                        value="female"
-                        label="Feminino"
-                        current={dnaGender}
-                      />
-                    </RadioGroup>
-                  </div>
-                  <div className="space-y-3">
-                    <Label className="text-sm font-bold text-foreground">
-                      Idade Aparente
-                    </Label>
-                    <Input
-                      type="number"
-                      min="1"
-                      max="120"
-                      value={dnaAge}
-                      onChange={(e) => setDnaAge(e.target.value)}
-                      placeholder="Ex: 25"
-                      className="bg-background h-[54px]"
-                    />
-                  </div>
-                </div>
-                <div className="space-y-3">
-                  <Label className="text-sm font-bold text-foreground flex items-center justify-between">
-                    <span>Descrição Visual Detalhada</span>
-                  </Label>
-                  <Textarea
-                    value={dnaDescription}
-                    onChange={(e) => setDnaDescription(e.target.value)}
-                    placeholder="Ex: Cabelos curtos castanhos, olhos verdes expressivos..."
-                    className="min-h-[120px] text-sm bg-background border-border/50 focus-visible:ring-primary/50"
-                  />
-                </div>
-              </div>
+              <CharacterManager />
             </section>
 
             <section className="space-y-4 animate-in fade-in slide-in-from-bottom-4 duration-500 delay-100">
@@ -400,11 +340,9 @@ const Options = () => {
               </Label>
               <div className="space-y-5 p-6 rounded-xl border border-border bg-card shadow-sm">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                  <div className="space-y-1">
-                    <Label className="text-sm font-bold text-foreground">
-                      Quantidade de Cenas
-                    </Label>
-                  </div>
+                  <Label className="text-sm font-bold text-foreground">
+                    Quantidade de Cenas
+                  </Label>
                   <span className="text-primary font-bold text-lg bg-primary/10 px-4 py-1.5 rounded-lg border border-primary/20">
                     {sceneCount[0]} {sceneCount[0] === 1 ? 'Cena' : 'Cenas'}
                   </span>
@@ -427,7 +365,7 @@ const Options = () => {
                     className="p-5 rounded-xl border border-border bg-card shadow-sm space-y-3 relative overflow-hidden group"
                   >
                     <div className="absolute left-0 top-0 bottom-0 w-1 bg-primary/20 group-focus-within:bg-primary transition-colors" />
-                    <Label className="text-xs font-bold text-primary uppercase tracking-widest flex items-center gap-2">
+                    <Label className="text-xs font-bold text-primary uppercase tracking-widest">
                       Cena {idx + 1}
                     </Label>
                     <Textarea
@@ -438,7 +376,7 @@ const Options = () => {
                         newContent[idx].idea = e.target.value
                         setScenesData(newContent)
                       }}
-                      className="min-h-[80px] text-sm bg-background border-border/50 focus-visible:ring-primary/50"
+                      className="min-h-[80px]"
                     />
                   </div>
                 ))}
@@ -520,7 +458,7 @@ const Options = () => {
                     value={customCharacterDesc}
                     onChange={(e) => setCustomCharacterDesc(e.target.value)}
                     placeholder="Ex: Um jovem na faixa dos 25 anos..."
-                    className="min-h-[100px] bg-card border-border focus-visible:ring-primary/50"
+                    className="min-h-[100px]"
                   />
                 </div>
               )}
@@ -535,7 +473,7 @@ const Options = () => {
                 value={sceneIdea}
                 onChange={(e) => setSceneIdea(e.target.value)}
                 placeholder="Descreva a ação que deve acontecer..."
-                className="min-h-[120px] bg-card border-border focus-visible:ring-primary/50 text-base"
+                className="min-h-[120px]"
               />
             </section>
           </div>

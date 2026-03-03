@@ -43,7 +43,7 @@ export class PromptCompiler {
     scenesData,
   }: any) {
     const genderEn = dnaGender === 'male' ? 'Male' : 'Female'
-    const charDnaEn = `Gender: ${genderEn}, Age: ${dnaAge}. Visual Description: [TRANSLATE TO ENGLISH] ${dnaDescription.trim()}`
+    const charDnaEn = `Gender: ${genderEn}, Age: ${dnaAge}. Visual Description: [OPTIMIZE & ENSURE ENGLISH NATIVE] ${dnaDescription.trim()}`
 
     const baseSpecs = {
       quality:
@@ -61,7 +61,7 @@ export class PromptCompiler {
       character_dna_en: {
         gender: dnaGender,
         age: parseInt(dnaAge, 10) || 25,
-        visual_description_pt: dnaDescription.trim(),
+        visual_description_en: `[TRANSLATE TO NATIVE ENGLISH] ${dnaDescription.trim()}`,
       },
       technical_specifications_en: specs,
       scene_count: sceneCount,
@@ -78,7 +78,7 @@ export class PromptCompiler {
         }
       }),
       system_instruction:
-        "CRITICAL: Programmatically injected Character DNA metadata MUST be maintained across every scene's visual description. All visual action descriptions MUST be in English. All character speech and dialogues MUST be STRICTLY in Brazilian Portuguese (pt-BR).",
+        "CRITICAL: Programmatically injected Character DNA metadata MUST be maintained across every scene's visual description. All visual action descriptions MUST be natively translated to English. All character speech and dialogues MUST be STRICTLY in Brazilian Portuguese (pt-BR).",
     }
   }
 
@@ -146,7 +146,7 @@ export class PromptCompiler {
           : fallbackScriptPt,
       },
       system_instruction:
-        'CRITICAL: All technical metadata and visual action descriptions MUST be in English. All dialogue, spoken lines, and narrations MUST be in Brazilian Portuguese (pt-BR).',
+        'CRITICAL: All technical metadata and visual action descriptions MUST be natively translated to English. All dialogue, spoken lines, and narrations MUST be in Brazilian Portuguese (pt-BR).',
     }
   }
 
